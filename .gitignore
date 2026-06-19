@@ -2,3 +2,9 @@ data/.ipynb_checkpoints/ps_scrape_replays-checkpoint.ipynb
 data/.ipynb_checkpoints/ps_scrape_users-checkpoint.ipynb
 data/replays/.DS_Store
 .DS_Store
+data/.ipynb_checkpoints/battle_class-checkpoint.ipynb
+data/replays/gen9-randombattle/.ipynb_checkpoints/gen9randombattle-2631360263-checkpoint.json
+data/.ipynb_checkpoints/battle_class_hybrid-checkpoint.ipynb
+data/EDA_general/.ipynb_checkpoints/eda_general-checkpoint.ipynb
+EDA_first_pokemon_only/.ipynb_checkpoints/converting_smogon_pdex_to_json-checkpoint.ipynb
+.gitignore

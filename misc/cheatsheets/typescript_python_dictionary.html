@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TypeScript ⟷ Python — syntax dictionary</title>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('cheatsheet-theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (prefersDark ? 'dark' : 'light');
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a1a;
+      --ink-soft: #444;
+      --ink-mute: #666;
+      --ink-faint: #888;
+      --ink-faintest: #aaa;
+      --bg: #f7f7f5;
+      --bg-card: #fff;
+      --bg-head: #f0ede8;
+      --bg-divider: #f7f5f2;
+      --bg-hover: #faf9f7;
+      --border: #e0e0de;
+      --border-soft: #ebebeb;
+      --border-strong: #1a1a1a;
+      --code-bg: #f0ede8;
+      --code-border: #ddd;
+      --note-border: #ccc;
+      --ts-accent: #3178c6;
+      --py-accent: #3572A5;
+    }
+
+    [data-theme="dark"] {
+      --ink: #e8e6e1;
+      --ink-soft: #c4c2bd;
+      --ink-mute: #9b9893;
+      --ink-faint: #847f78;
+      --ink-faintest: #6b665f;
+      --bg: #1c1b1a;
+      --bg-card: #242322;
+      --bg-head: #2b2a28;
+      --bg-divider: #232220;
+      --bg-hover: #2a2926;
+      --border: #38362f;
+      --border-soft: #2e2d2b;
+      --border-strong: #e8e6e1;
+      --code-bg: #2b2a28;
+      --code-border: #44423c;
+      --note-border: #44423c;
+      --ts-accent: #5b9bd9;
+      --py-accent: #6aa84f;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--bg);
+      padding: 2.5rem 1.5rem 4rem;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 2px solid var(--border-strong);
+      padding-bottom: 0.75rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    header p {
+      font-size: 13px;
+      color: var(--ink-mute);
+      margin-top: 4px;
+    }
+
+    .theme-toggle {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 12px;
+      cursor: pointer;
+      line-height: 1.4;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .theme-toggle:hover {
+      background: var(--bg-hover);
+    }
+
+    h2 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin: 2rem 0 0.5rem;
+    }
+
+    .note {
+      font-size: 13px;
+      color: var(--ink-soft);
+      border-left: 3px solid var(--note-border);
+      padding: 7px 12px;
+      margin-top: 0.5rem;
+      background: var(--bg-card);
+      border-radius: 0 4px 4px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      font-size: 13.5px;
+    }
+
+    table.dict { table-layout: fixed; }
+
+    thead tr {
+      background: var(--bg-head);
+    }
+
+    th {
+      text-align: left;
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--ink-soft);
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th.ts-col { color: var(--ts-accent); width: 38%; }
+    th.py-col { color: var(--py-accent); width: 38%; }
+    th.note-col { width: 24%; }
+
+    td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border-soft);
+      vertical-align: top;
+      color: var(--ink);
+    }
+
+    td.ts-cell { border-right: 1px solid var(--border-soft); }
+    td.py-cell { border-right: 1px solid var(--border-soft); }
+
+    td.label-cell {
+      color: var(--ink-mute);
+      font-size: 12.5px;
+      font-style: italic;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: var(--bg-hover);
+    }
+
+    code {
+      font-family: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
+      background: var(--code-bg);
+      border: 1px solid var(--code-border);
+      border-radius: 3px;
+      padding: 1px 5px;
+      font-size: 12.5px;
+      color: var(--ink);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    pre {
+      font-family: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
+      background: var(--code-bg);
+      border: 1px solid var(--code-border);
+      border-radius: 3px;
+      padding: 6px 8px;
+      font-size: 12.5px;
+      color: var(--ink);
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.5;
+    }
+
+    .section-divider {
+      background: var(--bg-divider);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-divider td {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      padding: 5px 12px;
+      border-right: none;
+    }
+
+    @media (max-width: 700px) {
+      body { padding: 1.5rem 1rem 3rem; }
+      header { flex-direction: column; }
+      table.dict, table.dict thead, table.dict tbody, table.dict th, table.dict td, table.dict tr { display: block; }
+      table.dict thead { display: none; }
+      table.dict tr {
+        border-bottom: 1px solid var(--border);
+        padding: 8px 0;
+      }
+      table.dict td {
+        border: none !important;
+        padding: 4px 12px;
+      }
+      table.dict td.ts-cell::before { content: "TS  "; color: var(--ts-accent); font-weight: 600; font-size: 11px; }
+      table.dict td.py-cell::before { content: "PY  "; color: var(--py-accent); font-weight: 600; font-size: 11px; }
+      table.dict td.label-cell::before { content: ""; }
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 12px;
+      color: var(--ink-faintest);
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <h1>TypeScript ⟷ Python — syntax dictionary</h1>
+      <p>Side-by-side basic syntax, for Python readers learning to read TypeScript</p>
+    </div>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+      <span class="icon" id="themeIcon">🌙</span><span id="themeLabel">Dark</span>
+    </button>
+  </header>
+
+  <h2>Variables &amp; basic types</h2>
+  <table class="dict">
+    <thead><tr><th class="ts-col">TypeScript</th><th class="py-col">Python</th><th class="note-col">Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ts-cell"><code>let x: number = 5;</code></td>
+        <td class="py-cell"><code>x: int = 5</code></td>
+        <td class="label-cell">TS needs <code>let</code>/<code>const</code>; Python doesn't</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>const x = 5;</code></td>
+        <td class="py-cell"><code>x = 5  # by convention only</code></td>
+        <td class="label-cell">Python has no true constants — <code>const</code> just blocks reassignment in TS</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>let name: string = "Al";</code></td>
+        <td class="py-cell"><code>name: str = "Al"</code></td>
+        <td class="label-cell">Type hints look almost identical</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>let ok: boolean = true;</code></td>
+        <td class="py-cell"><code>ok: bool = True</code></td>
+        <td class="label-cell">Capitalization differs: <code>true</code>/<code>false</code> vs <code>True</code>/<code>False</code></td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>let n: any = null;</code></td>
+        <td class="py-cell"><code>n = None</code></td>
+        <td class="label-cell">TS also has <code>undefined</code>, which Python has no equivalent for</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>let x: number | null;</code></td>
+        <td class="py-cell"><code>x: int | None</code></td>
+        <td class="label-cell">Union types use the same <code>|</code> syntax in modern versions of both</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>const x: unknown = ...;</code></td>
+        <td class="py-cell"><code>x: object = ...</code></td>
+        <td class="label-cell">Loosely analogous "could be anything" types</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note">TypeScript requires a declaration keyword (<code>let</code>, <code>const</code>, or <code>var</code>) every time you introduce a variable. Python just assigns. Every statement in TS also ends in a semicolon by convention — Python uses newlines and indentation instead of <code>;</code> and <code>{}</code>.</p>
+
+  <h2>Strings, numbers &amp; templating</h2>
+  <table class="dict">
+    <thead><tr><th class="ts-col">TypeScript</th><th class="py-col">Python</th><th class="note-col">Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ts-cell"><code>`Hello, ${name}!`</code></td>
+        <td class="py-cell"><code>f"Hello, {name}!"</code></td>
+        <td class="label-cell">Template literals (backticks) ≈ Python f-strings</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>"a" + "b"</code></td>
+        <td class="py-cell"><code>"a" + "b"</code></td>
+        <td class="label-cell">String concatenation is the same</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>str.length</code></td>
+        <td class="py-cell"><code>len(s)</code></td>
+        <td class="label-cell">Property vs. built-in function</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>str.toUpperCase()</code></td>
+        <td class="py-cell"><code>s.upper()</code></td>
+        <td class="label-cell">Both are methods on the string</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>str.slice(1, 3)</code></td>
+        <td class="py-cell"><code>s[1:3]</code></td>
+        <td class="label-cell">TS uses a method; Python uses slice syntax</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>Number("42")</code></td>
+        <td class="py-cell"><code>int("42")</code></td>
+        <td class="label-cell">TS's <code>Number</code> covers ints and floats; Python splits <code>int</code>/<code>float</code></td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>10 % 3</code></td>
+        <td class="py-cell"><code>10 % 3</code></td>
+        <td class="label-cell">Modulo is the same operator</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>10 ** 2</code></td>
+        <td class="py-cell"><code>10 ** 2</code></td>
+        <td class="label-cell">Exponentiation is the same operator</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Arrays / lists</h2>
+  <table class="dict">
+    <thead><tr><th class="ts-col">TypeScript</th><th class="py-col">Python</th><th class="note-col">Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ts-cell"><code>let arr: number[] = [1, 2, 3];</code></td>
+        <td class="py-cell"><code>arr: list[int] = [1, 2, 3]</code></td>
+        <td class="label-cell">Both are ordered, mutable, zero-indexed</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>Array&lt;number&gt;</code></td>
+        <td class="py-cell"><code>list[int]</code></td>
+        <td class="label-cell">Generic-style alternate syntax for the same type</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>arr.push(4)</code></td>
+        <td class="py-cell"><code>arr.append(4)</code></td>
+        <td class="label-cell">Add to the end</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>arr.pop()</code></td>
+        <td class="py-cell"><code>arr.pop()</code></td>
+        <td class="label-cell">Remove and return the last item — identical</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>arr.length</code></td>
+        <td class="py-cell"><code>len(arr)</code></td>
+        <td class="label-cell">Property vs. built-in function</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>arr.includes(3)</code></td>
+        <td class="py-cell"><code>3 in arr</code></td>
+        <td class="label-cell">Membership check</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>arr.map(x => x * 2)</code></td>
+        <td class="py-cell"><code>[x * 2 for x in arr]</code></td>
+        <td class="label-cell">TS chains methods; Python prefers comprehensions</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>arr.filter(x => x > 0)</code></td>
+        <td class="py-cell"><code>[x for x in arr if x > 0]</code></td>
+        <td class="label-cell">Same idea, different shape</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>arr.reduce((a, b) => a + b, 0)</code></td>
+        <td class="py-cell"><code>sum(arr)</code> / <code>functools.reduce(...)</code></td>
+        <td class="label-cell">Python has dedicated built-ins for common cases</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>arr.slice(1, 3)</code></td>
+        <td class="py-cell"><code>arr[1:3]</code></td>
+        <td class="label-cell">Method call vs. slice syntax</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>[...arr1, ...arr2]</code></td>
+        <td class="py-cell"><code>arr1 + arr2</code></td>
+        <td class="label-cell">Spread operator vs. list concatenation</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>arr.forEach(x => console.log(x))</code></td>
+        <td class="py-cell"><code>for x in arr: print(x)</code></td>
+        <td class="label-cell">Method callback vs. native for-loop</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Objects / dictionaries</h2>
+  <table class="dict">
+    <thead><tr><th class="ts-col">TypeScript</th><th class="py-col">Python</th><th class="note-col">Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ts-cell"><code>let o = { a: 1, b: 2 };</code></td>
+        <td class="py-cell"><code>o = {"a": 1, "b": 2}</code></td>
+        <td class="label-cell">TS object keys don't need quotes; Python dict keys usually do</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>o.a</code> or <code>o["a"]</code></td>
+        <td class="py-cell"><code>o["a"]</code></td>
+        <td class="label-cell">TS allows dot access on objects; Python dicts require brackets</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>Object.keys(o)</code></td>
+        <td class="py-cell"><code>o.keys()</code></td>
+        <td class="label-cell">Static function vs. instance method</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>Object.values(o)</code></td>
+        <td class="py-cell"><code>o.values()</code></td>
+        <td class="label-cell">Same relationship as above</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>Object.entries(o)</code></td>
+        <td class="py-cell"><code>o.items()</code></td>
+        <td class="label-cell">Both return key/value pairs</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>"a" in o</code></td>
+        <td class="py-cell"><code>"a" in o</code></td>
+        <td class="label-cell">Key-existence check is the same operator</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>delete o.a;</code></td>
+        <td class="py-cell"><code>del o["a"]</code></td>
+        <td class="label-cell">Remove a key</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>{ ...o, c: 3 }</code></td>
+        <td class="py-cell"><code>{**o, "c": 3}</code></td>
+        <td class="label-cell">Spread/merge syntax is nearly identical</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>Record&lt;string, number&gt;</code></td>
+        <td class="py-cell"><code>dict[str, int]</code></td>
+        <td class="label-cell">Generic mapping type declarations</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>Map&lt;string, number&gt;</code></td>
+        <td class="py-cell"><code>dict[str, int]</code></td>
+        <td class="label-cell">TS's <code>Map</code> class behaves like a Python dict; plain objects can too</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Functions</h2>
+  <table class="dict">
+    <thead><tr><th class="ts-col">TypeScript</th><th class="py-col">Python</th><th class="note-col">Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ts-cell"><pre>function add(a: number, b: number): number {
+  return a + b;
+}</pre></td>
+        <td class="py-cell"><pre>def add(a: int, b: int) -> int:
+    return a + b</pre></td>
+        <td class="label-cell">Return type goes after <code>)</code> in both, with different punctuation</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>const add = (a: number, b: number) => a + b;</code></td>
+        <td class="py-cell"><code>add = lambda a, b: a + b</code></td>
+        <td class="label-cell">Arrow function ≈ lambda, but arrows can hold full bodies too</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>function greet(name: string = "World") {}</code></td>
+        <td class="py-cell"><code>def greet(name: str = "World"): ...</code></td>
+        <td class="label-cell">Default parameter syntax looks almost identical</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>function sum(...nums: number[]) {}</code></td>
+        <td class="py-cell"><code>def total(*nums): ...</code></td>
+        <td class="label-cell">Rest parameters ≈ Python's <code>*args</code></td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>name?: string</code> (optional param)</td>
+        <td class="py-cell"><code>name: str | None = None</code></td>
+        <td class="label-cell">TS marks optionality with <code>?</code>; Python uses a default + union type</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>function f(): void {}</code></td>
+        <td class="py-cell"><code>def f() -> None: ...</code></td>
+        <td class="label-cell">"Returns nothing" annotation</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note">TS function bodies are wrapped in <code>{ }</code>; Python relies entirely on indentation, with no closing brace or keyword needed.</p>
+
+  <h2>Control flow</h2>
+  <table class="dict">
+    <thead><tr><th class="ts-col">TypeScript</th><th class="py-col">Python</th><th class="note-col">Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ts-cell"><pre>if (x > 0) {
+  ...
+} else if (x < 0) {
+  ...
+} else {
+  ...
+}</pre></td>
+        <td class="py-cell"><pre>if x > 0:
+    ...
+elif x < 0:
+    ...
+else:
+    ...</pre></td>
+        <td class="label-cell"><code>else if</code> vs. <code>elif</code>; braces vs. colons + indentation</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><pre>for (let i = 0; i < 5; i++) {
+  ...
+}</pre></td>
+        <td class="py-cell"><pre>for i in range(5):
+    ...</pre></td>
+        <td class="label-cell">C-style for-loop vs. <code>range()</code></td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><pre>for (const x of arr) {
+  ...
+}</pre></td>
+        <td class="py-cell"><pre>for x in arr:
+    ...</pre></td>
+        <td class="label-cell"><code>for...of</code> iterates values, directly analogous to Python's for-loop</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><pre>for (const k in obj) {
+  ...
+}</pre></td>
+        <td class="py-cell"><pre>for k in obj:
+    ...</pre></td>
+        <td class="label-cell"><code>for...in</code> iterates keys — same as iterating a Python dict directly</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><pre>while (x < 10) {
+  ...
+}</pre></td>
+        <td class="py-cell"><pre>while x < 10:
+    ...</pre></td>
+        <td class="label-cell">Same concept, braces vs. colon</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>x === 5</code></td>
+        <td class="py-cell"><code>x == 5</code></td>
+        <td class="label-cell">TS distinguishes <code>==</code> (loose) from <code>===</code> (strict); Python only has one equality operator</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>x &amp;&amp; y</code> / <code>x || y</code> / <code>!x</code></td>
+        <td class="py-cell"><code>x and y</code> / <code>x or y</code> / <code>not x</code></td>
+        <td class="label-cell">Symbolic operators vs. English keywords</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>cond ? a : b</code></td>
+        <td class="py-cell"><code>a if cond else b</code></td>
+        <td class="label-cell">Ternary expression, reordered</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><pre>switch (x) {
+  case 1:
+    ...
+    break;
+  default:
+    ...
+}</pre></td>
+        <td class="py-cell"><pre>match x:
+    case 1:
+        ...
+    case _:
+        ...</pre></td>
+        <td class="label-cell">Python 3.10+ <code>match</code> is the closest analogue; no fall-through by default</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Classes</h2>
+  <table class="dict">
+    <thead><tr><th class="ts-col">TypeScript</th><th class="py-col">Python</th><th class="note-col">Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ts-cell"><pre>class Dog {
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  bark(): string {
+    return `${this.name} says woof`;
+  }
+}</pre></td>
+        <td class="py-cell"><pre>class Dog:
+    def __init__(self, name: str):
+        self.name = name
+
+    def bark(self) -> str:
+        return f"{self.name} says woof"</pre></td>
+        <td class="label-cell"><code>constructor</code> ≈ <code>__init__</code>; <code>this</code> ≈ <code>self</code> (explicit first param in Python)</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>new Dog("Rex")</code></td>
+        <td class="py-cell"><code>Dog("Rex")</code></td>
+        <td class="label-cell">TS requires <code>new</code>; Python does not</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>class Puppy extends Dog {}</code></td>
+        <td class="py-cell"><code>class Puppy(Dog): ...</code></td>
+        <td class="label-cell">Inheritance syntax</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>super(name);</code></td>
+        <td class="py-cell"><code>super().__init__(name)</code></td>
+        <td class="label-cell">Calling the parent constructor</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>private name: string;</code></td>
+        <td class="py-cell"><code>self._name</code> (leading underscore, by convention)</td>
+        <td class="label-cell">TS enforces privacy at compile time; Python only signals intent</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>static count = 0;</code></td>
+        <td class="py-cell"><pre>class Dog:
+    count = 0</pre></td>
+        <td class="label-cell">Class-level (shared) attributes</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>abstract class Shape {}</code></td>
+        <td class="py-cell"><code>class Shape(ABC): ...</code><br>(<code>from abc import ABC</code>)</td>
+        <td class="label-cell">Abstract base classes need an import in Python</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>interface Point { x: number; y: number; }</code></td>
+        <td class="py-cell"><pre>class Point(Protocol):
+    x: int
+    y: int</pre> or a <code>@dataclass</code></td>
+        <td class="label-cell">Python has no direct <code>interface</code> keyword — closest are <code>Protocol</code> or dataclasses</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Types &amp; type aliases</h2>
+  <table class="dict">
+    <thead><tr><th class="ts-col">TypeScript</th><th class="py-col">Python</th><th class="note-col">Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ts-cell"><code>type ID = string | number;</code></td>
+        <td class="py-cell"><code>ID = str | int</code></td>
+        <td class="label-cell">Type alias declaration</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>enum Color { Red, Green, Blue }</code></td>
+        <td class="py-cell"><pre>from enum import Enum
+class Color(Enum):
+    RED = 1
+    GREEN = 2
+    BLUE = 3</pre></td>
+        <td class="label-cell">Python's <code>Enum</code> needs an explicit import and value</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>function f&lt;T&gt;(x: T): T { return x; }</code></td>
+        <td class="py-cell"><pre>def f[T](x: T) -> T:
+    return x</pre> (3.12+) or <code>TypeVar</code> (older)</td>
+        <td class="label-cell">Generics — newer Python syntax closely mirrors TS</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>x as string</code></td>
+        <td class="py-cell"><code>cast(str, x)</code><br>(<code>from typing import cast</code>)</td>
+        <td class="label-cell">Type assertion — a hint to the type checker, not a runtime conversion in either language</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>typeof x</code></td>
+        <td class="py-cell"><code>type(x)</code></td>
+        <td class="label-cell">Runtime type inspection (different from static type annotations)</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>x instanceof Dog</code></td>
+        <td class="py-cell"><code>isinstance(x, Dog)</code></td>
+        <td class="label-cell">Runtime type check</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>[number, string]</code> (tuple type)</td>
+        <td class="py-cell"><code>tuple[int, str]</code></td>
+        <td class="label-cell">Fixed-length, mixed-type sequence</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Modules &amp; imports</h2>
+  <table class="dict">
+    <thead><tr><th class="ts-col">TypeScript</th><th class="py-col">Python</th><th class="note-col">Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ts-cell"><code>import { foo } from "./bar";</code></td>
+        <td class="py-cell"><code>from bar import foo</code></td>
+        <td class="label-cell">Named import</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>import foo from "./bar";</code></td>
+        <td class="py-cell"><code>import bar</code><br>(then <code>bar.foo</code>)</td>
+        <td class="label-cell">TS default import vs. Python's module-level access</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>import * as bar from "./bar";</code></td>
+        <td class="py-cell"><code>import bar</code></td>
+        <td class="label-cell">"Import everything as a namespace" — Python modules work this way by default</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>export function foo() {}</code></td>
+        <td class="py-cell"><code>def foo(): ...</code></td>
+        <td class="label-cell">Python exposes everything at module level automatically — no <code>export</code> keyword needed</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>export default foo;</code></td>
+        <td class="py-cell">— (no direct equivalent)</td>
+        <td class="label-cell">Python has no concept of a single "default" export per file</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Async code</h2>
+  <table class="dict">
+    <thead><tr><th class="ts-col">TypeScript</th><th class="py-col">Python</th><th class="note-col">Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ts-cell"><pre>async function getData(): Promise&lt;string&gt; {
+  const res = await fetch(url);
+  return res.text();
+}</pre></td>
+        <td class="py-cell"><pre>async def get_data() -> str:
+    res = await fetch(url)
+    return await res.text()</pre></td>
+        <td class="label-cell"><code>async</code>/<code>await</code> keywords are shared between the languages</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>Promise&lt;number&gt;</code></td>
+        <td class="py-cell"><code>Coroutine[Any, Any, int]</code> or just documented as async</td>
+        <td class="label-cell">TS's <code>Promise</code> type is more commonly spelled out than Python's coroutine typing</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>Promise.all([p1, p2])</code></td>
+        <td class="py-cell"><code>asyncio.gather(p1, p2)</code></td>
+        <td class="label-cell">Run multiple async operations concurrently</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Naming &amp; style conventions</h2>
+  <table class="dict">
+    <thead><tr><th class="ts-col">TypeScript</th><th class="py-col">Python</th><th class="note-col">Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="ts-cell"><code>camelCase</code></td>
+        <td class="py-cell"><code>snake_case</code></td>
+        <td class="label-cell">Variable and function naming convention</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>PascalCase</code></td>
+        <td class="py-cell"><code>PascalCase</code></td>
+        <td class="label-cell">Class names use the same convention in both</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>UPPER_SNAKE_CASE</code></td>
+        <td class="py-cell"><code>UPPER_SNAKE_CASE</code></td>
+        <td class="label-cell">Constants — shared convention</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>// comment</code></td>
+        <td class="py-cell"><code># comment</code></td>
+        <td class="label-cell">Single-line comments</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>/* block comment */</code></td>
+        <td class="py-cell"><code>"""docstring-style block"""</code></td>
+        <td class="label-cell">Python has no true block comment — triple-quoted strings are used informally</td>
+      </tr>
+      <tr>
+        <td class="ts-cell"><code>2 spaces</code> (common convention)</td>
+        <td class="py-cell"><code>4 spaces</code> (PEP 8)</td>
+        <td class="label-cell">Indentation is cosmetic in TS, syntactically meaningful in Python</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note">The biggest conceptual shift for a Python reader: TypeScript's type annotations are <em>erased</em> at compile time and never affect runtime behavior — it compiles down to plain JavaScript. Python's type hints are similarly non-enforcing at runtime by default, so in that respect the two are more alike than they might first appear.</p>
+
+  <footer>TypeScript ⟷ Python syntax dictionary — reference for reading TS as a Python developer</footer>
+
+</div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('themeToggle');
+    var icon = document.getElementById('themeIcon');
+    var label = document.getElementById('themeLabel');
+
+    function isDark() {
+      return root.getAttribute('data-theme') === 'dark';
+    }
+
+    function render() {
+      if (isDark()) {
+        icon.textContent = '☀️';
+        label.textContent = 'Light';
+      } else {
+        icon.textContent = '🌙';
+        label.textContent = 'Dark';
+      }
+    }
+
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      if (next === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+      } else {
+        root.removeAttribute('data-theme');
+      }
+      try { localStorage.setItem('cheatsheet-theme', next); } catch (e) {}
+      render();
+    });
+
+    render();
+  })();
+</script>
+
+</body>
+</html>

@@ -8,3 +8,5 @@ data/.ipynb_checkpoints/battle_class_hybrid-checkpoint.ipynb
 data/EDA_general/.ipynb_checkpoints/eda_general-checkpoint.ipynb
 EDA_first_pokemon_only/.ipynb_checkpoints/converting_smogon_pdex_to_json-checkpoint.ipynb
 .gitignore
+data/replays/gen9-randombattle/.ipynb_checkpoints/gen9randombattle-2631369343-checkpoint.json
+*.ipynb_checkpoints

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python os Module Cheatsheet</title>
+<style>
+  :root{
+    --bg: #1e1f26;
+    --panel: #26272f;
+    --panel-alt: #2c2d37;
+    --ink: #e8e6e1;
+    --ink-dim: #9b9a9f;
+    --rule: #3a3b46;
+    --amber: #f2a541;
+    --green: #7ec699;
+    --blue: #7aa2f7;
+    --pink: #e0719c;
+    --purple: #b48ead;
+    --mono: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
+    --serif: "Source Serif 4", "Georgia", serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--mono);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.025) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+
+  .page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 36px 28px 80px;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-bottom: 2px solid var(--blue);
+    padding-bottom: 18px;
+    margin-bottom: 28px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+
+  .brand .prompt {
+    color: var(--green);
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 0.3px;
+  }
+
+  .subtitle {
+    color: var(--ink-dim);
+    font-size: 0.82rem;
+    margin-top: 4px;
+  }
+
+  .legend {
+    font-size: 0.74rem;
+    color: var(--ink-dim);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .legend .tag {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-weight: 700;
+    margin-right: 4px;
+    font-size: 0.68rem;
+  }
+
+  .tag.path  { background: rgba(126,198,153,0.18); color: var(--green); border: 1px solid rgba(126,198,153,0.4); }
+  .tag.proc  { background: rgba(122,162,247,0.18); color: var(--blue); border: 1px solid rgba(122,162,247,0.4); }
+  .tag.warn  { background: rgba(224,113,156,0.18); color: var(--pink); border: 1px solid rgba(224,113,156,0.4); }
+
+  /* ---------- Toolbar ---------- */
+  .toolbar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  #search {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    padding: 9px 12px;
+    border-radius: 6px;
+    flex: 1;
+    min-width: 220px;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+  #search:focus { border-color: var(--blue); }
+  #search::placeholder { color: var(--ink-dim); }
+
+  .print-btn {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    color: var(--ink-dim);
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    padding: 9px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .print-btn:hover { border-color: var(--blue); color: var(--blue); }
+
+  .result-count {
+    font-size: 0.74rem;
+    color: var(--ink-dim);
+    white-space: nowrap;
+  }
+
+  /* ---------- Grid / Sections ---------- */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  section.card {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+    .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: var(--panel-alt);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .card-head .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .card-head h2 {
+    font-family: var(--serif);
+    font-size: 0.98rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .card-head .count {
+    margin-left: auto;
+    font-size: 0.68rem;
+    color: var(--ink-dim);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.1s ease;
+  }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: rgba(255,255,255,0.025); }
+
+  td {
+    padding: 9px 16px;
+    vertical-align: top;
+    font-size: 0.82rem;
+  }
+
+  td.cmd {
+    white-space: nowrap;
+    width: 1%;
+    font-weight: 600;
+  }
+
+  td.cmd .kind-path { color: var(--green); }
+  td.cmd .kind-proc { color: var(--blue); }
+  td.cmd .kind-warn { color: var(--pink); }
+  td.cmd .kind-env  { color: var(--amber); }
+  td.cmd .kind-meta { color: var(--purple); }
+
+  td.desc {
+    color: var(--ink-dim);
+    line-height: 1.45;
+  }
+
+  td.desc code {
+    background: var(--bg);
+    color: var(--amber);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 0.78rem;
+  }
+
+  .row-hidden { display: none !important; }
+
+  .note {
+    font-size: 0.72rem;
+    color: var(--ink-dim);
+    padding: 8px 16px;
+    background: rgba(242,165,65,0.06);
+    border-top: 1px solid var(--rule);
+  }
+  .note strong { color: var(--amber); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    margin-top: 36px;
+    text-align: center;
+    color: var(--ink-dim);
+    font-size: 0.72rem;
+    line-height: 1.8;
+  }
+
+  footer .rule {
+    width: 60px;
+    height: 1px;
+    background: var(--rule);
+    margin: 0 auto 14px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 820px) {
+    .grid { grid-template-columns: 1fr; }
+    .legend { text-align: left; }
+    header { flex-direction: column; }
+  }
+
+  /* ---------- Print ---------- */
+  @media print {
+    body { background: #fff; color: #111; }
+    .toolbar { display: none; }
+    .page { padding: 10px; max-width: 100%; }
+    section.card { background: #fff; border: 1px solid #ccc; break-inside: avoid; }
+    .card-head { background: #f2f2f2; }
+    tbody tr:hover { background: none; }
+    td.desc code { background: #eee; color: #a05a00; }
+    header { border-bottom-color: #999; }
+    h1, .brand .prompt { color: #111 !important; }
+    .grid { grid-template-columns: 1fr; gap: 10px; }
+    footer { display: none; }
+    .note { background: #fafafa; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <div class="brand">
+        <span class="prompt">&gt;&gt;&gt;</span>
+        <h1>Python <code style="font-family:inherit; background:none; color:var(--blue);">os</code> Module Cheatsheet</h1>
+      </div>
+      <div class="subtitle">Filesystem paths, directories, processes, environment variables &amp; permissions</div>
+    </div>
+    <div class="legend">
+      <div><span class="tag path">PATH</span>files &amp; directories</div>
+      <div><span class="tag proc">PROC</span>processes &amp; system</div>
+      <div><span class="tag warn">CAUTION</span>destructive / platform-specific</div>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <input type="text" id="search" placeholder="Filter functions… try 'env', 'walk', or 'permission'" autocomplete="off">
+    <span class="result-count" id="resultCount"></span>
+    <button class="print-btn" onclick="window.print()">⎙ Print / Save as PDF</button>
+  </div>
+
+  <div class="grid" id="grid">
+
+    <!-- ESSENTIALS -->
+    <section class="card full">
+      <div class="card-head"><span class="dot" style="background:var(--blue)"></span><h2>Essentials &amp; Imports</h2><span class="count"></span></div>
+      <table><tbody>
+        <tr><td class="cmd"><span class="kind-proc">import os</span></td><td class="desc">Standard import. For path-specific work also consider <code>os.path</code> or the more modern <code>pathlib.Path</code>.</td></tr>
+        <tr><td class="cmd"><span class="kind-proc">os.name</span></td><td class="desc">Name of the OS-dependent module: <code>'posix'</code> (Linux/macOS) or <code>'nt'</code> (Windows).</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.sep</span></td><td class="desc">Native path separator — <code>'/'</code> on POSIX, <code>'\\'</code> on Windows.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.linesep</span></td><td class="desc">Native line terminator used when writing in text mode (<code>'\n'</code> or <code>'\r\n'</code>).</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.extsep</span> / <span class="kind-path">os.pathsep</span></td><td class="desc">Extension separator (<code>'.'</code>) and the separator for path lists in <code>PATH</code>-style strings (<code>':'</code> or <code>';'</code>).</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.curdir</span> / <span class="kind-path">os.pardir</span></td><td class="desc">Strings for the current directory (<code>'.'</code>) and parent directory (<code>'..'</code>).</td></tr>
+      </tbody></table>
+    </section>
+
+    <!-- WORKING DIRECTORY -->
+    <section class="card">
+      <div class="card-head"><span class="dot" style="background:var(--green)"></span><h2>Current Directory</h2><span class="count"></span></div>
+      <table><tbody>
+        <tr><td class="cmd"><span class="kind-path">os.getcwd()</span></td><td class="desc">Return the current working directory as a string.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.chdir(path)</span></td><td class="desc">Change the current working directory to <code>path</code>.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.fspath(path)</span></td><td class="desc">Return the filesystem path representation of a path-like object.</td></tr>
+      </tbody></table>
+    </section>
+
+    <!-- LISTING & WALKING -->
+    <section class="card">
+      <div class="card-head"><span class="dot" style="background:var(--green)"></span><h2>Listing &amp; Walking</h2><span class="count"></span></div>
+      <table><tbody>
+        <tr><td class="cmd"><span class="kind-path">os.listdir(path='.')</span></td><td class="desc">Return a list of entry names in a directory (excludes <code>.</code> and <code>..</code>).</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.scandir(path='.')</span></td><td class="desc">Return an iterator of <code>DirEntry</code> objects — faster than <code>listdir</code> when you also need file type/stat info.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.walk(top)</span></td><td class="desc">Recursively generate <code>(dirpath, dirnames, filenames)</code> tuples for a directory tree.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.walk(top, topdown=False)</span></td><td class="desc">Walk the tree bottom-up instead of top-down — useful before recursive deletes.</td></tr>
+      </tbody></table>
+    </section>
+
+    <!-- CREATING & REMOVING -->
+    <section class="card">
+      <div class="card-head"><span class="dot" style="background:var(--pink)"></span><h2>Create &amp; Remove</h2><span class="count"></span></div>
+      <table><tbody>
+        <tr><td class="cmd"><span class="kind-path">os.mkdir(path)</span></td><td class="desc">Create a single directory. Raises <code>FileExistsError</code> if it already exists.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.makedirs(path, exist_ok=False)</span></td><td class="desc">Create a directory and any missing intermediate parents. Pass <code>exist_ok=True</code> to silently no-op if it exists.</td></tr>
+        <tr><td class="cmd"><span class="kind-warn">os.rmdir(path)</span></td><td class="desc">Remove a single, empty directory. Fails if it's not empty.</td></tr>
+        <tr><td class="cmd"><span class="kind-warn">os.removedirs(path)</span></td><td class="desc">Remove a directory and successive empty parent directories upward.</td></tr>
+        <tr><td class="cmd"><span class="kind-warn">os.remove(path)</span> / <span class="kind-warn">os.unlink(path)</span></td><td class="desc">Delete a single file. Both are identical — <code>unlink</code> is the POSIX name.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.rename(src, dst)</span></td><td class="desc">Rename or move a file or directory from <code>src</code> to <code>dst</code>.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.replace(src, dst)</span></td><td class="desc">Like <code>rename</code>, but will silently overwrite <code>dst</code> if it already exists (cross-platform safe).</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.link(src, dst)</span></td><td class="desc">Create a hard link pointing at <code>src</code> named <code>dst</code>.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.symlink(src, dst)</span></td><td class="desc">Create a symbolic link named <code>dst</code> pointing to <code>src</code>.</td></tr>
+      </tbody></table>
+      <div class="note"><strong>Note:</strong> <code>os</code> has no recursive "delete folder + contents" function — use <code>shutil.rmtree()</code> for that.</div>
+    </section>
+
+    <!-- PATH INFO (os.path) -->
+    <section class="card">
+      <div class="card-head"><span class="dot" style="background:var(--green)"></span><h2>os.path — Inspecting Paths</h2><span class="count"></span></div>
+      <table><tbody>
+        <tr><td class="cmd"><span class="kind-path">os.path.join(a, b, ...)</span></td><td class="desc">Join path components using the correct OS separator.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.split(path)</span></td><td class="desc">Split into <code>(head, tail)</code> — directory and final component.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.basename(path)</span></td><td class="desc">Return just the final filename component.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.dirname(path)</span></td><td class="desc">Return the directory portion of a path.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.splitext(path)</span></td><td class="desc">Split into <code>(root, ext)</code>, e.g. <code>('photo', '.jpg')</code>.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.abspath(path)</span></td><td class="desc">Return an absolute, normalized version of a path.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.realpath(path)</span></td><td class="desc">Resolve symlinks and return the canonical absolute path.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.normpath(path)</span></td><td class="desc">Collapse redundant separators and up-level references (e.g. <code>a/b/../c</code> → <code>a/c</code>).</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.relpath(path, start)</span></td><td class="desc">Return a relative path from <code>start</code> to <code>path</code>.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.expanduser(path)</span></td><td class="desc">Expand a leading <code>~</code> to the user's home directory.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.expandvars(path)</span></td><td class="desc">Expand <code>$VAR</code> / <code>%VAR%</code> environment variable references in a path string.</td></tr>
+      </tbody></table>
+    </section>
+
+    <!-- PATH CHECKS -->
+    <section class="card">
+      <div class="card-head"><span class="dot" style="background:var(--green)"></span><h2>os.path — Existence &amp; Type</h2><span class="count"></span></div>
+      <table><tbody>
+        <tr><td class="cmd"><span class="kind-path">os.path.exists(path)</span></td><td class="desc">True if the path exists (file, dir, or broken-symlink target also counts as existing if it resolves).</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.isfile(path)</span></td><td class="desc">True if the path exists and is a regular file.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.isdir(path)</span></td><td class="desc">True if the path exists and is a directory.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.islink(path)</span></td><td class="desc">True if the path is a symbolic link.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.ismount(path)</span></td><td class="desc">True if the path is a mount point.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.isabs(path)</span></td><td class="desc">True if the path is absolute rather than relative.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.samefile(p1, p2)</span></td><td class="desc">True if two paths refer to the same file on disk.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.getsize(path)</span></td><td class="desc">Return file size in bytes.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.path.getmtime/getctime/getatime(path)</span></td><td class="desc">Return modified / created / last-accessed timestamps (as epoch floats).</td></tr>
+      </tbody></table>
+    </section>
+
+    <!-- STAT & PERMISSIONS -->
+    <section class="card">
+      <div class="card-head"><span class="dot" style="background:var(--pink)"></span><h2>Permissions &amp; Metadata</h2><span class="count"></span></div>
+      <table><tbody>
+        <tr><td class="cmd"><span class="kind-path">os.stat(path)</span></td><td class="desc">Return a <code>stat_result</code> with size, timestamps, mode, owner UID/GID, etc.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.lstat(path)</span></td><td class="desc">Like <code>stat()</code>, but doesn't follow symlinks — reports on the link itself.</td></tr>
+        <tr><td class="cmd"><span class="kind-warn">os.chmod(path, mode)</span></td><td class="desc">Change file permissions, e.g. <code>os.chmod(path, 0o755)</code>.</td></tr>
+        <tr><td class="cmd"><span class="kind-warn">os.chown(path, uid, gid)</span></td><td class="desc">Change file owner and group (POSIX only).</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.access(path, mode)</span></td><td class="desc">Check real-user permissions, e.g. <code>os.access(path, os.W_OK)</code> for writability.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.utime(path, times)</span></td><td class="desc">Set a file's access and modified timestamps.</td></tr>
+        <tr><td class="cmd"><span class="kind-path">os.umask(mask)</span></td><td class="desc">Set the process's umask and return the previous one.</td></tr>
+      </tbody></table>
+    </section>
+
+    <!-- ENVIRONMENT -->
+    <section class="card">
+      <div class="card-head"><span class="dot" style="background:var(--amber)"></span><h2>Environment Variables</h2><span class="count"></span></div>
+      <table><tbody>
+        <tr><td class="cmd"><span class="kind-env">os.environ</span></td><td class="desc">Dict-like mapping of the process's environment variables. Mutating it updates the env for child processes.</td></tr>
+        <tr><td class="cmd"><span class="kind-env">os.environ.get('VAR', default)</span></td><td class="desc">Safely read an env var with a fallback if it's unset.</td></tr>
+        <tr><td class="cmd"><span class="kind-env">os.getenv('VAR', default)</span></td><td class="desc">Equivalent shortcut to <code>os.environ.get</code>.</td></tr>
+        <tr><td class="cmd"><span class="kind-env">os.putenv(key, value)</span></td><td class="desc">Set an environment variable at the OS level. Prefer <code>os.environ[key] = value</code> in practice.</td></tr>
+        <tr><td class="cmd"><span class="kind-env">os.unsetenv(key)</span></td><td class="desc">Unset an environment variable at the OS level.</td></tr>
+      </tbody></table>
+    </section>
+
+    <!-- PROCESSES -->
+    <section class="card">
+      <div class="card-head"><span class="dot" style="background:var(--blue)"></span><h2>Processes &amp; System Info</h2><span class="count"></span></div>
+      <table><tbody>
+        <tr><td class="cmd"><span class="kind-proc">os.getpid()</span></td><td class="desc">Return the current process's ID.</td></tr>
+        <tr><td class="cmd"><span class="kind-proc">os.getppid()</span></td><td class="desc">Return the parent process's ID (POSIX).</td></tr>
+        <tr><td class="cmd"><span class="kind-proc">os.system(cmd)</span></td><td class="desc">Run a shell command; returns the exit code. Output goes straight to stdout (not captured).</td></tr>
+        <tr><td class="cmd"><span class="kind-proc">os.popen(cmd)</span></td><td class="desc">Run a shell command and return a file-like object to read its output from.</td></tr>
+        <tr><td class="cmd"><span class="kind-warn">os.kill(pid, sig)</span></td><td class="desc">Send a signal to a process, e.g. <code>os.kill(pid, signal.SIGTERM)</code>.</td></tr>
+        <tr><td class="cmd"><span class="kind-proc">os.cpu_count()</span></td><td class="desc">Return the number of CPUs available, or <code>None</code> if undetermined.</td></tr>
+        <tr><td class="cmd"><span class="kind-proc">os.uname()</span></td><td class="desc">Return system info (sysname, nodename, release, version, machine) — POSIX only.</td></tr>
+        <tr><td class="cmd"><span class="kind-proc">os.getlogin()</span></td><td class="desc">Return the name of the user logged in on the controlling terminal.</td></tr>
+        <tr><td class="cmd"><span class="kind-proc">os.urandom(n)</span></td><td class="desc">Return n random bytes suitable for cryptographic use.</td></tr>
+        <tr><td class="cmd"><span class="kind-warn">os._exit(n)</span></td><td class="desc">Immediately terminate the process without cleanup — rarely needed; prefer <code>sys.exit()</code>.</td></tr>
+      </tbody></table>
+    </section>
+
+    <!-- FILE DESCRIPTORS -->
+    <section class="card">
+      <div class="card-head"><span class="dot" style="background:var(--purple)"></span><h2>Low-Level File Descriptors</h2><span class="count"></span></div>
+      <table><tbody>
+        <tr><td class="cmd"><span class="kind-proc">os.open(path, flags)</span></td><td class="desc">Open a file at the OS level, returning a raw file descriptor (int) rather than a file object.</td></tr>
+        <tr><td class="cmd"><span class="kind-proc">os.read(fd, n)</span></td><td class="desc">Read up to n bytes from file descriptor <code>fd</code>.</td></tr>
+        <tr><td class="cmd"><span class="kind-proc">os.write(fd, data)</span></td><td class="desc">Write bytes to file descriptor <code>fd</code>.</td></tr>
+        <tr><td class="cmd"><span class="kind-proc">os.close(fd)</span></td><td class="desc">Close a file descriptor opened with <code>os.open</code>.</td></tr>
+        <tr><td class="cmd"><span class="kind-proc">os.dup(fd)</span> / <span class="kind-proc">os.dup2(fd, fd2)</span></td><td class="desc">Duplicate a file descriptor, optionally onto a specific target descriptor.</td></tr>
+        <tr><td class="cmd"><span class="kind-proc">os.pipe()</span></td><td class="desc">Create a pipe; return <code>(read_fd, write_fd)</code> for inter-process communication.</td></tr>
+      </tbody></table>
+      <div class="note"><strong>Note:</strong> for everyday file I/O, use the built-in <code>open()</code> instead — these are for low-level/POSIX-style work.</div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="rule"></div>
+    Many <code style="background:var(--panel); padding:2px 6px; border-radius:3px; color:var(--amber);">os</code> functions are POSIX-only or behave differently on Windows — check the docs when writing cross-platform code.<br>
+    For higher-level file operations (copy, move, recursive delete), see the <code style="background:var(--panel); padding:2px 6px; border-radius:3px; color:var(--amber);">shutil</code> module · For object-oriented paths, see <code style="background:var(--panel); padding:2px 6px; border-radius:3px; color:var(--amber);">pathlib</code><br>
+    Built for quick reference · Ctrl/Cmd+F or the filter box above to jump to what you need
+  </footer>
+
+</div>
+
+<script>
+  const search = document.getElementById('search');
+  const resultCount = document.getElementById('resultCount');
+  const allCards = Array.from(document.querySelectorAll('section.card'));
+
+  function applyFilter() {
+    const q = search.value.trim().toLowerCase();
+    let visibleTotal = 0;
+
+    allCards.forEach(card => {
+      const rows = Array.from(card.querySelectorAll('tbody tr'));
+      let visibleInCard = 0;
+
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        const match = q === '' || text.includes(q);
+        row.classList.toggle('row-hidden', !match);
+        if (match) visibleInCard++;
+      });
+
+      card.style.display = visibleInCard === 0 ? 'none' : '';
+      const countEl = card.querySelector('.card-head .count');
+      if (countEl) countEl.textContent = q === '' ? '' : visibleInCard + ' match' + (visibleInCard === 1 ? '' : 'es');
+      visibleTotal += visibleInCard;
+    });
+
+    resultCount.textContent = q === '' ? '' : visibleTotal + ' result' + (visibleTotal === 1 ? '' : 's');
+  }
+
+  search.addEventListener('input', applyFilter);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement !== search) {
+      e.preventDefault();
+      search.focus();
+    }
+    if (e.key === 'Escape' && document.activeElement === search) {
+      search.value = '';
+      applyFilter();
+      search.blur();
+    }
+  });
+</script>
+
+</body>
+</html>

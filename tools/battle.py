@@ -174,7 +174,7 @@ class Battle:
         self.end_time = 0 # changed after parsing STATES
         
         try:
-            self.player1, self.player2 = self._init_players(self.head)
+            self.p1, self.p2 = self._init_players(self.head)
         except:
             print(f"error in parsing `players` of battle {self.id}")
 

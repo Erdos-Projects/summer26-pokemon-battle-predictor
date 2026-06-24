@@ -132,9 +132,6 @@ def team_full_str(team_full: dict):
 class Battle:
     '''
     Battle(file_name, verbose=False)
-    
-    `file_name` should be something like `gen9randombattle-2631391528.json`, as 
-    the directory ../data/replays/gen9-randombattle/ is already baked-in.
     '''
     def __init__(self,file_name, verbose=False):
         with open(file_name,"r") as battle_json:

@@ -228,6 +228,7 @@ class Battle:
         self.parse_tail(self.tail)
 
         self.end_time = self.STATES[-1].time
+        if self.end_time == 0 : self.end_time = self.STATES[-2].time
         
         self.teams = [
             self.clean_team(self.STATES[-1].team1.D), 

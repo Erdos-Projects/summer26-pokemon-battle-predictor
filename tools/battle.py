@@ -180,19 +180,29 @@ class FullPokemon:
 
     @staticmethod
     def get_type_index(type:str):
+        # with an input string (which is a single pokemon type), returns the index of that type in TYPE_ARRAY
         return FullPokemon.TYPE_ARRAY.index(type.upper())
 
     @staticmethod
     def eff(t1: str, t2: str):
+        # returns the effectiveness multiplier if an attack of type t1 is used against a pokemon of type t2 (not accounting for moves, abilities, berries, etc.)
         return FullPokemon.TYPE_CHART[FullPokemon.get_type_index(t1)][FullPokemon.get_type_index(t2)]
 
     @staticmethod
     def type_multiplier(m1: "FullPokemon", m2: "FullPokemon"):
+        # returns an approximation of STAB * Type for an attack of m1 against m2.  It assumes m1 is using its best STAB, or in the case that its best STAB is
+        # extremely ineffective or worse, a not-very-effective coverage move.
+        # Could eventually be modified to account for actual moves known.
         toReturn = 1.5 * max(prod(FullPokemon.eff(t1,t2) for t2 in m2.types) for t1 in m1.types)
         return max(1/2,toReturn)
 
-    @staticmethod
+    @staticmethod 
     def damage(m1 : "FullPokemon", m2 : "FullPokemon"):
+        # returns an approximation of the average fraction of m2's maximum HP that m1 would do to m2 if it used its best STAB, or in the case that its best STAB is extremely
+        # ineffective or worse, a not-very-effective coverage move.
+        # Uses the 'actual' damage formula, but makes assumptions like 'there is no weather' and 'm2 does not have Levitate'.
+        # Tends to run a bit larger than average because the actual formula uses floor functions in places and here, we do not.
+        # If we do turn-by-turn predictions, this can be modified to use m2's current HP rather than max HP
         m1_off_stat = max(m1.stats['atk'],m1.stats['spa'])
         if m1_off_stat == m1.stats['atk']:
             m2_def_stat = m2.stats['def']
@@ -202,21 +212,28 @@ class FullPokemon:
     
     @staticmethod
     def one_v_one_damage(m1: "FullPokemon", m2 : "FullPokemon"):
+        # returns (d1,d2) where d1 is the fraction of m2's max HP that m1 would remove if it constantly clicked its best STAB move into m2 until
+        # there is a KO and d2 is the fraction of m1's HP that m2 would remove if it constantly clicked its best STAB move into m1 until a KO.
+        # both coordinates are guaranteed to be greater than 0
+        # one coordinate is guaranteed to be at least 1
+        # coordinates are allowed to be greater than 1 to account for things like screens
         m1_to_m2_damage = FullPokemon.damage(m1,m2)
         m2_to_m1_damage = FullPokemon.damage(m2,m1)
-        turn_of_ko = min(
-            ceil(1/min(1,m1_to_m2_damage)),
-            ceil(1/min(1,m2_to_m1_damage))
-        )
-        if m1.stats["spe"] > m2.stats["spe"]:
+        m1_ttko_m2 = ceil(1/min(1,m1_to_m2_damage)) # number of turns it would take for m1 to KO m2 by constantly selecting its best STAB move.
+        m2_ttko_m1 = ceil(1/min(1,m2_to_m1_damage)) # same as above but for m2 to KO m1
+        turn_of_ko = min(m1_ttko_m2,m2_ttko_m1)
+        if m1.stats["spe"] > m2.stats["spe"] and turn_of_ko == m1_ttko_m2: # if m1 is faster and KOs m2, m1 gets one more turn than m2
             return (turn_of_ko * m1_to_m2_damage,(turn_of_ko-1) * m2_to_m1_damage)
-        elif m1.stats["spe"] < m2.stats["spe"]:
+        elif m1.stats["spe"] < m2.stats["spe"] and turn_of_ko == m2_ttko_m1: # if m2 is faster and KOs m1, m2 gets one more turn than m1
             return ((turn_of_ko - 1) * m1_to_m2_damage, turn_of_ko * m2_to_m1_damage)
-        else: # in case of a speed tie, returns average damage dealt; could be revisited
-            return ((turn_of_ko - 1/2) * m1_to_m2_damage, (turn_of_ko - 1/2) * m2_to_m1_damage)
+        else: # if the slower mon KOs the faster one, they take the same number of turns.  This also covers the case of a speed tie (could be revised).
+            return (turn_of_ko * m1_to_m2_damage, turn_of_ko * m2_to_m1_damage)
     
     @staticmethod
     def advantage(m1: "FullPokemon", m2: "FullPokemon"):
+        # returns the hypothetical damage differential in a 1v1 matchup between m1 and m2 where each mon only selected their best STAB attack.
+        # positive values indicate that m1 has the advantage where negative values indicate that m2 has the advantage.
+        # larger magnitude indicates the strength of the advantage
         m1_to_m2_damage,m2_to_m1_damage = FullPokemon.one_v_one_damage(m1,m2)
         return m1_to_m2_damage - m2_to_m1_damage
 

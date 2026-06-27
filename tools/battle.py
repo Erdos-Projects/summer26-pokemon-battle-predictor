@@ -69,6 +69,7 @@ import re # regex
 
 from copy import deepcopy
 from dataclasses import dataclass
+from math import prod, ceil
 
 
 #################################################
@@ -105,6 +106,121 @@ class Pokemon:
     def __repr__(self):
         _out = "{" + f"spec: {self.spec}, lvl: {self.lvl}, hp/max: {self.hp}/{self.hp_max}" + "}"
         return _out
+    
+
+class FullPokemon:
+    TYPE_ARRAY = [
+        "NORMAL",
+        "FIRE",
+        "WATER",
+        "ELECTRIC",
+        "GRASS",
+        "ICE",
+        "FIGHTING",
+        "POISON",
+        "GROUND",
+        "FLYING",
+        "PSYCHIC",
+        "BUG",
+        "ROCK",
+        "GHOST",
+        "DRAGON",
+        "DARK",
+        "STEEL",
+        "FAIRY",
+        ]
+
+    TYPE_CHART = [
+    # Normal
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 1, 1, 0.5, 1],
+    # Fire
+    [1, 0.5, 0.5, 1, 2, 2, 1, 1, 1, 1, 1, 2, 0.5, 1, 0.5, 1, 2, 1],
+    # Water
+    [1, 2, 0.5, 1, 0.5, 1, 1, 1, 2, 1, 1, 1, 2, 1, 0.5, 1, 1, 1],
+    # Electric
+    [1, 1, 2, 0.5, 0.5, 1, 1, 1, 0, 2, 1, 1, 1, 1, 0.5, 1, 1, 1],
+    # Grass
+    [1, 0.5, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 0.5, 2, 1, 0.5, 1, 0.5, 1],
+    # Ice
+    [1, 0.5, 0.5, 1, 2, 0.5, 1, 1, 2, 2, 1, 1, 1, 1, 2, 1, 0.5, 1],
+    # Fighting
+    [2, 1, 1, 1, 1, 2, 1, 0.5, 1, 0.5, 0.5, 0.5, 2, 0, 1, 2, 2, 0.5],
+    # Poison
+    [1, 1, 1, 1, 2, 1, 1, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 1, 1, 0, 2],
+    # Ground
+    [1, 2, 1, 2, 0.5, 1, 1, 2, 1, 0, 1, 0.5, 2, 1, 1, 1, 2, 1],
+    # Flying
+    [1, 1, 1, 0.5, 2, 1, 2, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 0.5, 1],
+    # Psychic
+    [1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 0.5, 1, 1, 1, 1, 0, 0.5, 1],
+    # Bug
+    [1, 0.5, 1, 1, 2, 1, 0.5, 0.5, 1, 0.5, 2, 1, 1, 0.5, 1, 2, 0.5, 0.5],
+    # Rock
+    [1, 2, 1, 1, 1, 2, 0.5, 1, 0.5, 2, 1, 2, 1, 1, 1, 1, 0.5, 1],
+    # Ghost
+    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 0.5, 1, 1],
+    # Dragon
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 0.5, 0],
+    # Dark
+    [1, 1, 1, 1, 1, 1, 0.5, 1, 1, 1, 2, 1, 1, 2, 1, 0.5, 1, 0.5],
+    # Steel
+    [1, 0.5, 0.5, 0.5, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0.5, 2],
+    # Fairy
+    [1, 0.5, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 1, 1, 1, 2, 2, 0.5, 1],
+    ]
+
+    def __init__(self,info_dict : dict):
+        self.name = info_dict["name"]
+        self.speciesId = info_dict["speciesId"]
+        self.level = int(info_dict["level"])
+        self.moves = info_dict["moves"]
+        self.ability = info_dict["ability"]
+        self.stats = info_dict["stats"]
+        self.types = info_dict["types"]
+
+    @staticmethod
+    def get_type_index(type:str):
+        return FullPokemon.TYPE_ARRAY.index(type.upper())
+
+    @staticmethod
+    def eff(t1: str, t2: str):
+        return FullPokemon.TYPE_CHART[FullPokemon.get_type_index(t1)][FullPokemon.get_type_index(t2)]
+
+    @staticmethod
+    def type_multiplier(m1: "FullPokemon", m2: "FullPokemon"):
+        toReturn = 1.5 * max(prod(FullPokemon.eff(t1,t2) for t2 in m2.types) for t1 in m1.types)
+        return max(1/2,toReturn)
+
+    @staticmethod
+    def damage(m1 : "FullPokemon", m2 : "FullPokemon"):
+        m1_off_stat = max(m1.stats['atk'],m1.stats['spa'])
+        if m1_off_stat == m1.stats['atk']:
+            m2_def_stat = m2.stats['def']
+        else:
+            m2_def_stat = m2.stats['spd']
+        return ((2*m1.level/5 + 2) * 80 * m1_off_stat / m2_def_stat / 50 + 2) * FullPokemon.type_multiplier(m1,m2) * 92.5 / 100 / m2.stats["hp"]
+    
+    @staticmethod
+    def one_v_one_damage(m1: "FullPokemon", m2 : "FullPokemon"):
+        m1_to_m2_damage = FullPokemon.damage(m1,m2)
+        m2_to_m1_damage = FullPokemon.damage(m2,m1)
+        turn_of_ko = min(
+            ceil(1/min(1,m1_to_m2_damage)),
+            ceil(1/min(1,m2_to_m1_damage))
+        )
+        if m1.stats["spe"] > m2.stats["spe"]:
+            return (turn_of_ko * m1_to_m2_damage,(turn_of_ko-1) * m2_to_m1_damage)
+        elif m1.stats["spe"] < m2.stats["spe"]:
+            return ((turn_of_ko - 1) * m1_to_m2_damage, turn_of_ko * m2_to_m1_damage)
+        else: # in case of a speed tie, returns average damage dealt; could be revisited
+            return ((turn_of_ko - 1/2) * m1_to_m2_damage, (turn_of_ko - 1/2) * m2_to_m1_damage)
+    
+    @staticmethod
+    def advantage(m1: "FullPokemon", m2: "FullPokemon"):
+        m1_to_m2_damage,m2_to_m1_damage = FullPokemon.one_v_one_damage(m1,m2)
+        return m1_to_m2_damage - m2_to_m1_damage
+
+
 
 
 # -----------------------------
@@ -397,7 +513,7 @@ class BattleState:
     def print(self):
         _out = ""
         _out += f"State at END of Turn {self.turn}: \n"
-        _out += f"  Match time: {time.strftime("%M:%S",time.gmtime(self.elapsed_time))} (mm:ss)\n"
+        _out += f"  Match time: {time.strftime('%M:%S',time.gmtime(self.elapsed_time))} (mm:ss)\n"
         _out += f"  Team: {self.team1}\n"
         _out += f"  Team: {self.team2}\n"
         print(_out)

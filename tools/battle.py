@@ -259,114 +259,125 @@ def team_full_str(team_full: dict):
     return _out
         
 
+
+
 #################################################
-# BattleState
+# Battle
 #################################################
 class Battle:
     '''
     Battle(file_name, verbose=False)
     '''
-    def __init__(self,file_name, verbose=False):
+    def __init__(self,file_name, parse=False, verbose=False):
         with open(file_name,"r") as battle_json:
             data = json.load(battle_json)
         # -----------------------------
         # Initializing metadata/attributes
-        self.id = data['id']
-        self.format = data['format']
-        self.formatid = data['formatid']
+        self.id = data.get('id', '')
+        self.format = data.get('format', '')
+        self.formatid = data.get('formatid', '')
         
-        self.rating = data['rating']
+        self.rating = data.get('rating', None)
         self.rated = (self.rating != None)
         
         # self.time_list = [] # times can be wrapped into different Turn/State classes
-        self.start_time = 0
-        self.end_time = 0
+        self.start_time = data.get('start_time', 0)
+        self.end_time = data.get('end_time', 0)
+        self.match_time = data.get('match_time', 0)
 
-        self.winner = ""
-        self.loser = ""
+        self.winner = data.get('winner', "")
+        self.loser = data.get('loser', "")
 
-        self.player_dets = data['player_dets'] # more info about players... may be redudant with self.p1, self.p2
-        self.teams_full = data['teams_full'] # full teams including stats
+        self.players = data.get('players', [])
+        self.player_dets = data.get('player_dets', []) # more info about players... may be redudant with self.p1, self.p2
+        self.teams_full = data.get('teams_full', []) # full teams including stats
 
-        
-        # -----------------------------
-        # log setup
-        self.inputlog = data.get("inputlog", "")
-        self.log = data["log"]
-        self.log = re.sub(r'\n\|\n', '\n', self.log) # delete any lines that are only `|`
+        self.lead_pokemon = data.get('lead_pokemon', [])
+        self.STATES = data.get('STATES', [])
 
-        # `head` takes 'START'->'|start', `tail` takes '|win|'->'END', and `bat` is what's in-between.
-        self.head, self.bat, self.tail = self._head_sep(self.log)
+        self.gametype = data.get('gametype', '')
+        self.custom_ruleQ = data.get('custom_ruleQ', None)
 
-        # -----------------------------
-        # processing `head`
-        self.gametype = self._init_gametype(self.head)
-        self.custom_ruleQ = (re.search(r'custom rule', self.head) != None)
-        
-        self.start_time = self._init_time(self.head)
-        self.end_time = 0 # changed after parsing STATES
-        
-        try:
-            self.p1, self.p2 = self._init_players(self.head)
-        except:
-            print(f"error in parsing `players` of battle {self.id}")
+        self.inputlog = data.get("inputlog")
+        self.log = data.get("log")
 
         # -----------------------------
-        # processing `bat`
-        self.bat = re.sub(r'\|start\n', '|turn|0\n', self.bat)
-        self.TURNS = re.split(r'\|turn\|', self.bat)[1:] # discard initial ''
-        
-        # initialize/parse starting state ("turn 0")
-        
-        # Need to allow for Zoroark weirdness:
-        if 'Zoroark' in self.teams_full[0].keys() :
-            poke = self.teams_full[0]['Zoroark']
-            D0_0 = {poke['name'] : Pokemon(poke['name'], poke['species'], poke['level'], poke['stats']['hp'], poke['stats']['hp'])}
-        else : D0_0 = {}
-        if 'Zoroark' in self.teams_full[1].keys() :
-            poke = self.teams_full[1]['Zoroark']
-            D1_0 = {poke['name'] : Pokemon(poke['name'], poke['species'], poke['level'], poke['stats']['hp'], poke['stats']['hp'])}
-        else : D1_0 = {}
-        
-        BS_0 = BattleState(
-            Team(side=1, active='', D=D0_0),
-            Team(side=2, active='', D=D1_0), 
-            self.TURNS[0],
-            battle_id = self.id
-        )
-        BS_0.time = self.start_time # turn 0 time is match start
-        
-        self.STATES = [BS_0]
-        for i in range(len(self.TURNS)-1): # -1 b/c I use `i+1` below
-            BS_i = self.STATES[i]
-            BS_new = BattleState(
-                copy.deepcopy(BS_i.team1), # can't leave out the deepcopy!
-                copy.deepcopy(BS_i.team2), # can't leave out the deepcopy!
-                self.TURNS[i+1],
-                match_start_time = self.start_time,
+        if parse : 
+            
+            # log setup
+            self.log = re.sub(r'\n\|\n', '\n', self.log) # delete any lines that are only `|`
+    
+            # `head` takes 'START'->'|start', `tail` takes '|win|'->'END', and `bat` is what's in-between.
+            self.head, self.bat, self.tail = self._head_sep(self.log)
+    
+            # -----------------------------
+            # processing `head`
+            self.gametype = self._init_gametype(self.head)
+            self.custom_ruleQ = (re.search(r'custom rule', self.head) != None)
+            
+            self.start_time = self._init_time(self.head)
+            
+            try:
+                self.p1, self.p2 = self._init_players(self.head)
+            except:
+                print(f"error in parsing `players` of battle {self.id}")
+    
+            # -----------------------------
+            # processing `bat`
+            self.bat = re.sub(r'\|start\n', '|turn|0\n', self.bat)
+            self.TURNS = re.split(r'\|turn\|', self.bat)[1:] # discard initial ''
+            
+            # initialize/parse starting state ("turn 0")
+            
+            # Need to allow for Zoroark weirdness:
+            if 'Zoroark' in self.teams_full[0].keys() :
+                poke = self.teams_full[0]['Zoroark']
+                D0_0 = {poke['name'] : Pokemon(poke['name'], poke['species'], poke['level'], poke['stats']['hp'], poke['stats']['hp'])}
+            else : D0_0 = {}
+            if 'Zoroark' in self.teams_full[1].keys() :
+                poke = self.teams_full[1]['Zoroark']
+                D1_0 = {poke['name'] : Pokemon(poke['name'], poke['species'], poke['level'], poke['stats']['hp'], poke['stats']['hp'])}
+            else : D1_0 = {}
+            
+            BS_0 = BattleState(
+                Team(side=1, active='', D=D0_0),
+                Team(side=2, active='', D=D1_0), 
+                self.TURNS[0],
                 battle_id = self.id
             )
-            self.STATES.append(BS_new)
-            if verbose : 
-                BS_new.print()
-
-        # [<starter>]
-        self.lead_pokemon = [
-            BS_0.team1.active, 
-            BS_0.team2.active
-        ] 
-
-        # -----------------------------
-        # processing `tail`
-        self.parse_tail(self.tail)
-
-        self.end_time = self.STATES[-1].time
-        if self.end_time == 0 : self.end_time = self.STATES[-2].time
-        
-        self.teams = [
-            self.clean_team(self.STATES[-1].team1.D), 
-            self.clean_team(self.STATES[-1].team2.D)
-        ] # [<{team_set}>]
+            BS_0.time = self.start_time # turn 0 time is match start
+            
+            self.STATES = [BS_0]
+            for i in range(len(self.TURNS)-1): # -1 b/c I use `i+1` below
+                BS_i = self.STATES[i]
+                BS_new = BattleState(
+                    copy.deepcopy(BS_i.team1), # can't leave out the deepcopy!
+                    copy.deepcopy(BS_i.team2), # can't leave out the deepcopy!
+                    self.TURNS[i+1],
+                    match_start_time = self.start_time,
+                    battle_id = self.id
+                )
+                self.STATES.append(BS_new)
+                if verbose : 
+                    BS_new.print()
+    
+            # [<starter>]
+            self.lead_pokemon = [
+                BS_0.team1.active, 
+                BS_0.team2.active
+            ] 
+    
+            # -----------------------------
+            # processing `tail`
+            self.parse_tail(self.tail)
+    
+            self.end_time = self.STATES[-1].time
+            if self.end_time == 0 : self.end_time = self.STATES[-2].time
+            
+            self.teams = [
+                self.clean_team(self.STATES[-1].team1.D), 
+                self.clean_team(self.STATES[-1].team2.D)
+            ] # [<{team_set}>]
 
     # =================================
     # END __init__()

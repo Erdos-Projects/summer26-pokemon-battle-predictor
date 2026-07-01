@@ -177,6 +177,30 @@ class FullPokemon:
         self.ability = info_dict["ability"]
         self.stats = info_dict["stats"]
         self.types = info_dict["types"]
+        self.item = info_dict["item"]
+        self.correct_stats()
+
+    def correct_stats(self):
+        # Uses Palafin-Hero's stats
+        if self.name == "Palafin":
+            self.stats = {
+                "hp" : 281,
+                "atk" : 291,
+                "def" : 194,
+                "spa" : 208,
+                "spd" : 179,
+                "spe" : 199
+            }
+        # Uses Terapagos-Terastal's stats
+        elif self.name == "Terapagos":
+            self.stats = {
+                "hp" : 273,
+                "atk" : 191,
+                "def" : 214,
+                "spa" : 206,
+                "spd" : 214,
+                "spe" : 175
+            }
 
     @staticmethod
     def get_type_index(type:str):
@@ -195,6 +219,49 @@ class FullPokemon:
         # Could eventually be modified to account for actual moves known.
         toReturn = 1.5 * max(prod(FullPokemon.eff(t1,t2) for t2 in m2.types) for t1 in m1.types)
         return max(1/2,toReturn)
+    
+    # This is for choice items, eviolite, assault vest, and Regigas which alter stats
+    def stat_multiplier(self,stat:str):
+        if self.item == "Choice Band" and stat == 'atk':
+            return 1.5
+        elif self.item == "Choice Specs" and stat == 'spa':
+            return 1.5
+        elif self.item == "Choice Scarf" and stat == 'spe':
+            return 1.5
+        elif self.item == "Eviolite" and stat in ['def','spd']:
+            return 1.5
+        elif self.item == "Assault Vest" and stat == 'spd':
+            return 1.5
+        elif self.item == "Light Ball" and stat in ['atk','spa']:
+            return 2
+        elif self.name == "Regigigas" and stat in ['atk','spe']:
+            return 1/2
+        else:
+            return 1
+        
+    # Life orbs and the like increase *damage* by a constant factor, not stats
+    def damage_multiplier(self):
+        if self.item == "Life Orb":
+            return 5324/4096
+        elif self.item in ["Soul Dew","Adamant Orb","Griseous Orb","Lustrous Orb"]:
+            return 4915/4096
+        else:
+            return 1
+        
+    # Deals with Ditto shenanigans
+    @staticmethod
+    def ditto_transform(m1: "FullPokemon", m2 : "FullPokemon"):
+        if m1.name == "Ditto":
+            m1 = copy.deepcopy(m2)
+            m1.stats["hp"] = 225
+            m1.item = "Choice Scarf"
+            m1.level = 87
+        if m2.name == "Ditto":
+            m2 = copy.deepcopy(m1)
+            m2.stats["hp"] = 225
+            m2.item = "Choice Scarf"
+            m2.level = 87
+        return m1,m2
 
     @staticmethod 
     def damage(m1 : "FullPokemon", m2 : "FullPokemon"):
@@ -203,12 +270,20 @@ class FullPokemon:
         # Uses the 'actual' damage formula, but makes assumptions like 'there is no weather' and 'm2 does not have Levitate'.
         # Tends to run a bit larger than average because the actual formula uses floor functions in places and here, we do not.
         # If we do turn-by-turn predictions, this can be modified to use m2's current HP rather than max HP
+
+        # Assume Ditto has transformed into its opponent
+        m1,m2 = FullPokemon.ditto_transform(m1,m2)
+        # proceed as normal
         m1_off_stat = max(m1.stats['atk'],m1.stats['spa'])
         if m1_off_stat == m1.stats['atk']:
-            m2_def_stat = m2.stats['def']
+            m1_off_stat *= m1.stat_multiplier('atk')
+            m2_def_stat = m2.stats['def'] * m2.stat_multiplier('def')
         else:
-            m2_def_stat = m2.stats['spd']
-        return ((2*m1.level/5 + 2) * 80 * m1_off_stat / m2_def_stat / 50 + 2) * FullPokemon.type_multiplier(m1,m2) * 92.5 / 100 / m2.stats["hp"]
+            m1_off_stat *= m1.stat_multiplier('spa')
+            m2_def_stat = m2.stats['spd'] * m2.stat_multiplier('spd')
+        type_mult = FullPokemon.type_multiplier(m1,m2)
+        dam_mult = m1.damage_multiplier()
+        return ((2*m1.level/5 + 2) * 80 * m1_off_stat / m2_def_stat / 50 + 2) * type_mult * dam_mult * 92.5 / 100 / m2.stats["hp"]
     
     @staticmethod
     def one_v_one_damage(m1: "FullPokemon", m2 : "FullPokemon"):
@@ -217,14 +292,27 @@ class FullPokemon:
         # both coordinates are guaranteed to be greater than 0
         # one coordinate is guaranteed to be at least 1
         # coordinates are allowed to be greater than 1 to account for things like screens
+
+        # Assume Ditto has transformed into its opponent
+        m1_ditto = (m1.name == "Ditto")
+        m2_ditto = (m2.name == "Ditto")
+        m1,m2 = FullPokemon.ditto_transform(m1,m2)
         m1_to_m2_damage = FullPokemon.damage(m1,m2)
         m2_to_m1_damage = FullPokemon.damage(m2,m1)
         m1_ttko_m2 = ceil(1/min(1,m1_to_m2_damage)) # number of turns it would take for m1 to KO m2 by constantly selecting its best STAB move.
         m2_ttko_m1 = ceil(1/min(1,m2_to_m1_damage)) # same as above but for m2 to KO m1
         turn_of_ko = min(m1_ttko_m2,m2_ttko_m1)
-        if m1.stats["spe"] > m2.stats["spe"] and turn_of_ko == m1_ttko_m2: # if m1 is faster and KOs m2, m1 gets one more turn than m2
+        m1_spe = m1.stats["spe"] * m1.stat_multiplier("spe")
+        m2_spe = m2.stats["spe"] * m2.stat_multiplier("spe")
+        # handle the fact that Ditto only has 5 PP per move (and it is locked into one move because of the Scarf); this is awkward, could be revisited
+        if m1_ditto and turn_of_ko > 5:
+            return (5 * m1_to_m2_damage, turn_of_ko * m2_to_m1_damage)
+        elif m2_ditto and turn_of_ko > 5:
+            return (turn_of_ko * m1_to_m2_damage, 5 * m2_to_m1_damage)
+        # this is now the 'normal' case
+        elif m1_spe > m2_spe and turn_of_ko == m1_ttko_m2: # if m1 is faster and KOs m2, m1 gets one more turn than m2
             return (turn_of_ko * m1_to_m2_damage,(turn_of_ko-1) * m2_to_m1_damage)
-        elif m1.stats["spe"] < m2.stats["spe"] and turn_of_ko == m2_ttko_m1: # if m2 is faster and KOs m1, m2 gets one more turn than m1
+        elif m1_spe < m2_spe and turn_of_ko == m2_ttko_m1: # if m2 is faster and KOs m1, m2 gets one more turn than m1
             return ((turn_of_ko - 1) * m1_to_m2_damage, turn_of_ko * m2_to_m1_damage)
         else: # if the slower mon KOs the faster one, they take the same number of turns.  This also covers the case of a speed tie (could be revised).
             return (turn_of_ko * m1_to_m2_damage, turn_of_ko * m2_to_m1_damage)

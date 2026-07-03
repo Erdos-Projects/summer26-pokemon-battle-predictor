@@ -11,3 +11,7 @@ EDA_first_pokemon_only/.ipynb_checkpoints/converting_smogon_pdex_to_json-checkpo
 data/replays/gen9-randombattle/.ipynb_checkpoints/gen9randombattle-2631369343-checkpoint.json
 *.ipynb_checkpoints
 tools/__pycache__/battle.cpython-312.pyc
+tools/__pycache__/__init__.cpython-312.pyc
+misc/scrap_eda/report.html
+tools/__pycache__/__init__.cpython-312.pyc
+tools/__pycache__/__init__.cpython-312.pyc

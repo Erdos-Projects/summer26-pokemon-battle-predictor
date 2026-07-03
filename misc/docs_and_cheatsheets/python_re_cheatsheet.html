@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Python re Module Cheatsheet</title>
+<style>
+  :root {
+    --bg: #1e1f26;
+    --panel: #262833;
+    --panel-alt: #2d2f3b;
+    --border: #3a3d4d;
+    --text: #e6e6ec;
+    --muted: #9a9cb0;
+    --accent: #7dd3fc;
+    --accent2: #fca5a5;
+    --accent3: #86efac;
+    --accent4: #fde68a;
+    --code-bg: #14151b;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.45;
+  }
+
+  header {
+    padding: 28px 32px 18px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(135deg, #20222c, #262a3a);
+  }
+
+  header h1 {
+    margin: 0 0 6px;
+    font-size: 1.7rem;
+    letter-spacing: 0.3px;
+  }
+
+  header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .toolbar {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+
+  .toolbar input {
+    flex: 1;
+    min-width: 200px;
+    padding: 9px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--code-bg);
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+
+  .toolbar input:focus {
+    outline: 2px solid var(--accent);
+  }
+
+  main {
+    padding: 24px 32px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 18px;
+  }
+
+  section.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+
+  section.card h2 {
+    margin: 0 0 12px;
+    font-size: 1.05rem;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+
+  td, th {
+    padding: 6px 6px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  td.token, th.token {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    color: var(--accent3);
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  td.desc {
+    color: var(--text);
+  }
+
+  code, pre {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+
+  code.inline {
+    background: var(--code-bg);
+    padding: 1px 6px;
+    border-radius: 5px;
+    color: var(--accent4);
+    font-size: 0.85em;
+  }
+
+  pre.block {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    margin: 6px 0 0;
+    color: var(--accent3);
+  }
+
+  .full-width {
+    grid-column: 1 / -1;
+  }
+
+  .note {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  .pill {
+    display: inline-block;
+    background: var(--panel-alt);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 0.75rem;
+    color: var(--accent2);
+    margin-right: 6px;
+  }
+
+  .hidden { display: none; }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+    padding: 20px 0 40px;
+  }
+
+  ::selection { background: #3a4a5a; }
+
+  @media print {
+    body { background: white; color: black; }
+    header { background: white; }
+    section.card { border: 1px solid #ccc; }
+    .toolbar { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Python <code class="inline">re</code> Module Cheatsheet</h1>
+  <h2 style="color:red">Caution: generated slop; details may be inaccurate</h2>
+  <p>Regular expressions: syntax, flags, and the most-used functions — all on one page.</p>
+  <div class="toolbar">
+    <input type="text" id="search" placeholder="Filter cheatsheet (e.g. 'lookahead', 'sub', 'flags')..." oninput="filterCards()">
+  </div>
+</header>
+
+<main>
+  <div class="grid" id="cardGrid">
+
+    <section class="card" data-keywords="import basic functions search match fullmatch findall finditer sub subn split compile escape">
+      <h2>Core Functions</h2>
+      <table>
+        <tr><td class="token">re.search(p, s)</td><td class="desc">Scan <em>s</em>, return first match anywhere as a Match object, or None.</td></tr>
+        <tr><td class="token">re.match(p, s)</td><td class="desc">Match only at the <strong>start</strong> of the string.</td></tr>
+        <tr><td class="token">re.fullmatch(p, s)</td><td class="desc">Match only if the <strong>entire</strong> string matches.</td></tr>
+        <tr><td class="token">re.findall(p, s)</td><td class="desc">Return list of all non-overlapping matches (strings, or tuples if groups exist).</td></tr>
+        <tr><td class="token">re.finditer(p, s)</td><td class="desc">Return an iterator of Match objects for all matches.</td></tr>
+        <tr><td class="token">re.sub(p, r, s)</td><td class="desc">Replace matches of <em>p</em> in <em>s</em> with <em>r</em>; returns new string.</td></tr>
+        <tr><td class="token">re.subn(p, r, s)</td><td class="desc">Same as sub, but returns (new_string, count_of_subs).</td></tr>
+        <tr><td class="token">re.split(p, s)</td><td class="desc">Split <em>s</em> by occurrences of pattern <em>p</em>.</td></tr>
+        <tr><td class="token">re.compile(p)</td><td class="desc">Pre-compile pattern into a reusable Pattern object.</td></tr>
+        <tr><td class="token">re.escape(s)</td><td class="desc">Escape all regex special characters in literal string <em>s</em>.</td></tr>
+      </table>
+      <pre class="block">import re
+re.findall(r"\d+", "a1 b22 c333")
+# ['1', '22', '333']</pre>
+    </section>
+
+    <section class="card" data-keywords="match object methods group groups groupdict start end span">
+      <h2>Match Object Methods</h2>
+      <table>
+        <tr><td class="token">.group()</td><td class="desc">Whole match (same as <code class="inline">.group(0)</code>).</td></tr>
+        <tr><td class="token">.group(n)</td><td class="desc">Text of capture group <em>n</em> (1-indexed).</td></tr>
+        <tr><td class="token">.group('name')</td><td class="desc">Text of a named capture group.</td></tr>
+        <tr><td class="token">.groups()</td><td class="desc">Tuple of all numbered groups.</td></tr>
+        <tr><td class="token">.groupdict()</td><td class="desc">Dict of all named groups.</td></tr>
+        <tr><td class="token">.start([n])</td><td class="desc">Start index of match (or group <em>n</em>).</td></tr>
+        <tr><td class="token">.end([n])</td><td class="desc">End index of match (or group <em>n</em>).</td></tr>
+        <tr><td class="token">.span([n])</td><td class="desc">Tuple (start, end).</td></tr>
+      </table>
+      <pre class="block">m = re.search(r"(?P&lt;y&gt;\d{4})-(?P&lt;m&gt;\d{2})", "2026-06")
+m.group('y')   # '2026'
+m.groupdict()  # {'y': '2026', 'm': '06'}</pre>
+    </section>
+
+    <section class="card" data-keywords="character classes dot digit word whitespace negation brackets">
+      <h2>Character Classes</h2>
+      <table>
+        <tr><td class="token">.</td><td class="desc">Any character except newline (unless DOTALL flag).</td></tr>
+        <tr><td class="token">\d</td><td class="desc">Digit [0-9]. <code class="inline">\D</code> = non-digit.</td></tr>
+        <tr><td class="token">\w</td><td class="desc">Word char [a-zA-Z0-9_]. <code class="inline">\W</code> = non-word.</td></tr>
+        <tr><td class="token">\s</td><td class="desc">Whitespace. <code class="inline">\S</code> = non-whitespace.</td></tr>
+        <tr><td class="token">[abc]</td><td class="desc">Any one of a, b, or c.</td></tr>
+        <tr><td class="token">[^abc]</td><td class="desc">Any character <em>except</em> a, b, c.</td></tr>
+        <tr><td class="token">[a-z]</td><td class="desc">Range: any lowercase letter.</td></tr>
+        <tr><td class="token">[a-zA-Z0-9_]</td><td class="desc">Combined ranges (same as \w).</td></tr>
+      </table>
+    </section>
+
+    <section class="card" data-keywords="anchors boundaries start end string line word boundary">
+      <h2>Anchors &amp; Boundaries</h2>
+      <table>
+        <tr><td class="token">^</td><td class="desc">Start of string (or line, with MULTILINE).</td></tr>
+        <tr><td class="token">$</td><td class="desc">End of string (or line, with MULTILINE).</td></tr>
+        <tr><td class="token">\A</td><td class="desc">Start of string only (ignores MULTILINE).</td></tr>
+        <tr><td class="token">\Z</td><td class="desc">End of string only (ignores MULTILINE).</td></tr>
+        <tr><td class="token">\b</td><td class="desc">Word boundary.</td></tr>
+        <tr><td class="token">\B</td><td class="desc">Not a word boundary.</td></tr>
+      </table>
+    </section>
+
+    <section class="card" data-keywords="quantifiers repetition star plus optional braces greedy lazy">
+      <h2>Quantifiers</h2>
+      <table>
+        <tr><td class="token">*</td><td class="desc">0 or more (greedy).</td></tr>
+        <tr><td class="token">+</td><td class="desc">1 or more (greedy).</td></tr>
+        <tr><td class="token">?</td><td class="desc">0 or 1 (greedy).</td></tr>
+        <tr><td class="token">{n}</td><td class="desc">Exactly n repetitions.</td></tr>
+        <tr><td class="token">{n,}</td><td class="desc">n or more.</td></tr>
+        <tr><td class="token">{n,m}</td><td class="desc">Between n and m, inclusive.</td></tr>
+        <tr><td class="token">*? +? ?? {n,m}?</td><td class="desc">Lazy / non-greedy versions — match as few as possible.</td></tr>
+      </table>
+      <pre class="block">re.findall(r"&lt;.+&gt;", "&lt;a&gt;&lt;b&gt;")   # ['&lt;a&gt;&lt;b&gt;']  (greedy)
+re.findall(r"&lt;.+?&gt;", "&lt;a&gt;&lt;b&gt;")  # ['&lt;a&gt;', '&lt;b&gt;'] (lazy)</pre>
+    </section>
+
+    <section class="card full-width" data-keywords="groups capturing non-capturing named backreference alternation nested optional group conditional precedence">
+      <h2>Groups &amp; Alternation</h2>
+      <table>
+        <tr><td class="token">(...)</td><td class="desc">Capturing group — saves matched text, numbered left-to-right starting at 1.</td></tr>
+        <tr><td class="token">(?:...)</td><td class="desc">Non-capturing group — groups for quantifiers/alternation without saving a backreference. Cheaper and keeps group numbering clean.</td></tr>
+        <tr><td class="token">(?P&lt;name&gt;...)</td><td class="desc">Named capturing group — access via <code class="inline">.group('name')</code> instead of a number.</td></tr>
+        <tr><td class="token">(?P=name)</td><td class="desc">Backreference to a named group <em>within the pattern itself</em> (not in replacement text).</td></tr>
+        <tr><td class="token">\1, \2, ...</td><td class="desc">Backreference to numbered group, usable both inside the pattern and in <code class="inline">re.sub</code> replacement strings.</td></tr>
+        <tr><td class="token">\g&lt;name&gt;</td><td class="desc">Reference a named group inside a <code class="inline">re.sub</code> replacement string (safer than \1 when followed by digits).</td></tr>
+        <tr><td class="token">a|b|c</td><td class="desc">Alternation — match a, b, or c. Tries left to right, stops at first success.</td></tr>
+        <tr><td class="token">(?:a|b)+</td><td class="desc">Group alternation with a quantifier — repeat the whole "a or b" unit.</td></tr>
+        <tr><td class="token">(a(b)c)</td><td class="desc">Nested groups — numbered by order of the opening parenthesis (outer = 1, inner = 2 here).</td></tr>
+        <tr><td class="token">(...)?</td><td class="desc">Optional group — group may or may not appear; <code class="inline">.group(n)</code> is None if it didn't match.</td></tr>
+      </table>
+
+      <p class="note">Group numbering example — <code class="inline">(\w+)-(?:(\d+))?-(\w+)</code> has groups 1 and 3 only as "real" numbered captures if you don't count the non-capturing one; non-capturing groups never get a number at all.</p>
+
+      <pre class="block">## Basic capture + swap via backreference
+re.sub(r"(\w+)@(\w+)", r"\2@\1", "user@domain")
+# 'domain@user'
+
+## Named groups, referenced by name in substitution
+re.sub(r"(?P&lt;first&gt;\w+) (?P&lt;last&gt;\w+)", r"\g&lt;last&gt;, \g&lt;first&gt;", "Ada Lovelace")
+# 'Lovelace, Ada'
+
+## Non-capturing group used just for repetition
+re.findall(r"(?:ab)+", "ababab xx ab")
+# ['ababab', 'ab']
+
+## Alternation choosing between formats
+re.findall(r"\d{3}-\d{4}|\(\d{3}\)\d{3}-\d{4}", "call 555-1234 or (555)123-4567")
+# ['555-1234', '(555)123-4567']
+
+## Optional group: domain may or may not have a subdomain
+m = re.match(r"(?:(\w+)\.)?example\.com", "api.example.com")
+m.group(1)  # 'api'
+m2 = re.match(r"(?:(\w+)\.)?example\.com", "example.com")
+m2.group(1)  # None
+
+## Repeated/nested capture only keeps the LAST iteration's match
+re.findall(r"(\w)+", "abc")        # findall on repeated group only sees last char: ['c']
+re.findall(r"(\w+)", "abc def")    # whole-word groups work as expected: ['abc', 'def']</pre>
+
+      <p class="note">Gotcha: a capturing group inside a <code class="inline">*</code> or <code class="inline">+</code> only retains the <strong>last</strong> repetition's match — use <code class="inline">findall</code>/<code class="inline">finditer</code> with the quantifier outside the group if you need every repetition.</p>
+    </section>
+
+    <section class="card full-width" data-keywords="lookahead lookbehind assertions positive negative zero-width fixed width variable">
+      <h2>Lookaround (Zero-Width Assertions)</h2>
+      <table>
+        <tr><td class="token">(?=...)</td><td class="desc">Positive lookahead — what follows must match <em>...</em>, but it isn't consumed (doesn't appear in the match).</td></tr>
+        <tr><td class="token">(?!...)</td><td class="desc">Negative lookahead — what follows must NOT match <em>...</em>.</td></tr>
+        <tr><td class="token">(?&lt;=...)</td><td class="desc">Positive lookbehind — what precedes must match <em>...</em>, not consumed. Must be fixed-width in Python's <code class="inline">re</code>.</td></tr>
+        <tr><td class="token">(?&lt;!...)</td><td class="desc">Negative lookbehind — what precedes must NOT match <em>...</em>. Also fixed-width only.</td></tr>
+        <tr><td class="token">(?=a)(?=b)</td><td class="desc">Stacked lookaheads — both conditions must hold at the same position (a kind of AND).</td></tr>
+      </table>
+
+      <p class="note">"Zero-width" means the assertion checks a condition but consumes no characters — the match position doesn't move forward or backward because of it.</p>
+
+      <pre class="block">## Positive lookahead: number only when followed by a unit
+re.findall(r"\d+(?=px)", "10px 20em 30px")
+# ['10', '30']
+
+## Negative lookahead: word not followed by a colon
+re.findall(r"\b\w+\b(?!:)", "key: value plain")
+# matches 'value' and 'plain', skips 'key' (it's followed by ':')
+
+## Positive lookbehind: amount only when preceded by '$'
+re.findall(r"(?&lt;=\$)\d+", "Cost: $50, Weight: 10kg")
+# ['50']
+
+## Negative lookbehind: number NOT preceded by '$'
+re.findall(r"(?&lt;!\$)\b\d+\b", "Cost: $50, Weight: 10")
+# ['10']
+
+## Password validation: stacked lookaheads (AND logic)
+## Require: at least 8 chars, one digit, one uppercase letter
+pattern = r"^(?=.*\d)(?=.*[A-Z]).{8,}$"
+bool(re.match(pattern, "Secure123"))  # True
+bool(re.match(pattern, "secure123"))  # False (no uppercase)
+
+## Splitting on a comma NOT inside parentheses (lookahead trick)
+re.split(r",(?![^(]*\))", "a,b,(c,d),e")
+# ['a', 'b', '(c,d)', 'e']
+
+## Lookbehind must be fixed width -- this raises an error:
+## re.findall(r"(?&lt;=\d+)px", "10px")   # error: variable-width lookbehind not allowed
+## Workaround: use a fixed-width alternative or lookahead instead
+re.findall(r"\d(?=px)", "10px")  # captures last digit before 'px' only: ['0']</pre>
+
+      <p class="note">Lookahead works with variable-width patterns (<code class="inline">.*</code>, <code class="inline">+</code>, etc.); lookbehind in Python's built-in <code class="inline">re</code> module requires a <strong>fixed</strong> width. The third-party <code class="inline">regex</code> module lifts that restriction if you need it.</p>
+    </section>
+
+    <section class="card" data-keywords="flags ignorecase multiline dotall verbose ascii unicode compile">
+      <h2>Flags</h2>
+      <table>
+        <tr><td class="token">re.IGNORECASE / re.I</td><td class="desc">Case-insensitive matching.</td></tr>
+        <tr><td class="token">re.MULTILINE / re.M</td><td class="desc">^ and $ match start/end of each line.</td></tr>
+        <tr><td class="token">re.DOTALL / re.S</td><td class="desc">. matches newline too.</td></tr>
+        <tr><td class="token">re.VERBOSE / re.X</td><td class="desc">Allow whitespace/comments in pattern for readability.</td></tr>
+        <tr><td class="token">re.ASCII / re.A</td><td class="desc">\w \d \s match ASCII only, not Unicode.</td></tr>
+      </table>
+      <pre class="block">re.search(r"hello", "Hello World", re.IGNORECASE)
+re.compile(r"\d+", re.MULTILINE | re.IGNORECASE)</pre>
+    </section>
+
+    <section class="card" data-keywords="escape sequences special characters newline tab backslash">
+      <h2>Common Escapes</h2>
+      <table>
+        <tr><td class="token">\n \t \r</td><td class="desc">Newline, tab, carriage return.</td></tr>
+        <tr><td class="token">\\</td><td class="desc">Literal backslash.</td></tr>
+        <tr><td class="token">\.</td><td class="desc">Literal period (escape regex metacharacters).</td></tr>
+        <tr><td class="token">r"..."</td><td class="desc">Raw string — always use for patterns to avoid double-escaping.</td></tr>
+      </table>
+      <p class="note">Special chars needing escape: <code class="inline">. ^ $ * + ? { } [ ] \ | ( )</code></p>
+    </section>
+
+    <section class="card full-width" data-keywords="examples common patterns email phone url whitespace strip split substitution practical recipes">
+      <h2>Practical Recipes</h2>
+      <table>
+        <tr>
+          <td class="token">Email check</td>
+          <td class="desc"><pre class="block">re.match(r"[\w.+-]+@[\w-]+\.[a-zA-Z]{2,}", s)</pre></td>
+        </tr>
+        <tr>
+          <td class="token">Extract numbers</td>
+          <td class="desc"><pre class="block">re.findall(r"-?\d+\.?\d*", "Price: -3.5, Qty: 10")</pre></td>
+        </tr>
+        <tr>
+          <td class="token">Split on multiple delimiters</td>
+          <td class="desc"><pre class="block">re.split(r"[,;]\s*", "a, b; c,d")</pre></td>
+        </tr>
+        <tr>
+          <td class="token">Remove extra whitespace</td>
+          <td class="desc"><pre class="block">re.sub(r"\s+", " ", "too   many   spaces").strip()</pre></td>
+        </tr>
+        <tr>
+          <td class="token">Validate only-digits string</td>
+          <td class="desc"><pre class="block">bool(re.fullmatch(r"\d+", s))</pre></td>
+        </tr>
+        <tr>
+          <td class="token">Named groups for parsing</td>
+          <td class="desc"><pre class="block">re.match(r"(?P&lt;key&gt;\w+)=(?P&lt;val&gt;.+)", "name=Claude").groupdict()</pre></td>
+        </tr>
+      </table>
+    </section>
+
+  </div>
+</main>
+
+<footer>Python <code class="inline">re</code> module reference &middot; Ctrl/Cmd+F or use the filter box above &middot; Ctrl/Cmd+P to print/save as PDF</footer>
+
+<script>
+  function filterCards() {
+    const q = document.getElementById('search').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('#cardGrid > section');
+    cards.forEach(card => {
+      const kws = card.getAttribute('data-keywords') || '';
+      const text = card.innerText.toLowerCase();
+      const match = q === '' || kws.includes(q) || text.includes(q);
+      card.classList.toggle('hidden', !match);
+    });
+  }
+</script>
+
+</body>
+</html>

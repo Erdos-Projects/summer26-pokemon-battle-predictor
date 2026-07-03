@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Basic Guide to JSON</title>
+<style>
+  :root {
+    --bg: #1e1f26;
+    --panel: #262834;
+    --text: #e7e9ee;
+    --muted: #9aa0ad;
+    --accent: #6ea8fe;
+    --accent2: #f6c177;
+    --code-bg: #15161b;
+    --border: #383a47;
+    --string: #a3e635;
+    --number: #f6c177;
+    --bool: #6ea8fe;
+    --key: #ec9bf0;
+    --punct: #9aa0ad;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  header {
+    margin-bottom: 40px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    margin: 48px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    color: var(--accent);
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    margin: 28px 0 8px;
+    color: var(--accent2);
+  }
+
+  p {
+    margin: 0 0 14px;
+  }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 16px 0;
+  }
+
+  code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-size: 0.92em;
+    color: var(--accent2);
+  }
+
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    overflow-x: auto;
+    margin: 14px 0;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.92rem;
+  }
+
+  pre code {
+    background: none;
+    padding: 0;
+    color: var(--text);
+  }
+
+  .tok-string { color: var(--string); }
+  .tok-number { color: var(--number); }
+  .tok-bool   { color: var(--bool); font-weight: 600; }
+  .tok-key    { color: var(--key); }
+  .tok-punct  { color: var(--punct); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.95rem;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  th {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  td code {
+    white-space: nowrap;
+  }
+
+  ul, ol {
+    padding-left: 22px;
+    margin: 0 0 14px;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+
+  .note {
+    border-left: 3px solid var(--accent);
+    background: rgba(110, 168, 254, 0.08);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+    font-size: 0.95rem;
+  }
+
+  .warn {
+    border-left: 3px solid #f87171;
+    background: rgba(248, 113, 113, 0.08);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+    font-size: 0.95rem;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--code-bg);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 0.78rem;
+    margin-left: 8px;
+  }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .two-col { grid-template-columns: 1fr; }
+    h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>A Basic Guide to JSON</h1>
+    <p class="subtitle">JavaScript Object Notation — a lightweight format for storing and exchanging data.</p>
+  </header>
+
+  <section>
+    <h2>What is JSON?</h2>
+    <p>
+      JSON (JavaScript Object Notation) is a text format for representing structured data —
+      things like configuration files, API responses, and saved settings. Despite the name,
+      it isn't tied to JavaScript; nearly every programming language can read and write it.
+    </p>
+    <p>
+      It's built from just a handful of building blocks: <strong>objects</strong>,
+      <strong>arrays</strong>, <strong>strings</strong>, <strong>numbers</strong>,
+      <strong>booleans</strong>, and <code>null</code>. That's it — learn these six things
+      and you know JSON.
+    </p>
+  </section>
+
+  <section>
+    <h2>The Six Data Types</h2>
+    <table>
+      <tr><th>Type</th><th>Example</th><th>Notes</th></tr>
+      <tr><td>String</td><td><code>"hello"</code></td><td>Always double quotes, never single</td></tr>
+      <tr><td>Number</td><td><code>42</code>, <code>3.14</code></td><td>No quotes; no leading zeros</td></tr>
+      <tr><td>Boolean</td><td><code>true</code>, <code>false</code></td><td>Lowercase, unquoted</td></tr>
+      <tr><td>Null</td><td><code>null</code></td><td>Represents "no value"</td></tr>
+      <tr><td>Object</td><td><code>{ "key": "value" }</code></td><td>Unordered key/value pairs</td></tr>
+      <tr><td>Array</td><td><code>[1, 2, 3]</code></td><td>Ordered list of values</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Objects: key/value pairs</h2>
+    <p>
+      An object is wrapped in curly braces <code>{ }</code>. Inside, every key is a string in
+      double quotes, followed by a colon, then its value. Pairs are separated by commas.
+    </p>
+    <pre><code><span class="tok-punct">{</span>
+  <span class="tok-key">"name"</span><span class="tok-punct">:</span> <span class="tok-string">"Ada Lovelace"</span><span class="tok-punct">,</span>
+  <span class="tok-key">"age"</span><span class="tok-punct">:</span> <span class="tok-number">28</span><span class="tok-punct">,</span>
+  <span class="tok-key">"isProgrammer"</span><span class="tok-punct">:</span> <span class="tok-bool">true</span>
+<span class="tok-punct">}</span></code></pre>
+    <div class="note">
+      Keys must always be in double quotes — <code>name:</code> is invalid;
+      it has to be <code>"name":</code>.
+    </div>
+  </section>
+
+  <section>
+    <h2>Arrays: ordered lists</h2>
+    <p>
+      An array is wrapped in square brackets <code>[ ]</code>, with items separated by commas.
+      Items can be any JSON type, including more arrays or objects.
+    </p>
+    <pre><code><span class="tok-punct">[</span><span class="tok-string">"red"</span><span class="tok-punct">,</span> <span class="tok-string">"green"</span><span class="tok-punct">,</span> <span class="tok-string">"blue"</span><span class="tok-punct">]</span>
+
+<span class="tok-punct">[</span><span class="tok-number">1</span><span class="tok-punct">,</span> <span class="tok-number">2</span><span class="tok-punct">,</span> <span class="tok-number">3</span><span class="tok-punct">]</span></code></pre>
+  </section>
+
+  <section>
+    <h2>Putting it together</h2>
+    <p>
+      Real-world JSON usually nests objects and arrays inside each other. Here's a small
+      example describing a person:
+    </p>
+    <pre><code><span class="tok-punct">{</span>
+  <span class="tok-key">"name"</span><span class="tok-punct">:</span> <span class="tok-string">"Grace Hopper"</span><span class="tok-punct">,</span>
+  <span class="tok-key">"birthYear"</span><span class="tok-punct">:</span> <span class="tok-number">1906</span><span class="tok-punct">,</span>
+  <span class="tok-key">"isAlive"</span><span class="tok-punct">:</span> <span class="tok-bool">false</span><span class="tok-punct">,</span>
+  <span class="tok-key">"languages"</span><span class="tok-punct">:</span> <span class="tok-punct">[</span><span class="tok-string">"COBOL"</span><span class="tok-punct">,</span> <span class="tok-string">"FORTRAN"</span><span class="tok-punct">]</span><span class="tok-punct">,</span>
+  <span class="tok-key">"address"</span><span class="tok-punct">:</span> <span class="tok-punct">{</span>
+    <span class="tok-key">"city"</span><span class="tok-punct">:</span> <span class="tok-string">"New York"</span><span class="tok-punct">,</span>
+    <span class="tok-key">"country"</span><span class="tok-punct">:</span> <span class="tok-string">"USA"</span>
+  <span class="tok-punct">}</span><span class="tok-punct">,</span>
+  <span class="tok-key">"mentor"</span><span class="tok-punct">:</span> <span class="tok-bool">null</span>
+<span class="tok-punct">}</span></code></pre>
+    <p>
+      Here, <code>"languages"</code> is an array nested inside the outer object, and
+      <code>"address"</code> is itself a whole object nested inside it. JSON can nest as
+      deeply as you need.
+    </p>
+  </section>
+
+  <section>
+    <h2>Rules to remember</h2>
+    <ul>
+      <li><strong>Double quotes only</strong> — strings and keys can't use single quotes (<code>'like this'</code> is invalid).</li>
+      <li><strong>No trailing commas</strong> — <code>["a", "b",]</code> with a comma after the last item is invalid.</li>
+      <li><strong>No comments</strong> — JSON has no syntax for <code>//</code> or <code>/* */</code> comments.</li>
+      <li><strong>Keys are always strings</strong> — even if they look like numbers, they need quotes.</li>
+      <li><strong>Commas separate, they don't terminate</strong> — only put a comma <em>between</em> items, never after the last one.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Common mistakes</h2>
+    <div class="two-col">
+      <div class="panel">
+        <h3 style="margin-top:0; color:#f87171;">❌ Invalid</h3>
+        <pre><code><span class="tok-punct">{</span>
+  name<span class="tok-punct">:</span> <span class="tok-string">'Sam'</span><span class="tok-punct">,</span>
+  <span class="tok-key">"age"</span><span class="tok-punct">:</span> <span class="tok-number">30</span><span class="tok-punct">,</span>
+<span class="tok-punct">}</span></code></pre>
+        <p style="margin:0; font-size:0.88rem; color:var(--muted);">
+          Unquoted key, single-quoted string, trailing comma.
+        </p>
+      </div>
+      <div class="panel">
+        <h3 style="margin-top:0; color:#86efac;">✅ Valid</h3>
+        <pre><code><span class="tok-punct">{</span>
+  <span class="tok-key">"name"</span><span class="tok-punct">:</span> <span class="tok-string">"Sam"</span><span class="tok-punct">,</span>
+  <span class="tok-key">"age"</span><span class="tok-punct">:</span> <span class="tok-number">30</span>
+<span class="tok-punct">}</span></code></pre>
+        <p style="margin:0; font-size:0.88rem; color:var(--muted);">
+          Quoted key, double-quoted string, no trailing comma.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Writing JSON in Python</h2>
+    <p>
+      Python's built-in <code>json</code> module converts between Python objects and JSON text.
+      A Python <code>dict</code> maps naturally onto a JSON object.
+    </p>
+    <pre><code><span class="tok-key">import</span> json
+
+data = {
+    "name": "Ada Lovelace",
+    "age": 28,
+    "languages": ["Analytical Engine notes"]
+}
+
+<span class="tok-string"># Convert Python -> JSON string</span>
+json_string = json.dumps(data, indent=2)
+print(json_string)
+
+<span class="tok-string"># Write to a file</span>
+with open("person.json", "w") as f:
+    json.dump(data, f, indent=2)
+
+<span class="tok-string"># Read it back</span>
+with open("person.json") as f:
+    loaded = json.load(f)</code></pre>
+    <div class="note">
+      <code>dumps</code> ("dump string") returns a JSON string. <code>dump</code> writes
+      straight to a file. The <code>load</code>/<code>loads</code> pair work the same way
+      in reverse, turning JSON back into Python objects.
+    </div>
+  </section>
+
+  <section>
+    <h2>Quick reference card</h2>
+    <table>
+      <tr><th>JSON</th><th>Python equivalent</th></tr>
+      <tr><td><code>object</code></td><td><code>dict</code></td></tr>
+      <tr><td><code>array</code></td><td><code>list</code></td></tr>
+      <tr><td><code>string</code></td><td><code>str</code></td></tr>
+      <tr><td><code>number</code></td><td><code>int</code> or <code>float</code></td></tr>
+      <tr><td><code>true</code> / <code>false</code></td><td><code>True</code> / <code>False</code></td></tr>
+      <tr><td><code>null</code></td><td><code>None</code></td></tr>
+    </table>
+  </section>
+
+  <footer>
+    A basic guide to JSON syntax and usage. Open this file in any browser to view, or save it for later reference.
+  </footer>
+
+</div>
+</body>
+</html>

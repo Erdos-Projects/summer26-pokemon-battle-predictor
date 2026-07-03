@@ -69,6 +69,7 @@ import re # regex
 
 from copy import deepcopy
 from dataclasses import dataclass
+from math import prod, ceil
 
 
 #################################################
@@ -105,6 +106,226 @@ class Pokemon:
     def __repr__(self):
         _out = "{" + f"spec: {self.spec}, lvl: {self.lvl}, hp/max: {self.hp}/{self.hp_max}" + "}"
         return _out
+    
+
+class FullPokemon:
+    TYPE_ARRAY = [
+        "NORMAL",
+        "FIRE",
+        "WATER",
+        "ELECTRIC",
+        "GRASS",
+        "ICE",
+        "FIGHTING",
+        "POISON",
+        "GROUND",
+        "FLYING",
+        "PSYCHIC",
+        "BUG",
+        "ROCK",
+        "GHOST",
+        "DRAGON",
+        "DARK",
+        "STEEL",
+        "FAIRY",
+        ]
+
+    TYPE_CHART = [
+    # Normal
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 1, 1, 0.5, 1],
+    # Fire
+    [1, 0.5, 0.5, 1, 2, 2, 1, 1, 1, 1, 1, 2, 0.5, 1, 0.5, 1, 2, 1],
+    # Water
+    [1, 2, 0.5, 1, 0.5, 1, 1, 1, 2, 1, 1, 1, 2, 1, 0.5, 1, 1, 1],
+    # Electric
+    [1, 1, 2, 0.5, 0.5, 1, 1, 1, 0, 2, 1, 1, 1, 1, 0.5, 1, 1, 1],
+    # Grass
+    [1, 0.5, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 0.5, 2, 1, 0.5, 1, 0.5, 1],
+    # Ice
+    [1, 0.5, 0.5, 1, 2, 0.5, 1, 1, 2, 2, 1, 1, 1, 1, 2, 1, 0.5, 1],
+    # Fighting
+    [2, 1, 1, 1, 1, 2, 1, 0.5, 1, 0.5, 0.5, 0.5, 2, 0, 1, 2, 2, 0.5],
+    # Poison
+    [1, 1, 1, 1, 2, 1, 1, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 1, 1, 0, 2],
+    # Ground
+    [1, 2, 1, 2, 0.5, 1, 1, 2, 1, 0, 1, 0.5, 2, 1, 1, 1, 2, 1],
+    # Flying
+    [1, 1, 1, 0.5, 2, 1, 2, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 0.5, 1],
+    # Psychic
+    [1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 0.5, 1, 1, 1, 1, 0, 0.5, 1],
+    # Bug
+    [1, 0.5, 1, 1, 2, 1, 0.5, 0.5, 1, 0.5, 2, 1, 1, 0.5, 1, 2, 0.5, 0.5],
+    # Rock
+    [1, 2, 1, 1, 1, 2, 0.5, 1, 0.5, 2, 1, 2, 1, 1, 1, 1, 0.5, 1],
+    # Ghost
+    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 0.5, 1, 1],
+    # Dragon
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 0.5, 0],
+    # Dark
+    [1, 1, 1, 1, 1, 1, 0.5, 1, 1, 1, 2, 1, 1, 2, 1, 0.5, 1, 0.5],
+    # Steel
+    [1, 0.5, 0.5, 0.5, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0.5, 2],
+    # Fairy
+    [1, 0.5, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 1, 1, 1, 2, 2, 0.5, 1],
+    ]
+
+    def __init__(self,info_dict : dict):
+        self.name = info_dict["name"]
+        self.speciesId = info_dict["speciesId"]
+        self.level = int(info_dict["level"])
+        self.moves = info_dict["moves"]
+        self.ability = info_dict["ability"]
+        self.stats = info_dict["stats"]
+        self.types = info_dict["types"]
+        self.item = info_dict["item"]
+        self.correct_stats()
+
+    def correct_stats(self):
+        # Uses Palafin-Hero's stats
+        if self.name == "Palafin":
+            self.stats = {
+                "hp" : 281,
+                "atk" : 291,
+                "def" : 194,
+                "spa" : 208,
+                "spd" : 179,
+                "spe" : 199
+            }
+        # Uses Terapagos-Terastal's stats
+        elif self.name == "Terapagos":
+            self.stats = {
+                "hp" : 273,
+                "atk" : 191,
+                "def" : 214,
+                "spa" : 206,
+                "spd" : 214,
+                "spe" : 175
+            }
+
+    @staticmethod
+    def get_type_index(type:str):
+        # with an input string (which is a single pokemon type), returns the index of that type in TYPE_ARRAY
+        return FullPokemon.TYPE_ARRAY.index(type.upper())
+
+    @staticmethod
+    def eff(t1: str, t2: str):
+        # returns the effectiveness multiplier if an attack of type t1 is used against a pokemon of type t2 (not accounting for moves, abilities, berries, etc.)
+        return FullPokemon.TYPE_CHART[FullPokemon.get_type_index(t1)][FullPokemon.get_type_index(t2)]
+
+    @staticmethod
+    def type_multiplier(m1: "FullPokemon", m2: "FullPokemon"):
+        # returns an approximation of STAB * Type for an attack of m1 against m2.  It assumes m1 is using its best STAB, or in the case that its best STAB is
+        # extremely ineffective or worse, a not-very-effective coverage move.
+        # Could eventually be modified to account for actual moves known.
+        toReturn = 1.5 * max(prod(FullPokemon.eff(t1,t2) for t2 in m2.types) for t1 in m1.types)
+        return max(1/2,toReturn)
+    
+    # This is for choice items, eviolite, assault vest, and Regigas which alter stats
+    def stat_multiplier(self,stat:str):
+        if self.item == "Choice Band" and stat == 'atk':
+            return 1.5
+        elif self.item == "Choice Specs" and stat == 'spa':
+            return 1.5
+        elif self.item == "Choice Scarf" and stat == 'spe':
+            return 1.5
+        elif self.item == "Eviolite" and stat in ['def','spd']:
+            return 1.5
+        elif self.item == "Assault Vest" and stat == 'spd':
+            return 1.5
+        elif self.item == "Light Ball" and stat in ['atk','spa']:
+            return 2
+        elif self.name == "Regigigas" and stat in ['atk','spe']:
+            return 1/2
+        else:
+            return 1
+        
+    # Life orbs and the like increase *damage* by a constant factor, not stats
+    def damage_multiplier(self):
+        if self.item == "Life Orb":
+            return 5324/4096
+        elif self.item in ["Soul Dew","Adamant Orb","Griseous Orb","Lustrous Orb"]:
+            return 4915/4096
+        else:
+            return 1
+        
+    # Deals with Ditto shenanigans
+    @staticmethod
+    def ditto_transform(m1: "FullPokemon", m2 : "FullPokemon"):
+        if m1.name == "Ditto":
+            m1 = copy.deepcopy(m2)
+            m1.stats["hp"] = 225
+            m1.item = "Choice Scarf"
+            m1.level = 87
+        if m2.name == "Ditto":
+            m2 = copy.deepcopy(m1)
+            m2.stats["hp"] = 225
+            m2.item = "Choice Scarf"
+            m2.level = 87
+        return m1,m2
+
+    @staticmethod 
+    def damage(m1 : "FullPokemon", m2 : "FullPokemon"):
+        # returns an approximation of the average fraction of m2's maximum HP that m1 would do to m2 if it used its best STAB, or in the case that its best STAB is extremely
+        # ineffective or worse, a not-very-effective coverage move.
+        # Uses the 'actual' damage formula, but makes assumptions like 'there is no weather' and 'm2 does not have Levitate'.
+        # Tends to run a bit larger than average because the actual formula uses floor functions in places and here, we do not.
+        # If we do turn-by-turn predictions, this can be modified to use m2's current HP rather than max HP
+
+        # Assume Ditto has transformed into its opponent
+        m1,m2 = FullPokemon.ditto_transform(m1,m2)
+        # proceed as normal
+        m1_off_stat = max(m1.stats['atk'],m1.stats['spa'])
+        if m1_off_stat == m1.stats['atk']:
+            m1_off_stat *= m1.stat_multiplier('atk')
+            m2_def_stat = m2.stats['def'] * m2.stat_multiplier('def')
+        else:
+            m1_off_stat *= m1.stat_multiplier('spa')
+            m2_def_stat = m2.stats['spd'] * m2.stat_multiplier('spd')
+        type_mult = FullPokemon.type_multiplier(m1,m2)
+        dam_mult = m1.damage_multiplier()
+        return ((2*m1.level/5 + 2) * 80 * m1_off_stat / m2_def_stat / 50 + 2) * type_mult * dam_mult * 92.5 / 100 / m2.stats["hp"]
+    
+    @staticmethod
+    def one_v_one_damage(m1: "FullPokemon", m2 : "FullPokemon"):
+        # returns (d1,d2) where d1 is the fraction of m2's max HP that m1 would remove if it constantly clicked its best STAB move into m2 until
+        # there is a KO and d2 is the fraction of m1's HP that m2 would remove if it constantly clicked its best STAB move into m1 until a KO.
+        # both coordinates are guaranteed to be greater than 0
+        # one coordinate is guaranteed to be at least 1
+        # coordinates are allowed to be greater than 1 to account for things like screens
+
+        # Assume Ditto has transformed into its opponent
+        m1_ditto = (m1.name == "Ditto")
+        m2_ditto = (m2.name == "Ditto")
+        m1,m2 = FullPokemon.ditto_transform(m1,m2)
+        m1_to_m2_damage = FullPokemon.damage(m1,m2)
+        m2_to_m1_damage = FullPokemon.damage(m2,m1)
+        m1_ttko_m2 = ceil(1/min(1,m1_to_m2_damage)) # number of turns it would take for m1 to KO m2 by constantly selecting its best STAB move.
+        m2_ttko_m1 = ceil(1/min(1,m2_to_m1_damage)) # same as above but for m2 to KO m1
+        turn_of_ko = min(m1_ttko_m2,m2_ttko_m1)
+        m1_spe = m1.stats["spe"] * m1.stat_multiplier("spe")
+        m2_spe = m2.stats["spe"] * m2.stat_multiplier("spe")
+        # handle the fact that Ditto only has 5 PP per move (and it is locked into one move because of the Scarf); this is awkward, could be revisited
+        if m1_ditto and turn_of_ko > 5:
+            return (5 * m1_to_m2_damage, turn_of_ko * m2_to_m1_damage)
+        elif m2_ditto and turn_of_ko > 5:
+            return (turn_of_ko * m1_to_m2_damage, 5 * m2_to_m1_damage)
+        # this is now the 'normal' case
+        elif m1_spe > m2_spe and turn_of_ko == m1_ttko_m2: # if m1 is faster and KOs m2, m1 gets one more turn than m2
+            return (turn_of_ko * m1_to_m2_damage,(turn_of_ko-1) * m2_to_m1_damage)
+        elif m1_spe < m2_spe and turn_of_ko == m2_ttko_m1: # if m2 is faster and KOs m1, m2 gets one more turn than m1
+            return ((turn_of_ko - 1) * m1_to_m2_damage, turn_of_ko * m2_to_m1_damage)
+        else: # if the slower mon KOs the faster one, they take the same number of turns.  This also covers the case of a speed tie (could be revised).
+            return (turn_of_ko * m1_to_m2_damage, turn_of_ko * m2_to_m1_damage)
+    
+    @staticmethod
+    def advantage(m1: "FullPokemon", m2: "FullPokemon"):
+        # returns the hypothetical damage differential in a 1v1 matchup between m1 and m2 where each mon only selected their best STAB attack.
+        # positive values indicate that m1 has the advantage where negative values indicate that m2 has the advantage.
+        # larger magnitude indicates the strength of the advantage
+        m1_to_m2_damage,m2_to_m1_damage = FullPokemon.one_v_one_damage(m1,m2)
+        return m1_to_m2_damage - m2_to_m1_damage
+
+
 
 
 # -----------------------------
@@ -397,7 +618,7 @@ class BattleState:
     def print(self):
         _out = ""
         _out += f"State at END of Turn {self.turn}: \n"
-        _out += f"  Match time: {time.strftime("%M:%S",time.gmtime(self.elapsed_time))} (mm:ss)\n"
+        _out += f"  Match time: {time.strftime('%M:%S',time.gmtime(self.elapsed_time))} (mm:ss)\n"
         _out += f"  Team: {self.team1}\n"
         _out += f"  Team: {self.team2}\n"
         print(_out)

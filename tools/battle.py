@@ -217,11 +217,49 @@ class FullPokemon:
         # returns an approximation of STAB * Type for an attack of m1 against m2.  It assumes m1 is using its best STAB, or in the case that its best STAB is
         # extremely ineffective or worse, a not-very-effective coverage move.
         # Could eventually be modified to account for actual moves known.
-        toReturn = 1.5 * max(prod(FullPokemon.eff(t1,t2) for t2 in m2.types) for t1 in m1.types)
+        stab_multiplier = 1.5
+        if m1.ability == "Adaptability":
+            stab_multiplier = 2
+        if m1.ability == "Dragon's Maw":
+            stab_multiplier *= 1.5
+        if m1.ability == "Pixilate":
+            stab_multiplier *=1.2
+        if m1.ability == "Transistor":
+            stab_multiplier *= 1.3
+        if m1.ability == "Steely Spirit":
+            stab_multiplier *= 1.5
+        toReturn = stab_multiplier * max(prod(FullPokemon.eff(t1,t2) for t2 in m2.types) for t1 in m1.types)
         return max(1/2,toReturn)
     
-    # This is for choice items, eviolite, assault vest, and Regigas which alter stats
+    
     def stat_multiplier(self,stat:str):
+        return self.item_stat_multiplier(stat) * self.mon_stat_multiplier(stat)
+    
+    # This is for special pokemon which have built-in stat boosts
+    def mon_stat_multiplier(self,stat:str):
+        if self.name == "Chien-Pao" and stat == 'atk':
+            return 4/3
+        elif self.name == "Chi-Yu" and stat == 'spa':
+            return 4/3
+        elif self.name == "Wo-Chien" and stat == 'def':
+            return 4/3
+        elif self.name == "Ting-Lu" and stat == 'spd':
+            return 4/3
+        elif self.name == "Regigigas" and stat in ['atk','spe']:
+            return 1/2
+        elif self.ability == "Fur Coat" and stat == 'def':
+            return 2
+        elif self.ability in ["Huge Power", "Pure Power"] and stat == 'atk':
+            return 2
+        elif self.ability == "Hustle" and stat == 'atk':
+            return 1.5 * 0.8
+        elif self.ability in ["Guts","Toxic Boost"] and stat == 'atk':
+            return 1.5
+        else:
+            return 1
+
+    # This is for choice items, eviolite, assault vest, and other items which alter stats    
+    def item_stat_multiplier(self,stat:str):
         if self.item == "Choice Band" and stat == 'atk':
             return 1.5
         elif self.item == "Choice Specs" and stat == 'spa':
@@ -234,8 +272,6 @@ class FullPokemon:
             return 1.5
         elif self.item == "Light Ball" and stat in ['atk','spa']:
             return 2
-        elif self.name == "Regigigas" and stat in ['atk','spe']:
-            return 1/2
         else:
             return 1
         
@@ -243,7 +279,7 @@ class FullPokemon:
     def damage_multiplier(self):
         if self.item == "Life Orb":
             return 5324/4096
-        elif self.item in ["Soul Dew","Adamant Orb","Griseous Orb","Lustrous Orb"]:
+        elif self.item in ["Soul Dew","Adamant Orb","Griseous Orb","Lustrous Orb", "Hearthflame Mask", "Wellspring Mask", "Cornerstone Mask"]:
             return 4915/4096
         else:
             return 1
@@ -324,6 +360,120 @@ class FullPokemon:
         # larger magnitude indicates the strength of the advantage
         m1_to_m2_damage,m2_to_m1_damage = FullPokemon.one_v_one_damage(m1,m2)
         return m1_to_m2_damage - m2_to_m1_damage
+    
+
+
+    # Now we have a bunch of features we may want to test for
+    def is_trapper(self):
+        return self.ability in ["Arena Trap", "Shadow Tag", "Magnet Pull"]
+    
+    def is_type_changer(self):
+        return self.ability in ["Libero","Protean"]
+    
+    def is_weather_setter(self):
+        return self.ability in ["Drought", "Drizzle", "Snow Warning", "Sand Stream", "Orichalcum Pulse"]
+    
+    def is_terrain_setter(self):
+        return self.ability in ["Electric Surge", "Grassy Surge", "Psychic Surge", "Misty Surge", "Hadron Engine", "Seed Sower"]
+    
+    def is_stat_drop_resistor(self):
+        return self.ability in ["Competitive", "Defiant", "Contrary",]#skipping: "Clear Body", "Hyper Cutter", "Inner Focus", "Oblivious", "Own Tempo", "Full Metal Body", "Guard Dog", "Scrappy"]
+    
+    def is_absorber(self):
+        return self.ability in ["Dry Skin", "Water Absorb", "Volt Absorb", "Earth Eater", "Flash Fire", "Lightning Rod", "Sap Sipper", "Storm Drain", "Well-Baked Body", "Motor Drive"]
+    
+    def has_extra_immunities(self):
+        return self.is_absorber() or self.ability in ["Levitate","Bulletproof","Soundproof","Wind Rider"]
+    
+    def is_status_resistor(self):
+        return self.ability in ["Good as Gold", "Purifying Salt", "Magic Bounce", "Poison Heal", "Guts", "Toxic Boost",]# skipping: "Comatose", "Insomnia", "Quick Feet", "Sweet Veil", "Vital Spirit", "Water Veil"
+    
+    def is_contact_punisher(self):# skipping "Tangling Hair" as that's only on Dugtrio-A
+        return self.ability in ["Flame Body", "Static", "Rough Skin", "Effect Spore", "Gooey"] or self.item in ["Rocky Helmet"]
+    
+    def is_ability_ignorer(self):
+        return self.ability in ["Mold Breaker", "Teravolt", "Turboblaze", "Neutralizing Gas"]
+    
+    def has_boosting_ability(self):
+        return self.ability in [
+            "Galvanize",
+            "Ice Scales",
+            "Compound Eyes",
+            "Speed Boost",
+            "Quick Feet",
+            "Sheer Force",
+            "Sharpness",
+            "Strong Jaw",
+            "Tough Claws",
+            "Iron Fist",
+            "Mega Launcher",
+            "Punk Rock",
+            "Reckless",
+            "Rocky Payload",
+            "Technician",
+            "Thick Fat",
+            "Tinted Lens",
+            "Weak Armor",
+            "Unburden",
+            "Protosynthesis",
+            "Quark Drive",
+            "Analytic",
+            "Anger Shell",
+            "Berserk",
+            "As One",
+            "Chilling Neigh",
+            "Grim Neigh",
+            "Moxie",
+            "Battle Bond",
+            "Blaze",
+            "Torrent",
+            "Overgrow",
+            "Dauntless Shield",
+            "Intrepid Sword",
+            "Filter",
+            "Prism Armor",
+            "Rattled",
+            "Shields Down",
+            "Ice Face",
+            "Solid Rock",
+            "Soul-Heart",
+            "Stamina",
+            "Supreme Overlord",
+            "Surge Surfer",
+            "Thermal Exchange",
+            "Well-Baked Body",
+            "Wind Power",
+            "Wind Rider"
+        ] or self.is_weather_setter() or self.is_terrain_setter()
+    
+    def is_weather_booster(self):
+        return self.ability in ["Chlorophyll","Slush Rush","Swift Swim","Sand Rush","Solar Power"]
+    
+    def has_omni_boost(self):
+        return any(move in ["clangoroussoul","noretreat"] for move in self.moves)
+    
+    def has_off_def_spe_boost(self):
+        return any(move in ["quiverdance","victorydance"] for move in self.moves) or self.has_omni_boost()
+    
+    def has_off_spe_boost(self):
+        return any(move in ["dragondance", "tidyup", "shellsmash", "filletaway", "shiftgear"] for move in self.moves) or self.has_off_def_spe_boost()
+    
+    def has_off_def_boost(self):
+        return any(move in ["calmmind", "bulkup", "curse", "coil", "takeheart"] for move in self.moves) or self.has_off_def_spe_boost()
+    
+    def has_off_boost(self):
+        return any(move in ["swordsdance", "nastyplot", "bellydrum", "growth", "honeclaws", "howl", "workup", "tailglow", "torchsong"] for move in self.moves) or self.has_off_def_boost() or self.has_off_spe_boost()
+    
+    def has_spe_boost(self):
+        return any(move in ["agility", "rockpolish", "aquastep", "aurawheel", "esperwing", "flamecharge", "rapidspin", "scaleshot", "trailblaze"] for move in self.moves) or self.has_off_spe_boost()
+    
+    def has_def_boost(self):
+        return any(move in ["irondefense", "acidarmor", "cosmicpower"] for move in self.moves) or self.has_off_def_boost()
+    
+    def has_boost_move(self):
+        return self.has_off_boost() or self.has_spe_boost() or self.has_def_boost()
+
+    
 
 
 

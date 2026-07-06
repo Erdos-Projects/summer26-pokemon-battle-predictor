@@ -179,6 +179,7 @@ class FullPokemon:
         self.types = info_dict["types"]
         self.item = info_dict["item"]
         self.correct_stats()
+        self.stats["off"] = max(self.stats["atk"],self.stats["spa"]) # useful for comparing team total statistics
 
     def correct_stats(self):
         # Uses Palafin-Hero's stats

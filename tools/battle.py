@@ -109,6 +109,30 @@ class Pokemon:
     
 
 class FullPokemon:
+    """
+    A class for storing all data (item, ability, moves, stats) about an individual Pokemon in a specific battle.
+
+    Attributes
+    -----------
+    name : str
+        The informal name of the pokemon.  Does not contain forme information
+    speciesId: str
+        The formal name of the pokemon, all lower case, no spaces or special characters.  Contains forme information.
+    level : int
+        The level of the pokemon
+    moves : list[str]
+        A list of strings (all lower case, no spaces or special characters) corresponding to the moves the Pokemon knows.
+    ability : str
+        The ability of the Pokemon.
+    stats : dict of str : int
+        A dictionary whose keys are hp, atk, def, spa, spd, spe, off and whose values are the corresponding stat for the Pokemon.
+    types : list[str]
+        A list of the one or two types the Pokemon has.
+    item : str
+        The item the pokemon is holding.
+    """
+
+    # An ordered list of Pokemon types.
     TYPE_ARRAY = [
         "NORMAL",
         "FIRE",
@@ -130,6 +154,7 @@ class FullPokemon:
         "FAIRY",
         ]
 
+    # An list of lists indicating the effectiveness of the offensive type (axis = 0) against the defensive type (axis = 1)
     TYPE_CHART = [
     # Normal
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 1, 1, 0.5, 1],
@@ -170,6 +195,13 @@ class FullPokemon:
     ]
 
     def __init__(self,info_dict : dict):
+        """
+        Parameters
+        ----------
+        info_dict : dict
+            A dictionary formatted like the teams_full field in the files of the form battle_id.json.
+        """
+
         self.name = info_dict["name"]
         self.speciesId = info_dict["speciesId"]
         self.level = int(info_dict["level"])
@@ -181,7 +213,9 @@ class FullPokemon:
         self.correct_stats()
         self.stats["off"] = max(self.stats["atk"],self.stats["spa"]) # useful for comparing team total statistics
 
-    def correct_stats(self):
+    def correct_stats(self) -> None:
+        """Corrects stats for Palafin and Terapagos.  Should never be called outside of __init__."""
+
         # Uses Palafin-Hero's stats
         if self.name == "Palafin":
             self.stats = {
@@ -204,20 +238,58 @@ class FullPokemon:
             }
 
     @staticmethod
-    def get_type_index(type:str):
-        # with an input string (which is a single pokemon type), returns the index of that type in TYPE_ARRAY
+    def get_type_index(type:str) -> int:
+        """Given a type represented by a string, returns the index of that type in TYPE_ARRAY.
+        
+        Parameters
+        ----------
+        type: str
+            A string representation of the type you want the index of.  Can satisfy any capitalization convention.
+            
+        Returns
+        -------
+        int
+            The index of the argument in TYPE_ARRAY."""
+        
         return FullPokemon.TYPE_ARRAY.index(type.upper())
 
     @staticmethod
-    def eff(t1: str, t2: str):
-        # returns the effectiveness multiplier if an attack of type t1 is used against a pokemon of type t2 (not accounting for moves, abilities, berries, etc.)
+    def eff(t1: str, t2: str) -> float:
+        """Is used to represtent the type chart.  Returns the damage multiplier if an attack of type t1 is used against a (monotype) Pokemon of type t2.
+        
+        Parameters
+        ----------
+        t1 : str
+            A string representation of the type of the attack.
+        t2 : str
+            A string representation of the type of the Pokemon being attacked.
+            
+        Returns
+        -------
+        float
+            The damage multiplier if an attack of type t1 is used against a (monotype) Pokemon of type t2."""
+        
         return FullPokemon.TYPE_CHART[FullPokemon.get_type_index(t1)][FullPokemon.get_type_index(t2)]
 
     @staticmethod
-    def type_multiplier(m1: "FullPokemon", m2: "FullPokemon"):
-        # returns an approximation of STAB * Type for an attack of m1 against m2.  It assumes m1 is using its best STAB, or in the case that its best STAB is
-        # extremely ineffective or worse, a not-very-effective coverage move.
-        # Could eventually be modified to account for actual moves known.
+    def type_multiplier(m1: "FullPokemon", m2: "FullPokemon") -> float:
+        """Is used to approximate STAB * Type in the damage calculation where m1 uses its best (assumed) attack against m2.
+        
+        This method assumes that m1 is using its best STAB against m2.  In the case that m1's best STAB is at most 1/4 effective against m2,
+        the method allows m1 to have a not-very-effective coverage move against m2.
+        
+        Parameters
+        ----------
+        m1: FullPokemon
+            The attacking Pokemon.
+        m2 : FullPokemon
+            The defending Pokemon.
+            
+        Returns
+        -------
+        float
+            An approximation of the STAB * Type multiplier for m1's best attack against m2."""
+        
         stab_multiplier = 1.5
         if m1.ability == "Adaptability":
             stab_multiplier = 2
@@ -233,12 +305,39 @@ class FullPokemon:
         return max(1/2,toReturn)
     
     
-    def stat_multiplier(self,stat:str):
+    def stat_multiplier(self,stat:str) -> float:
+        """Returns the multiplier to stat that self gets from its ability and held item.
+
+        Note that this is *different* than a damage multiplier (e.g. from a Life Orb).
+
+        Parameters
+        ----------
+        stat : str
+            The string representation of the stat being multiplied.
+
+        Returns
+        -------
+        float
+            The multiplier that self gets to stat from its ability and held item.
+        """
+
         return self.item_stat_multiplier(stat) * self.mon_stat_multiplier(stat)
     
-    # This is for special pokemon which have built-in stat boosts
-    def mon_stat_multiplier(self,stat:str):
-        if self.name == "Chien-Pao" and stat == 'atk':
+    
+    def mon_stat_multiplier(self,stat:str) -> float:
+        """Returns the multiplier that this Pokemon gets to stat due to its ability.
+        
+        Parameters
+        ----------
+        stat : str
+            The string representation of the stat being multiplied.
+            
+        Returns
+        -------
+        float
+            The multiplier that self gets to stat from its ability."""
+        
+        if self.name == "Chien-Pao" and stat == 'atk': # This is coming from its ability Sword of Ruin.  I just would rather type Chien-Pao than Sword of Ruin (ditto for the other Ruin pokemon)
             return 4/3
         elif self.name == "Chi-Yu" and stat == 'spa':
             return 4/3
@@ -259,8 +358,22 @@ class FullPokemon:
         else:
             return 1
 
-    # This is for choice items, eviolite, assault vest, and other items which alter stats    
-    def item_stat_multiplier(self,stat:str):
+    
+    def item_stat_multiplier(self,stat:str) -> float:
+        """Returns the multiplier that self gets to stat coming from its item.
+        
+        Does not include Life Orb because that is a damage multiplier, not a stat multiplier.
+        
+        Parameters
+        ----------
+        stat : str
+            The string representation of the stat being multiplied.
+        
+        Returns
+        -------
+        float
+            The multiplier that self gets to stat from its item."""
+        
         if self.item == "Choice Band" and stat == 'atk':
             return 1.5
         elif self.item == "Choice Specs" and stat == 'spa':
@@ -276,8 +389,16 @@ class FullPokemon:
         else:
             return 1
         
-    # Life orbs and the like increase *damage* by a constant factor, not stats
-    def damage_multiplier(self):
+
+    def damage_multiplier(self) -> float:
+        """Returns the multiplier that self gets to the damage that it deals coming from its item.
+        
+        Returns
+        -------
+        float
+            The multiplier that self gets to the damage that it deals coming from its item.
+        """
+
         if self.item == "Life Orb":
             return 5324/4096
         elif self.item in ["Soul Dew","Adamant Orb","Griseous Orb","Lustrous Orb", "Hearthflame Mask", "Wellspring Mask", "Cornerstone Mask"]:
@@ -285,9 +406,28 @@ class FullPokemon:
         else:
             return 1
         
-    # Deals with Ditto shenanigans
+    
     @staticmethod
-    def ditto_transform(m1: "FullPokemon", m2 : "FullPokemon"):
+    def ditto_transform(m1: "FullPokemon", m2 : "FullPokemon") -> tuple["FullPokemon","FullPokemon"]:
+        """Transforms Ditto into its opposing Pokemon.
+        
+        Note: I'm not sure the stats are quite right here.  Ditto definitely keeps its HP stat, but does it copy its opponent's stats, or does it copy
+        its opponent's EVs/IVs?  I think it's the former, but am not certain.  I also think Ditto keeps its own level, but am least certain of this.
+        
+        Parameters
+        ----------
+        m1 : FullPokemon
+            A pokemon that may be a Ditto.
+        m2 : FullPokemon
+            A pokemon that may be a Ditto.
+            
+        Returns
+        -------
+        tuple[FullPokemon,FullPokemon]
+            A pair of FullPokemon where if mi is not a Ditto, then mi is returned unchanged in position i.  However, if mi is a Ditto, this returns 
+            a copy of mj in place of mi, but with Ditto's level, HP stat, and item.
+        """
+        
         if m1.name == "Ditto":
             m1 = copy.deepcopy(m2)
             m1.stats["hp"] = 225
@@ -301,14 +441,34 @@ class FullPokemon:
         return m1,m2
 
     @staticmethod 
-    def damage(m1 : "FullPokemon", m2 : "FullPokemon"):
-        # returns an approximation of the average fraction of m2's maximum HP that m1 would do to m2 if it used its best STAB, or in the case that its best STAB is extremely
-        # ineffective or worse, a not-very-effective coverage move.
-        # Uses the 'actual' damage formula, but makes assumptions like 'there is no weather' and 'm2 does not have Levitate'.
-        # Tends to run a bit larger than average because the actual formula uses floor functions in places and here, we do not.
-        # If we do turn-by-turn predictions, this can be modified to use m2's current HP rather than max HP
+    def damage(m1 : "FullPokemon", m2 : "FullPokemon") -> float:
+        """Returns an approximation of the average fraction of m2's maximum HP that m2 would lose if m1 used its best attack against m2.
+        
+        Here, 'best attack' means best 80 base power STAB attack in category self.stats['off'] with no secondary effects UNLESS such a STAB attack is no more
+        than 1/4 effective against m2, in which case m1 uses a not-very-effective 80 base power coverage attack in category self.stats['off'].
+        
+        Makes assumptions that there are no weather effects nor abilities which alter damage other than those which directly affect statistics nor
+        items which alter damage other than those documented in FullPokemon.damage_multiplier().
+        
+        Tends to run a bit large because the actual damage formula uses floor functions and this does not.
+        
+        Handles Ditto by first applying FullPokemon.ditto_transform(m1,m2).
+        
+        Parameters
+        ----------
+        m1 : FullPokemon
+            The attacking Pokemon.
+        m2 : FullPokemon
+            The defending Pokemon.
+            
+        Returns
+        -------
+        float
+            An approximation of the fraction of m2's maximum HP that m2 would lose if m1 used its best attack against m2.
+        """
 
-        # Assume Ditto has transformed into its opponent
+        # If we do turn-by-turn predictions, this can be modified to use m2's current HP rather than max HP
+        # Transform Ditto into its opponent
         m1,m2 = FullPokemon.ditto_transform(m1,m2)
         # proceed as normal
         m1_off_stat = max(m1.stats['atk'],m1.stats['spa'])
@@ -323,30 +483,53 @@ class FullPokemon:
         return ((2*m1.level/5 + 2) * 80 * m1_off_stat / m2_def_stat / 50 + 2) * type_mult * dam_mult * 92.5 / 100 / m2.stats["hp"]
     
     @staticmethod
-    def one_v_one_damage(m1: "FullPokemon", m2 : "FullPokemon"):
-        # returns (d1,d2) where d1 is the fraction of m2's max HP that m1 would remove if it constantly clicked its best STAB move into m2 until
-        # there is a KO and d2 is the fraction of m1's HP that m2 would remove if it constantly clicked its best STAB move into m1 until a KO.
-        # both coordinates are guaranteed to be greater than 0
-        # one coordinate is guaranteed to be at least 1
-        # coordinates are allowed to be greater than 1 to account for things like screens
+    def one_v_one_damage(m1: "FullPokemon", m2 : "FullPokemon") -> tuple[float,float]:
+        """Returns a pair (d1,d2) where di is the fraction of mj's HP that it would lose in a one-on-one matchup against mi.
 
-        # Assume Ditto has transformed into its opponent
+        Specifically, it assumes that each mon repeatedly uses its best attack (in the sense of FullPokemon.damage(m1,m2)) into the other 
+        until there is a KO.
+
+        Each di is a allowed to exceed 1 to indirectly account for things like screens and resistance berries.
+
+        Parameters
+        ----------
+        m1 : FullPokemon
+            A Pokemon
+        m2 : FullPokemon
+            A Pokemon
+        
+        Returns
+        -------
+        tuple[float,float]
+            The pair (d1,d2) where di is the fraction of mj's HP that it would lose in a one-on-one matchup against mi.
+        """
+
+        # Transform Ditto into its opponent
         m1_ditto = (m1.name == "Ditto")
         m2_ditto = (m2.name == "Ditto")
         m1,m2 = FullPokemon.ditto_transform(m1,m2)
+
+        # Compute one-turn damages
         m1_to_m2_damage = FullPokemon.damage(m1,m2)
         m2_to_m1_damage = FullPokemon.damage(m2,m1)
-        m1_ttko_m2 = ceil(1/min(1,m1_to_m2_damage)) # number of turns it would take for m1 to KO m2 by constantly selecting its best STAB move.
-        m2_ttko_m1 = ceil(1/min(1,m2_to_m1_damage)) # same as above but for m2 to KO m1
+
+        # Compute the number of turns until there is a KO
+        m1_ttko_m2 = ceil(1/min(1,m1_to_m2_damage))
+        m2_ttko_m1 = ceil(1/min(1,m2_to_m1_damage))
         turn_of_ko = min(m1_ttko_m2,m2_ttko_m1)
+
+        # Account for any stat changes to speed (only Choice Scarves for now)
         m1_spe = m1.stats["spe"] * m1.stat_multiplier("spe")
         m2_spe = m2.stats["spe"] * m2.stat_multiplier("spe")
-        # handle the fact that Ditto only has 5 PP per move (and it is locked into one move because of the Scarf); this is awkward, could be revisited
+
+        # handle the fact that Ditto only has 5 PP per move (and it is locked into one move because of the Scarf);
+        # this is awkward, could be revisited
         if m1_ditto and turn_of_ko > 5:
             return (5 * m1_to_m2_damage, turn_of_ko * m2_to_m1_damage)
         elif m2_ditto and turn_of_ko > 5:
             return (turn_of_ko * m1_to_m2_damage, 5 * m2_to_m1_damage)
-        # this is now the 'normal' case
+        
+        # this is now the 'normal' case (when there either is no Ditto or toko <= 5)
         elif m1_spe > m2_spe and turn_of_ko == m1_ttko_m2: # if m1 is faster and KOs m2, m1 gets one more turn than m2
             return (turn_of_ko * m1_to_m2_damage,(turn_of_ko-1) * m2_to_m1_damage)
         elif m1_spe < m2_spe and turn_of_ko == m2_ttko_m1: # if m2 is faster and KOs m1, m2 gets one more turn than m1
@@ -355,47 +538,147 @@ class FullPokemon:
             return (turn_of_ko * m1_to_m2_damage, turn_of_ko * m2_to_m1_damage)
     
     @staticmethod
-    def advantage(m1: "FullPokemon", m2: "FullPokemon"):
-        # returns the hypothetical damage differential in a 1v1 matchup between m1 and m2 where each mon only selected their best STAB attack.
-        # positive values indicate that m1 has the advantage where negative values indicate that m2 has the advantage.
-        # larger magnitude indicates the strength of the advantage
+    def advantage(m1: "FullPokemon", m2: "FullPokemon") -> float:
+        """Returns the damage differential in a one-on-one matchup featuring m1 against m2.
+        
+        Symmetric about 0.  Additive.  Larger values indicate that m1 has a stronger advantage.
+        
+        Parameters
+        ----------
+        m1 : FullPokemon
+            A Pokemon.
+        m2 : FullPokemon
+            A Pokemon.
+            
+        Returns
+        -------
+        float
+            The damage differential in a one-v-one matchup featuring m1 against m2."""
+        
         m1_to_m2_damage,m2_to_m1_damage = FullPokemon.one_v_one_damage(m1,m2)
         return m1_to_m2_damage - m2_to_m1_damage
     
 
-
-    # Now we have a bunch of features we may want to test for
-    def is_trapper(self):
+    def is_trapper(self) -> bool:
+        """Returns True if and only if self has an ability that prevents opponents from switching.
+        
+        Returns
+        -------
+        bool
+            True if and only if self has an ability that prevents opponents from switching."""
+        
         return self.ability in ["Arena Trap", "Shadow Tag", "Magnet Pull"]
     
-    def is_type_changer(self):
+    def is_type_changer(self) -> bool:
+        """Returns True if and only if self has an ability that allows it to change types during battle.
+        
+        Returns
+        -------
+        bool
+            True if and only if self has an ability that allows it to change types during battle."""
+        
         return self.ability in ["Libero","Protean"]
     
-    def is_weather_setter(self):
+    def is_weather_setter(self) -> bool:
+        """Returns True if and only if self has an ability that sets a weather condition when it switches in.
+        
+        Returns
+        -------
+        bool
+            True if and only if self has an ability that sets a weather condition when it switches in.
+        """
+
         return self.ability in ["Drought", "Drizzle", "Snow Warning", "Sand Stream", "Orichalcum Pulse"]
     
-    def is_terrain_setter(self):
+    def is_terrain_setter(self) -> bool:
+        """Returns True if and only if self has an ability that sets a terrain when it switches in.
+        
+        Returns
+        -------
+        bool    
+            True if and only if self has an ability that sets a terrain when it switches in."""
+        
         return self.ability in ["Electric Surge", "Grassy Surge", "Psychic Surge", "Misty Surge", "Hadron Engine", "Seed Sower"]
     
-    def is_stat_drop_resistor(self):
-        return self.ability in ["Competitive", "Defiant", "Contrary",]#skipping: "Clear Body", "Hyper Cutter", "Inner Focus", "Oblivious", "Own Tempo", "Full Metal Body", "Guard Dog", "Scrappy"]
+    def is_stat_drop_resistor(self) -> bool:
+        """Returns True if self has one of the 'good' abilities that allows it to resist its stats being lowered by an opponent.
+        
+        Returns
+        -------
+        bool
+            True if self has one of the 'good' abilities that allows it to resist its stats being lowered by an opponent."""
+        
+        return self.ability in ["Competitive", "Defiant", "Contrary",]#skipping only because these were not predictive: "Clear Body", "Hyper Cutter", "Inner Focus", "Oblivious", "Own Tempo", "Full Metal Body", "Guard Dog", "Scrappy"]
     
-    def is_absorber(self):
+    def is_absorber(self) -> bool:
+        """"Returns True if and only if self has an ability that grants self a benefit from being hit by attacks of a certain type.
+        
+        Returns
+        -------
+        bool
+            True if and only if self has has an ability that grants self a benefit from being hit by attacks of a certain type."""
+        
         return self.ability in ["Dry Skin", "Water Absorb", "Volt Absorb", "Earth Eater", "Flash Fire", "Lightning Rod", "Sap Sipper", "Storm Drain", "Well-Baked Body", "Motor Drive"]
     
-    def has_extra_immunities(self):
+    def has_extra_immunities(self) -> bool:
+        """Returns True if and only if self has an ability that grants it an immunity to certain moves that it would not otherwise have.
+        
+        Returns
+        -------
+        bool
+            True if and only if self has an ability that grants it an immunity to certain moves that it would not otherwise have."""
+            
         return self.is_absorber() or self.ability in ["Levitate","Bulletproof","Soundproof","Wind Rider"]
     
-    def is_status_resistor(self):
+    def is_status_resistor(self) -> bool:
+        """Returns True if self has one of the 'good' abilities that allow it to resist status conditions or moves.
+        
+        Returns
+        -------
+        bool
+            True if self has one of the 'good' abilities that allow it to resist status conditions or moves."""
+        
         return self.ability in ["Good as Gold", "Purifying Salt", "Magic Bounce", "Poison Heal", "Guts", "Toxic Boost",]# skipping: "Comatose", "Insomnia", "Quick Feet", "Sweet Veil", "Vital Spirit", "Water Veil"
     
-    def is_contact_punisher(self):# skipping "Tangling Hair" as that's only on Dugtrio-A
-        return self.ability in ["Flame Body", "Static", "Rough Skin", "Effect Spore", "Gooey"] or self.item in ["Rocky Helmet"]
+    def is_contact_punisher(self) -> bool:
+        """Returns True if self has one of the 'good' abilities or items that allow it to punish opponents' contact moves.
+        
+        Returns
+        -------
+        bool
+            True if self has one of the 'good' abilities or items that allow it to punish opponents' contact moves."""
+        
+        return self.ability in ["Flame Body", "Static", "Rough Skin", "Effect Spore", "Gooey"] or self.item in ["Rocky Helmet"] # skipping "Tangling Hair" as that's only on Dugtrio-A
     
-    def is_ability_ignorer(self):
+    def is_ability_ignorer(self) -> bool:
+        """Returns True if and only if self has an ability that allows it to ignore its opponent's ability in some capacity.
+        
+        Returns
+        -------
+        bool
+            True if and only if self has an ability that allows it to ignore its opponent's ability in some capacity."""
+        
         return self.ability in ["Mold Breaker", "Teravolt", "Turboblaze", "Neutralizing Gas"]
     
-    def has_boosting_ability(self):
+    def is_weather_booster(self) -> bool:
+        """Returns True if and only if self has an ability that boosts its stats in weather.
+        
+        Returns
+        -------
+        bool
+            True if and only if self has an ability that boosts its stats in weather."""
+        return self.ability in ["Chlorophyll","Slush Rush","Swift Swim","Sand Rush","Solar Power"]
+    
+    def has_boosting_ability(self) -> bool:
+        """Returns True if and only if self has an ability that allow it to boost its stats or damage dealt under certain circumstances.
+        
+        These are generally abilities that are hard to bake into the advantage stat, so we treat them categorically instead.
+        
+        Returns
+        -------
+        bool
+            True if and only if self has an ability that allow it to boost its stats or damage dealt under certain circumstances."""
+        
         return self.ability in [
             "Galvanize",
             "Ice Scales",
@@ -445,33 +728,86 @@ class FullPokemon:
             "Well-Baked Body",
             "Wind Power",
             "Wind Rider"
-        ] or self.is_weather_setter() or self.is_terrain_setter()
+        ] or self.is_weather_setter() or self.is_terrain_setter() or self.is_stat_drop_resistor() or self.is_weather_booster()
     
-    def is_weather_booster(self):
-        return self.ability in ["Chlorophyll","Slush Rush","Swift Swim","Sand Rush","Solar Power"]
-    
-    def has_omni_boost(self):
+    def has_omni_boost(self) -> bool:
+        """Returns True if and only if self has a move that boosts all of its stats.
+        
+        Returns
+        -------
+        bool
+            True if and only if self has a move that boosts all of its stats."""
+        
         return any(move in ["clangoroussoul","noretreat"] for move in self.moves)
     
-    def has_off_def_spe_boost(self):
+    def has_off_def_spe_boost(self) -> bool:
+        """Returns True if and only if self has a move that boosts its offensive stat, speed, and a defensive stat.
+        
+        Returns
+        -------
+        bool
+            True if and only if self has a move that boosts its offensive stat, speed, and a defensive stat."""
+        
         return any(move in ["quiverdance","victorydance"] for move in self.moves) or self.has_omni_boost()
     
-    def has_off_spe_boost(self):
+    def has_off_spe_boost(self) -> bool:
+        """Returns True if and only if self has a move that boosts its offensive stat and its speed.
+        
+        Returns
+        -------
+        bool
+            True if and only if self has a move that boosts its offensive stat and its speed."""
+        
         return any(move in ["dragondance", "tidyup", "shellsmash", "filletaway", "shiftgear"] for move in self.moves) or self.has_off_def_spe_boost()
     
-    def has_off_def_boost(self):
+    def has_off_def_boost(self) -> bool:
+        """Returns True if and only if self has a move that boosts its offensive stat and a defensive stat.
+        
+        Returns
+        -------
+        bool
+            True if and only if self has a move that boosts its offensive stat and a defensive stat."""
+        
         return any(move in ["calmmind", "bulkup", "curse", "coil", "takeheart"] for move in self.moves) or self.has_off_def_spe_boost()
     
-    def has_off_boost(self):
+    def has_off_boost(self) -> bool:
+        """Returns True if and only if self has a move that boosts its offensive stat.
+        
+        Returns
+        -------
+        bool
+            True if and only if self has a move that boosts its offensive stat."""
+        
         return any(move in ["swordsdance", "nastyplot", "bellydrum", "growth", "honeclaws", "howl", "workup", "tailglow", "torchsong"] for move in self.moves) or self.has_off_def_boost() or self.has_off_spe_boost()
     
-    def has_spe_boost(self):
+    def has_spe_boost(self) -> bool:
+        """Returns True if and only if self has a move that boosts its speed stat.
+        
+        Returns
+        -------
+        bool
+            True if and only if self has a move that boosts its speed stat."""
+        
         return any(move in ["agility", "rockpolish", "aquastep", "aurawheel", "esperwing", "flamecharge", "rapidspin", "scaleshot", "trailblaze"] for move in self.moves) or self.has_off_spe_boost()
     
-    def has_def_boost(self):
+    def has_def_boost(self) -> bool:
+        """Returns True if and only if self has a move that boosts a defensive stat.
+        
+        Returns
+        -------
+        bool
+            True if and only if self has a move that boosts a defensive stat."""
+        
         return any(move in ["irondefense", "acidarmor", "cosmicpower"] for move in self.moves) or self.has_off_def_boost()
     
-    def has_boost_move(self):
+    def has_boost_move(self) -> bool:
+        """Returns True if and only if self has a move that boosts one of its stats.
+        
+        Returns
+        -------
+        bool
+            True if and only if self has a move that boosts one of its stats."""
+        
         return self.has_off_boost() or self.has_spe_boost() or self.has_def_boost()
 
     

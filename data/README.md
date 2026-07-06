@@ -36,11 +36,11 @@ Columns 1&ndash;23 (indices `[0,23)`) contain:
 Note: Here 'side' refers to whether the player was logged as 'player1' or 'player2'; these are redundant with the labels `p1____`, `p2____` but we include them just for completeness.
 
 17. `type_diversity_diff: int` Equal to #(types on Team1) &ndash; #(types on Team2)
-18. `num_boosting_abilities_diff: int`
-19. `num_move_boosters_diff: int`
-20. `total_stat_diff: int`
-21. `p1_total_adv: int`
-22. `p1_revealed_team_size: int` Number of distinct Pokemon fielded in battle.
+18. `num_boosting_abilities_diff: int` Equal to the differential in the number of distinct Pokemon with "situational boosting abilities" (i.e. abilities that sometimes--but not always--boost damage or stats and hence, are difficult to account for in the advantage stat).
+19. `num_move_boosters_diff: int` Equal to the differential in the number of distinct Pokemon which have moves that are capable of boosting their own stats.  Again, these are difficult to account for in the advantage stat.
+20. `total_stat_diff: int` Equal to the differential in the sum of the (relevant) statistics of all Pokemon on each team.  Letting `M{i}{j}` be the pokemon in the jth position of team i, it takes the sum of `M{1}{j}_{stat}` where j ranges from 1 to 6 and stat ranges across HP, max(atk, spa), def, spd, spe.  Then it subtracts the corresponding sum of `M{2}{j}_{stat}`.
+21. `p1_total_adv: float` Equal to the sum of all `FullPokemon.advantage(M{1}{j},M{2}{k})` as j and k range from 1 to 6.
+22. `p1_revealed_team_size: int` Number of distinct Pokemon fielded on team1 in battle.
 23. `p2_revealed_team_size: int` "    "
 
 **<u>Individual Pokemon Data</u>**  

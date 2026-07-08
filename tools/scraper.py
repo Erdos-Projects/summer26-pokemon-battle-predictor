@@ -1,38 +1,95 @@
 #!/usr/bin/env python3
+'''
+Automate scraping pages of battles from PS, getting their respective replays, 
+and saving them to disk. The 'main' function is toward the end.
 
-# Summary: 
-# Automate scraping pages of battles from PS, getting their respective replays, 
-# and saving them to disk. The 'main' function is toward the end.
+Roughly, we 
+    1. Pull pages full of Battles;
+    2. Get `battle_id`s from each Battle;
+    3. Pull and write the Replay using the `battle_id`.
+'''
 
-
-import json, os, time
-import logging, requests
-from dataclasses import dataclass, asdict
-from pathlib import Path
+import os, sys
+import json, time
 import typing
-from urllib.parse import urlencode, urljoin
+import logging, requests
 
-
-import re # for regex things
+from pathlib import Path
+from dataclasses import dataclass
+from urllib.parse import urlencode
 
 # Useful 'constants'
 SEARCH_BASE_URL = "https://replay.pokemonshowdown.com/api/replays/search"
 REPLAY_BASE_URL = "https://replay.pokemonshowdown.com/"
 USER_BASE_URL = "https://pokemonshowdown.com/users/"
 
-REPLAY_DIR = Path('../data/replays/')
-
 # Only needed if you want messages to appear when an error, etc. occurs
 logger = logging.getLogger()
 logger.setLevel(logging.ERROR)
 
+# ensuring directory exists
+# ===============================================
+def extantDir(path):
+    try:
+        Path(path).mkdir(exist_ok=True)
+    except OSError as e:
+        logger.error("failed to create dir %s: %s", path, e)
+        raise SystemExit(1)
+    return Path(path)
+
+    
+# ===============================================
+# for parsing CLI args
+import argparse
+
+parser = argparse.ArgumentParser(
+    description="Scrapes battle JSONs from pokemonshowdown.com."
+)
+
+# positional
+parser.add_argument(
+    "outDir",
+    type=extantDir,
+    help="Dir for replays"
+)  
+
+# flags
+parser.add_argument(
+    "-v", "--verbose", 
+    action="store_true",    # boolean flag
+    help="Enable verbose output; default=`False`"
+)
+
+parser.add_argument(
+    "--fmt",
+    type=str,
+    default="gen9-randombattle", 
+    help="Battle format; default=`gen9-randombattle`"
+)
+
+parser.add_argument(
+    "--start", 
+    type=int,
+    default=3,
+    help="starting page number; default=3, capped at 100"
+)
+
+parser.add_argument(
+    "--end", 
+    type=int,
+    default=100,
+    help="ending page number; default=100, and capped at 100"
+) 
+
+parser.add_argument(
+    "--pause", 
+    type=float,
+    default=2,
+    help="seconds to 'sleep' between each page; default=2; NOTE: recommend >= .50 to avoid response denial"
+)   
 
 
-# Roughly, we 
-#    1. Pull pages full of Battles;
-#    2. Get `battle_id`s from each Battle;
-#    3. Pull and write the Replay using the `battle_id`.
-# 
+# ===============================================
 @dataclass
 class Replay:
     id: str
@@ -49,19 +106,36 @@ class Replay:
 
 
 
-# ensuring directory exists
 # ===============================================
-def ensure_dir(name):
-    try:
-        Path(name).mkdir(exist_ok=True)
-    except OSError as e:
-        logger.error("failed to create dir %s: %s", name, e)
-        raise SystemExit(1)
+# Core functions
+# ===============================================
+def scrape_replays(out_dir, page_num, fmt=""):
+    '''
+    Search page, get battle Replays, and write to file.
+    '''
     
+    page = get_page(page_num, fmt) # [[1]]
+    
+    if page == [] : 
+        print(f"Failed to get page {page_num}.")
+        return None
+    
+    for battle in page :
+        replay = get_replay(battle['id']) # [[2]]
+        if replay is None:
+            logger.error("failed to get replay %s", battle['id'])
+            return None
+        
+        # Writing
+        out_file = out_dir / f"{replay.id}.json"
+        
+        try:
+            out_file.write_text(json.dumps(replay.__dict__), encoding="utf-8")
+        except OSError as e:
+            logger.error("failed to save replay %s : %s", battle['id'], e)
 
-
-# 'getters'
-# ===============================================
+# [[1]]
+# ===========================
 def get_page(page_num, fmt=''):
     '''
     Returns a list of dicts, with each dict corresponding to a `json` of a battle.
@@ -97,19 +171,17 @@ def get_page(page_num, fmt=''):
         return []
     return data
 
-
+# [[2]]
 # ===========================
 def get_replay(battle_id: str) -> Replay:
     '''
-    Returns a Replay object pulled using the unique battle_id.
-    
-    Much like `get_page` in function .
+    Returns a Replay object pulled using the unique battle_id. Much like `get_page` in function .
     '''
     
     url = REPLAY_BASE_URL + f'{battle_id}' + '.json'
     
     try:
-        response = requests.get(url, timeout=30)
+        response = requests.get(url, timeout=10)
         response.raise_for_status()
     except requests.RequestException as e:
         logger.error("failed to get replay: %s", e)
@@ -136,57 +208,41 @@ def get_replay(battle_id: str) -> Replay:
     )
 
 
-# Definition
-def scrape_replays(page_num, fmt=""):
-    '''
-    Search page, get battle Replays, and write to file.
-    '''
-    
-    # main page-scraping
-    page = get_page(page_num, fmt)
-    
-    if page == [] : 
-        print(f"Failed to get page {page_num}.")
-        return None
-    
-    for battle in page :
-        # main replay-scraping
-        replay = get_replay(battle['id'])
-        if replay is None:
-            logger.error("failed to get replay %s", battle['id'])
-            return None
-        
-        # Writing
-        if fmt == "" : 
-            out_path = REPLAY_DIR / f"{replay.id}.json"
-        else : 
-            out_path = REPLAY_DIR / f"gen9-randombattle_3/{replay.id}.json"
-        
-        try:
-            out_path.write_text(json.dumps(replay.__dict__), encoding="utf-8")
-        except OSError as e:
-            logger.error("failed to save replay %s : %s", battle['id'], e)
-
-
 
 # ===============================================
+# MAIN
+# ===============================================
 def main():
-    # Automation/Running
-    FORMAT='gen9-randombattle';
+    args = parser.parse_args()
 
-    ensure_dir('../data/replays/')
-    ensure_dir('../data/replays/'+FORMAT+'_3')
+    V = args.verbose
+    FMT = args.fmt
+    START = args.start
+    END = args.end
+    PAUSE = args.pause
+    OUT = args.outDir
+    
+    # some basic checks
+    if not ((1 <= START <= 100) and (type(START)==int)) :
+        parser.error("START should be in {1,...,100}; use -h for details")
+    if not ((1 <= END <= 100) and (type(END)==int)) :
+        parser.error("END should be in {1,...,100}; use -h for details")
+    if not (START <= END) :
+        parser.error("need START <= END")
+    if not (PAUSE >= 0.5) :
+        parser.error("PAUSE should be >= 0.5 to avoid connection denial")
 
-    PAUSE = 3; # seconds between pages; NOTE: Should be at least 1 to safely avoid connection denial.
+    # Note: recommend START >= 2 because ongoing battles may occur on page 1; 
+    # END capped at 100 b/c no further results provided
+    for j in range(START,END+1): 
+        if V : print(f"Now working on page {j}.")
+        scrape_replays(OUT, j, fmt=FMT)
+        if (j<END) : 
+            if V : print(f"    Done; taking a {PAUSE} second break.")
+            time.sleep(PAUSE)
+        elif (j==END) : 
+            print("All done.")
 
-    # Note: even trying searching manually, it seems results stop at page 100
-    for j in range(5,100): 
-        print(f"Now working on page {j}.")
-        
-        scrape_replays(j, fmt=FORMAT)
-        
-        print(f"\tDone; taking a {PAUSE} second break.")
-        time.sleep(PAUSE)
-
+# ===============================================
 if __name__ == "__main__":
     main()

@@ -1,0 +1,59 @@
+diff --git a/package.json b/package.json
+index bcb92a437..41a5176c7 100644
+--- a/package.json
++++ b/package.json
+@@ -33,6 +33,7 @@
+   },
+   "scripts": {
+     "start": "node pokemon-showdown start",
++    "start-team-generator": "node pokemon-showdown team-generator-server",
+     "build": "node build",
+     "build-npm": "node build && npx tsc sim/global-types.ts sim/index.ts --declaration --emitDeclarationOnly --declarationDir dist/ --target es2020 --strict --moduleResolution node --types node --lib es2020",
+     "test-npm": "npx tsc sim/global-types.ts sim/index.ts --noEmit --target es2020 --strict --moduleResolution node --types node --lib es2020",
+diff --git a/pokemon-showdown b/pokemon-showdown
+index 11c278897..cc5812cdb 100755
+--- a/pokemon-showdown
++++ b/pokemon-showdown
+@@ -23,6 +23,8 @@
+ // with the latest code.
+ var fs = require('fs');
+ var util = require('util');
++const {createServer} = require("node:http");
++const {listen} = require("githubhook");
+ var cli = null;
+ 
+ function build() {
+@@ -274,6 +276,33 @@ if (!cli.positionals.length || /^[0-9]+$/.test(cli.positionals[0])) {
+ 			});
+ 		}
+ 		break;
++	case 'team-generator-server':
++		const http = require('http');
++		const {URL} = require('url');
++		const querystring = require('querystring');
++
++		const teams = require('./dist/sim/teams.js').Teams;
++		const server = createServer((req, res) => {
++			// Using the newer URL API (Node.js 10+)
++			const baseURL = 'http://'+req.headers.host+'/';
++			const parsedUrl = new URL(req.url, baseURL);
++
++			// Get query parameters
++			const params = Object.fromEntries(parsedUrl.searchParams);
++
++			res.writeHead(200, { 'Content-Type': 'application/json' });
++			res.end(JSON.stringify(
++				teams.generate(
++					params['format'],
++					{seed: params['seed']}
++				)
++			));
++		});
++		const port = 3000;
++		server.listen(port, () => {
++			console.log(`Server running at http://localhost:${port}/`);
++		});
++		break;
+ 	default:
+ 		console.error('Unrecognized command: ' + cli.positionals[0]);
+ 		console.error('Use `pokemon-showdown help` for help');

@@ -16,3 +16,8 @@ misc/scrap_eda/report.html
 tools/__pycache__/__init__.cpython-312.pyc
 tools/__pycache__/__init__.cpython-312.pyc
 */__pycache__/*
+/data/test_data_replays/*
+/data/data_cleaned.csv
+/data/test_data_cleaned.csv
+/tools/pokedex_raw.json
+/tools/cli_tests.py

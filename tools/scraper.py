@@ -55,9 +55,9 @@ parser.add_argument(
 
 # flags
 parser.add_argument(
-    "-v", "--verbose", 
+    "-q", "--quiet", 
     action="store_true",    # boolean flag
-    help="Enable verbose output; default=`False`"
+    help="Do not print page progress; default=`False`"
 )
 
 parser.add_argument(
@@ -71,21 +71,21 @@ parser.add_argument(
     "--start", 
     type=int,
     default=3,
-    help="starting page number; default=3, capped at 100"
+    help="Starting page number; default=3, capped at 100"
 )
 
 parser.add_argument(
     "--end", 
     type=int,
     default=100,
-    help="ending page number; default=100, and capped at 100"
+    help="Ending page number; default=100, and capped at 100"
 ) 
 
 parser.add_argument(
     "--pause", 
     type=float,
     default=2,
-    help="seconds to 'sleep' between each page; default=2; NOTE: recommend >= .50 to avoid response denial"
+    help="Seconds to 'sleep' between each page; default=2; NOTE: recommend >= .50 to avoid response denial"
 )   
 
 
@@ -215,7 +215,7 @@ def get_replay(battle_id: str) -> Replay:
 def main():
     args = parser.parse_args()
 
-    V = args.verbose
+    Q = args.quiet
     FMT = args.fmt
     START = args.start
     END = args.end
@@ -235,10 +235,10 @@ def main():
     # Note: recommend START >= 2 because ongoing battles may occur on page 1; 
     # END capped at 100 b/c no further results provided
     for j in range(START,END+1): 
-        if V : print(f"Now working on page {j}.")
+        if not Q : print(f"Now working on page {j}.")
         scrape_replays(OUT, j, fmt=FMT)
         if (j<END) : 
-            if V : print(f"    Done; taking a {PAUSE} second break.")
+            if not Q : print(f"    Done; taking a {PAUSE} second break.")
             time.sleep(PAUSE)
         elif (j==END) : 
             print("All done.")

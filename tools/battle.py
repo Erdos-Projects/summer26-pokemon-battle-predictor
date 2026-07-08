@@ -6,50 +6,12 @@ Overview of battle.py
 
 `Player` class: 
 ---------------------------------------
-    * .name: str
-    * .side: int # 1 or 2
-    * .elo0: int # Elo at match start
-    * .elo1: int # Elo after match
+    
 
 The dataclasses `Team` and `Pokemon` seen below are fairly self-explanatory.
     * The `Pokemon.base` is the "base form" of the pokemon, possibly different from `Pokemon.forme`. 
         (Ex: `base` = `Tauros` and `forme` = `Tauros-Paldea-Aqua`)
     
-
-`Battle` class (quick facts): 
----------------------------------------
-    * `.id` (ex: `gen9randombattle-2631360263`)
-    * `.format` (ex: `[Gen 9] Random Battle`)
-    
-    * `.player1`: <Player> 
-    * `.player2`: <Player>
-    
-    * `.start_time`: game start time (in seconds since the 'Epoch')
-    * `.end_time`: (technically the time at the start of the final turn)
-    
-    * `.winner`: <Player>
-    * `.loser`: <Player>
-    
-    * `.lead_pokemon`: array `[ <lead1>, <lead2> ]` 
-    * `.teams`: array `[ <teamDict1>, <teamDict2> ]`
-        - Only contains the pokemon appearing 'during' the match (as read by parser)
-    * `.teams_full`: `[<teamDict1>, <teamDict2>]`
-    Logs
-    ---------------------------------------
-    * `.log`: the main text log
-    * `.inputlog`: extra thing that contains the team seeds etc.
-    
-    * `.head`: everything before '|start'
-    * `.bat`: everything in range `['|start', '|win|')`
-    * `.tail` everything after `.bat`
-    
-    States
-    ---------------------------------------
-    * `.TURNS`: Array of turn-strings from splitting `.bat`. 
-        * `.TURNS[i]` gives the raw string for Turn `i`
-        * Note 'turn0' = fielding leading pokemon
-    * `.STATES`: List of BattleStates (incl State_0).
-
 `BattleState`:
 ---------------------------------------
     * `.time` : 'absolute' time turn occured at (seconds since *Epoch*)
@@ -71,17 +33,28 @@ from copy import deepcopy
 from dataclasses import dataclass
 
 #################################################
-# Dataclasses (Player, Team, Pokemon)
+# Helper classes (Player, Team, Pokemon)
 #################################################
-
-# a `dataclass` is just a Class that only has attributes and no methods
-# writing @dataclass lets you skip writing `__init__(...) : self.x = x` a bunch
 @dataclass
 class Player: 
+    """
+    Player(name, side, elo0, elo1)
+
+    Dataclass for match players.
+
+    Attributes
+    ---------------
+    .name: str
+    .side: int # 1 or 2
+    .elo0: int # Elo at match start
+    .elo1: int # Elo after match
+    """
+
     name: str
     side: int
     elo0: int # old
     elo1: int # new
+
 
 class Team:
     def __init__(self, side: int, active: str, D: dict):
@@ -92,6 +65,7 @@ class Team:
     def __repr__(self):
         _out = "{" + f"side: {self.side}, active: {self.active}, D: <dict>" + "}"
         return _out
+
 
 class Pokemon:
     def __init__(self, base, spec, lvl, hp, hp_max):
@@ -105,6 +79,7 @@ class Pokemon:
         _out = "{" + f"spec: {self.spec}, lvl: {self.lvl}, hp/max: {self.hp}/{self.hp_max}" + "}"
         return _out
     
+#################################################
 
 
 
@@ -138,9 +113,58 @@ def team_full_str(team_full: dict):
 # Battle
 #################################################
 class Battle:
-    '''
-    Battle(file_name, verbose=False)
-    '''
+    """
+    Battle(file_name, parse=False, verbose=False)
+    
+    Class that reads-in a PokemonShowdown! replay JSON file, and does some basic parsing.
+    
+    Parameters
+    ----------
+    file_name: str
+        filename of replay JSON.
+    parse: bool
+        If False, only reads-in existing JSON fields;
+        If True, parse `log` and `inputlog` into STATES, etc..
+    verbose: bool
+        If True, print what Turn etc. parser is currently working on.
+
+        
+    Attributes (Some)
+    ---------------
+        .id (ex: `gen9randombattle-2631360263`)
+        .format (ex: `[Gen 9] Random Battle`)
+        
+        .player1: <class Player> 
+        .player2: <class Player>
+        
+        .start_time: game start time (in seconds since the 'Epoch')
+        .end_time: (technically the time at the start of the final turn)
+        .match_time: equal to .end_time-.start_time
+        
+        .winner: <class Player>
+        .loser: <class Player>
+        
+        .lead_pokemon: array `[ <lead1>, <lead2> ]` 
+        .teams: array `[ <teamDict1>, <teamDict2> ]`
+            - Only contains the pokemon appearing 'during' the match (as read by parser)
+        .teams_full: `[<teamDict1>, <teamDict2>]`
+        
+        Logs
+        ---------------------------------------
+        .log: the main text log
+        .inputlog: extra thing that contains the team seeds etc.
+        
+        .head: everything before '|start'
+        .bat: everything in range `['|start', '|win|')`
+        .tail: everything after `.bat`
+        
+        States
+        ---------------------------------------
+        .TURNS: Array of turn-strings from splitting `.bat`. 
+            * `.TURNS[i]` gives the raw string for Turn `i`
+            * Note 'turn0' = fielding leading pokemon
+        .STATES: List of BattleStates (incl State_0).
+    """
     def __init__(self,file_name, parse=False, verbose=False):
         with open(file_name,"r") as battle_json:
             data = json.load(battle_json)
@@ -382,10 +406,11 @@ class Battle:
         
 
 
+
+
 #################################################
 # BattleState class
 #################################################
-
 class BattleState:
     # feed current teams and turn string, plus optional battle start_time and id (for debugging)
     def __init__(self, team1, team2, turn: str, match_start_time = 0, battle_id = ''): 

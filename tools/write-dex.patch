@@ -1,0 +1,31 @@
+diff --git a/data/random-battles/gen9/teams.ts b/data/random-battles/gen9/teams.ts
+index e4f3507f1..98a73a4e4 100644
+--- a/data/random-battles/gen9/teams.ts
++++ b/data/random-battles/gen9/teams.ts
+@@ -3,6 +3,7 @@ import { Utils } from '../../../lib';
+ import { PRNG, type PRNGSeed } from '../../../sim/prng';
+ import { type RuleTable } from '../../../sim/dex-formats';
+ import { Teams } from '../../../sim/teams';
++import * as fs from 'fs';
+ 
+ export interface TeamData {
+ 	typeCount: { [k: string]: number };
+@@ -193,6 +194,18 @@ export class RandomTeams {
+ 		this.forceTeraType = forceTeraType && this.dex.types.get(forceTeraType).exists ?
+ 			this.dex.types.get(forceTeraType).name : undefined;
+ 
++        const allSpecies = this.dex.species.all();
++        const filteredSpecies = allSpecies.filter(s => {
++            const data = this.dex.species.get(s.name);
++            return data.isNonstandard === null;
++        });
++
++		const dataObjects = filteredSpecies.map( s =>
++			this.dex.species.get(s.name)
++		);
++		// change <PATH> to your desired directory
++		fs.writeFileSync('<PATH>/pokedexRaw.json', JSON.stringify(dataObjects, null, 2), 'utf-8');
++
+ 		this.factoryTier = '';
+ 		this.format = format;
+ 		this.prng = PRNG.get(prng);

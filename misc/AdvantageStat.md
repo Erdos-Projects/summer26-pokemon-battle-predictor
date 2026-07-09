@@ -11,33 +11,28 @@ We will start off by neglecting the movepool.  We could try to map each move to 
 
 ## Damage Approximator
 
-$\newcommand{\M}{\mathrm{M}}$
-$\newcommand{\Atk}{\mathrm{Atk}}$
-$\newcommand{\Defen}{\mathrm{Def}}$
-$\newcommand{\SpAtk}{\mathrm{SpAtk}}$
-$\newcommand{\SpDef}{\mathrm{SpDef}}$
-The advantage stat starts with an approximation of damage. Given Pokemon $\M_1$ and $\M_2$ from Team 1 and Team 2, respectively, we approximate the <u>expected damage</u> $\mathrm{dmg}(\M_1,\M_2)$, a fraction of $H_2$ (the hit points of $\M_2$), that $\M_1$ does to $\M_2$ by selecting its best STAB move[^1]. Although different moves have different base *Power*s, we set $\mathrm{Power}=80$ for all moves for simplicity.
+The advantage stat starts with an approximation of damage. Given Pokemon $\mathrm{M}_1$ and $\mathrm{M}_2$ from Team 1 and Team 2, respectively, we approximate the <u>expected damage</u> $\mathrm{dmg}(\mathrm{M}_1,\mathrm{M}_2)$, a fraction of $H_2$ (the hit points of $\mathrm{M}_2$), that $\mathrm{M}_1$ does to $\mathrm{M}_2$ by selecting its best STAB move[^1]. Although different moves have different base *Power*s, we set $\mathrm{Power}=80$ for all moves for simplicity.
 
 [^1]: Or a not-very-effective coverage move in the event that is better--this could be updated if we get data suggesting that in the event that a mon's best move is a coverage move, the coverage move is often neutral or better.
 
-In addition, we define the <u>Effective</u> Attacking and Defending Stats $A_i$ and $D_i$ of $\M_i$ as follows: if $i \in \{1,2\}$, let $i'$ be the "complementary" element of $\{1,2\}$, so that $\{i,i'\} = \{1,2\}$. Then
+In addition, we define the <u>Effective</u> Attacking and Defending Stats $A_i$ and $D_i$ of $\mathrm{M}_i$ as follows: if $i \in \{1,2\}$, let $i'$ be the "complementary" element of $\{1,2\}$, so that $\{i,i'\} = \{1,2\}$. Then
 $$ 
-    A_i := \max\{\Atk_i, \SpAtk_i\} 
+    A_i := \max\{\mathrm{Atk}_i, \mathrm{SpAtk}_i\} 
     \qquad\text{and}\qquad
     D_{i'} := \begin{cases}
-        \Defen_{i}, & A_{i} = \Atk_i, \\
-        \SpDef_{i}, & A_{i} = \SpAtk_{i},
+        \mathrm{Defen}_{i}, & A_{i} = \mathrm{Atk}_i, \\
+        \mathrm{SpDef}_{i}, & A_{i} = \mathrm{SpAtk}_{i},
     \end{cases}
 $$
-and *vice-versa* for $A_{i'}$ and $D_{i}$. Letting $L_i$ and $H_i$ be the Level and HP of $\M_i$, we set
+and *vice-versa* for $A_{i'}$ and $D_{i}$. Letting $L_i$ and $H_i$ be the Level and HP of $\mathrm{M}_i$, we set
 $$
-    \mathrm{dmg}(\M_{1},\M_{2}) := \frac{0.925}{H_2} \left(\frac{ 80\left(\tfrac{2}{5} L_{1} + 2\right) \cdot \frac{A_1}{D_2}}{50} + 2\right) \cdot E(\M_{1}, \M_{2}),
+    \mathrm{dmg}(\mathrm{M}_{1},\mathrm{M}_{2}) := \frac{0.925}{H_2} \left(\frac{ 80\left(\tfrac{2}{5} L_{1} + 2\right) \cdot \frac{A_1}{D_2}}{50} + 2\right) \cdot E(\mathrm{M}_{1}, \mathrm{M}_{2}),
 $$
 where the <u>Effectiveness Multiplier</u>
 $$ 
-    E(\M_{1}, \M_{2}) := \max\left\{
+    E(\mathrm{M}_{1}, \mathrm{M}_{2}) := \max\left\{
         \frac{1}{2},\,\,
-        1.5 \cdot \max_{T_1 \in \mathrm{Types}(\M_{1})} \mathrm{eff}(T_1, T_2)\mathrm{eff}(T_1, T_2'),
+        1.5 \cdot \max_{T_1 \in \mathrm{Types}(\mathrm{M}_{1})} \mathrm{eff}(T_1, T_2)\mathrm{eff}(T_1, T_2'),
         \right\} 
 $$
 
@@ -55,7 +50,7 @@ Some notes:
 Notes for $E$:
 - $E$ is meant to approximate the product of $\mathrm{STAB}$ and Type.
 - The formula for $E$ inherently assumes that $M_1$ is only using STAB moves (this is the factor of $1.5$ present there); this could be updated to account for coverage moves in a future iteration on this stat.
-- The $\max\{\frac{1}{2}, \cdot\}$ in $E(\M_1,\M_2)$ is to prevent $E$ from having value 0. It is very rare (though it does happen) that $M_1$ will be unable to damage $M_2$. The factor of $\frac{1}{2}$ is used because that is a multiplier for a "not-very-effective" coverage move. This could be resolved by replacing the maximum over $T_1$ by a maximum over $M_1$'s move types.
+- The $\max\{\frac{1}{2}, \cdot\}$ in $E(\mathrm{M}_1,\mathrm{M}_2)$ is to prevent $E$ from having value 0. It is very rare (though it does happen) that $M_1$ will be unable to damage $M_2$. The factor of $\frac{1}{2}$ is used because that is a multiplier for a "not-very-effective" coverage move. This could be resolved by replacing the maximum over $T_1$ by a maximum over $M_1$'s move types.
 
 More Notes:
 - Damage or speed-boosting items are not be accounted for. This could be resolved in an ad-hoc way by checking for common boosting items (choice items, life orb), or resolved in a systemic way using the Smogon damage calculator to replace the offensive advantage stat.
@@ -71,21 +66,19 @@ The only (relevant) thing that doesn't go into the damage approximator is speed.
 
 Also worth noting is that advantage depends not just on how much damage you're doing to your opponent, but how much damage your opponent is doing to you!
 
-$\newcommand{\Mon}{\mathrm{Mon}}$
-
 Maybe try computing 'turns to KO' for each mon and look at differential.  Let's set
 $$
-    \mathrm{ttko}(\M_{1},\M_{2}) = \left\lceil \frac{1}{\mathrm{dmg}(\M_{1},\M_{2})} \right\rceil
+    \mathrm{ttko}(\mathrm{M}_{1},\mathrm{M}_{2}) = \left\lceil \frac{1}{\mathrm{dmg}(\mathrm{M}_{1},\mathrm{M}_{2})} \right\rceil
 $$
 So we get something like
 $$ 
-    \Delta_{\mathrm{ttko}{}}(\M_{1},\M_{2}) = \mathrm{ttko}(\M_1,\M_2) - \mathrm{ttko}(\M_1,\M_2).
+    \Delta_{\mathrm{ttko}{}}(\mathrm{M}_{1},\mathrm{M}_{2}) = \mathrm{ttko}(\mathrm{M}_1,\mathrm{M}_2) - \mathrm{ttko}(\mathrm{M}_1,\mathrm{M}_2).
 $$
 
-Here, bigger is better for $\M_{1}$.
+Here, bigger is better for $\mathrm{M}_{1}$.
 
 Properties that I want for $\mathrm{adv}$:
-- There should be a nice relationship between $\mathrm{adv}(\M_1,\M_2)$ and $\mathrm{adv}(\M_2,\M_1)$, ($a+b=1$ with $0 < a,b < 1$?  $ab = 1$?)
+- There should be a nice relationship between $\mathrm{adv}(\mathrm{M}_1,\mathrm{M}_2)$ and $\mathrm{adv}(\mathrm{M}_2,\mathrm{M}_1)$, ($a+b=1$ with $0 < a,b < 1$?  $ab = 1$?)
 - If $\Delta_{\mathrm{ttko}} \approx 0$ and both $\mathrm{ttko} \approx 1$, the faster Mon should have a large $\mathrm{adv}$, as the faster Mon just OHKOs the slower Mon with no cost.
 - If $\Delta_{\mathrm{ttko}} \approx 0$ but both $\mathrm{ttko} \gg 1$, then the faster Mon should one have a small advantage, as here the faster Mon eventually KOs the slower Mon, but both inflict comparable damage on each other.
 - If $\Delta_{\mathrm{ttko}} \gg 1$, the Mon with the smaller $\mathrm{ttko}$ should have a big advantage, as here one Mon clearly overpowers the other.
@@ -97,25 +90,25 @@ So maybe $\mathrm{adv}$ should represent something like: expected total damage d
 Then
 
 $$
-    \mathrm{toko}(\M_{1},\M_{2}) = \min\Big\{\mathrm{ttko}(\M_{1},M_{2}), \mathrm{ttko}(\M_{2},\M_{1})\Big\}
+    \mathrm{toko}(\mathrm{M}_{1},\mathrm{M}_{2}) = \min\Big\{\mathrm{ttko}(\mathrm{M}_{1},M_{2}), \mathrm{ttko}(\mathrm{M}_{2},\mathrm{M}_{1})\Big\}
 $$
 So
 
 $$
-\mathrm{dmg}_{\mathrm{ovo}}(\M_{1},\M_{2}) =
+\mathrm{dmg}_{\mathrm{ovo}}(\mathrm{M}_{1},\mathrm{M}_{2}) =
 \begin{cases}
-    \mathrm{dmg}(\M_{1},\M_{2})\cdot \big({\mathrm{toko}(\M_{1},\M_{2}) - 1}\big)  &\text{if $S_1 < S_2$ and $\M_2$ KOs $\M_1$},\\
-    \mathrm{dmg}(\M_{1},\M_{2})\cdot \mathrm{toko}(\M_{1},\M_{2})         &\text{else.}
+    \mathrm{dmg}(\mathrm{M}_{1},\mathrm{M}_{2})\cdot \big({\mathrm{toko}(\mathrm{M}_{1},\mathrm{M}_{2}) - 1}\big)  &\text{if $S_1 < S_2$ and $\mathrm{M}_2$ KOs $\mathrm{M}_1$},\\
+    \mathrm{dmg}(\mathrm{M}_{1},\mathrm{M}_{2})\cdot \mathrm{toko}(\mathrm{M}_{1},\mathrm{M}_{2})         &\text{else.}
 \end{cases}
 $$
 
 Then we can do something like set 
 $$
-    \mathrm{adv}(\M_{1},\M_{2}) := \mathrm{dmg}_{\mathrm{ovo}}(\M_{1},\M_{2})
+    \mathrm{adv}(\mathrm{M}_{1},\mathrm{M}_{2}) := \mathrm{dmg}_{\mathrm{ovo}}(\mathrm{M}_{1},\mathrm{M}_{2})
 $$
 or we can do something fancy and make it symmetric like 
 $$
-    \mathrm{adv}(\M_{1},M_{2}) := \mathrm{dmg}_{\mathrm{ovo}}(\M_{1},\M_{2}) - \mathrm{dmg}_{\mathrm{ovo}}(\M_{2},\M_{1}).
+    \mathrm{adv}(\mathrm{M}_{1},M_{2}) := \mathrm{dmg}_{\mathrm{ovo}}(\mathrm{M}_{1},\mathrm{M}_{2}) - \mathrm{dmg}_{\mathrm{ovo}}(\mathrm{M}_{2},\mathrm{M}_{1}).
 $$
 
 Regardless, this should be enough to get started.
@@ -133,20 +126,20 @@ Yet more pokemon rely heavily on priority moves.
 
 In order to test the FullPokemon class, we need:
 
-Testing Effectiveness multiplier $E(\M_1,\M_2)$:
-  - $\M_{1}$ has a $4\times$ effective STAB ($\M_{1}$ = Weavile, $\M_{2}$ = Salamence)
-  - $\M_{1}$ has a $2\times$ effective STAB ($\M_{1}$ = Weavile, $\M_{2}$ = Haxorus)
-  - $\M_{1}$'s best STAB is neutral ($1\times$) ($\M_{1}$ = Weavile, $\M_{2}$ = Corviknight)
-  - $\M_{1}$'s best STAB is $\frac{1}{2}\times$ effective ($\M_{1}$ = Weavile, $\M_{2}$ = Chien-Pao)
-  - $\M_{1}$'s best STAB is $\frac{1}{4}\times$ effective ($\M_{1}$ = Conkeldurr, $\M_{2}$ = Fezandipiti)
-  - $\M_{1}$'s best STAB is $0\times$ effective ($\M_{1}$ = Banette, $\M_{2}$ = Wigglytuff)  
+Testing Effectiveness multiplier $E(\mathrm{M}_1,\mathrm{M}_2)$:
+  - $\mathrm{M}_{1}$ has a $4\times$ effective STAB ($\mathrm{M}_{1}$ = Weavile, $\mathrm{M}_{2}$ = Salamence)
+  - $\mathrm{M}_{1}$ has a $2\times$ effective STAB ($\mathrm{M}_{1}$ = Weavile, $\mathrm{M}_{2}$ = Haxorus)
+  - $\mathrm{M}_{1}$'s best STAB is neutral ($1\times$) ($\mathrm{M}_{1}$ = Weavile, $\mathrm{M}_{2}$ = Corviknight)
+  - $\mathrm{M}_{1}$'s best STAB is $\frac{1}{2}\times$ effective ($\mathrm{M}_{1}$ = Weavile, $\mathrm{M}_{2}$ = Chien-Pao)
+  - $\mathrm{M}_{1}$'s best STAB is $\frac{1}{4}\times$ effective ($\mathrm{M}_{1}$ = Conkeldurr, $\mathrm{M}_{2}$ = Fezandipiti)
+  - $\mathrm{M}_{1}$'s best STAB is $0\times$ effective ($\mathrm{M}_{1}$ = Banette, $\mathrm{M}_{2}$ = Wigglytuff)  
 
 Testing $\mathrm{dmg}$:
   - already tested manually by comparing physical and special attackers on the calcs at calc.pokemonshowdown.com
 
 Testing $\mathrm{dmg}_{\mathrm{ovo}}$:
-  - $\M_{1}$ is faster than $\M_{2}$ and KOs $\M_{2}$ ($\M_{1}$ = Weavile, $\M_{2}$ = Salamence)
-  - $\M_{2}$ is faster than $\M_{1}$ and KOs $\M_{1}$ ($\M_{1}$ = Sinistcha?, $\M_{2}$ = Weavile)
-  - $\M_{1}$ is faster than $\M_{2}$ yet is KOd by $\M_{2}$ ($\M_{1}$ = Weavile, $\M_{2}$ = Conkeldurr)
-  - $\M_{2}$ is faster than $\M_{1}$ yet is KOd by $\M_{1}$ ($\M_{1}$ = Swampert, $\M_{2}$ = Corviknight?)
-  - $\M_{1}$ and $\M_{2}$ have a speed tie ($\M_{1}$ = Lanturn, $\M_{2}$ = Toxtricity)
+  - $\mathrm{M}_{1}$ is faster than $\mathrm{M}_{2}$ and KOs $\mathrm{M}_{2}$ ($\mathrm{M}_{1}$ = Weavile, $\mathrm{M}_{2}$ = Salamence)
+  - $\mathrm{M}_{2}$ is faster than $\mathrm{M}_{1}$ and KOs $\mathrm{M}_{1}$ ($\mathrm{M}_{1}$ = Sinistcha?, $\mathrm{M}_{2}$ = Weavile)
+  - $\mathrm{M}_{1}$ is faster than $\mathrm{M}_{2}$ yet is KOd by $\mathrm{M}_{2}$ ($\mathrm{M}_{1}$ = Weavile, $\mathrm{M}_{2}$ = Conkeldurr)
+  - $\mathrm{M}_{2}$ is faster than $\mathrm{M}_{1}$ yet is KOd by $\mathrm{M}_{1}$ ($\mathrm{M}_{1}$ = Swampert, $\mathrm{M}_{2}$ = Corviknight?)
+  - $\mathrm{M}_{1}$ and $\mathrm{M}_{2}$ have a speed tie ($\mathrm{M}_{1}$ = Lanturn, $\mathrm{M}_{2}$ = Toxtricity)

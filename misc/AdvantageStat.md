@@ -16,14 +16,14 @@ The advantage stat starts with an approximation of damage. Given Pokemon $\mathr
 [^1]: Or a not-very-effective coverage move in the event that is better--this could be updated if we get data suggesting that in the event that a mon's best move is a coverage move, the coverage move is often neutral or better.
 
 In addition, we define the <u>Effective</u> Attacking and Defending Stats $A_i$ and $D_i$ of $\mathrm{M}_i$ as follows: if $i \in \{1,2\}$, let $i'$ be the "complementary" element of $\{1,2\}$, so that $\{i,i'\} = \{1,2\}$. Then
-$$ 
+```math 
     A_i := \max\{\mathrm{Atk}_i, \mathrm{SpAtk}_i\} 
     \qquad\text{and}\qquad
     D_{i'} := \begin{cases}
         \mathrm{Defen}_{i}, & A_{i} = \mathrm{Atk}_i, \\
         \mathrm{SpDef}_{i}, & A_{i} = \mathrm{SpAtk}_{i},
     \end{cases}
-$$
+```
 and *vice-versa* for $A_{i'}$ and $D_{i}$. Letting $L_i$ and $H_i$ be the Level and HP of $\mathrm{M}_i$, we set
 $$
     \mathrm{dmg}(\mathrm{M}_{1},\mathrm{M}_{2}) := \frac{0.925}{H_2} \left(\frac{ 80\left(\tfrac{2}{5} L_{1} + 2\right) \cdot \frac{A_1}{D_2}}{50} + 2\right) \cdot E(\mathrm{M}_{1}, \mathrm{M}_{2}),

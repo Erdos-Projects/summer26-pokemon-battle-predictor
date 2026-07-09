@@ -11,15 +11,12 @@ We will start off by neglecting the movepool.  We could try to map each move to 
 
 ## Damage Approximator
 
-$\DeclareMathOperator{\dmg}{dmg}$
-$\DeclareMathOperator{\adv}{adv}$
-$\DeclareMathOperator{\ttko}{ttko}$
 $\newcommand{\M}{\mathrm{M}}$
 $\newcommand{\Atk}{\mathrm{Atk}}$
 $\newcommand{\Defen}{\mathrm{Def}}$
 $\newcommand{\SpAtk}{\mathrm{SpAtk}}$
 $\newcommand{\SpDef}{\mathrm{SpDef}}$
-The advantage stat starts with an approximation of damage. Given Pokemon $\M_1$ and $\M_2$ from Team 1 and Team 2, respectively, we approximate the <u>expected damage</u> $\dmg(\M_1,\M_2)$, a fraction of $H_2$ (the hit points of $\M_2$), that $\M_1$ does to $\M_2$ by selecting its best STAB move[^1]. Although different moves have different base *Power*s, we set $\mathrm{Power}=80$ for all moves for simplicity.
+The advantage stat starts with an approximation of damage. Given Pokemon $\M_1$ and $\M_2$ from Team 1 and Team 2, respectively, we approximate the <u>expected damage</u> $\operatorname{dmg}(\M_1,\M_2)$, a fraction of $H_2$ (the hit points of $\M_2$), that $\M_1$ does to $\M_2$ by selecting its best STAB move[^1]. Although different moves have different base *Power*s, we set $\mathrm{Power}=80$ for all moves for simplicity.
 
 [^1]: Or a not-very-effective coverage move in the event that is better--this could be updated if we get data suggesting that in the event that a mon's best move is a coverage move, the coverage move is often neutral or better.
 
@@ -34,7 +31,7 @@ $$
 $$
 and *vice-versa* for $A_{i'}$ and $D_{i}$. Letting $L_i$ and $H_i$ be the Level and HP of $\M_i$, we set
 $$
-    \dmg(\M_{1},\M_{2}) := \frac{0.925}{H_2} \left(\frac{ 80\left(\tfrac{2}{5} L_{1} + 2\right) \cdot \frac{A_1}{D_2}}{50} + 2\right) \cdot E(\M_{1}, \M_{2}),
+    \operatorname{dmg}(\M_{1},\M_{2}) := \frac{0.925}{H_2} \left(\frac{ 80\left(\tfrac{2}{5} L_{1} + 2\right) \cdot \frac{A_1}{D_2}}{50} + 2\right) \cdot E(\M_{1}, \M_{2}),
 $$
 where the <u>Effectiveness Multiplier</u>
 $$ 
@@ -50,8 +47,8 @@ $$
 $$
 
 Some notes:
-- We allow $\dmg$ to exceed 1, as the amount by which it exceeds 1 may actually matter (think: reflect/light screen/aurora veil or resistance berries).
-- The definition of $\dmg$ above uses a simplified version of the damage formula found [here](https://bulbapedia.bulbagarden.net/wiki/Damage#Generation_V_onward)
+- We allow $\operatorname{dmg}$ to exceed 1, as the amount by which it exceeds 1 may actually matter (think: reflect/light screen/aurora veil or resistance berries).
+- The definition of $\operatorname{dmg}$ above uses a simplified version of the damage formula found [here](https://bulbapedia.bulbagarden.net/wiki/Damage#Generation_V_onward)
 - For simplicity, we have set the base Powers of the moves used to be all be 80, which is the source of that factor in the formula.
 - The factor $0.925$ is the mean of a $\mathrm{Unif}(0.85,1)$ random variable.
 
@@ -69,57 +66,56 @@ More Notes:
 ## Advantage
 
 The only (relevant) thing that doesn't go into the damage approximator is speed. Speed is difficult to incorporate into advantage. There are a few reasons for this:
-  1. The only important feature of speed differential (meaning $S_{1} - S_{2}$) is its sign; magnitude is meaningless here, so multiplying $\dmg$ by speed differential would be a bad idea.
+  1. The only important feature of speed differential (meaning $S_{1} - S_{2}$) is its sign; magnitude is meaningless here, so multiplying $\operatorname{dmg}$ by speed differential would be a bad idea.
   2. The impact of speed differential can be large or small.  If you consider a hypothetical Weavile versus Iron Boulder matchup, each has a super-effective STAB on the other (meaning it has a type-multiplier equal to 3)!  In that situation, Weavile has the advantage because it goes first.  However, if you consider a Weavile versus Swampert matchup (where each has a type-multiplier of 1.5), the Swampert has the advantage in spite of its speed disadvantage due to its overall bulk.  My initial thought is that speed matters a lot when both pokemon are doing about the same amount of damage to one another, but doesn't matter very much when the pokemon are doing very different amounts of damage.  So 'having a speed advantage' should not correspond to a constant factor.
 
 Also worth noting is that advantage depends not just on how much damage you're doing to your opponent, but how much damage your opponent is doing to you!
-$\DeclareMathOperator{\Dttko}{\Delta_{\ttko{}}}$
+
 $\newcommand{\Mon}{\mathrm{Mon}}$
+
 Maybe try computing 'turns to KO' for each mon and look at differential.  Let's set
 $$
-    \ttko(\M_{1},\M_{2}) = \left\lceil \frac{1}{\dmg(\M_{1},\M_{2})} \right\rceil
+    \operatorname{ttko}(\M_{1},\M_{2}) = \left\lceil \frac{1}{\operatorname{dmg}(\M_{1},\M_{2})} \right\rceil
 $$
 So we get something like
 $$ 
-    \Delta_{\ttko{}}(\M_{1},\M_{2}) = \ttko(\M_1,\M_2) - \ttko(\M_1,\M_2).
+    \Delta_{\operatorname{ttko}{}}(\M_{1},\M_{2}) = \operatorname{ttko}(\M_1,\M_2) - \operatorname{ttko}(\M_1,\M_2).
 $$
 
 Here, bigger is better for $\M_{1}$.
 
-Properties that I want for $\adv$:
-- There should be a nice relationship between $\adv(\M_1,\M_2)$ and $\adv(\M_2,\M_1)$, ($a+b=1$ with $0 < a,b < 1$?  $ab = 1$?)
-- If $\Dttko{} \approx 0$ and both $\ttko \approx 1$, the faster Mon should have a large $\adv$, as the faster Mon just OHKOs the slower Mon with no cost.
-- If $\Dttko{} \approx 0$ but both $\ttko \gg 1$, then the faster Mon should one have a small advantage, as here the faster Mon eventually KOs the slower Mon, but both inflict comparable damage on each other.
-- If $\Dttko{} \gg 1$, the Mon with the smaller $\ttko$ should have a big advantage, as here one Mon clearly overpowers the other.
+Properties that I want for $\operatorname{adv}$:
+- There should be a nice relationship between $\operatorname{adv}(\M_1,\M_2)$ and $\operatorname{adv}(\M_2,\M_1)$, ($a+b=1$ with $0 < a,b < 1$?  $ab = 1$?)
+- If $\Delta_{\mathrm{ttko}} \approx 0$ and both $\mathrm{ttko} \approx 1$, the faster Mon should have a large $\mathrm{adv}$, as the faster Mon just OHKOs the slower Mon with no cost.
+- If $\Delta_{\mathrm{ttko}} \approx 0$ but both $\mathrm{ttko} \gg 1$, then the faster Mon should one have a small advantage, as here the faster Mon eventually KOs the slower Mon, but both inflict comparable damage on each other.
+- If $\Delta_{\mathrm{ttko}} \gg 1$, the Mon with the smaller $\operatorname{ttko}$ should have a big advantage, as here one Mon clearly overpowers the other.
 
 
-$\DeclareMathOperator{\dmgovo}{dmg_{tot}}$
-$\DeclareMathOperator{\toko}{toko}$
 
-So maybe $\adv$ should represent something like: expected total damage dealt to opponent in a 1v1 matchup? If we let $n$ denote the round number <u>in which the KO occurs</u>, then the faster Mon gets to go $n$ times and the slower Mon gets to go $n$ or $n-1$ times depending on who wins. 
+So maybe $\operatorname{adv}$ should represent something like: expected total damage dealt to opponent in a 1v1 matchup? If we let $n$ denote the round number <u>in which the KO occurs</u>, then the faster Mon gets to go $n$ times and the slower Mon gets to go $n$ or $n-1$ times depending on who wins. 
 
 Then
 
 $$
-    \toko(\M_{1},\M_{2}) = \min\Big\{\ttko(\M_{1},M_{2}), \ttko(\M_{2},\M_{1})\Big\}
+    \operatorname{toko}(\M_{1},\M_{2}) = \min\Big\{\operatorname{ttko}(\M_{1},M_{2}), \operatorname{ttko}(\M_{2},\M_{1})\Big\}
 $$
 So
 
 $$
-\dmgovo(\M_{1},\M_{2}) =
+\operatorname{dmg}_{\mathrm{ovo}}(\M_{1},\M_{2}) =
 \begin{cases}
-    \dmg(\M_{1},\M_{2})\cdot \big({\toko(\M_{1},\M_{2}) - 1}\big)  &\text{if $S_1 < S_2$ and $\M_2$ KOs $\M_1$},\\
-    \dmg(\M_{1},\M_{2})\cdot \toko(\M_{1},\M_{2})         &\text{else.}
+    \operatorname{dmg}(\M_{1},\M_{2})\cdot \big({\operatorname{toko}(\M_{1},\M_{2}) - 1}\big)  &\text{if $S_1 < S_2$ and $\M_2$ KOs $\M_1$},\\
+    \operatorname{dmg}(\M_{1},\M_{2})\cdot \operatorname{toko}(\M_{1},\M_{2})         &\text{else.}
 \end{cases}
 $$
 
 Then we can do something like set 
 $$
-    \adv(\M_{1},\M_{2}) := \dmgovo(\M_{1},\M_{2})
+    \operatorname{adv}(\M_{1},\M_{2}) := \operatorname{dmg}_{\mathrm{ovo}}(\M_{1},\M_{2})
 $$
 or we can do something fancy and make it symmetric like 
 $$
-    \adv(\M_{1},M_{2}) := \dmgovo(\M_{1},\M_{2}) - \dmgovo(\M_{2},\M_{1}).
+    \operatorname{adv}(\M_{1},M_{2}) := \operatorname{dmg}_{\mathrm{ovo}}(\M_{1},\M_{2}) - \operatorname{dmg}_{\mathrm{ovo}}(\M_{2},\M_{1}).
 $$
 
 Regardless, this should be enough to get started.
@@ -145,10 +141,10 @@ Testing Effectiveness multiplier $E(\M_1,\M_2)$:
   - $\M_{1}$'s best STAB is $\frac{1}{4}\times$ effective ($\M_{1}$ = Conkeldurr, $\M_{2}$ = Fezandipiti)
   - $\M_{1}$'s best STAB is $0\times$ effective ($\M_{1}$ = Banette, $\M_{2}$ = Wigglytuff)  
 
-Testing $\dmg$:
+Testing $\mathrm{dmg}$:
   - already tested manually by comparing physical and special attackers on the calcs at calc.pokemonshowdown.com
 
-Testing $\dmgovo$:
+Testing $\mathrm{dmg}_{\mathrm{ovo}}$:
   - $\M_{1}$ is faster than $\M_{2}$ and KOs $\M_{2}$ ($\M_{1}$ = Weavile, $\M_{2}$ = Salamence)
   - $\M_{2}$ is faster than $\M_{1}$ and KOs $\M_{1}$ ($\M_{1}$ = Sinistcha?, $\M_{2}$ = Weavile)
   - $\M_{1}$ is faster than $\M_{2}$ yet is KOd by $\M_{2}$ ($\M_{1}$ = Weavile, $\M_{2}$ = Conkeldurr)

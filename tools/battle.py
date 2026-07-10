@@ -120,8 +120,8 @@ class Battle:
     
     Parameters
     ----------
-    file_name: str
-        filename of replay JSON.
+    data_json: json
+        json file with basic information about the battle.
     parse: bool
         If False, only reads-in existing JSON fields;
         If True, parse `log` and `inputlog` into STATES, etc..
@@ -165,9 +165,8 @@ class Battle:
             * Note 'turn0' = fielding leading pokemon
         .STATES: List of BattleStates (incl State_0).
     """
-    def __init__(self,file_name, parse=False, verbose=False):
-        with open(file_name,"r") as battle_json:
-            data = json.load(battle_json)
+    def __init__(self,data_json, parse=False, verbose=False):
+        data = data_json
         # -----------------------------
         # Initializing metadata/attributes
         self.id = data.get('id', '')

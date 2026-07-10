@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Random Battle Predictor - Executive Summary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght grid;400;500;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
+    <style>
+        :root {
+            --bg-page: #f9f8f2;         /* Warm sandy tan page background */
+            --bg-content: #fbf8e1;      /* Lighter sandy tint for the text background */
+            --text-main: #2d3748;       /* Deep slate for text legibility */
+            --text-muted: #5a6a85;
+            --slide-blue: #2b4c7e;      /* Structuring navy for headers and borders */
+            --pastel-green: #6fc398;    /* Soft pastel green for methodology hurdles */
+            --pastel-red: #fabbb3;
+            --pastel-blue: #7ed3e4;
+            --pastel-green-text: #137333;
+            --pastel-purple: #f3e8ff;   /* Soft pastel lavender for forward-looking segments */
+            --pastel-purple-text: #6b21a8;
+            --figure-fill: #edf0f2;
+            --accent-border: #cbd5e1;
+            --code-bg: #1e1e1e;
+        }
+
+        body {
+            font-family: 'Lexend';
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            margin: 0;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: var(--bg-content);
+            max-width: 900px;
+            width: 100%;
+            padding: 60px;
+            box-shadow: 0 10px 25px rgba(60, 50, 30, 0.08);
+            border-radius: 12px;
+            box-sizing: border-box;
+        }
+
+        /* Document Header */
+        header {
+            border-bottom: 3px solid var(--slide-blue);
+            padding-bottom: 25px;
+            margin-bottom: 40px;
+        }
+
+        .meta-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin: 0 0 8px 0;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin: 0 0 12px 0;
+            line-height: 1.2;
+            color: var(--slide-blue);
+        }
+
+        .authors-row {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Section Typography */
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 40px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--slide-blue);
+            border-left: 4px solid var(--slide-blue);
+            padding-left: 12px;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            margin: 0 0 24px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin-bottom: 12px;
+        }
+
+        li strong {
+            color: var(--slide-blue);
+            font-weight: 600;
+        }
+
+        /* Callout Text Blocks styled as continuous document sections */
+        .callout-block {
+            padding: 24px;
+            border-radius: 8px;
+            margin: 25px 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        
+        .callout-block.red {
+            background-color: var(--pastel-red);
+            /* color: var(--pastel-green-text); */
+        }
+
+        .callout-block.green {
+            background-color: var(--pastel-green);
+            /* color: var(--pastel-green-text); */
+        }
+
+        .callout-block.blue {
+            background-color: var(--pastel-blue);
+            /* color: var(--pastel-purple-text); */
+        }
+
+        .callout-block.purple {
+            background-color: var(--pastel-purple);
+            /* color: var(--pastel-purple-text); */
+        }
+
+        .callout-title {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        /* Figure Placeholders */
+        .figure-row {
+            display: flex;
+            gap: 24px;
+            margin: 35px 0;
+        }
+
+        .figure-container {
+            flex: 1;
+            background-color: var(--figure-fill);
+            border: 2px dashed var(--slide-blue);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 260px;
+            box-sizing: border-box;
+        }
+
+        .figure-placeholder {
+            color: var(--slide-blue);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+                background-color: #ffffff;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <p class="meta-subtitle">Erdős Institute Data Science Boot Camp - Summer 2026</p>
+            <h1>Pokémon Random Battle Predictor<br>Executive Summary</h1>
+            <div class="authors-row">Group Members: T. Daniels, X. Huang, G. Knapp, M. Mannan, M. Newman</div>
+        </header>
+
+        <h2>Introduction</h2>
+        <p>Pokémon battles are turn-based games in which two players compete with teams of 6 Pokémon. These matches are played both casually and competitively, and the large number of different Pokémon and unique game rulesets allows for enormous variability in gameplay and strategy.</p>
+
+        <p>One popular game format on Pokémon Showdown (“Showdown”) is the “random battle”, where players compete with teams of six Pokemon randomly generated at the start of each match. Ideally, generated teams should be evenly balanced, so that, going into a battle, both players have nearly equal chances of winning, and thus the winner is indeed “random”. There are a number of factors and methods to consider in designing this balanced gameplay; some primary features that Showdown considers in trying to create this balance are Pokémon's statistics (e.g., HP, Attack, Defense) and types (e.g., Fire, Psychic, Ground), and players’ Elo ratings (within Showdown’s system).  We consider the distributions of the teams’ Pokémon’s statistics, types, and relative “advantage” over one another  to see if these features are well balanced across opposing teams.  If Showdown’s team construction algorithm is balanced, then we expect that comparison of said features should not strongly indicate a player's chance of winning.</p>
+
+        <h2>Data Collection</h2>
+        <p>Showdown logs a large amount of information about each match played on the site, including player Elo ratings and turn-by-turn records of player moves, allowing for a full, turn-by-turn reconstruction of each match from its publicly available “replay” JSON files.</p>
+
+        <p>Using a simple web-scraper making API requests, we saved ≈16k Showdown match replays, and then used a custom-made text parser (the Battle class in battle.py) to compile data about each match, such as match length, Pokémon used, player Elo ratings before-and-after the match, to name a couple.</p>
+
+        <p>In each random battle, players can see their own Pokemon but cannot see their opponent’s Pokemon until they are individually fielded; additionally, spectators (and hence, the replay logs) cannot see any not-yet-fielded Pokemon, even past the match’s end. In order to learn the “complete” teams of six in each match, it was necessary to locate the pseudorandom strings used as “seeds” in generating players’ random teams, and then feed this string into Showdown’s server source code to re-generate the complete random teams. </p>
+        
+        <div class="callout-block red">
+            <div class="callout-title">The Seed Extraction Hurdle</div>
+            In order to learn the complete teams of six in each match—including those not fielded before the match ended—it was necessary to locate the pseudorandom strings used as seeds in generating players' random teams. This string was fed back into Showdown's server source code to re-generate the complete team configurations.
+        </div>
+
+        <!-- FIGURE BLOCK 1 -->
+        <div class="figure-row">
+            <div class="figure-container">
+                <div class="figure-placeholder">
+                    [ Insert Figure 1 Here: e.g., Data Parsing Pipeline / Seed Regeneration Flow ]
+                </div>
+            </div>
+        </div>
+
+        <h2>Feature Engineering</h2>
+        <p>The combination of 6 Pokémon each with their own stats and characteristics gave us many potential features to focus on. Such features included team-level stats known at the beginning of the game—such as speed, attack, defense, HP, and Pokémon types.</p>
+
+        <ul>
+            <li><strong>Type Diversity:</strong> The number of Pokémon with unique types on the team.</li>
+            <li><strong>Advantage Statistic:</strong> Approximates the expected difference in total damage two opposing Pokémon would exchange in a one-on-one match.</li>
+            <li><strong>Team Advantage:</strong> The cumulative sum of the Advantages for all 36 possible pairs of opposing Pokémon from each team.</li>
+            <li><strong>Stat Boosters:</strong> The differential in the number of Pokémon on each team which know a stat-boosting move or have a stat-boosting ability.</li>
+        </ul>
+
+        <p>While Team Advantage was our most impactful feature, it has known drawbacks, like failing to consider the specific moves or abilities for each Pokémon.  In an attempt to patch those holes, we introduced two more numeric features: the differential in the number of Pokémon on each team which know a stat-boosting move, and the differential in the number of Pokémon on each team which have a stat-boosting ability.</p>
+
+        <h2>Model Selection</h2>
+        <p>We tested a number of different models on different subsets of the features listed in the previous section. For a “baseline” model, it was sensible to use a single-feature predictor based on the players’ Elo rating differences, as this difference (theoretically) corresponds to the probabilities of each player winning: Namely, if Player 1’s Elo exceeds Player 2’s Elo by 𝑑 points (possibly negative), then the Elo system estimates that Player 1 wins with probability 1/(1+10-d/400).</p>
+        <p>Beyond the baseline model, we considered two types of logistic regressions—one where the intercept was forced to be 0 (the “unbiased” model) and one where the model was allowed to fit the intercept (the “biased” model)—decision tree, random forest, HGBoost, and XGBoost model.  We trained those models on the selection of features which optimized their cross-validation accuracy: for the unbiased logistic regression, those features were Elo differential, total advantage, differential in the number of move boosters, and differential in the number of ability boosters.  The remaining models trained on all of those features plus type diversity differential and total stat differential.</p>
+
+        <p>Each model was evaluated on its cross-validation accuracy and the symmetry (or lack thereof) of its confusion matrix.  Accuracy was chosen over other metrics as 1) its values were substantially different across the different models; 2) it is easily interpreted; 3) our application does not require special precautions against “false positives”, such as those in, e.g., medical diagnosis.  Additionally, we wanted to select a model which is well-calibrated: since Player 1 lost in 52% of the matches, we wanted a model which would predict that Player 1 would lose approximately 52% of the time.</p>
+        
+        <p>The baseline model was 52.1% accurate, the unbiased logistic regression was 53.1% accurate, and both were well-calibrated.  The remaining models had varying levels of accuracy, but were poorly calibrated, leading us to select the unbiased logistic regression as our final model.
+        </p>
+        <!-- FIGURE BLOCK 2 -->
+        <div class="figure-row">
+            <div class="figure-container">
+                <div class="figure-placeholder">
+                    [ Insert Figure 2 Here: e.g., Model Accuracy Comparison Chart or Win Probability Graph ][cite: 2]
+                </div>
+            </div>
+        </div>
+
+        <h2>Conclusion and Next Steps</h2>
+        <div class="callout-block blue">
+            <div class="callout-title">Conclusion</div>
+            We attempted to build a model that would predict the winner of a random battle on Pokémon Showdown. Based on confusion matrices, accuracy, and cross validation scores, the best model we found was the unbiased logistic regression with a final model accuracy of 53.6%. This result is not significantly higher than a coin flip of 50%, so we conclude that the level and move-set scaling performed by Pokémon Showdown for Generation 9 random battles is sufficiently balanced to ensure fair competition, positive player experience, and platform credibility.
+        </div>
+        
+        <div class="callout-block purple">
+            <div class="callout-title">Next Steps</div>
+            There remains potential to create a predictive model based on turn-by-turn analysis. Instead of relying on statistics determined pre-game, this model would construct advantage stats for each turn and produce a win probability as a function of time. We propose this as the next step to predicting the outcome of a random battle on Pokémon Showdown.
+
+        </div>
+    </div>
+
+</body>
+</html>

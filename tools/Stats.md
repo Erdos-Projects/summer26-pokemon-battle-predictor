@@ -1,32 +1,41 @@
-# Notes on computing pokemon stats
+# Notes on computing Pokémon stats
+
 
 **<u>Basic Stats:</u>**
+Each Pokémon has six core statistics ("stats"):
 1. HP
-2. Attack ($A$)
-3. Defense ($D$)
-4. Speed ($S$)
-5. Special Attack ($S_A$)
-6. Special Defense ($S_D$)
+2. Attack
+3. Defense
+4. Speed
+5. Special Attack
+6. Special Defense
 
 **<u>Stat Parameters</u>**  
-Computing the value of any of the above stats requires additional parameters. These differ for each Pokemon *and each stat* $X$:
+Computing the actual value of any of the above stats for a Pokémon requires additional parameters. These differ for each Pokémon *and each stat* $X$:
 1. $B=B_{X} \in [0..255]$ is the *Base Value* (BV); these are immutable, fixed by Nintendo for each pokemon in each game.
 2. $E=E_X \in [0..255]$ is the *Effort Value* (EV); to be given by Team Generator
 3. $I=I_X \in [0..31]$ is the *Individual Value* (IV); to be given by Team Generator
 4. $N=N_X \in \{0.9,1.,1.1\}$ is the *Nature Multiplier* (my term); more on that in a bit.
 
 **<u>Computing actual stat values</u>**  
-Fix a Pokemon $P$, let $L$ be its **Level**, and let $N$ be its **Nature**. For each stat $X$, let 
-    $$ Q = Q_X := \Big({2B+I+\lfloor \tfrac{E}{4} \rfloor}\Big)\frac{L}{100} \qquad (B=B_X,\,\text{etc.})$$
+Fix a Pokémon $P$, let $L$ be its **Level**, and let $N$ be its **Nature**. For each stat $X$, let 
+
+```math
+    Q = Q_X := \Big({2B+I+\lfloor \tfrac{E}{4} \rfloor}\Big)\frac{L}{100} \qquad (B=B_X,\,\text{etc.})
+```
+
 Then $\mathrm{HP}$ is computed via
     $$ \mathrm{Value}(\mathrm{HP}) = \lfloor Q \rfloor + L + 10, $$
 and the remaining five stats (Attack, Defense, etc.) are computed via
     $$ \mathrm{Value}(X) = \big\lfloor (Q_{X}+5)N_{X} \big\rfloor. $$
 
-**<u>Nature Multipliers</u>**
-<span style="color:red">Update/Note:</span> Ostensibly the `Nature` attribute does not feature in `gen9randombattle`?  
+**<u>Nature Multipliers</u>**  
+
+<span style="color:red">Note:</span> The `Nature` attribute does not feature in `gen9randombattle`. 
+
 Natures are just "categories/types" (e.g. *Adamant*, *Hardy*) that *raise* one non-HP stat $10\%$ and *lower* one non-HP stat $10\%$; some actually "do nothing" because they both "raise and lower" the same stat. Thus, we have the following table of multipliers for each Nature;  
 
+<center>
 (For easier reading, "." means $1$) 
 
 | (Nat\Stat) | Atk | Def | SpA | SpD | Spe |
@@ -56,8 +65,9 @@ Natures are just "categories/types" (e.g. *Adamant*, *Hardy*) that *raise* one n
 | Sassy | . | . | . | 1.1 | 0.9 | 
 | Serious | . | . | . | . | . |
 | Timid | 0.9 | . | . | . | 1.1 | 
-
+</center>
 ----
+Here we include a copyable Python dictionary of the above table.
 
 ```python
 NAT_MULTS = {

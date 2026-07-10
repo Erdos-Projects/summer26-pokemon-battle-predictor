@@ -25,21 +25,21 @@ In addition, we define the <u>Effective</u> Attacking and Defending Stats $A_i$ 
     \end{cases}
 ```
 and *vice-versa* for $A_{i'}$ and $D_{i}$. Letting $L_i$ and $H_i$ be the Level and HP of $\mathrm{M}_i$, we set
-$$
+```math
     \mathrm{dmg}(\mathrm{M}_{1},\mathrm{M}_{2}) := \frac{0.925}{H_2} \left(\frac{ 80\left(\tfrac{2}{5} L_{1} + 2\right) \cdot \frac{A_1}{D_2}}{50} + 2\right) \cdot E(\mathrm{M}_{1}, \mathrm{M}_{2}),
-$$
+```
 where the <u>Effectiveness Multiplier</u>
-$$ 
+```math
     E(\mathrm{M}_{1}, \mathrm{M}_{2}) := \max\left\{
         \frac{1}{2},\,\,
         1.5 \cdot \max_{T_1 \in \mathrm{Types}(\mathrm{M}_{1})} \mathrm{eff}(T_1, T_2)\mathrm{eff}(T_1, T_2'),
         \right\} 
-$$
+```
 
 with $\text{eff}(T_1, T_2)$ being determined by the Type Chart, so that, e.g., 
-$$ 
+```math
     \text{eff}(\text{water},\text{fire}) = 2, \qquad\text{and}\qquad \text{eff}(\text{fire},\text{water}) = \frac{1}{2}.
-$$
+```
 
 Some notes:
 - We allow $\mathrm{dmg}$ to exceed 1, as the amount by which it exceeds 1 may actually matter (think: reflect/light screen/aurora veil or resistance berries).
@@ -67,13 +67,13 @@ The only (relevant) thing that doesn't go into the damage approximator is speed.
 Also worth noting is that advantage depends not just on how much damage you're doing to your opponent, but how much damage your opponent is doing to you!
 
 Maybe try computing 'turns to KO' for each mon and look at differential.  Let's set
-$$
+```math
     \mathrm{ttko}(\mathrm{M}_{1},\mathrm{M}_{2}) = \left\lceil \frac{1}{\mathrm{dmg}(\mathrm{M}_{1},\mathrm{M}_{2})} \right\rceil
-$$
+```
 So we get something like
-$$ 
+```math
     \Delta_{\mathrm{ttko}{}}(\mathrm{M}_{1},\mathrm{M}_{2}) = \mathrm{ttko}(\mathrm{M}_1,\mathrm{M}_2) - \mathrm{ttko}(\mathrm{M}_1,\mathrm{M}_2).
-$$
+```
 
 Here, bigger is better for $\mathrm{M}_{1}$.
 
@@ -89,57 +89,32 @@ So maybe $\mathrm{adv}$ should represent something like: expected total damage d
 
 Then
 
-$$
+```math
     \mathrm{toko}(\mathrm{M}_{1},\mathrm{M}_{2}) = \min\Big\{\mathrm{ttko}(\mathrm{M}_{1},M_{2}), \mathrm{ttko}(\mathrm{M}_{2},\mathrm{M}_{1})\Big\}
-$$
+```
 So
 
-$$
+```math
 \mathrm{dmg}_{\mathrm{ovo}}(\mathrm{M}_{1},\mathrm{M}_{2}) =
 \begin{cases}
     \mathrm{dmg}(\mathrm{M}_{1},\mathrm{M}_{2})\cdot \big({\mathrm{toko}(\mathrm{M}_{1},\mathrm{M}_{2}) - 1}\big)  &\text{if $S_1 < S_2$ and $\mathrm{M}_2$ KOs $\mathrm{M}_1$},\\
     \mathrm{dmg}(\mathrm{M}_{1},\mathrm{M}_{2})\cdot \mathrm{toko}(\mathrm{M}_{1},\mathrm{M}_{2})         &\text{else.}
 \end{cases}
-$$
+```
 
 Then we can do something like set 
-$$
+```math
     \mathrm{adv}(\mathrm{M}_{1},\mathrm{M}_{2}) := \mathrm{dmg}_{\mathrm{ovo}}(\mathrm{M}_{1},\mathrm{M}_{2})
-$$
+```
 or we can do something fancy and make it symmetric like 
-$$
+```math
     \mathrm{adv}(\mathrm{M}_{1},M_{2}) := \mathrm{dmg}_{\mathrm{ovo}}(\mathrm{M}_{1},\mathrm{M}_{2}) - \mathrm{dmg}_{\mathrm{ovo}}(\mathrm{M}_{2},\mathrm{M}_{1}).
-$$
-
-Regardless, this should be enough to get started.
-
-
+```
 
 ## Potential problems with advantage stats
 
-Some pokemon are not good because of their stats.  Take Sableye for example.  It has atrocious stats, but can win a match on the strength of its ability, Prankster.  These advantage stats won't account for that.  (On the other hand, neither will training on 12-dimensional info above.)
+Some pokemon are not good because of their stats. Take Sableye for example. It has atrocious stats, but can win a match on the strength of its ability, Prankster.  These advantage stats won't account for that.  (On the other hand, neither will training on 12-dimensional info above.)
 
 Other pokemon don't rely on their offensive stats for damage (think Toxapex).
 
 Yet more pokemon rely heavily on priority moves.
-# Testing
-
-In order to test the FullPokemon class, we need:
-
-Testing Effectiveness multiplier $E(\mathrm{M}_1,\mathrm{M}_2)$:
-  - $\mathrm{M}_{1}$ has a $4\times$ effective STAB ($\mathrm{M}_{1}$ = Weavile, $\mathrm{M}_{2}$ = Salamence)
-  - $\mathrm{M}_{1}$ has a $2\times$ effective STAB ($\mathrm{M}_{1}$ = Weavile, $\mathrm{M}_{2}$ = Haxorus)
-  - $\mathrm{M}_{1}$'s best STAB is neutral ($1\times$) ($\mathrm{M}_{1}$ = Weavile, $\mathrm{M}_{2}$ = Corviknight)
-  - $\mathrm{M}_{1}$'s best STAB is $\frac{1}{2}\times$ effective ($\mathrm{M}_{1}$ = Weavile, $\mathrm{M}_{2}$ = Chien-Pao)
-  - $\mathrm{M}_{1}$'s best STAB is $\frac{1}{4}\times$ effective ($\mathrm{M}_{1}$ = Conkeldurr, $\mathrm{M}_{2}$ = Fezandipiti)
-  - $\mathrm{M}_{1}$'s best STAB is $0\times$ effective ($\mathrm{M}_{1}$ = Banette, $\mathrm{M}_{2}$ = Wigglytuff)  
-
-Testing $\mathrm{dmg}$:
-  - already tested manually by comparing physical and special attackers on the calcs at calc.pokemonshowdown.com
-
-Testing $\mathrm{dmg}_{\mathrm{ovo}}$:
-  - $\mathrm{M}_{1}$ is faster than $\mathrm{M}_{2}$ and KOs $\mathrm{M}_{2}$ ($\mathrm{M}_{1}$ = Weavile, $\mathrm{M}_{2}$ = Salamence)
-  - $\mathrm{M}_{2}$ is faster than $\mathrm{M}_{1}$ and KOs $\mathrm{M}_{1}$ ($\mathrm{M}_{1}$ = Sinistcha?, $\mathrm{M}_{2}$ = Weavile)
-  - $\mathrm{M}_{1}$ is faster than $\mathrm{M}_{2}$ yet is KOd by $\mathrm{M}_{2}$ ($\mathrm{M}_{1}$ = Weavile, $\mathrm{M}_{2}$ = Conkeldurr)
-  - $\mathrm{M}_{2}$ is faster than $\mathrm{M}_{1}$ yet is KOd by $\mathrm{M}_{1}$ ($\mathrm{M}_{1}$ = Swampert, $\mathrm{M}_{2}$ = Corviknight?)
-  - $\mathrm{M}_{1}$ and $\mathrm{M}_{2}$ have a speed tie ($\mathrm{M}_{1}$ = Lanturn, $\mathrm{M}_{2}$ = Toxtricity)

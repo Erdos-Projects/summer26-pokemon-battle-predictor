@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon Random Battle Predictor - Executive Summary</title>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght grid;400;500;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet"> -->
     <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
     <style>
+        @media print {
+            body, div, h1, h2, .callout-block, .github-repo-card {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
         :root {
             --accent-border: #cbd5e1;
             --bg-content: #fbf6e1;
@@ -102,7 +107,7 @@
             box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
             color: var(--pkmn-black);
             font-family: 'Lexend', sans-serif;
-            font-size: 2.2rem;
+            font-size: 1.5rem;
             font-weight: 800;
             line-height: 1.3;
             margin: 10px 0 5px 0;
@@ -116,17 +121,17 @@
             color: var(--pkmn-black);
             display: inline-block;
             font-family: 'Lexend', sans-serif;
-            font-size: 1.25rem;
+            font-size: 1.10rem;
             font-weight: 700;
             letter-spacing: 0.8px;
-            margin-bottom: 22px;
-            margin-top: 45px;
-            padding: 6px 16px;
+            margin-bottom: 10px;
+            margin-top: 25px;
+            padding: 6px 8px;
             page-break-after: avoid;
             text-transform: uppercase;
         }
         p {
-            font-size: 1.05rem;
+            font-size: 1.00rem;
             line-height: 1.75;
             margin-top: 0;
             margin-bottom: 20px;
@@ -140,7 +145,7 @@
             padding-left: 24px;
         }
         li {
-            font-size: 1.05rem;
+            font-size: 1.00rem;
             line-height: 1.75;
             margin-bottom: 6px;
         }
@@ -152,17 +157,17 @@
             border-radius: 0px;
             border: 2px solid var(--pkmn-black);
             box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
-            font-size: 1.05rem;
+            font-size: 1.00rem;
             line-height: 1.7;
-            margin: 25px 0;
-            padding: 18px;
+            margin: 10px 0;
+            padding: 10px;
             page-break-inside: avoid;
         }
         .callout-title {
             border-bottom: 2px solid var(--pkmn-black);
             color: var(--pkmn-black);
             display: inline-block;
-            font-size: 0.95rem;
+            font-size: 1.0 rem;
             font-weight: 800;
             letter-spacing: 1px;
             margin-bottom: 12px;
@@ -186,47 +191,6 @@
             background-color: var(--bg-page);
             padding: 18px;
         }
-        @media print {
-            body {
-                background-color: #ffffff;
-                padding: 0;
-            }
-
-            .container {
-                background-color: #ffffff;
-                box-shadow: none;
-                max-width: 100%;
-                padding: 0;
-            }
-        }
-        /* .github-repo-card {
-            background-color: #f6f8fa;
-            border-radius: 0px;
-            border: 2px solid var(--pkmn-black);
-            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.15);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            max-width: 400px;
-            padding: 7px;
-        } */
-        /* .github-repo-card p {
-            color: #57606a;
-            font-size: 14px;
-            line-height: 1.5;
-            margin: 0 0 16px 0;
-        } */
-        /* .github-repo-card {
-            background-color: var(--pkmn-yellow);
-            border: 2px solid var(--pkmn-black);
-            border-radius: 0px;
-            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
-            color: var(--pkmn-black);
-            display: inline-block;
-            font-size: 1.05rem;
-            line-height: 1.2;
-            margin: 5px 0;
-            padding: 6px;
-            page-break-inside: avoid;
-        } */
         .github-repo-card {
             align-items: center;
             align-self: stretch; 
@@ -241,27 +205,6 @@
             padding: 5px 5px;
             page-break-inside: avoid;
         }
-        /* .repo-description {
-            color: #24292f;
-            font-size: 13px;
-            line-height: 1.5;
-            margin: 0;
-        } */
-        /* .repo-link {
-            background-color: #2da44e;
-            border-radius: 6px;
-            color: white;
-            cursor: pointer;
-            display: inline-flex;
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 20px;
-            padding: 6px 12px;
-            text-decoration: none;
-            transition: background-color 0.2s;
-            vertical-align: middle;
-            white-space: nowrap;
-        } */
         .repo-link {
             align-items: center;
             border-radius: 6px;
@@ -278,24 +221,8 @@
             vertical-align: middle;
             white-space: nowrap;
         }
-        /* .repo-link {
-            color: var(--pkmn-black);
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-decoration: none;
-            text-transform: uppercase;
-        } */
-        /* .repo-link {
-            color: #0969da;
-            font-size: 15px;
-            font-weight: 600;
-            text-decoration: none;
-        } */
         /* .repo-link:hover {
             background-color: #2c974b;
-        } */
-        /* .repo-link:hover {
             text-decoration: underline;
         } */
         .repo-icon {
@@ -312,23 +239,16 @@
             gap: 8px;
             margin-bottom: 8px;
         }
-        .repo-header h3 {
+        /* .repo-header h3 {
             margin: 0;
             font-size: 16px;
             font-weight: 600;
-        }
+        } */
         /* .repo-meta {
             display: flex;
             flex-direction: column;
             gap: 2px;
             margin-bottom: 8px;
-        } */
-        /* .repo-label {
-            color: #57606a;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
         } */
     </style>
     <script>
@@ -348,10 +268,15 @@
         <header>
             <p class="meta-subtitle">Erdős Institute Data Science Boot Camp - Summer 2026</p>
             
-            <h1>Pokémon Random Battle Predictor<br>Executive Summary</h1>
+            <h1>
+                Pokémon Random Battle Predictor<br>
+                Executive Summary
+            </h1>
             
             <div class="header-links-row">
-                <div class="authors-row">Group Members: T. Daniels, X. Huang, G. Knapp, M. Mannan, M. Newman</div>
+                <div class="authors-row">
+                    T. Daniels, X. Huang, G. Knapp, M. Mannan, M. Newman
+                </div>
                 <div class="github-repo-card">
                     <a href="https://github.com/yourusername/your-repo-name" target="_blank" rel="noopener" class="repo-link">
                         <svg class="repo-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -387,7 +312,7 @@
             </p>
         </div>
 
-        <div class="callout-block red">
+        <div class="callout-block red" style="box-shadow: none;">
             <div class="callout-title">The Team Computation Hurdle</div><br>
             In each random battle, players cannot see their opponent’s Pokémon until they are individually fielded; additionally, the replay logs do not record these not-yet-fielded Pokémon, even past the battle’s end. In order to learn the complete team rosters in each battle&mdash;including those Pokémon not fielded&mdash;it was necessary to locate the pseudorandom strings used as seeds in generating players' random teams. These seeds were then fed back into Showdown's server source-code to re-generate and store these complete rosters.
         </div>
@@ -409,7 +334,7 @@
             </ul>
             
             <p style="margin-bottom: 0px">
-                While Team Advantage was our most impactful feature, it has known drawbacks, such as failing to consider the specific moves or abilities for each Pokémon. In an attempt to address this we introduced the <strong><i>Stat-Booster Differential</i></strong>, which records he difference in the number of Pokémon on each team that know a stat-boosting move, or have a stat-boosting ability.
+                While Team Advantage was our most impactful feature, it has known drawbacks, such as failing to consider the specific moves or abilities for each Pokémon. In an attempt to address this we introduced the <strong><i>Stat-Booster Differential</i></strong>, which records the difference in the number of Pokémon on each team that know a stat-boosting move, or have a stat-boosting ability.
             </p>
         </div>
         
@@ -424,37 +349,38 @@
 
         <div class="content-box">
             <p>
-            We tested a number of models on different subsets of the features listed in the previous section. For a “baseline” model, it was sensible to use a single-feature predictor based on the players’ Elo rating differences, as this difference theoretically corresponds to the probabilities of each player winning: if Player 1’s Elo exceeds Player 2’s Elo by $d$ points (possibly negative), then the Elo system estimates that Player 1 wins with probability $1/(1+10^{-d/400})$.
+            For a “baseline” model, it was sensible to use a single-feature predictor based on players’ Elo rating differences, as the Elo system maps this difference to estimated probabilities of each player winning.
+            <!-- : if Player 1’s Elo exceeds Player 2’s Elo by $d$ points (possibly negative), then the Elo system estimates that Player 1 wins with probability $1/(1+10^{-d/400})$. -->
+            Beyond the baseline model, we considered Logistic Regression models both with and without intercept terms (the "biased" and "unbiased" models, respectively), the standard Decision Tree and Random Forest models decision-tree based models, and the boosting models HGBoost and XGBoost.
             </p>
 
             <p>
-            Beyond the baseline model, we considered logistic regression models both with and without intercept terms (the "biased" and "unbiased" models, respectively), a decision tree model, a random forest model, and HGBoost and XGBoost models. 
             We trained these models on the features which optimized their cross-validation accuracy: for the unbiased logistic regression, those features were Elo differential, total advantage, differential in the number of move boosters, and differential in the number of ability boosters. 
             The remaining models trained on all of those features plus type diversity differential and total stat differential.
             </p>
 
             <p>
-            Accuracy was chosen over other metrics for its interpetability and because our application does not require special precautions against “false positives and negatives”, such as applications in, e.g., medical diagnosis. 
-            Additionally, we wanted to select a model which is well-calibrated: since Player 1 lost in 52% of the matches, we wanted a model which would predict that Player 1 would lose approximately 52% of the time.
+            Accuracy was chosen over other metrics for its ease of interpretation and because our application does not require special precautions against “false positives and negatives”, such as applications in, e.g., medical diagnosis. 
+            Additionally, we wanted to select a model that was <i>well-calibrated</i>&hairsp;: since Player 1 lost in 52% of the matches, we wanted a model which would predict that Player 1 would lose approximately 52% of the time.
             </p>
 
             <p style="margin-bottom: 0px">
-            The baseline model was 52.1% accurate, the unbiased logistic regression was 53.1% accurate, and both were well-calibrated. The remaining models had varying levels of accuracy, but were poorly calibrated, leading us to select the unbiased logistic regression as our final model.
+            On our training data, the baseline- and unbiased Logistic Regression models were 52.1% and 53.1% accurate, and both were well-calibrated. The remaining models had accuracies all close to the former two, but were poorly calibrated, leading us to select the unbiased logistic regression as our final model.
             </p>
         </div>
 
         <!--#######################-->
         <h2>Conclusion and Next Steps</h2>
 
-        <div class="callout-block blue">
+        <div class="callout-block blue" style="margin-top: 0px; box-shadow: none;">
             <div class="callout-title">Conclusion</div><br>
-            We attempted to build a model that would predict the winner of a random battle on Pokémon Showdown. Based on confusion matrices, accuracy, and cross validation scores, the best model we found was the unbiased logistic regression with a final model accuracy of 53.6%. 
-            This result is not significantly higher than a coin flip of 50%, so we conclude that the level and move-set scaling performed by Pokémon Showdown for Generation 9 random battles is sufficiently balanced to ensure fair competition, positive player experience, and platform credibility.
+            After selecting the unbiased Logistic Regression as our final model and trailing it on our test data, our model achieved an accuracy 53.6%. 
+            As this is not much better than a coin flip's accuracy of 50%, we conclude that the level and move-set scaling performed by Pokémon Showdown for Gen-9 random battles is sufficiently balanced to maintain interesting and unpredictable gameplay.
         </div>
 
-        <div class="callout-block purple">
+        <div class="callout-block purple" style="box-shadow: none;">
             <div class="callout-title">Next Steps</div><br>
-            There remains potential to create a predictive model based on turn-by-turn analysis. Instead of relying on statistics determined pre-game, this model would construct advantage stats for each turn and produce a win probability as a function of time. We propose this as the next step to predicting the outcome of a random battle on Pokémon Showdown.
+            There remains potential to create a predictive model based on turn-by-turn analysis. Instead of relying on statistics determined pre-game, this model could estimate player win probabilities as a function of the game "state", updating its predictions after every turn. In addition, the Advantage metric can be further refined to better account for Pokémon's special abilities and held items.
         </div>
     </div>
 </body>

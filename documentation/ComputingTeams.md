@@ -7,7 +7,7 @@
 git clone https://github.com/smogon/pokemon-showdown/ ~/psserver
 ```
 
-2. Make the following changes as described in the `.patch` file [team-gen-api](./team-gen-api.patch). There is one line insertion in `psserver/package.json`, and there are two sets of line insertions within `psserver/pokemon-showdown`.
+2. Make the following changes as described in the `.patch` file [team-gen-api](../tools/team-gen-api.patch). There is one line insertion in `psserver/package.json`, and there are two sets of line insertions within `psserver/pokemon-showdown`.
 
 3. Run `psserver % npm run start-team-generator`  
 You should then see something like

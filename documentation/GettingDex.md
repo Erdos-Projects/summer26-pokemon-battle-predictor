@@ -5,8 +5,8 @@
 git clone https://github.com/smogon/pokemon-showdown/ ~/psserver
 ```
 
-2. Make the following changes to `/data/randombattles/gen9/teams.ts` as shown in the `.patch` file [write-dex](./write-dex.patch). 
-    * <span style="color:orange">Note:</span> don't forget to change `<PATH>` to a valid directory in `teams.ts`. 
+2. Make the following changes to `/data/randombattles/gen9/teams.ts` as shown in the `.patch` file [write-dex](/tools/write-dex.patch). 
+    * <span style="color:red">Note:</span> don't forget to change `<PATH>` to a valid directory in `teams.ts`. 
 
 3. Assuming you have installed `npm` (using homebrew or other means), run (in `.../psserver`)
 ```

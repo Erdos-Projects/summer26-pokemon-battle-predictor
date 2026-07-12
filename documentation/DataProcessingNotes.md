@@ -6,7 +6,7 @@
 
 ## (1) Scraping Replays from PokemonShowdown! (PS)
 
-<span style="color:green">For simplicity, here we assume that `pwd` is the repo base directory.</span>  
+<span style="color:green">Note:</span> For simplicity, here we assume that `pwd` is the repo base directory "`/`".
 
 To scrape `gen9-randombattle` replay JSONs into a directory, say `data/replays`, one may simply run 
 ```zsh
@@ -23,6 +23,7 @@ To scrape replays of format `FMT` one can use
 ```zsh
 % python tools/scraper.py -fmt "FMT" data/replays
 ```
+
 #### Extra
 
 By default, the script prints progress messages like
@@ -64,9 +65,12 @@ with open('./../data/pokedex_for_test.json', 'w') as file:
 
 ```python  
 # setup
-import json
+import json, sys, os
 from pathlib import Path
-from team_compute import get_player_dets, get_teams_full, append_team_stats
+
+sys.path.insert(1,os.path.abspath('..'))
+
+from tools.team_compute import get_player_dets, get_teams_full, append_team_stats
 
 replay_dir = Path("../data/test_data_replays/")
 
@@ -76,7 +80,6 @@ with open('../data/POKEDEX_for_test.json','r') as file:
 
 ```python
 # this cell runs the actual computations and writings
-
 errs = []
 
 for replay in replay_dir.glob("*.json"): 
@@ -112,8 +115,8 @@ Naturally, the following can be modified and run in different directories.
 <u>(3a) Compiling battle data</u>: 
 
 ```python
-from battle import *
-from bat_to_list import battle_to_list
+from tools.battle import *
+from tools.bat_to_list import battle_to_list
 
 replay_dir = Path("../data/test_data_replays/")
 

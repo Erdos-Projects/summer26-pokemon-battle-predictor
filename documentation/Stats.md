@@ -66,7 +66,9 @@ Natures are just "categories/types" (e.g. *Adamant*, *Hardy*) that *raise* one n
 | Serious | . | . | . | . | . |
 | Timid | 0.9 | . | . | . | 1.1 | 
 </center>
-----
+
+--------
+
 Here we include a copyable Python dictionary of the above table.
 
 ```python

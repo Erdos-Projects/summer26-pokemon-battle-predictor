@@ -1,5 +1,5 @@
 # Bradley-Terry; Elo
-**Idea:** Players $A$ and $B$ will compete, and exactly one will Win; "Draw" is not allowed for simplicity. The *ratings* $R_A$ and $R_B$ should determine win probabilities according to
+**Idea:** Players $A$ and $B$ will compete, and exactly one will Win; "Draw" is not allowed for simplicity. In the Bradley-Terry model (or "rating system"), the *ratings* $R_A$ and $R_B$ should determine win probabilities according to
 ```math
     P(A \text{ Wins}) = \frac{R_{A}}{R_{A} + R_{B}}
     \qquad\text{and}\qquad
@@ -21,7 +21,7 @@ It is interesting to note that $S' = \frac{e^{-x}}{(1+e^{-x})^2} = S(1-S)$.
 
 ## Elo
 
-The **Elo** rating system (designed by Arpad Elo&mdash;I think before B-T system?) is essentially the Bradley-Terry system with ratings scaled so that
+The **Elo** rating system, designed by Arpad Elo, is essentially the Bradley-Terry system with ratings scaled so that
 ```math
     P(A \text{ Wins}) 
     = S\left((r_A - r_{B})\frac{\log{10}}{400}\right)
@@ -34,7 +34,7 @@ The **Elo** rating system (designed by Arpad Elo&mdash;I think before B-T system
 ```
 
 
-### Updates in Elo; "$K$-scaling"
+### Updates in Elo; "K-scaling"
 
 *Suppose everyone has ratings (or is seeded with some rating, maybe 1000?)*. We update ratings after matches as follows: 
 
@@ -46,7 +46,8 @@ E[s_A] = P_A := P(A\text{ Wins}) \qquad\text{and}\qquad E[s_B] = P_B := P(B\text
 
 2. **(Simple Ante):** For the match (or larger league/tier), an integer $K > 0$ is fixed, and, *roughly speaking*:
 ```math
-    \text{\emph{$A,B$ both ``ante'' points based on their respective win-probabilities; namely they ante $KP_A$, and $KP_B$.}}
+    A,\,B \text{\emph{ both ``ante'' points based on their respective win-probabilities; namely they ante }} KP_A, 
+    \text{ and } KP_B.
 ```
    The winner of the match then "takes the pot" of $K(P_A + P_B) = K$ rating points and adds it to their rating.
 3. **(Rating Update):** A convenient way to state/write the above is: "*after a match, a player's rating changes relative to how much they "beat the odds"/"pulled-off an upset"/"choked", scaled by $K$*". Precisely, one takes
@@ -67,7 +68,7 @@ E[s_A] = P_A := P(A\text{ Wins}) \qquad\text{and}\qquad E[s_B] = P_B := P(B\text
 q := \frac{\log{10}}{400}, \qquad\text{so that}\qquad P_{\text{Elo}}(A\text{ Wins}) = S\big({(r_A-r_B)q}\big) = \Big\{1 + \exp\!\big({-(r_A-r_B)q}\big) \Big\}^{-1}.
 ```
 
-2. **(Probabilities):** Win probabilities for $A$ and $B$ (with $(r_A, d_A)$ and $(r_B, d_B)$) are similar to the $\text{Elo}$ method, but now with the 'deviation' $d$ baked-in. Specifically, 
+2. **(Probabilities):** Win probabilities for $A$ and $B$, with $(r_A, d_A)$ and $(r_B, d_B)$, respectively, are similar to the $\text{Elo}$ method, but now with the 'deviation' $d$ baked-in. Specifically, 
 ```math
     P_{\text{Gko}}(A \text{ Wins}) = S\!\left((r_A - r_B)q \cdot g\left((d_A^2+d_B^2)^{\frac{1}{2}}\right) \right),
 ```
@@ -84,7 +85,7 @@ where
 * These notes are based on Mark Glickman's brief overview of the Glicko system, posted on his site. This overview is for 'general consumption', so it (and thus my notes) may have some imprecise parts. The 'true source' is a Statistics paper he published in ~1993-1995, but digging into that would be a large time-sink. 
 * The brief overview of `Glicko` does <span style="color:red">not</span> say a player's 'true rating' is normal distributed a-la $r_{\text{true}} \sim N(r,D)$; what he *does* say is that:
 ```math
-    \textit{a } 95\% \textit{ confidence interval for } r_{\text{true}} \textit{ is } \quad(r - 1.96\mathrm{D}, \,\, r + 1.96\mathrm{D}).
+    \textit{a } 95\% \textit{ confidence interval for } r_{\text{true}} \textit{ is } (r - 1.96\mathrm{D}, \,\, r + 1.96\mathrm{D}).
 ```
 On the other hand, the use of $\pm 1.96\mathrm{D}$ is 'suspicious' because that's exactly what you would get for a 95% confidence interval using $N(r,\mathrm{D})$.
 
@@ -100,13 +101,16 @@ On the other hand, the use of $\pm 1.96\mathrm{D}$ is 'suspicious' because that'
 ```math
 \mathrm{GXE}(A) = \frac{1}{\#(\text{Players})} \sum_{B \neq A} P_{\mathrm{Gko}}(A\text{ wins over }B) \qquad \text{(or divide by $\#(Players)-1$)}.
 ```
-2. **(Actual System):** Let $A$ be a player with stats $(A.r, A.d)$.
-    - If $A.d > 100$  then $\mathrm{GXE}(A) := 0$, since uncertainty is too high.
-    - If $A.d \leq 100$, the GXE is the percentage-scale $P_{\mathrm{Gko}}$ against the ""average"" player, which is <u>assumed</u> [no comment] to have $(r,d) = (1500, 350)$, i.e., $(r,d)_{\text{seed}}$. Thus we take
+
+2. **(Actual System):** Let $A$ be a player with stats $(r, d)$.
+    - If $d > 100$  then $\mathrm{GXE}(A) := 0$, since uncertainty is too high.
+    - If $d \leq 100$, the GXE is the percentage-scale $P_{\mathrm{Gko}}$ against the ""average"" player, which is <u>assumed</u> [no comment] to have $(r,d) = (1500, 350)$, i.e., $(r,d)_{\text{seed}}$. Thus we take
+
 ```math
-    P_{\mathrm{GXE}}(A) := S\!\left((r_A - 1500)q \cdot g\!\left((d_A^2+350^2)^{\frac{1}{2}}\right) \right)
+    P_{\mathrm{GXE}}(A) := S\!\left((r_A - 1500)q \cdot g\left((d_A^2+350^2)^{\frac{1}{2}}\right) \right)
 ```
-    and then (*per X-Act's description*)
+
+and then (*per X-Act's description*)
 ```math
     \mathrm{GXE}(A) := \tfrac{1}{100} \texttt{Round}\big({10,\!000 \cdot\! P_{\mathrm{GXE}}(A)}\big)
 ```
@@ -121,18 +125,23 @@ At the end of a period/month, you have:
 * Match win/loss data for a bunch of players, who each have `Glicko-1` ratings/stats $(r_{i}, D_{i})$;
 * Team compositions (and more) for both players in each match; thus, in reality we have data points $(r_{i}, D_{i}, \mathrm{tm}_{i})$.
 * <span style="color:red">Note:</span> Data for both players in a match are listed separately, and are counted "with multiplicity": that is, if player $A$ played 10 matches in a period using the same $\mathrm{tm}_{A}$, then $(r_{A}, D_{A}, \mathrm{tm}_{A})$ is recorded 10 times in the "master list" $\{ (r_{i}, D_{i}, \mathrm{tm}_{i}) : i = 1,\ldots,N\}$. 
+
 **Computation:**
+
 1. Assign "weights" to every player/match (again, including "multiplicity") according to the formula
 ```math
 W_i := W\Big[(r_i, D_i, \mathrm{tm}_{i})\Big] := \frac{1}{2}\left\{ 1 + \mathrm{erf}\left(\frac{r_i - 1500}{\sqrt{2}D_{i}}\right) \right\} \qquad
-\text{(so, $\mathrm{tm}_{i}$ isn't actually used here)},
+\text{(so, } \mathrm{tm}_{i} \text{ isn't actually used here)},
 ```
+
 thus obtaining some list of weights $\{W_{i} : i=1,\ldots,N\}$.
+
 2. For a Pokémon $\texttt{P}$, the **weighted usage statistic** for $\texttt{P}$, **for the current (ending) period**, call it $T_{0}$, is
 ```math 
 U(\texttt{P};T_{0}) := \frac{\sum_{\,i : \texttt{P} \in \mathrm{tm}_{i}} W_{i} }{ \sum_{i : \text{all}} W_{i} }.
 ```
-5. The "final" weighted usage statistic $U(\texttt{P})$ takes a weighted average over the most recent 3 periods, say $T_{0}$ (current) and $T_{-1}, T_{-2}$:
+
+3. The "final" weighted usage statistic $U(\texttt{P})$ takes a weighted average over the most recent 3 periods, say $T_{0}$ (current) and $T_{-1}, T_{-2}$:
 ```math
 U(\texttt{P}) := \tfrac{20}{24}U(\texttt{P};T_0) + \tfrac{3}{24}U(\texttt{P};T_{-1}) + \tfrac{1}{24}U(\texttt{P};T_{-2}).
 ```
@@ -164,14 +173,15 @@ Your rating starts at 1000.
 
 Our Elo implementation uses K-scaling. The $K$ factor is:
 
-* $K = 50$ if Elo is in $[1100, 1299]$
-* $K = 40$ if Elo is $ \geq 1300$
+* $K = 50$ if Elo is in $[1100, 1299]$;
+* $K = 40$ if Elo is at least 1300.
 
 We have a rating floor of 1000 (If your rating would fall below 1000, it is set to 1000). This makes it unnecessary to create new accounts to "fix" your rating.
 
 **For Elo in $[1000,1100)$**
 
 If Elo is 1000, $K=80$ for the winner and $K=20$ for the loser. Between 1001 to 1099, K scales linearly from 80 to 50 for the winner and from 20 to 50 for the loser. This helps spread out low ladder people between 1000 and 1100 instead of causing the rating floor to cluster them all at 1000.
+
 ### `PS` Elo Rating decay
 Above 1400, we have <u>rating decay</u>. Every day at 9 AM GMT+0:
 
@@ -183,8 +193,8 @@ Say you played $g$ games in a day's period (which begin at `9 AM GMT+0` each day
 ```math
     δ = \begin{cases}
         0 & g > 5, \\
-        \lfloor\frac{r-1500}{100}\rfloor & 1 ≤ g < 5, \\
-        \lfloor\frac{r-1400}{50}\rfloor & g=0
+        \left\lfloor\frac{r-1500}{100}\right\rfloor & 1 ≤ g < 5, \\
+        \left\lfloor\frac{r-1400}{50}\right\rfloor & g=0
     \end{cases}
 ```
 

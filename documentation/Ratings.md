@@ -1,19 +1,19 @@
 # Bradley-Terry; Elo
 **Idea:** Players $A$ and $B$ will compete, and exactly one will Win; "Draw" is not allowed for simplicity. The *ratings* $R_A$ and $R_B$ should determine win probabilities according to
 ```math
-    P(\text{$A$ Wins}) = \frac{R_{A}}{R_{A} + R_{B}}
+    P(A \text{ Wins}) = \frac{R_{A}}{R_{A} + R_{B}}
     \qquad\text{and}\qquad
-    P(\text{$B$ Wins}) = \frac{R_{B}}{R_{A} + R_{B}}.
+    P(B \text{ Wins}) = \frac{R_{B}}{R_{A} + R_{B}}.
 ```
 If $R_{A} = e^{r_{A}}$, $R_{B} = e^{r_{B}}$, then
 ```math
-    P(\text{$A$ Wins}) = \frac{e^{r_A}}{e^{r_{A}} + e^{r_{B}}} = \frac{1}{1 + \exp[-(r_{A}-r_{B})]} 
+    P(A \text{ Wins}) = \frac{e^{r_A}}{e^{r_{A}} + e^{r_{B}}} = \frac{1}{1 + \exp[-(r_{A}-r_{B})]} 
 ```
 The standard <u>sigmoid</u> function is $S(x) := 1/(1 + e^{-x})$, and lets us compactly say that
 ```math
-   P(\text{$A$ Wins}) = S(r_{A} - r_{B}), 
+   P(A \text{ Wins}) = S(r_{A} - r_{B}), 
    \qquad\text{and}\qquad
-   P(\text{$B$ Wins}) = S(r_{B} - r_{A})
+   P(B \text{ Wins}) = S(r_{B} - r_{A})
 ```
 It is interesting to note that $S' = \frac{e^{-x}}{(1+e^{-x})^2} = S(1-S)$.
 
@@ -23,12 +23,12 @@ It is interesting to note that $S' = \frac{e^{-x}}{(1+e^{-x})^2} = S(1-S)$.
 
 The **Elo** rating system (designed by Arpad Elo&mdash;I think before B-T system?) is essentially the Bradley-Terry system with ratings scaled so that
 ```math
-    P(\text{$A$ Wins}) 
+    P(A \text{ Wins}) 
     = S\left((r_A - r_{B})\frac{\log{10}}{400}\right)
     = \frac{1}{1 + 10^{-(r_A - r_B)/400}}.
 ```
 ```math
-    P(\text{$B$ Wins}) 
+    P(B \text{ Wins}) 
     = S\left((r_B - r_{A})\frac{\log{10}}{400}\right)
     = \frac{1}{1 + 10^{-(r_B - r_A)/400}}.
 ```
@@ -40,7 +40,7 @@ The **Elo** rating system (designed by Arpad Elo&mdash;I think before B-T system
 
 1. **(Win Probabilities):** When $A$ and $B$ will play, they can <u>score</u> $ s_A, s_B \in \{0, 1\} = \{\text{Win, Lose}\} $ [$s = \frac{1}{2}$ can be used for $\text{Draw}$]. Because $0$, $1$ are the only possible outcomes, the "*expected scores*" are
     ```math
-    E[s_A] = P_A := P(\text{$A$ Wins}) \qquad\text{and}\qquad E[s_B] = P_B := P(\text{$B$ Wins})
+    E[s_A] = P_A := P(A\text{ Wins}) \qquad\text{and}\qquad E[s_B] = P_B := P(B\text{ Wins})
     ```
 2. **(Simple Ante):** For the match (or larger league/tier), an integer $K > 0$ is fixed, and, *roughly speaking*:
     ```math
@@ -54,7 +54,7 @@ The **Elo** rating system (designed by Arpad Elo&mdash;I think before B-T system
         r_B' &\hspace{0.4em}\leftarrow\hspace{0.4em} r_B + K(s_B - P_B).
     \end{align}
     ```
-4. **(General Ante):** In practice (`PokemonShowdown`: [see here](https://pokemonshowdown.com/pages/ladderhelp.md); `FIDE` (Int'l. Chess Fed.) [see here](https://ratings.fide.com/calc.phtml?page=change)), players use *separate* $K$-values $K_A$ and $K_B$ determined according to some scheme&mdash;usually a piecewise linear/step function or something similarly simple.
+4. **(General Ante):** In practice (Pokémon Showdown: [see here](https://pokemonshowdown.com/pages/ladderhelp.md); FIDE (Int'l. Chess Fed.) [see here](https://ratings.fide.com/calc.phtml?page=change)), players use *separate* $K$-values $K_A$ and $K_B$ determined according to some scheme&mdash;usually a piecewise linear/step function or something similarly simple.
 
 
 
@@ -62,12 +62,12 @@ The **Elo** rating system (designed by Arpad Elo&mdash;I think before B-T system
 
 1. **(Stats):** Players now have two stats, **rating** $r$ and **rating deviation** $d$ (usually written $\mathrm{RD}$ in the literature), with "seed" values of $r=1500$ and $d=350$. Moreover, for brevity let
 ```math
-q := \frac{\log{10}}{400}, \qquad\text{so that}\qquad P_{\text{Elo}}(\text{$A$ Wins}) = S\big({(r_A-r_B)q}\big) = \Big\{1 + \exp\!\big({-(r_A-r_B)q}\big) \Big\}^{-1}.
+q := \frac{\log{10}}{400}, \qquad\text{so that}\qquad P_{\text{Elo}}(A\text{ Wins}) = S\big({(r_A-r_B)q}\big) = \Big\{1 + \exp\!\big({-(r_A-r_B)q}\big) \Big\}^{-1}.
 ```
 
 2. **(Probabilities):** Win probabilities for $A$ and $B$ (with $(r_A, d_A)$ and $(r_B, d_B)$) are similar to the $\text{Elo}$ method, but now with the 'deviation' $d$ baked-in. Specifically, 
 ```math
-    P_{\text{Gko}}(\text{$A$ wins}) = S\!\left((r_A - r_B)q \cdot g\!\left((d_A^2+d_B^2)^{\frac{1}{2}}\right) \right),
+    P_{\text{Gko}}(A \text{ Wins}) = S\!\left((r_A - r_B)q \cdot g\left((d_A^2+d_B^2)^{\frac{1}{2}}\right) \right),
 ```
 where
 
@@ -75,14 +75,14 @@ where
     g(x) := \frac{1}{\sqrt{1 + 3q^{2}x^2/\pi^{2}}} \qquad\text{and}\qquad q = \frac{\log 10}{400}.
 ```
 
-3. **(Rating Update):** Glicko-1 scores are updated for large 'batches' of players and matches, specifically based on all matches within some determined period (`PokemonShowdown` uses 24-hr periods beginning and ending at `9:00 AM GMT+0`). The updating algorithm is akin to a regression/gradient descent, applied to the large "vector" of player scores, but it is somewhat technical, so I'm omitting it here. Outline of Glicko-1 can be found [here](https://glicko.net/glicko/glicko.pdf).
+3. **(Rating Update):** Glicko-1 scores are updated for large 'batches' of players and matches, specifically based on all matches within some determined period (Pokémon Showdown uses 24-hr periods beginning and ending at `9:00 AM GMT+0`). The updating algorithm is akin to a regression/gradient descent, applied to the large "vector" of player scores, but it is somewhat technical, so it is omitted here. An outline of Glicko-1 can be found [here](https://glicko.net/glicko/glicko.pdf).
 
 
 ### Misc notes/cautions
-* My notes are based on Mark Glickman's brief overview of the Glicko system, posted on his site. This overview is for 'general consumption', so it (and thus my notes) may have some imprecise parts. The 'true source' is a Statistics paper he published in ~1993-1995, but digging into that would be a large time-sink. 
+* These notes are based on Mark Glickman's brief overview of the Glicko system, posted on his site. This overview is for 'general consumption', so it (and thus my notes) may have some imprecise parts. The 'true source' is a Statistics paper he published in ~1993-1995, but digging into that would be a large time-sink. 
 * The brief overview of `Glicko` does <span style="color:red">not</span> say a player's 'true rating' is normal distributed a-la $r_{\text{true}} \sim N(r,D)$; what he *does* say is that:
 ```math
-    \text{ \textit{a $95\%$ confidence interval for  $r_{\text{true}}$ is}} \quad(r - 1.96\mathrm{D}, \,\, r + 1.96\mathrm{D}).
+    \textit{a } 95\% \textit{ confidence interval for } r_{\text{true}} \textit{ is } \quad(r - 1.96\mathrm{D}, \,\, r + 1.96\mathrm{D}).
 ```
 On the other hand, the use of $\pm 1.96\mathrm{D}$ is 'suspicious' because that's exactly what you would get for a 95% confidence interval using $N(r,\mathrm{D})$.
 
@@ -96,7 +96,7 @@ On the other hand, the use of $\pm 1.96\mathrm{D}$ is 'suspicious' because that'
 
 1. **(Idea&mdash;Original):** The GXE rating should be "*the average probability (or %-chance) of beating a randomly-selected opponent (from all users)*". That is, that
 ```math
-\mathrm{GXE}(A) = \frac{1}{\#(\text{Players})} \sum_{B \neq A} P_{\mathrm{Gko}}(\text{$A$ wins over $B$}) \qquad \text{(or divide by $\#(Players)-1$)}.
+\mathrm{GXE}(A) = \frac{1}{\#(\text{Players})} \sum_{B \neq A} P_{\mathrm{Gko}}(A\text{ wins over }B) \qquad \text{(or divide by $\#(Players)-1$)}.
 ```
 2. **(Actual System):** Let $A$ be a player with stats $(A.r, A.d)$.
     - If $A.d > 100$  then $\mathrm{GXE}(A) := 0$, since uncertainty is too high.
@@ -112,7 +112,7 @@ On the other hand, the use of $\pm 1.96\mathrm{D}$ is 'suspicious' because that'
 
 # Smogon weighted-usage-stats tiering scheme
 
-<span style="color:orange">Caution:</span> These are based on a 2013/4 [post](https://www.smogon.com/forums/threads/everything-you-ever-wanted-to-know-about-ratings.3487422/) by user `anter`. At present, I have not seen any indication that these weighted-tiering schemes were changed, but it is possible some details might have. Also, I think that while there may have been a time where `Glicko-2` was used by `PS`, they reverted to `Glicko-1` at some point.
+<span style="color:orange">Caution:</span> These are based on a 2013/4 [post](https://www.smogon.com/forums/threads/everything-you-ever-wanted-to-know-about-ratings.3487422/) by user `anter`. At present, we have not seen any indication that these weighted-tiering schemes were changed, but it is possible some details might have. Also, while there may have been a time where `Glicko-2` was used by `PS`, they reverted to `Glicko-1` at some point.
 
 **Setup:**
 At the end of a period/month, you have:
@@ -126,7 +126,7 @@ W_i := W\Big[(r_i, D_i, \mathrm{tm}_{i})\Big] := \frac{1}{2}\left\{ 1 + \mathrm{
 \text{(so, $\mathrm{tm}_{i}$ isn't actually used here)},
 ```
 thus obtaining some list of weights $\{W_{i} : i=1,\ldots,N\}$.
-2. For a Pokemon $\texttt{P}$, the **weighted usage statistic** for $\texttt{P}$, **for the current (ending) period**, call it $T_{0}$, is
+2. For a Pokémon $\texttt{P}$, the **weighted usage statistic** for $\texttt{P}$, **for the current (ending) period**, call it $T_{0}$, is
 ```math 
 U(\texttt{P};T_{0}) := \frac{\sum_{\,i : \texttt{P} \in \mathrm{tm}_{i}} W_{i} }{ \sum_{i : \text{all}} W_{i} }.
 ```
@@ -134,21 +134,20 @@ U(\texttt{P};T_{0}) := \frac{\sum_{\,i : \texttt{P} \in \mathrm{tm}_{i}} W_{i} }
 ```math
 U(\texttt{P}) := \tfrac{20}{24}U(\texttt{P};T_0) + \tfrac{3}{24}U(\texttt{P};T_{-1}) + \tfrac{1}{24}U(\texttt{P};T_{-2}).
 ```
-4. Per the Smogon post, if a Pokemon was `OU` at period start, and then at period end the weighted usage stat $U(\texttt{P})$ exceeds a threshold percentage, roughly $3.4064\%$, then said Pokemon remains `OU` (presumably else it is demoted to `UU`). One also does this same schema for Pokemon in the `UU` tier (some may be demoted to `RU`, etc...)
+4. Per the Smogon post, if a Pokémon was `OU` at period start, and then at period end the weighted usage stat $U(\texttt{P})$ exceeds a threshold percentage, roughly $3.4064\%$, then said Pokémon remains `OU` (presumably else it is demoted to `UU`). One also does this same schema for Pokémon in the `UU` tier (some may be demoted to `RU`, etc...)
 
 
 #### Caveats:
 
 1. Assumes pre-existing tiers (from older, unweighted/uniformly-weighted usage stats).
-2. Unclear how "promotion" can happen, but I think [i'm hitting saturation ATM as I'm writing this], per the text
-    > in short, a Pokemon is OU if, in playing 20 battles, there's at least a 50% chance of you encountering that Pokemon at least once
-
+2. Unclear how "promotion" can happen, per the text
+    > in short, a Pokémon is OU if, in playing 20 battles, there's at least a 50% chance of you encountering that Pokémon at least once
 one starts by determining the `OU` tier, then works down.    
 
 
 # Ladder help 
 
-**<span style="color:green">Note:</span>** The following is a cleaned version of the content pasted from PokemonShowdown (`PS`) page [`ladderhelp.md`](`https://pokemonshowdown.com/pages/ladderhelp.md`)
+**<span style="color:green">Note:</span>** The following is a cleaned version of the content pasted from Pokémon Showdown ("PS") page [`ladderhelp.md`](`https://pokemonshowdown.com/pages/ladderhelp.md`)
 Our ladder displays three ratings: Elo, GXE, and Glicko-1.
 
 **Elo** is the main ladder rating. It's a pretty normal ladder rating: goes up when you win and down when you lose.
@@ -194,6 +193,4 @@ Note that there's no "official" Elo standard. K-scaling and rating floors are co
 ## PS Glicko-1
 Your rating starts at R = 1500, RD = 130.
 
-We use a rating period of 24 hours and an RD range of 25 to 130, with a system constant of 6.6775026092. [Is this $\sigma$?]
-
-**[Personal Note]:** Glicko-1 ratings $\mathrm{R}$ and $\mathrm{RD}$ are stored for `PS`'s users as `rpr` and `rprd`, respectively; namely, one has `user.rpr` and `user.rprd`
+We use a rating period of 24 hours and an RD range of 25 to 130, with a system constant of 6.6775026092.

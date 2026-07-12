@@ -1,7 +1,7 @@
 # summer26-pokemon-battle-predictor
 This repository holds the work done on a project as part of the Erdős Institute's Summer 2026 Data Science Boot Camp.
 
-**Contributors:** Taylor Daniels, Xiaoyu Huang, Greg Knapp, Mohammad Mannan, Marz Newman
+<span style="color:black; background-color: #7ed3e4; padding: 5px 10px">**Contributors:** Taylor Daniels, Xiaoyu Huang, Greg Knapp, Mohammad Mannan, Marz Newman</span>
 
 [Project Executive Summary](./documentation/ExecutiveSummary.pdf) (PDF)  
 [Project Presentation Slides](./documentation/PokemonBattlePredictorSlides.pdf) (PDF)
@@ -9,7 +9,7 @@ This repository holds the work done on a project as part of the Erdős Institute
 ## Summary
 Pokémon battles are turn-based games in which two players compete with teams of 6 Pokémon. The large number of different Pokémon and different game rulesets allows for enormous variability in gameplay and strategy. One popular game format on battle emulator site [Pokémon Showdown](play.pokemonshowdown.com) (“Showdown”) is the “random battle”, where players compete with teams of six Pokémon randomly selected at battle start. Ideally, these randomly generated teams should be evenly balanced, so that, going into a battle, both players have nearly equal chances of winning, and thus the winner is indeed “random”.
 
-From the Showdown developers’ perspective, there are a number of factors and methods to consider in designing this balanced gameplay. Some primary features to consider are Pokémon's <i>stats</i> (e.g., HP, Attack, Defense) and <i>types</i> (e.g., Fire, Psychic, Ground), and players’ [Elo ratings](https://en.wikipedia.org/wiki/Elo_rating_system) (within Showdown’s system).  We aim to investigate whether or not the team generation procedure is balanced. If Showdown’s team construction algorithm is balanced, then we expect that comparison of said features should not strongly indicate a player's chance of winning.
+From the Showdown developers’ perspective, there are a number of factors and methods to consider in designing this balanced gameplay. Some primary features to consider are Pokémon's <i>stats</i> (e.g., HP, Attack, Defense) and <i>types</i> (e.g., Fire, Psychic, Ground), and players’ *Elo ratings* (See either [Ratings.md](./documentation/Ratings.md) or [Wikipedia](https://en.wikipedia.org/wiki/Elo_rating_system) for details).  We aim to investigate whether or not the team generation procedure is balanced. If Showdown’s team construction algorithm is balanced, then we expect that comparison of said features should not strongly indicate a player's chance of winning.
 
 ### Data Collection
 

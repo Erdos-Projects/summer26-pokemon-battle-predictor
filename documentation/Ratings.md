@@ -126,8 +126,8 @@ At the end of a period/month, you have:
 * Match win/loss data for a bunch of players, who each have `Glicko-1` ratings/stats $(r_{i}, D_{i})$;
 * Team compositions (and more) for both players in each match; thus, in reality we have data points $(r_{i}, D_{i}, \mathrm{tm}_{i})$.
 * Note: Data for both players in a match are listed separately, 
-and are counted "with multiplicity": that is, if player $A$ played 10 matches in a period using the same team $\mathrm{tm}_{A}$,
-then $(r_{A}, D_{A}, \mathrm{tm}_{A})$ is recorded 10 times in the "master list" 
+and are counted "with multiplicity": that is, if player $A$ played 10 matches in a period using the same team ${\mathrm{tm}_{A}}$, <!-- -->
+then $({r_{A}}, {D_{A}}, {\mathrm{tm}_{A}})$ is recorded 10 times in the "master list" 
 ```math
 \Big\{ (r_{i}, D_{i}, \mathrm{tm}_{i}) : i = 1,\ldots,N \Big\}.
 ```

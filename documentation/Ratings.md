@@ -39,21 +39,23 @@ The **Elo** rating system (designed by Arpad Elo&mdash;I think before B-T system
 *Suppose everyone has ratings (or is seeded with some rating, maybe 1000?)*. We update ratings after matches as follows: 
 
 1. **(Win Probabilities):** When $A$ and $B$ will play, they can <u>score</u> $ s_A, s_B \in \{0, 1\} = \{\text{Win, Lose}\} $ [$s = \frac{1}{2}$ can be used for $\text{Draw}$]. Because $0$, $1$ are the only possible outcomes, the "*expected scores*" are
-    ```math
-    E[s_A] = P_A := P(A\text{ Wins}) \qquad\text{and}\qquad E[s_B] = P_B := P(B\text{ Wins})
-    ```
+
+```math
+E[s_A] = P_A := P(A\text{ Wins}) \qquad\text{and}\qquad E[s_B] = P_B := P(B\text{ Wins})
+```
+
 2. **(Simple Ante):** For the match (or larger league/tier), an integer $K > 0$ is fixed, and, *roughly speaking*:
-    ```math
-       \text{\emph{$A,B$ both ``ante'' points based on their respective win-probabilities; namely they ante $KP_A$, and $KP_B$.}}
-    ```
+```math
+    \text{\emph{$A,B$ both ``ante'' points based on their respective win-probabilities; namely they ante $KP_A$, and $KP_B$.}}
+```
    The winner of the match then "takes the pot" of $K(P_A + P_B) = K$ rating points and adds it to their rating.
 3. **(Rating Update):** A convenient way to state/write the above is: "*after a match, a player's rating changes relative to how much they "beat the odds"/"pulled-off an upset"/"choked", scaled by $K$*". Precisely, one takes
-    ```math
-    \begin{align}
-        r_A' &\hspace{0.4em}\leftarrow\hspace{0.4em} r_A + K(s_A - P_A), \\
-        r_B' &\hspace{0.4em}\leftarrow\hspace{0.4em} r_B + K(s_B - P_B).
-    \end{align}
-    ```
+```math
+\begin{align}
+    r_A' &\hspace{0.4em}\leftarrow\hspace{0.4em} r_A + K(s_A - P_A), \\
+    r_B' &\hspace{0.4em}\leftarrow\hspace{0.4em} r_B + K(s_B - P_B).
+\end{align}
+```
 4. **(General Ante):** In practice (Pokémon Showdown: [see here](https://pokemonshowdown.com/pages/ladderhelp.md); FIDE (Int'l. Chess Fed.) [see here](https://ratings.fide.com/calc.phtml?page=change)), players use *separate* $K$-values $K_A$ and $K_B$ determined according to some scheme&mdash;usually a piecewise linear/step function or something similarly simple.
 
 
@@ -101,13 +103,13 @@ On the other hand, the use of $\pm 1.96\mathrm{D}$ is 'suspicious' because that'
 2. **(Actual System):** Let $A$ be a player with stats $(A.r, A.d)$.
     - If $A.d > 100$  then $\mathrm{GXE}(A) := 0$, since uncertainty is too high.
     - If $A.d \leq 100$, the GXE is the percentage-scale $P_{\mathrm{Gko}}$ against the ""average"" player, which is <u>assumed</u> [no comment] to have $(r,d) = (1500, 350)$, i.e., $(r,d)_{\text{seed}}$. Thus we take
-    ```math
-     P_{\mathrm{GXE}}(A) := S\!\left((r_A - 1500)q \cdot g\!\left((d_A^2+350^2)^{\frac{1}{2}}\right) \right)
-    ```
+```math
+    P_{\mathrm{GXE}}(A) := S\!\left((r_A - 1500)q \cdot g\!\left((d_A^2+350^2)^{\frac{1}{2}}\right) \right)
+```
     and then (*per X-Act's description*)
-    ```math
+```math
     \mathrm{GXE}(A) := \tfrac{1}{100} \texttt{Round}\big({10,\!000 \cdot\! P_{\mathrm{GXE}}(A)}\big)
-    ```
+```
 
 
 # Smogon weighted-usage-stats tiering scheme

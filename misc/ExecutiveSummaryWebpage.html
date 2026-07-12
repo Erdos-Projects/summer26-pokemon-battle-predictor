@@ -221,10 +221,6 @@
             vertical-align: middle;
             white-space: nowrap;
         }
-        /* .repo-link:hover {
-            background-color: #2c974b;
-            text-decoration: underline;
-        } */
         .repo-icon {
             color: black;
             width: 18px;
@@ -239,17 +235,6 @@
             gap: 8px;
             margin-bottom: 8px;
         }
-        /* .repo-header h3 {
-            margin: 0;
-            font-size: 16px;
-            font-weight: 600;
-        } */
-        /* .repo-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            margin-bottom: 8px;
-        } */
     </style>
     <script>
         window.MathJax = {
@@ -298,7 +283,7 @@
             </p>
 
             <p style="margin-bottom: 0px">
-            From the Showdown developers’ perspective, there are a number of factors and methods to consider in designing this balanced gameplay. Some primary features to consider are Pokémon's <i>stats</i> (e.g., HP, Attack, Defense) and <i>types</i> (e.g., Fire, Psychic, Ground), and players’ Elo ratings (within Showdown’s system). We aim to investigate whether or not the team generation procedure is balanced. If Showdown’s team construction algorithm is balanced, then we expect that comparison of said features should not strongly indicate a player's chance of winning.
+            From the Showdown developers’ perspective, there are a number of factors and methods to consider in designing this balanced gameplay. Some primary features to consider are Pokémon's <i>stats</i> (e.g., HP, Attack, Defense) and <i>types</i> (e.g., Fire, Psychic, Ground), and players’ Elo ratings (within Showdown’s system). We aim to investigate whether or not the team generation procedure is balanced; in particular, if Showdown’s team construction algorithm is balanced, then we expect that comparison of said features should not strongly indicate a player's chance of winning.
             </p>
         </div>
 
@@ -337,11 +322,6 @@
                 While Team Advantage was our most impactful feature, it has known drawbacks, such as failing to consider the specific moves or abilities for each Pokémon. In an attempt to address this we introduced the <strong><i>Stat-Booster Differential</i></strong>, which records the difference in the number of Pokémon on each team that know a stat-boosting move, or have a stat-boosting ability.
             </p>
         </div>
-        
-        <!-- <div class="callout-block green">
-            <div class="callout-title">Some Features</div>
-            
-        </div> -->
 
 
         <!--#######################-->
@@ -350,7 +330,6 @@
         <div class="content-box">
             <p>
             For a “baseline” model, it was sensible to use a single-feature predictor based on players’ Elo rating differences, as the Elo system maps this difference to estimated probabilities of each player winning.
-            <!-- : if Player 1’s Elo exceeds Player 2’s Elo by $d$ points (possibly negative), then the Elo system estimates that Player 1 wins with probability $1/(1+10^{-d/400})$. -->
             Beyond the baseline model, we considered Logistic Regression models both with and without intercept terms (the "biased" and "unbiased" models, respectively), the standard Decision Tree and Random Forest models decision-tree based models, and the boosting models HGBoost and XGBoost.
             </p>
 

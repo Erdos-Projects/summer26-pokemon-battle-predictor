@@ -38,7 +38,7 @@ The [Elo rating system](https://en.wikipedia.org/wiki/Elo_rating_system), design
 
 *Suppose everyone has ratings (or is seeded with some rating, maybe 1000?)*. We update ratings after matches as follows: 
 
-1. **(Win Probabilities):** When $A$ and $B$ will play, they can *score* $s_A, s_B \in \{0, 1\} = \{\text{Win, Lose}\} $ [a score of $s = \frac{1}{2}$ can be used if $\text{Draw}$ is allowed]. Because $0$, $1$ are the only possible outcomes, the "*expected scores*" are
+1. **(Win Probabilities):** When $A$ and $B$ will play, they can *score* $s_A, s_B \in \{0, 1\}$ for "Lose" and "Win", respectively, [a score of $s = \frac{1}{2}$ can be used if Draw is allowed]. Because $0$, $1$ are the only possible outcomes, the "*expected scores*" are
 ```math
 E[s_A] = P_A := P(A\text{ Wins}) \qquad\text{and}\qquad E[s_B] = P_B := P(B\text{ Wins})
 ```
@@ -50,7 +50,7 @@ E[s_A] = P_A := P(A\text{ Wins}) \qquad\text{and}\qquad E[s_B] = P_B := P(B\text
 ```
    The winner of the match then "takes the pot" of $K(P_A + P_B) = K$ rating points and adds it to their rating.
 
-3. **(Rating Update):** A convenient way to state/write the above is: "*after a match, a player's rating changes relative to how much they "beat the odds"/"pulled-off an upset"/"choked", scaled by $K$*". Precisely, one takes
+3. **(Rating Update):** A convenient way to state/write the above is: "*after a match, a player's rating changes relative to how much they "beat the odds"/"pulled-off an upset"/"choked", scaled by K*". Precisely, one takes
 ```math
 \begin{align}
     r_A' &\hspace{0.4em}\leftarrow\hspace{0.4em} r_A + K(s_A - P_A), \\
@@ -125,9 +125,11 @@ and then (*per X-Act's description*)
 At the end of a period/month, you have:
 * Match win/loss data for a bunch of players, who each have `Glicko-1` ratings/stats $(r_{i}, D_{i})$;
 * Team compositions (and more) for both players in each match; thus, in reality we have data points $(r_{i}, D_{i}, \mathrm{tm}_{i})$.
-* Note: Data for both players in a match are listed separately, and are counted "with multiplicity": that is, if player $A$ played 10 matches in a period using the same team $\mathrm{tm}_{A}$, then $(r_{A}, D_{A}, \mathrm{tm}_{A})$ is recorded 10 times in the "master list" 
+* Note: Data for both players in a match are listed separately, 
+and are counted "with multiplicity": that is, if player $A$ played 10 matches in a period using the same team $\mathrm{tm}_{A}$,
+then $(r_{A}, D_{A}, \mathrm{tm}_{A})$ is recorded 10 times in the "master list" 
 ```math
-\{ (r_{i}, D_{i}, \mathrm{tm}_{i}) : i = 1,\ldots,N \}.
+\Big\{ (r_{i}, D_{i}, \mathrm{tm}_{i}) : i = 1,\ldots,N \Big\}.
 ```
 
 **Computation:**

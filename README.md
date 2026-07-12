@@ -1,7 +1,7 @@
 # summer26-pokemon-battle-predictor
 This repository holds the work done on a project as part of the Erdős Institute's Summer 2026 Data Science Boot Camp.
 
-<span style="color:black; background-color: #7ed3e4; padding: 5px 10px">**Contributors:** Taylor Daniels, Xiaoyu Huang, Greg Knapp, Mohammad Mannan, Marz Newman</span>
+<u>**Contributors:**</u> Taylor Daniels, Xiaoyu Huang, Greg Knapp, Mohammad Mannan, Marz Newman
 
 [Project Executive Summary](./documentation/ExecutiveSummary.pdf) (PDF)  
 [Project Presentation Slides](./documentation/PokemonBattlePredictorSlides.pdf) (PDF)

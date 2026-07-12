@@ -1,3 +1,6 @@
+# Data Processing Notes and Methods
+This folder `/data` and README discuss the actual structure of our final datasets [data_cleaned.csv](./data_cleaned.csv) and [test_data_cleaned.csv](./test_data_cleaned.csv). For detailed documentation of our data gathering and cleaning process, see [DataProcessingNotes.md](../documentation/DataProcessingNotes.md).
+
 # Reading data into `pandas.DataFrame`
 
 A list of column names is included in `data_cleaned.csv` as the first line; `data_col_names.txt` has a standalone copy. Although `pandas` should be able to recognize the `dtypes` of the different columns when reading-in `data_cleaned.csv` (using `pandas.read_csv`), a mapping/dictionary of `{col} : {type}` is included in `data_col_types.txt` 
@@ -16,9 +19,9 @@ df.info()
     memory usage: 28.0+ MB
 ```
 
-# Info about `data_cleaned.csv`
+# Data Structure
 
-`data_cleaned.csv` contains observations of $\approx 12700$ battles pulled from [pokemonshowdown.com](PokemonShowdown!), with each battle having $299$ features, as documented below. Note: many of the features are easily understood by their name alone, so we only describe a select few in detail. 
+`data_cleaned.csv` and `test_data_cleaned.csv` contain observations of about 12,700 and 4,500 battles, respectively, pulled from [pokemonshowdown.com](PokemonShowdown!), with each battle having $299$ features, as documented below. Many of the features are easily understood by their name alone, so we only describe a select few in detail. 
 
 **<u>Battle metadata and 'macro-data'</u>**  
 Columns 1&ndash;23 (indices `[0,23)`) contain:

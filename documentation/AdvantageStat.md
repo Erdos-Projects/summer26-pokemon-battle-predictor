@@ -50,7 +50,7 @@ Some notes:
 Notes for $E$:
 - $E$ is meant to approximate the product of $\mathrm{STAB}$ and Type.
 - The formula for $E$ inherently assumes that $M_1$ is only using STAB moves (this is the factor of $1.5$ present there); this could be updated to account for coverage moves in a future iteration on this stat.
-- The $\max\{\frac{1}{2}, \cdot\}$ in $E(\mathrm{M}_1,\mathrm{M}_2)$ is to prevent $E$ from having value 0. It is very rare (though it does happen) that $M_1$ will be unable to damage $M_2$. The factor of $\frac{1}{2}$ is used because that is a multiplier for a "not-very-effective" coverage move. This could be resolved by replacing the maximum over $T_1$ by a maximum over $M_1$'s move types.
+- The $\max (\frac{1}{2}, \cdot)$ in $E(\mathrm{M}_1,\mathrm{M}_2)$ is to prevent $E$ from having value 0. It is very rare (though it does happen) that $M_1$ will be unable to damage $M_2$. The factor of $\frac{1}{2}$ is used because that is a multiplier for a "not-very-effective" coverage move. This could be resolved by replacing the maximum over $T_1$ by a maximum over $M_1$'s move types.
 
 More Notes:
 - Damage or speed-boosting items are not be accounted for. This could be resolved in an ad-hoc way by checking for common boosting items (choice items, life orb), or resolved in a systemic way using the Smogon damage calculator to replace the offensive advantage stat.
@@ -95,10 +95,10 @@ Then
 So
 
 ```math
-\mathrm{dmg}_{\mathrm{ovo}}(\mathrm{M}_{1},\mathrm{M}_{2}) =
+\mathrm{dmg}_{\mathrm{ovo}}(\mathrm{M}_{1}, \mathrm{M}_{2}) =
 \begin{cases}
-    \mathrm{dmg}(\mathrm{M}_{1},\mathrm{M}_{2})\cdot \big({\mathrm{toko}(\mathrm{M}_{1},\mathrm{M}_{2}) - 1}\big)  &\text{if $S_1 < S_2$ and $\mathrm{M}_2$ KOs $\mathrm{M}_1$},\\
-    \mathrm{dmg}(\mathrm{M}_{1},\mathrm{M}_{2})\cdot \mathrm{toko}(\mathrm{M}_{1},\mathrm{M}_{2})         &\text{else.}
+    \mathrm{dmg}(\mathrm{M}_{1},\mathrm{M}_{2}) \cdot \big({\mathrm{toko}(\mathrm{M}_{1},\mathrm{M}_{2}) - 1}\big)  & \text{if } S_{1} < S_2 \text{ and } \mathrm{M}_2 \text{ KOs } \mathrm{M}_1, \\
+    \mathrm{dmg}(\mathrm{M}_{1},\mathrm{M}_{2}) \cdot \mathrm{toko}(\mathrm{M}_{1},\mathrm{M}_{2})         &\text{else.}
 \end{cases}
 ```
 

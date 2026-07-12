@@ -2,34 +2,14 @@
 Overview of battle.py 
 #################################################
 
-(for brevity, anything of the form `.x` means `self.x`)
+This module contains the classes Battle, BattleState, Team, Pokemon, and dataclass Player.
+It is meant to process Pokemon Showdown battle replay JSON files. See `/documentation` for more details on data processing.
 
-`Player` class: 
----------------------------------------
-    
-
-The dataclasses `Team` and `Pokemon` seen below are fairly self-explanatory.
-    * The `Pokemon.base` is the "base form" of the pokemon, possibly different from `Pokemon.forme`. 
-        (Ex: `base` = `Tauros` and `forme` = `Tauros-Paldea-Aqua`)
-    
-`BattleState`:
----------------------------------------
-    * `.time` : 'absolute' time turn occured at (seconds since *Epoch*)
-    * `.turn`
-    
-    * `.team1`, 
-    * `.team2`
-    * `.time_elapsed` : seconds passed since `Battle.start_time`
-    
-    * `.battle_id` : copy of `Battle.id`; useful for printing errors.
-    * `.print()` gives a nice printed summary.
 '''
-
 
 import json, copy, time
 import re # regex
 
-from copy import deepcopy
 from dataclasses import dataclass
 
 #################################################
@@ -81,14 +61,6 @@ class Pokemon:
     
 #################################################
 
-
-
-    
-
-
-
-
-# -----------------------------
 # Extra functions to help with printing teams
 
 def team_str(team: dict):
@@ -155,17 +127,17 @@ class Battle:
         .inputlog: extra thing that contains the team seeds etc.
         
         .head: everything before '|start'
-        .bat: everything in range `['|start', '|win|')`
-        .tail: everything after `.bat`
+        .bat: everything in range ['|start', '|win|')
+        .tail: everything after .bat
         
         States
         ---------------------------------------
-        .TURNS: Array of turn-strings from splitting `.bat`. 
-            * `.TURNS[i]` gives the raw string for Turn `i`
+        .TURNS: Array of turn-strings from splitting .bat. 
+            * .TURNS[i] gives the raw string for Turn `i`
             * Note 'turn0' = fielding leading pokemon
-        .STATES: List of BattleStates (incl State_0).
+        .STATES: List of BattleStates (incl State0).
     """
-    def __init__(self,data_json, parse=False, verbose=False):
+    def __init__(self, data_json, parse=False, verbose=False):
         data = data_json
         # -----------------------------
         # Initializing metadata/attributes

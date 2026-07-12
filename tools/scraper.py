@@ -9,7 +9,6 @@ Roughly, we
     3. Pull and write the Replay using the `battle_id`.
 '''
 
-import os, sys
 import json, time
 import typing
 import logging, requests

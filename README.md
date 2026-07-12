@@ -12,16 +12,10 @@ Pokémon battles are turn-based games in which two players compete with teams of
 From the Showdown developers’ perspective, there are a number of factors and methods to consider in designing this balanced gameplay. Some primary features to consider are Pokémon's <i>stats</i> (e.g., HP, Attack, Defense) and <i>types</i> (e.g., Fire, Psychic, Ground), and players’ [Elo ratings](https://en.wikipedia.org/wiki/Elo_rating_system) (within Showdown’s system).  We aim to investigate whether or not the team generation procedure is balanced. If Showdown’s team construction algorithm is balanced, then we expect that comparison of said features should not strongly indicate a player's chance of winning.
 
 ### Data Collection
-<!-- Showdown logs a large amount of information about each match played on the site, including player Elo ratings and turn-by-turn records of player moves, allowing for a full, turn-by-turn reconstruction of each match from its publicly available “replay” JSON files. Examples of a replay and its JSON are 
-[here](https://replay.pokemonshowdown.com/gen9randombattle-2646780843) 
-and 
-[here](https://replay.pokemonshowdown.com/gen9randombattle-2646780843.json), respectively. -->
 
 Our process for collecting and processing battle-log JSON files from Showdown is detailed in [DataProcessingNotes.md](./documentation/DataProcessingNotes.md) (and the `ipynb` version [DataProcessingNotes.ipynb](./documentation/DataProcessingNotes.ipynb)).
 
 In each random battle, players cannot see their opponent’s Pokémon until they are individually fielded; additionally, the replay logs do not record these not-yet-fielded Pokémon, even past the battle’s end. Our method interfacing with Showdown's source code in order to re-generate the complete team rosters in each battle&mdash;including those Pokémon not fielded&mdash;is outlined in [ComputingTeams.md](./documentation/ComputingTeams.md).
-
-<!-- In addition, the level-scaled stats of each Pokémon in the matches were computed using the formulas from the Pokémon game mechanics, as summarized in [Stats.md](./documentation/Stats.md), and using Pokémon base stats pulled from the Pokedex obtained as in [GettingDex.md](./documentation/GettingDex.md). Lastly, matches involving custom rules (on top of the random battle format) were removed from the data. -->
 
 ### Feature Engineering
 

@@ -1,4 +1,4 @@
-from full_pokemon import FullPokemon
+from tools.full_pokemon import FullPokemon
 
 # ===============================================
 # Primary DataFrame-entry maker

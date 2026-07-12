@@ -72,7 +72,8 @@ sys.path.insert(1,os.path.abspath('..'))
 
 from tools.team_compute import get_player_dets, get_teams_full, append_team_stats
 
-replay_dir = Path("../data/test_data_replays/")
+# NOTE: Unzip the folder(s) in /data/replays to run this.
+replay_dir = Path("../data/replays/test_data_replays/")
 
 with open('../data/POKEDEX_for_test.json','r') as file:
     DEX = json.load(file)
@@ -118,24 +119,27 @@ Naturally, the following can be modified and run in different directories.
 from tools.battle import *
 from tools.bat_to_list import battle_to_list
 
-replay_dir = Path("../data/test_data_replays/")
+# NOTE: Unzip the folder(s) in /data/replays to run this, or change to your desired directory
+replay_dir = Path("../data/replays/test_data_replays/") 
 
 # ===========================
 DATA = []
 customs = []
 errs = []
 
-for file in replay_dir.glob("*.json") : 
+for replay in replay_dir.glob("*.json") : 
     try : 
-        bat = Battle(file, parse=True)
+        with replay.open() as file :
+            replay_json = json.load(file)
+        bat = Battle(replay_json, parse=True)
         
         if not bat.custom_ruleQ : 
             DATA.append(battle_to_list(bat))
         else : 
-            customs.append(file.name)
+            customs.append(replay.name)
     except : 
-        print(f"error with {file.name}")
-        errs.append(file.name)
+        print(f"error with {replay.name}")
+        errs.append(replay.name)
         continue
 
 print(customs)

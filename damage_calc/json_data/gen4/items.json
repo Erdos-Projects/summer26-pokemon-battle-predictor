@@ -1,0 +1,1387 @@
+{
+  "Berry Juice": {
+    "kind": "Item",
+    "id": "berryjuice",
+    "name": "Berry Juice"
+  },
+  "Black Belt": {
+    "kind": "Item",
+    "id": "blackbelt",
+    "name": "Black Belt"
+  },
+  "Black Glasses": {
+    "kind": "Item",
+    "id": "blackglasses",
+    "name": "Black Glasses"
+  },
+  "Bright Powder": {
+    "kind": "Item",
+    "id": "brightpowder",
+    "name": "Bright Powder"
+  },
+  "Charcoal": {
+    "kind": "Item",
+    "id": "charcoal",
+    "name": "Charcoal"
+  },
+  "Dragon Fang": {
+    "kind": "Item",
+    "id": "dragonfang",
+    "name": "Dragon Fang"
+  },
+  "Dragon Scale": {
+    "kind": "Item",
+    "id": "dragonscale",
+    "name": "Dragon Scale"
+  },
+  "Fast Ball": {
+    "kind": "Item",
+    "id": "fastball",
+    "name": "Fast Ball"
+  },
+  "Fire Stone": {
+    "kind": "Item",
+    "id": "firestone",
+    "name": "Fire Stone"
+  },
+  "Focus Band": {
+    "kind": "Item",
+    "id": "focusband",
+    "name": "Focus Band"
+  },
+  "Friend Ball": {
+    "kind": "Item",
+    "id": "friendball",
+    "name": "Friend Ball"
+  },
+  "Great Ball": {
+    "kind": "Item",
+    "id": "greatball",
+    "name": "Great Ball"
+  },
+  "Hard Stone": {
+    "kind": "Item",
+    "id": "hardstone",
+    "name": "Hard Stone"
+  },
+  "Heavy Ball": {
+    "kind": "Item",
+    "id": "heavyball",
+    "name": "Heavy Ball"
+  },
+  "King's Rock": {
+    "kind": "Item",
+    "id": "kingsrock",
+    "name": "King's Rock"
+  },
+  "Leaf Stone": {
+    "kind": "Item",
+    "id": "leafstone",
+    "name": "Leaf Stone"
+  },
+  "Leftovers": {
+    "kind": "Item",
+    "id": "leftovers",
+    "name": "Leftovers"
+  },
+  "Level Ball": {
+    "kind": "Item",
+    "id": "levelball",
+    "name": "Level Ball"
+  },
+  "Light Ball": {
+    "kind": "Item",
+    "id": "lightball",
+    "name": "Light Ball"
+  },
+  "Love Ball": {
+    "kind": "Item",
+    "id": "loveball",
+    "name": "Love Ball"
+  },
+  "Lucky Punch": {
+    "kind": "Item",
+    "id": "luckypunch",
+    "name": "Lucky Punch"
+  },
+  "Lure Ball": {
+    "kind": "Item",
+    "id": "lureball",
+    "name": "Lure Ball"
+  },
+  "Magnet": {
+    "kind": "Item",
+    "id": "magnet",
+    "name": "Magnet"
+  },
+  "Mail": {
+    "kind": "Item",
+    "id": "mail",
+    "name": "Mail"
+  },
+  "Master Ball": {
+    "kind": "Item",
+    "id": "masterball",
+    "name": "Master Ball"
+  },
+  "Metal Coat": {
+    "kind": "Item",
+    "id": "metalcoat",
+    "name": "Metal Coat"
+  },
+  "Metal Powder": {
+    "kind": "Item",
+    "id": "metalpowder",
+    "name": "Metal Powder"
+  },
+  "Miracle Seed": {
+    "kind": "Item",
+    "id": "miracleseed",
+    "name": "Miracle Seed"
+  },
+  "Moon Ball": {
+    "kind": "Item",
+    "id": "moonball",
+    "name": "Moon Ball"
+  },
+  "Moon Stone": {
+    "kind": "Item",
+    "id": "moonstone",
+    "name": "Moon Stone"
+  },
+  "Mystic Water": {
+    "kind": "Item",
+    "id": "mysticwater",
+    "name": "Mystic Water"
+  },
+  "Never-Melt Ice": {
+    "kind": "Item",
+    "id": "nevermeltice",
+    "name": "Never-Melt Ice"
+  },
+  "Poison Barb": {
+    "kind": "Item",
+    "id": "poisonbarb",
+    "name": "Poison Barb"
+  },
+  "Poke Ball": {
+    "kind": "Item",
+    "id": "pokeball",
+    "name": "Poke Ball"
+  },
+  "Quick Claw": {
+    "kind": "Item",
+    "id": "quickclaw",
+    "name": "Quick Claw"
+  },
+  "Safari Ball": {
+    "kind": "Item",
+    "id": "safariball",
+    "name": "Safari Ball"
+  },
+  "Scope Lens": {
+    "kind": "Item",
+    "id": "scopelens",
+    "name": "Scope Lens"
+  },
+  "Sharp Beak": {
+    "kind": "Item",
+    "id": "sharpbeak",
+    "name": "Sharp Beak"
+  },
+  "Silver Powder": {
+    "kind": "Item",
+    "id": "silverpowder",
+    "name": "Silver Powder"
+  },
+  "Soft Sand": {
+    "kind": "Item",
+    "id": "softsand",
+    "name": "Soft Sand"
+  },
+  "Spell Tag": {
+    "kind": "Item",
+    "id": "spelltag",
+    "name": "Spell Tag"
+  },
+  "Sport Ball": {
+    "kind": "Item",
+    "id": "sportball",
+    "name": "Sport Ball"
+  },
+  "Stick": {
+    "kind": "Item",
+    "id": "stick",
+    "name": "Stick"
+  },
+  "Sun Stone": {
+    "kind": "Item",
+    "id": "sunstone",
+    "name": "Sun Stone"
+  },
+  "Thick Club": {
+    "kind": "Item",
+    "id": "thickclub",
+    "name": "Thick Club"
+  },
+  "Thunder Stone": {
+    "kind": "Item",
+    "id": "thunderstone",
+    "name": "Thunder Stone"
+  },
+  "Twisted Spoon": {
+    "kind": "Item",
+    "id": "twistedspoon",
+    "name": "Twisted Spoon"
+  },
+  "Ultra Ball": {
+    "kind": "Item",
+    "id": "ultraball",
+    "name": "Ultra Ball"
+  },
+  "Up-Grade": {
+    "kind": "Item",
+    "id": "upgrade",
+    "name": "Up-Grade"
+  },
+  "Water Stone": {
+    "kind": "Item",
+    "id": "waterstone",
+    "name": "Water Stone"
+  },
+  "Aguav Berry": {
+    "kind": "Item",
+    "id": "aguavberry",
+    "name": "Aguav Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Dragon"
+    }
+  },
+  "Apicot Berry": {
+    "kind": "Item",
+    "id": "apicotberry",
+    "name": "Apicot Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Ground"
+    }
+  },
+  "Aspear Berry": {
+    "kind": "Item",
+    "id": "aspearberry",
+    "name": "Aspear Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Ice"
+    }
+  },
+  "Belue Berry": {
+    "kind": "Item",
+    "id": "belueberry",
+    "name": "Belue Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Electric"
+    }
+  },
+  "Bluk Berry": {
+    "kind": "Item",
+    "id": "blukberry",
+    "name": "Bluk Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 70,
+      "type": "Fire"
+    }
+  },
+  "Cheri Berry": {
+    "kind": "Item",
+    "id": "cheriberry",
+    "name": "Cheri Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Fire"
+    }
+  },
+  "Chesto Berry": {
+    "kind": "Item",
+    "id": "chestoberry",
+    "name": "Chesto Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Water"
+    }
+  },
+  "Choice Band": {
+    "kind": "Item",
+    "id": "choiceband",
+    "name": "Choice Band"
+  },
+  "Claw Fossil": {
+    "kind": "Item",
+    "id": "clawfossil",
+    "name": "Claw Fossil"
+  },
+  "Cornn Berry": {
+    "kind": "Item",
+    "id": "cornnberry",
+    "name": "Cornn Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 70,
+      "type": "Bug"
+    }
+  },
+  "Deep Sea Scale": {
+    "kind": "Item",
+    "id": "deepseascale",
+    "name": "Deep Sea Scale"
+  },
+  "Deep Sea Tooth": {
+    "kind": "Item",
+    "id": "deepseatooth",
+    "name": "Deep Sea Tooth"
+  },
+  "Dive Ball": {
+    "kind": "Item",
+    "id": "diveball",
+    "name": "Dive Ball"
+  },
+  "Dome Fossil": {
+    "kind": "Item",
+    "id": "domefossil",
+    "name": "Dome Fossil"
+  },
+  "Durin Berry": {
+    "kind": "Item",
+    "id": "durinberry",
+    "name": "Durin Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Water"
+    }
+  },
+  "Enigma Berry": {
+    "kind": "Item",
+    "id": "enigmaberry",
+    "name": "Enigma Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Bug"
+    }
+  },
+  "Figy Berry": {
+    "kind": "Item",
+    "id": "figyberry",
+    "name": "Figy Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Bug"
+    }
+  },
+  "Ganlon Berry": {
+    "kind": "Item",
+    "id": "ganlonberry",
+    "name": "Ganlon Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Ice"
+    }
+  },
+  "Grepa Berry": {
+    "kind": "Item",
+    "id": "grepaberry",
+    "name": "Grepa Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 70,
+      "type": "Flying"
+    }
+  },
+  "Helix Fossil": {
+    "kind": "Item",
+    "id": "helixfossil",
+    "name": "Helix Fossil"
+  },
+  "Hondew Berry": {
+    "kind": "Item",
+    "id": "hondewberry",
+    "name": "Hondew Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 70,
+      "type": "Ground"
+    }
+  },
+  "Iapapa Berry": {
+    "kind": "Item",
+    "id": "iapapaberry",
+    "name": "Iapapa Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Dark"
+    }
+  },
+  "Kelpsy Berry": {
+    "kind": "Item",
+    "id": "kelpsyberry",
+    "name": "Kelpsy Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 70,
+      "type": "Fighting"
+    }
+  },
+  "Lansat Berry": {
+    "kind": "Item",
+    "id": "lansatberry",
+    "name": "Lansat Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Flying"
+    }
+  },
+  "Lax Incense": {
+    "kind": "Item",
+    "id": "laxincense",
+    "name": "Lax Incense"
+  },
+  "Leppa Berry": {
+    "kind": "Item",
+    "id": "leppaberry",
+    "name": "Leppa Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Fighting"
+    }
+  },
+  "Liechi Berry": {
+    "kind": "Item",
+    "id": "liechiberry",
+    "name": "Liechi Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Grass"
+    }
+  },
+  "Lum Berry": {
+    "kind": "Item",
+    "id": "lumberry",
+    "name": "Lum Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Flying"
+    }
+  },
+  "Luxury Ball": {
+    "kind": "Item",
+    "id": "luxuryball",
+    "name": "Luxury Ball"
+  },
+  "Macho Brace": {
+    "kind": "Item",
+    "id": "machobrace",
+    "name": "Macho Brace"
+  },
+  "Mago Berry": {
+    "kind": "Item",
+    "id": "magoberry",
+    "name": "Mago Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Ghost"
+    }
+  },
+  "Magost Berry": {
+    "kind": "Item",
+    "id": "magostberry",
+    "name": "Magost Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 70,
+      "type": "Rock"
+    }
+  },
+  "Mental Herb": {
+    "kind": "Item",
+    "id": "mentalherb",
+    "name": "Mental Herb"
+  },
+  "Nanab Berry": {
+    "kind": "Item",
+    "id": "nanabberry",
+    "name": "Nanab Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 70,
+      "type": "Water"
+    }
+  },
+  "Nest Ball": {
+    "kind": "Item",
+    "id": "nestball",
+    "name": "Nest Ball"
+  },
+  "Net Ball": {
+    "kind": "Item",
+    "id": "netball",
+    "name": "Net Ball"
+  },
+  "Nomel Berry": {
+    "kind": "Item",
+    "id": "nomelberry",
+    "name": "Nomel Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 70,
+      "type": "Dragon"
+    }
+  },
+  "Old Amber": {
+    "kind": "Item",
+    "id": "oldamber",
+    "name": "Old Amber"
+  },
+  "Oran Berry": {
+    "kind": "Item",
+    "id": "oranberry",
+    "name": "Oran Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Poison"
+    }
+  },
+  "Pamtre Berry": {
+    "kind": "Item",
+    "id": "pamtreberry",
+    "name": "Pamtre Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 70,
+      "type": "Steel"
+    }
+  },
+  "Pecha Berry": {
+    "kind": "Item",
+    "id": "pechaberry",
+    "name": "Pecha Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Electric"
+    }
+  },
+  "Persim Berry": {
+    "kind": "Item",
+    "id": "persimberry",
+    "name": "Persim Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Ground"
+    }
+  },
+  "Petaya Berry": {
+    "kind": "Item",
+    "id": "petayaberry",
+    "name": "Petaya Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Poison"
+    }
+  },
+  "Pinap Berry": {
+    "kind": "Item",
+    "id": "pinapberry",
+    "name": "Pinap Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 70,
+      "type": "Grass"
+    }
+  },
+  "Pomeg Berry": {
+    "kind": "Item",
+    "id": "pomegberry",
+    "name": "Pomeg Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 70,
+      "type": "Ice"
+    }
+  },
+  "Premier Ball": {
+    "kind": "Item",
+    "id": "premierball",
+    "name": "Premier Ball"
+  },
+  "Qualot Berry": {
+    "kind": "Item",
+    "id": "qualotberry",
+    "name": "Qualot Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 70,
+      "type": "Poison"
+    }
+  },
+  "Rabuta Berry": {
+    "kind": "Item",
+    "id": "rabutaberry",
+    "name": "Rabuta Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 70,
+      "type": "Ghost"
+    }
+  },
+  "Rawst Berry": {
+    "kind": "Item",
+    "id": "rawstberry",
+    "name": "Rawst Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Grass"
+    }
+  },
+  "Razz Berry": {
+    "kind": "Item",
+    "id": "razzberry",
+    "name": "Razz Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Steel"
+    }
+  },
+  "Repeat Ball": {
+    "kind": "Item",
+    "id": "repeatball",
+    "name": "Repeat Ball"
+  },
+  "Root Fossil": {
+    "kind": "Item",
+    "id": "rootfossil",
+    "name": "Root Fossil"
+  },
+  "Salac Berry": {
+    "kind": "Item",
+    "id": "salacberry",
+    "name": "Salac Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Fighting"
+    }
+  },
+  "Sea Incense": {
+    "kind": "Item",
+    "id": "seaincense",
+    "name": "Sea Incense"
+  },
+  "Shell Bell": {
+    "kind": "Item",
+    "id": "shellbell",
+    "name": "Shell Bell"
+  },
+  "Silk Scarf": {
+    "kind": "Item",
+    "id": "silkscarf",
+    "name": "Silk Scarf"
+  },
+  "Sitrus Berry": {
+    "kind": "Item",
+    "id": "sitrusberry",
+    "name": "Sitrus Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Psychic"
+    }
+  },
+  "Soul Dew": {
+    "kind": "Item",
+    "id": "souldew",
+    "name": "Soul Dew"
+  },
+  "Spelon Berry": {
+    "kind": "Item",
+    "id": "spelonberry",
+    "name": "Spelon Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 70,
+      "type": "Dark"
+    }
+  },
+  "Starf Berry": {
+    "kind": "Item",
+    "id": "starfberry",
+    "name": "Starf Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Psychic"
+    }
+  },
+  "Tamato Berry": {
+    "kind": "Item",
+    "id": "tamatoberry",
+    "name": "Tamato Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 70,
+      "type": "Psychic"
+    }
+  },
+  "Timer Ball": {
+    "kind": "Item",
+    "id": "timerball",
+    "name": "Timer Ball"
+  },
+  "Watmel Berry": {
+    "kind": "Item",
+    "id": "watmelberry",
+    "name": "Watmel Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Fire"
+    }
+  },
+  "Wepear Berry": {
+    "kind": "Item",
+    "id": "wepearberry",
+    "name": "Wepear Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 70,
+      "type": "Electric"
+    }
+  },
+  "White Herb": {
+    "kind": "Item",
+    "id": "whiteherb",
+    "name": "White Herb"
+  },
+  "Wiki Berry": {
+    "kind": "Item",
+    "id": "wikiberry",
+    "name": "Wiki Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Rock"
+    }
+  },
+  "Adamant Orb": {
+    "kind": "Item",
+    "id": "adamantorb",
+    "name": "Adamant Orb"
+  },
+  "Armor Fossil": {
+    "kind": "Item",
+    "id": "armorfossil",
+    "name": "Armor Fossil"
+  },
+  "Babiri Berry": {
+    "kind": "Item",
+    "id": "babiriberry",
+    "name": "Babiri Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Steel"
+    }
+  },
+  "Big Root": {
+    "kind": "Item",
+    "id": "bigroot",
+    "name": "Big Root"
+  },
+  "Black Sludge": {
+    "kind": "Item",
+    "id": "blacksludge",
+    "name": "Black Sludge"
+  },
+  "Charti Berry": {
+    "kind": "Item",
+    "id": "chartiberry",
+    "name": "Charti Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Rock"
+    }
+  },
+  "Cherish Ball": {
+    "kind": "Item",
+    "id": "cherishball",
+    "name": "Cherish Ball"
+  },
+  "Chilan Berry": {
+    "kind": "Item",
+    "id": "chilanberry",
+    "name": "Chilan Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Normal"
+    }
+  },
+  "Choice Scarf": {
+    "kind": "Item",
+    "id": "choicescarf",
+    "name": "Choice Scarf"
+  },
+  "Choice Specs": {
+    "kind": "Item",
+    "id": "choicespecs",
+    "name": "Choice Specs"
+  },
+  "Chople Berry": {
+    "kind": "Item",
+    "id": "chopleberry",
+    "name": "Chople Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Fighting"
+    }
+  },
+  "Coba Berry": {
+    "kind": "Item",
+    "id": "cobaberry",
+    "name": "Coba Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Flying"
+    }
+  },
+  "Colbur Berry": {
+    "kind": "Item",
+    "id": "colburberry",
+    "name": "Colbur Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Dark"
+    }
+  },
+  "Custap Berry": {
+    "kind": "Item",
+    "id": "custapberry",
+    "name": "Custap Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Ghost"
+    }
+  },
+  "Damp Rock": {
+    "kind": "Item",
+    "id": "damprock",
+    "name": "Damp Rock"
+  },
+  "Dawn Stone": {
+    "kind": "Item",
+    "id": "dawnstone",
+    "name": "Dawn Stone"
+  },
+  "Destiny Knot": {
+    "kind": "Item",
+    "id": "destinyknot",
+    "name": "Destiny Knot"
+  },
+  "Draco Plate": {
+    "kind": "Item",
+    "id": "dracoplate",
+    "name": "Draco Plate"
+  },
+  "Dread Plate": {
+    "kind": "Item",
+    "id": "dreadplate",
+    "name": "Dread Plate"
+  },
+  "Dubious Disc": {
+    "kind": "Item",
+    "id": "dubiousdisc",
+    "name": "Dubious Disc"
+  },
+  "Dusk Ball": {
+    "kind": "Item",
+    "id": "duskball",
+    "name": "Dusk Ball"
+  },
+  "Dusk Stone": {
+    "kind": "Item",
+    "id": "duskstone",
+    "name": "Dusk Stone"
+  },
+  "Earth Plate": {
+    "kind": "Item",
+    "id": "earthplate",
+    "name": "Earth Plate"
+  },
+  "Electirizer": {
+    "kind": "Item",
+    "id": "electirizer",
+    "name": "Electirizer"
+  },
+  "Expert Belt": {
+    "kind": "Item",
+    "id": "expertbelt",
+    "name": "Expert Belt"
+  },
+  "Fist Plate": {
+    "kind": "Item",
+    "id": "fistplate",
+    "name": "Fist Plate"
+  },
+  "Flame Orb": {
+    "kind": "Item",
+    "id": "flameorb",
+    "name": "Flame Orb"
+  },
+  "Flame Plate": {
+    "kind": "Item",
+    "id": "flameplate",
+    "name": "Flame Plate"
+  },
+  "Focus Sash": {
+    "kind": "Item",
+    "id": "focussash",
+    "name": "Focus Sash"
+  },
+  "Full Incense": {
+    "kind": "Item",
+    "id": "fullincense",
+    "name": "Full Incense"
+  },
+  "Grip Claw": {
+    "kind": "Item",
+    "id": "gripclaw",
+    "name": "Grip Claw"
+  },
+  "Griseous Orb": {
+    "kind": "Item",
+    "id": "griseousorb",
+    "name": "Griseous Orb"
+  },
+  "Haban Berry": {
+    "kind": "Item",
+    "id": "habanberry",
+    "name": "Haban Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Dragon"
+    }
+  },
+  "Heal Ball": {
+    "kind": "Item",
+    "id": "healball",
+    "name": "Heal Ball"
+  },
+  "Heat Rock": {
+    "kind": "Item",
+    "id": "heatrock",
+    "name": "Heat Rock"
+  },
+  "Icicle Plate": {
+    "kind": "Item",
+    "id": "icicleplate",
+    "name": "Icicle Plate"
+  },
+  "Icy Rock": {
+    "kind": "Item",
+    "id": "icyrock",
+    "name": "Icy Rock"
+  },
+  "Insect Plate": {
+    "kind": "Item",
+    "id": "insectplate",
+    "name": "Insect Plate"
+  },
+  "Iron Ball": {
+    "kind": "Item",
+    "id": "ironball",
+    "name": "Iron Ball"
+  },
+  "Iron Plate": {
+    "kind": "Item",
+    "id": "ironplate",
+    "name": "Iron Plate"
+  },
+  "Jaboca Berry": {
+    "kind": "Item",
+    "id": "jabocaberry",
+    "name": "Jaboca Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Dragon"
+    }
+  },
+  "Kasib Berry": {
+    "kind": "Item",
+    "id": "kasibberry",
+    "name": "Kasib Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Ghost"
+    }
+  },
+  "Kebia Berry": {
+    "kind": "Item",
+    "id": "kebiaberry",
+    "name": "Kebia Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Poison"
+    }
+  },
+  "Lagging Tail": {
+    "kind": "Item",
+    "id": "laggingtail",
+    "name": "Lagging Tail"
+  },
+  "Life Orb": {
+    "kind": "Item",
+    "id": "lifeorb",
+    "name": "Life Orb"
+  },
+  "Light Clay": {
+    "kind": "Item",
+    "id": "lightclay",
+    "name": "Light Clay"
+  },
+  "Lustrous Orb": {
+    "kind": "Item",
+    "id": "lustrousorb",
+    "name": "Lustrous Orb"
+  },
+  "Magmarizer": {
+    "kind": "Item",
+    "id": "magmarizer",
+    "name": "Magmarizer"
+  },
+  "Meadow Plate": {
+    "kind": "Item",
+    "id": "meadowplate",
+    "name": "Meadow Plate"
+  },
+  "Metronome": {
+    "kind": "Item",
+    "id": "metronome",
+    "name": "Metronome"
+  },
+  "Micle Berry": {
+    "kind": "Item",
+    "id": "micleberry",
+    "name": "Micle Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Rock"
+    }
+  },
+  "Mind Plate": {
+    "kind": "Item",
+    "id": "mindplate",
+    "name": "Mind Plate"
+  },
+  "Muscle Band": {
+    "kind": "Item",
+    "id": "muscleband",
+    "name": "Muscle Band"
+  },
+  "Occa Berry": {
+    "kind": "Item",
+    "id": "occaberry",
+    "name": "Occa Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Fire"
+    }
+  },
+  "Odd Incense": {
+    "kind": "Item",
+    "id": "oddincense",
+    "name": "Odd Incense"
+  },
+  "Oval Stone": {
+    "kind": "Item",
+    "id": "ovalstone",
+    "name": "Oval Stone"
+  },
+  "Park Ball": {
+    "kind": "Item",
+    "id": "parkball",
+    "name": "Park Ball"
+  },
+  "Passho Berry": {
+    "kind": "Item",
+    "id": "passhoberry",
+    "name": "Passho Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Water"
+    }
+  },
+  "Payapa Berry": {
+    "kind": "Item",
+    "id": "payapaberry",
+    "name": "Payapa Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Psychic"
+    }
+  },
+  "Power Anklet": {
+    "kind": "Item",
+    "id": "poweranklet",
+    "name": "Power Anklet"
+  },
+  "Power Band": {
+    "kind": "Item",
+    "id": "powerband",
+    "name": "Power Band"
+  },
+  "Power Belt": {
+    "kind": "Item",
+    "id": "powerbelt",
+    "name": "Power Belt"
+  },
+  "Power Bracer": {
+    "kind": "Item",
+    "id": "powerbracer",
+    "name": "Power Bracer"
+  },
+  "Power Herb": {
+    "kind": "Item",
+    "id": "powerherb",
+    "name": "Power Herb"
+  },
+  "Power Lens": {
+    "kind": "Item",
+    "id": "powerlens",
+    "name": "Power Lens"
+  },
+  "Power Weight": {
+    "kind": "Item",
+    "id": "powerweight",
+    "name": "Power Weight"
+  },
+  "Protector": {
+    "kind": "Item",
+    "id": "protector",
+    "name": "Protector"
+  },
+  "Quick Ball": {
+    "kind": "Item",
+    "id": "quickball",
+    "name": "Quick Ball"
+  },
+  "Quick Powder": {
+    "kind": "Item",
+    "id": "quickpowder",
+    "name": "Quick Powder"
+  },
+  "Rare Bone": {
+    "kind": "Item",
+    "id": "rarebone",
+    "name": "Rare Bone"
+  },
+  "Razor Claw": {
+    "kind": "Item",
+    "id": "razorclaw",
+    "name": "Razor Claw"
+  },
+  "Razor Fang": {
+    "kind": "Item",
+    "id": "razorfang",
+    "name": "Razor Fang"
+  },
+  "Reaper Cloth": {
+    "kind": "Item",
+    "id": "reapercloth",
+    "name": "Reaper Cloth"
+  },
+  "Rindo Berry": {
+    "kind": "Item",
+    "id": "rindoberry",
+    "name": "Rindo Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Grass"
+    }
+  },
+  "Rock Incense": {
+    "kind": "Item",
+    "id": "rockincense",
+    "name": "Rock Incense"
+  },
+  "Rose Incense": {
+    "kind": "Item",
+    "id": "roseincense",
+    "name": "Rose Incense"
+  },
+  "Rowap Berry": {
+    "kind": "Item",
+    "id": "rowapberry",
+    "name": "Rowap Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Dark"
+    }
+  },
+  "Shed Shell": {
+    "kind": "Item",
+    "id": "shedshell",
+    "name": "Shed Shell"
+  },
+  "Shiny Stone": {
+    "kind": "Item",
+    "id": "shinystone",
+    "name": "Shiny Stone"
+  },
+  "Shuca Berry": {
+    "kind": "Item",
+    "id": "shucaberry",
+    "name": "Shuca Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Ground"
+    }
+  },
+  "Skull Fossil": {
+    "kind": "Item",
+    "id": "skullfossil",
+    "name": "Skull Fossil"
+  },
+  "Sky Plate": {
+    "kind": "Item",
+    "id": "skyplate",
+    "name": "Sky Plate"
+  },
+  "Smooth Rock": {
+    "kind": "Item",
+    "id": "smoothrock",
+    "name": "Smooth Rock"
+  },
+  "Splash Plate": {
+    "kind": "Item",
+    "id": "splashplate",
+    "name": "Splash Plate"
+  },
+  "Spooky Plate": {
+    "kind": "Item",
+    "id": "spookyplate",
+    "name": "Spooky Plate"
+  },
+  "Sticky Barb": {
+    "kind": "Item",
+    "id": "stickybarb",
+    "name": "Sticky Barb"
+  },
+  "Stone Plate": {
+    "kind": "Item",
+    "id": "stoneplate",
+    "name": "Stone Plate"
+  },
+  "Tanga Berry": {
+    "kind": "Item",
+    "id": "tangaberry",
+    "name": "Tanga Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Bug"
+    }
+  },
+  "Toxic Orb": {
+    "kind": "Item",
+    "id": "toxicorb",
+    "name": "Toxic Orb"
+  },
+  "Toxic Plate": {
+    "kind": "Item",
+    "id": "toxicplate",
+    "name": "Toxic Plate"
+  },
+  "Wacan Berry": {
+    "kind": "Item",
+    "id": "wacanberry",
+    "name": "Wacan Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Electric"
+    }
+  },
+  "Wave Incense": {
+    "kind": "Item",
+    "id": "waveincense",
+    "name": "Wave Incense"
+  },
+  "Wide Lens": {
+    "kind": "Item",
+    "id": "widelens",
+    "name": "Wide Lens"
+  },
+  "Wise Glasses": {
+    "kind": "Item",
+    "id": "wiseglasses",
+    "name": "Wise Glasses"
+  },
+  "Yache Berry": {
+    "kind": "Item",
+    "id": "yacheberry",
+    "name": "Yache Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Ice"
+    }
+  },
+  "Zap Plate": {
+    "kind": "Item",
+    "id": "zapplate",
+    "name": "Zap Plate"
+  },
+  "Zoom Lens": {
+    "kind": "Item",
+    "id": "zoomlens",
+    "name": "Zoom Lens"
+  }
+}

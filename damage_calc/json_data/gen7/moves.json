@@ -1,0 +1,9184 @@
+{
+  "(No Move)": {
+    "kind": "Move",
+    "id": "nomove",
+    "name": "(No Move)",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Absorb": {
+    "kind": "Move",
+    "id": "absorb",
+    "name": "Absorb",
+    "flags": {},
+    "type": "Grass",
+    "drain": [
+      1,
+      2
+    ],
+    "category": "Special",
+    "basePower": 20,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Acid": {
+    "kind": "Move",
+    "id": "acid",
+    "name": "Acid",
+    "flags": {},
+    "type": "Poison",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Amnesia": {
+    "kind": "Move",
+    "id": "amnesia",
+    "name": "Amnesia",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "basePower": 0
+  },
+  "Aurora Beam": {
+    "kind": "Move",
+    "id": "aurorabeam",
+    "name": "Aurora Beam",
+    "flags": {},
+    "type": "Ice",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Barrage": {
+    "kind": "Move",
+    "id": "barrage",
+    "name": "Barrage",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Normal",
+    "multihit": [
+      2,
+      5
+    ],
+    "category": "Physical",
+    "basePower": 15,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Bide": {
+    "kind": "Move",
+    "id": "bide",
+    "name": "Bide",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "priority": 1,
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Bind": {
+    "kind": "Move",
+    "id": "bind",
+    "name": "Bind",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 15,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Bite": {
+    "kind": "Move",
+    "id": "bite",
+    "name": "Bite",
+    "flags": {
+      "contact": 1,
+      "bite": 1
+    },
+    "type": "Dark",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Blizzard": {
+    "kind": "Move",
+    "id": "blizzard",
+    "name": "Blizzard",
+    "flags": {},
+    "type": "Ice",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 110,
+    "zMove": {
+      "basePower": 185
+    }
+  },
+  "Bonemerang": {
+    "kind": "Move",
+    "id": "bonemerang",
+    "name": "Bonemerang",
+    "flags": {},
+    "type": "Ground",
+    "multihit": 2,
+    "category": "Physical",
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Bubble": {
+    "kind": "Move",
+    "id": "bubble",
+    "name": "Bubble",
+    "flags": {},
+    "type": "Water",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Bubble Beam": {
+    "kind": "Move",
+    "id": "bubblebeam",
+    "name": "Bubble Beam",
+    "flags": {},
+    "type": "Water",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Clamp": {
+    "kind": "Move",
+    "id": "clamp",
+    "name": "Clamp",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Water",
+    "category": "Physical",
+    "basePower": 35,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Comet Punch": {
+    "kind": "Move",
+    "id": "cometpunch",
+    "name": "Comet Punch",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Normal",
+    "multihit": [
+      2,
+      5
+    ],
+    "category": "Physical",
+    "basePower": 18,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Constrict": {
+    "kind": "Move",
+    "id": "constrict",
+    "name": "Constrict",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 10,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Conversion": {
+    "kind": "Move",
+    "id": "conversion",
+    "name": "Conversion",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Counter": {
+    "kind": "Move",
+    "id": "counter",
+    "name": "Counter",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Crabhammer": {
+    "kind": "Move",
+    "id": "crabhammer",
+    "name": "Crabhammer",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Water",
+    "category": "Physical",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Defense Curl": {
+    "kind": "Move",
+    "id": "defensecurl",
+    "name": "Defense Curl",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Dig": {
+    "kind": "Move",
+    "id": "dig",
+    "name": "Dig",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Ground",
+    "category": "Physical",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Disable": {
+    "kind": "Move",
+    "id": "disable",
+    "name": "Disable",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Dizzy Punch": {
+    "kind": "Move",
+    "id": "dizzypunch",
+    "name": "Dizzy Punch",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Double-Edge": {
+    "kind": "Move",
+    "id": "doubleedge",
+    "name": "Double-Edge",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "recoil": [
+      33,
+      100
+    ],
+    "category": "Physical",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Double Kick": {
+    "kind": "Move",
+    "id": "doublekick",
+    "name": "Double Kick",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "multihit": 2,
+    "category": "Physical",
+    "basePower": 30,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Double Slap": {
+    "kind": "Move",
+    "id": "doubleslap",
+    "name": "Double Slap",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "multihit": [
+      2,
+      5
+    ],
+    "category": "Physical",
+    "basePower": 15,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Dragon Rage": {
+    "kind": "Move",
+    "id": "dragonrage",
+    "name": "Dragon Rage",
+    "flags": {},
+    "type": "Dragon",
+    "category": "Special",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Dream Eater": {
+    "kind": "Move",
+    "id": "dreameater",
+    "name": "Dream Eater",
+    "flags": {},
+    "type": "Psychic",
+    "drain": [
+      1,
+      2
+    ],
+    "category": "Special",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Earthquake": {
+    "kind": "Move",
+    "id": "earthquake",
+    "name": "Earthquake",
+    "flags": {},
+    "type": "Ground",
+    "target": "allAdjacent",
+    "category": "Physical",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Explosion": {
+    "kind": "Move",
+    "id": "explosion",
+    "name": "Explosion",
+    "flags": {},
+    "type": "Normal",
+    "target": "allAdjacent",
+    "category": "Physical",
+    "basePower": 250,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Fire Blast": {
+    "kind": "Move",
+    "id": "fireblast",
+    "name": "Fire Blast",
+    "flags": {},
+    "type": "Fire",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 110,
+    "zMove": {
+      "basePower": 185
+    }
+  },
+  "Fire Spin": {
+    "kind": "Move",
+    "id": "firespin",
+    "name": "Fire Spin",
+    "flags": {},
+    "type": "Fire",
+    "category": "Special",
+    "basePower": 35,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Fissure": {
+    "kind": "Move",
+    "id": "fissure",
+    "name": "Fissure",
+    "flags": {},
+    "type": "Ground",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Fly": {
+    "kind": "Move",
+    "id": "fly",
+    "name": "Fly",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Flying",
+    "category": "Physical",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Focus Energy": {
+    "kind": "Move",
+    "id": "focusenergy",
+    "name": "Focus Energy",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Fury Attack": {
+    "kind": "Move",
+    "id": "furyattack",
+    "name": "Fury Attack",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "multihit": [
+      2,
+      5
+    ],
+    "category": "Physical",
+    "basePower": 15,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Fury Swipes": {
+    "kind": "Move",
+    "id": "furyswipes",
+    "name": "Fury Swipes",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "multihit": [
+      2,
+      5
+    ],
+    "category": "Physical",
+    "basePower": 18,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Glare": {
+    "kind": "Move",
+    "id": "glare",
+    "name": "Glare",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Growth": {
+    "kind": "Move",
+    "id": "growth",
+    "name": "Growth",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Guillotine": {
+    "kind": "Move",
+    "id": "guillotine",
+    "name": "Guillotine",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Gust": {
+    "kind": "Move",
+    "id": "gust",
+    "name": "Gust",
+    "flags": {},
+    "type": "Flying",
+    "category": "Special",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Haze": {
+    "kind": "Move",
+    "id": "haze",
+    "name": "Haze",
+    "flags": {},
+    "category": "Status",
+    "type": "Ice",
+    "basePower": 0
+  },
+  "High Jump Kick": {
+    "kind": "Move",
+    "id": "highjumpkick",
+    "name": "High Jump Kick",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "hasCrashDamage": true,
+    "category": "Physical",
+    "basePower": 130,
+    "zMove": {
+      "basePower": 195
+    }
+  },
+  "Horn Drill": {
+    "kind": "Move",
+    "id": "horndrill",
+    "name": "Horn Drill",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Hyper Beam": {
+    "kind": "Move",
+    "id": "hyperbeam",
+    "name": "Hyper Beam",
+    "flags": {},
+    "type": "Normal",
+    "category": "Special",
+    "basePower": 150,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Jump Kick": {
+    "kind": "Move",
+    "id": "jumpkick",
+    "name": "Jump Kick",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "hasCrashDamage": true,
+    "category": "Physical",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Karate Chop": {
+    "kind": "Move",
+    "id": "karatechop",
+    "name": "Karate Chop",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Leech Seed": {
+    "kind": "Move",
+    "id": "leechseed",
+    "name": "Leech Seed",
+    "flags": {},
+    "category": "Status",
+    "type": "Grass",
+    "basePower": 0
+  },
+  "Light Screen": {
+    "kind": "Move",
+    "id": "lightscreen",
+    "name": "Light Screen",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "basePower": 0
+  },
+  "Metronome": {
+    "kind": "Move",
+    "id": "metronome",
+    "name": "Metronome",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Mimic": {
+    "kind": "Move",
+    "id": "mimic",
+    "name": "Mimic",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Minimize": {
+    "kind": "Move",
+    "id": "minimize",
+    "name": "Minimize",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Mirror Move": {
+    "kind": "Move",
+    "id": "mirrormove",
+    "name": "Mirror Move",
+    "flags": {},
+    "category": "Status",
+    "type": "Flying",
+    "basePower": 0
+  },
+  "Mist": {
+    "kind": "Move",
+    "id": "mist",
+    "name": "Mist",
+    "flags": {},
+    "category": "Status",
+    "type": "Ice",
+    "basePower": 0
+  },
+  "Night Shade": {
+    "kind": "Move",
+    "id": "nightshade",
+    "name": "Night Shade",
+    "flags": {},
+    "type": "Ghost",
+    "category": "Special",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Petal Dance": {
+    "kind": "Move",
+    "id": "petaldance",
+    "name": "Petal Dance",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Grass",
+    "category": "Special",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Pin Missile": {
+    "kind": "Move",
+    "id": "pinmissile",
+    "name": "Pin Missile",
+    "flags": {},
+    "type": "Bug",
+    "multihit": [
+      2,
+      5
+    ],
+    "category": "Physical",
+    "basePower": 25,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Poison Sting": {
+    "kind": "Move",
+    "id": "poisonsting",
+    "name": "Poison Sting",
+    "flags": {},
+    "type": "Poison",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 15,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Psychic": {
+    "kind": "Move",
+    "id": "psychic",
+    "name": "Psychic",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Psywave": {
+    "kind": "Move",
+    "id": "psywave",
+    "name": "Psywave",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Rage": {
+    "kind": "Move",
+    "id": "rage",
+    "name": "Rage",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 20,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Razor Leaf": {
+    "kind": "Move",
+    "id": "razorleaf",
+    "name": "Razor Leaf",
+    "flags": {},
+    "type": "Grass",
+    "target": "allAdjacentFoes",
+    "category": "Physical",
+    "basePower": 55,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Razor Wind": {
+    "kind": "Move",
+    "id": "razorwind",
+    "name": "Razor Wind",
+    "flags": {},
+    "type": "Normal",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Recover": {
+    "kind": "Move",
+    "id": "recover",
+    "name": "Recover",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Reflect": {
+    "kind": "Move",
+    "id": "reflect",
+    "name": "Reflect",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "basePower": 0
+  },
+  "Rest": {
+    "kind": "Move",
+    "id": "rest",
+    "name": "Rest",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "basePower": 0
+  },
+  "Roar": {
+    "kind": "Move",
+    "id": "roar",
+    "name": "Roar",
+    "flags": {
+      "sound": 1
+    },
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Rock Slide": {
+    "kind": "Move",
+    "id": "rockslide",
+    "name": "Rock Slide",
+    "flags": {},
+    "type": "Rock",
+    "target": "allAdjacentFoes",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 75,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Rock Throw": {
+    "kind": "Move",
+    "id": "rockthrow",
+    "name": "Rock Throw",
+    "flags": {},
+    "type": "Rock",
+    "category": "Physical",
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Sand Attack": {
+    "kind": "Move",
+    "id": "sandattack",
+    "name": "Sand Attack",
+    "flags": {},
+    "category": "Status",
+    "type": "Ground",
+    "basePower": 0
+  },
+  "Seismic Toss": {
+    "kind": "Move",
+    "id": "seismictoss",
+    "name": "Seismic Toss",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Self-Destruct": {
+    "kind": "Move",
+    "id": "selfdestruct",
+    "name": "Self-Destruct",
+    "flags": {},
+    "type": "Normal",
+    "target": "allAdjacent",
+    "category": "Physical",
+    "basePower": 200,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Skull Bash": {
+    "kind": "Move",
+    "id": "skullbash",
+    "name": "Skull Bash",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 130,
+    "zMove": {
+      "basePower": 195
+    }
+  },
+  "Slash": {
+    "kind": "Move",
+    "id": "slash",
+    "name": "Slash",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Sludge": {
+    "kind": "Move",
+    "id": "sludge",
+    "name": "Sludge",
+    "flags": {},
+    "type": "Poison",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Soft-Boiled": {
+    "kind": "Move",
+    "id": "softboiled",
+    "name": "Soft-Boiled",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Solar Beam": {
+    "kind": "Move",
+    "id": "solarbeam",
+    "name": "Solar Beam",
+    "flags": {},
+    "type": "Grass",
+    "category": "Special",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Sonic Boom": {
+    "kind": "Move",
+    "id": "sonicboom",
+    "name": "Sonic Boom",
+    "flags": {},
+    "type": "Normal",
+    "category": "Special",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Spike Cannon": {
+    "kind": "Move",
+    "id": "spikecannon",
+    "name": "Spike Cannon",
+    "flags": {},
+    "type": "Normal",
+    "multihit": [
+      2,
+      5
+    ],
+    "category": "Physical",
+    "basePower": 20,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Stomp": {
+    "kind": "Move",
+    "id": "stomp",
+    "name": "Stomp",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Struggle": {
+    "kind": "Move",
+    "id": "struggle",
+    "name": "Struggle",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "struggleRecoil": true,
+    "basePower": 50
+  },
+  "Stun Spore": {
+    "kind": "Move",
+    "id": "stunspore",
+    "name": "Stun Spore",
+    "flags": {},
+    "category": "Status",
+    "type": "Grass",
+    "basePower": 0
+  },
+  "Submission": {
+    "kind": "Move",
+    "id": "submission",
+    "name": "Submission",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "recoil": [
+      1,
+      4
+    ],
+    "category": "Physical",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Substitute": {
+    "kind": "Move",
+    "id": "substitute",
+    "name": "Substitute",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Super Fang": {
+    "kind": "Move",
+    "id": "superfang",
+    "name": "Super Fang",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Swift": {
+    "kind": "Move",
+    "id": "swift",
+    "name": "Swift",
+    "flags": {},
+    "type": "Normal",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Take Down": {
+    "kind": "Move",
+    "id": "takedown",
+    "name": "Take Down",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "recoil": [
+      1,
+      4
+    ],
+    "category": "Physical",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Thrash": {
+    "kind": "Move",
+    "id": "thrash",
+    "name": "Thrash",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Thunder": {
+    "kind": "Move",
+    "id": "thunder",
+    "name": "Thunder",
+    "flags": {},
+    "type": "Electric",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 110,
+    "zMove": {
+      "basePower": 185
+    }
+  },
+  "Thunder Wave": {
+    "kind": "Move",
+    "id": "thunderwave",
+    "name": "Thunder Wave",
+    "flags": {},
+    "category": "Status",
+    "type": "Electric",
+    "basePower": 0
+  },
+  "Transform": {
+    "kind": "Move",
+    "id": "transform",
+    "name": "Transform",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Tri Attack": {
+    "kind": "Move",
+    "id": "triattack",
+    "name": "Tri Attack",
+    "flags": {},
+    "type": "Normal",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Twineedle": {
+    "kind": "Move",
+    "id": "twineedle",
+    "name": "Twineedle",
+    "flags": {},
+    "type": "Bug",
+    "multihit": 2,
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 25,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Whirlwind": {
+    "kind": "Move",
+    "id": "whirlwind",
+    "name": "Whirlwind",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Wing Attack": {
+    "kind": "Move",
+    "id": "wingattack",
+    "name": "Wing Attack",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Flying",
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Wrap": {
+    "kind": "Move",
+    "id": "wrap",
+    "name": "Wrap",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 15,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Growl": {
+    "kind": "Move",
+    "id": "growl",
+    "name": "Growl",
+    "flags": {
+      "sound": 1
+    },
+    "category": "Status",
+    "type": "Normal",
+    "target": "allAdjacentFoes",
+    "basePower": 0
+  },
+  "Leer": {
+    "kind": "Move",
+    "id": "leer",
+    "name": "Leer",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "target": "allAdjacentFoes",
+    "basePower": 0
+  },
+  "Low Kick": {
+    "kind": "Move",
+    "id": "lowkick",
+    "name": "Low Kick",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Poison Gas": {
+    "kind": "Move",
+    "id": "poisongas",
+    "name": "Poison Gas",
+    "flags": {},
+    "category": "Status",
+    "type": "Poison",
+    "target": "allAdjacentFoes",
+    "basePower": 0
+  },
+  "Poison Powder": {
+    "kind": "Move",
+    "id": "poisonpowder",
+    "name": "Poison Powder",
+    "flags": {},
+    "category": "Status",
+    "type": "Poison",
+    "basePower": 0
+  },
+  "Sky Attack": {
+    "kind": "Move",
+    "id": "skyattack",
+    "name": "Sky Attack",
+    "flags": {},
+    "type": "Flying",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 140,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "String Shot": {
+    "kind": "Move",
+    "id": "stringshot",
+    "name": "String Shot",
+    "flags": {},
+    "category": "Status",
+    "type": "Bug",
+    "target": "allAdjacentFoes",
+    "basePower": 0
+  },
+  "Surf": {
+    "kind": "Move",
+    "id": "surf",
+    "name": "Surf",
+    "flags": {},
+    "type": "Water",
+    "target": "allAdjacent",
+    "category": "Special",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Tail Whip": {
+    "kind": "Move",
+    "id": "tailwhip",
+    "name": "Tail Whip",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "target": "allAdjacentFoes",
+    "basePower": 0
+  },
+  "Toxic": {
+    "kind": "Move",
+    "id": "toxic",
+    "name": "Toxic",
+    "flags": {},
+    "category": "Status",
+    "type": "Poison",
+    "basePower": 0
+  },
+  "Flash": {
+    "kind": "Move",
+    "id": "flash",
+    "name": "Flash",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Hypnosis": {
+    "kind": "Move",
+    "id": "hypnosis",
+    "name": "Hypnosis",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "basePower": 0
+  },
+  "Leech Life": {
+    "kind": "Move",
+    "id": "leechlife",
+    "name": "Leech Life",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Bug",
+    "drain": [
+      1,
+      2
+    ],
+    "category": "Physical",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Mega Drain": {
+    "kind": "Move",
+    "id": "megadrain",
+    "name": "Mega Drain",
+    "flags": {},
+    "type": "Grass",
+    "drain": [
+      1,
+      2
+    ],
+    "category": "Special",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Vine Whip": {
+    "kind": "Move",
+    "id": "vinewhip",
+    "name": "Vine Whip",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Grass",
+    "category": "Physical",
+    "basePower": 45,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Waterfall": {
+    "kind": "Move",
+    "id": "waterfall",
+    "name": "Waterfall",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Water",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Tackle": {
+    "kind": "Move",
+    "id": "tackle",
+    "name": "Tackle",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Acid Armor": {
+    "kind": "Move",
+    "id": "acidarmor",
+    "name": "Acid Armor",
+    "flags": {},
+    "category": "Status",
+    "type": "Poison",
+    "basePower": 0
+  },
+  "Barrier": {
+    "kind": "Move",
+    "id": "barrier",
+    "name": "Barrier",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "basePower": 0
+  },
+  "Body Slam": {
+    "kind": "Move",
+    "id": "bodyslam",
+    "name": "Body Slam",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 85,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Flamethrower": {
+    "kind": "Move",
+    "id": "flamethrower",
+    "name": "Flamethrower",
+    "flags": {},
+    "type": "Fire",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Hydro Pump": {
+    "kind": "Move",
+    "id": "hydropump",
+    "name": "Hydro Pump",
+    "flags": {},
+    "type": "Water",
+    "category": "Special",
+    "basePower": 110,
+    "zMove": {
+      "basePower": 185
+    }
+  },
+  "Ice Beam": {
+    "kind": "Move",
+    "id": "icebeam",
+    "name": "Ice Beam",
+    "flags": {},
+    "type": "Ice",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Lick": {
+    "kind": "Move",
+    "id": "lick",
+    "name": "Lick",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Ghost",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 30,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Screech": {
+    "kind": "Move",
+    "id": "screech",
+    "name": "Screech",
+    "flags": {
+      "sound": 1
+    },
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Sing": {
+    "kind": "Move",
+    "id": "sing",
+    "name": "Sing",
+    "flags": {
+      "sound": 1
+    },
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Sleep Powder": {
+    "kind": "Move",
+    "id": "sleeppowder",
+    "name": "Sleep Powder",
+    "flags": {},
+    "category": "Status",
+    "type": "Grass",
+    "basePower": 0
+  },
+  "Smog": {
+    "kind": "Move",
+    "id": "smog",
+    "name": "Smog",
+    "flags": {},
+    "type": "Poison",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 30,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Spore": {
+    "kind": "Move",
+    "id": "spore",
+    "name": "Spore",
+    "flags": {},
+    "category": "Status",
+    "type": "Grass",
+    "basePower": 0
+  },
+  "Supersonic": {
+    "kind": "Move",
+    "id": "supersonic",
+    "name": "Supersonic",
+    "flags": {
+      "sound": 1
+    },
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Swords Dance": {
+    "kind": "Move",
+    "id": "swordsdance",
+    "name": "Swords Dance",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Thunderbolt": {
+    "kind": "Move",
+    "id": "thunderbolt",
+    "name": "Thunderbolt",
+    "flags": {},
+    "type": "Electric",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Bone Club": {
+    "kind": "Move",
+    "id": "boneclub",
+    "name": "Bone Club",
+    "flags": {},
+    "type": "Ground",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Egg Bomb": {
+    "kind": "Move",
+    "id": "eggbomb",
+    "name": "Egg Bomb",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Hyper Fang": {
+    "kind": "Move",
+    "id": "hyperfang",
+    "name": "Hyper Fang",
+    "flags": {
+      "contact": 1,
+      "bite": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Kinesis": {
+    "kind": "Move",
+    "id": "kinesis",
+    "name": "Kinesis",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "basePower": 0
+  },
+  "Lovely Kiss": {
+    "kind": "Move",
+    "id": "lovelykiss",
+    "name": "Lovely Kiss",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Meditate": {
+    "kind": "Move",
+    "id": "meditate",
+    "name": "Meditate",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "basePower": 0
+  },
+  "Rolling Kick": {
+    "kind": "Move",
+    "id": "rollingkick",
+    "name": "Rolling Kick",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Sharpen": {
+    "kind": "Move",
+    "id": "sharpen",
+    "name": "Sharpen",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Teleport": {
+    "kind": "Move",
+    "id": "teleport",
+    "name": "Teleport",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "basePower": 0
+  },
+  "Agility": {
+    "kind": "Move",
+    "id": "agility",
+    "name": "Agility",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "basePower": 0
+  },
+  "Confuse Ray": {
+    "kind": "Move",
+    "id": "confuseray",
+    "name": "Confuse Ray",
+    "flags": {},
+    "category": "Status",
+    "type": "Ghost",
+    "basePower": 0
+  },
+  "Confusion": {
+    "kind": "Move",
+    "id": "confusion",
+    "name": "Confusion",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Cut": {
+    "kind": "Move",
+    "id": "cut",
+    "name": "Cut",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Double Team": {
+    "kind": "Move",
+    "id": "doubleteam",
+    "name": "Double Team",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Drill Peck": {
+    "kind": "Move",
+    "id": "drillpeck",
+    "name": "Drill Peck",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Flying",
+    "category": "Physical",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Ember": {
+    "kind": "Move",
+    "id": "ember",
+    "name": "Ember",
+    "flags": {},
+    "type": "Fire",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Fire Punch": {
+    "kind": "Move",
+    "id": "firepunch",
+    "name": "Fire Punch",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Fire",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 75,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Harden": {
+    "kind": "Move",
+    "id": "harden",
+    "name": "Harden",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Headbutt": {
+    "kind": "Move",
+    "id": "headbutt",
+    "name": "Headbutt",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Horn Attack": {
+    "kind": "Move",
+    "id": "hornattack",
+    "name": "Horn Attack",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Ice Punch": {
+    "kind": "Move",
+    "id": "icepunch",
+    "name": "Ice Punch",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Ice",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 75,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Mega Kick": {
+    "kind": "Move",
+    "id": "megakick",
+    "name": "Mega Kick",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Mega Punch": {
+    "kind": "Move",
+    "id": "megapunch",
+    "name": "Mega Punch",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Paleo Wave": {
+    "kind": "Move",
+    "id": "paleowave",
+    "name": "Paleo Wave",
+    "flags": {},
+    "type": "Rock",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 85,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Pay Day": {
+    "kind": "Move",
+    "id": "payday",
+    "name": "Pay Day",
+    "flags": {},
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Peck": {
+    "kind": "Move",
+    "id": "peck",
+    "name": "Peck",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Flying",
+    "category": "Physical",
+    "basePower": 35,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Polar Flare": {
+    "kind": "Move",
+    "id": "polarflare",
+    "name": "Polar Flare",
+    "flags": {},
+    "type": "Fire",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 75,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Pound": {
+    "kind": "Move",
+    "id": "pound",
+    "name": "Pound",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Psybeam": {
+    "kind": "Move",
+    "id": "psybeam",
+    "name": "Psybeam",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Quick Attack": {
+    "kind": "Move",
+    "id": "quickattack",
+    "name": "Quick Attack",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "priority": 1,
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Scratch": {
+    "kind": "Move",
+    "id": "scratch",
+    "name": "Scratch",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Shadow Strike": {
+    "kind": "Move",
+    "id": "shadowstrike",
+    "name": "Shadow Strike",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Ghost",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Slam": {
+    "kind": "Move",
+    "id": "slam",
+    "name": "Slam",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Smokescreen": {
+    "kind": "Move",
+    "id": "smokescreen",
+    "name": "Smokescreen",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Splash": {
+    "kind": "Move",
+    "id": "splash",
+    "name": "Splash",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Strength": {
+    "kind": "Move",
+    "id": "strength",
+    "name": "Strength",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Thunder Punch": {
+    "kind": "Move",
+    "id": "thunderpunch",
+    "name": "Thunder Punch",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Electric",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 75,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Thunder Shock": {
+    "kind": "Move",
+    "id": "thundershock",
+    "name": "Thunder Shock",
+    "flags": {},
+    "type": "Electric",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Vise Grip": {
+    "kind": "Move",
+    "id": "visegrip",
+    "name": "Vise Grip",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 55,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Water Gun": {
+    "kind": "Move",
+    "id": "watergun",
+    "name": "Water Gun",
+    "flags": {},
+    "type": "Water",
+    "category": "Special",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Withdraw": {
+    "kind": "Move",
+    "id": "withdraw",
+    "name": "Withdraw",
+    "flags": {},
+    "category": "Status",
+    "type": "Water",
+    "basePower": 0
+  },
+  "Aeroblast": {
+    "kind": "Move",
+    "id": "aeroblast",
+    "name": "Aeroblast",
+    "flags": {},
+    "type": "Flying",
+    "category": "Special",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Attract": {
+    "kind": "Move",
+    "id": "attract",
+    "name": "Attract",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Beat Up": {
+    "kind": "Move",
+    "id": "beatup",
+    "name": "Beat Up",
+    "flags": {},
+    "type": "Dark",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Belly Drum": {
+    "kind": "Move",
+    "id": "bellydrum",
+    "name": "Belly Drum",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Conversion 2": {
+    "kind": "Move",
+    "id": "conversion2",
+    "name": "Conversion 2",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Cross Chop": {
+    "kind": "Move",
+    "id": "crosschop",
+    "name": "Cross Chop",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Curse": {
+    "kind": "Move",
+    "id": "curse",
+    "name": "Curse",
+    "flags": {},
+    "category": "Status",
+    "type": "Ghost",
+    "basePower": 0
+  },
+  "Destiny Bond": {
+    "kind": "Move",
+    "id": "destinybond",
+    "name": "Destiny Bond",
+    "flags": {},
+    "category": "Status",
+    "type": "Ghost",
+    "basePower": 0
+  },
+  "Detect": {
+    "kind": "Move",
+    "id": "detect",
+    "name": "Detect",
+    "flags": {},
+    "category": "Status",
+    "type": "Fighting",
+    "priority": 4,
+    "basePower": 0
+  },
+  "Encore": {
+    "kind": "Move",
+    "id": "encore",
+    "name": "Encore",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Endure": {
+    "kind": "Move",
+    "id": "endure",
+    "name": "Endure",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "priority": 4,
+    "basePower": 0
+  },
+  "Flail": {
+    "kind": "Move",
+    "id": "flail",
+    "name": "Flail",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Foresight": {
+    "kind": "Move",
+    "id": "foresight",
+    "name": "Foresight",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Future Sight": {
+    "kind": "Move",
+    "id": "futuresight",
+    "name": "Future Sight",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Heal Bell": {
+    "kind": "Move",
+    "id": "healbell",
+    "name": "Heal Bell",
+    "flags": {
+      "sound": 1
+    },
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Icy Wind": {
+    "kind": "Move",
+    "id": "icywind",
+    "name": "Icy Wind",
+    "flags": {},
+    "type": "Ice",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 55,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Lock-On": {
+    "kind": "Move",
+    "id": "lockon",
+    "name": "Lock-On",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Mind Reader": {
+    "kind": "Move",
+    "id": "mindreader",
+    "name": "Mind Reader",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Mirror Coat": {
+    "kind": "Move",
+    "id": "mirrorcoat",
+    "name": "Mirror Coat",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Moonlight": {
+    "kind": "Move",
+    "id": "moonlight",
+    "name": "Moonlight",
+    "flags": {},
+    "category": "Status",
+    "type": "Fairy",
+    "basePower": 0
+  },
+  "Morning Sun": {
+    "kind": "Move",
+    "id": "morningsun",
+    "name": "Morning Sun",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Nightmare": {
+    "kind": "Move",
+    "id": "nightmare",
+    "name": "Nightmare",
+    "flags": {},
+    "category": "Status",
+    "type": "Ghost",
+    "basePower": 0
+  },
+  "Outrage": {
+    "kind": "Move",
+    "id": "outrage",
+    "name": "Outrage",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dragon",
+    "category": "Physical",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Powder Snow": {
+    "kind": "Move",
+    "id": "powdersnow",
+    "name": "Powder Snow",
+    "flags": {},
+    "type": "Ice",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Present": {
+    "kind": "Move",
+    "id": "present",
+    "name": "Present",
+    "flags": {},
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Protect": {
+    "kind": "Move",
+    "id": "protect",
+    "name": "Protect",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "priority": 4,
+    "basePower": 0
+  },
+  "Psych Up": {
+    "kind": "Move",
+    "id": "psychup",
+    "name": "Psych Up",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Pursuit": {
+    "kind": "Move",
+    "id": "pursuit",
+    "name": "Pursuit",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dark",
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Rain Dance": {
+    "kind": "Move",
+    "id": "raindance",
+    "name": "Rain Dance",
+    "flags": {},
+    "category": "Status",
+    "type": "Water",
+    "basePower": 0
+  },
+  "Reversal": {
+    "kind": "Move",
+    "id": "reversal",
+    "name": "Reversal",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Safeguard": {
+    "kind": "Move",
+    "id": "safeguard",
+    "name": "Safeguard",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Sandstorm": {
+    "kind": "Move",
+    "id": "sandstorm",
+    "name": "Sandstorm",
+    "flags": {},
+    "category": "Status",
+    "type": "Rock",
+    "basePower": 0
+  },
+  "Sketch": {
+    "kind": "Move",
+    "id": "sketch",
+    "name": "Sketch",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Sleep Talk": {
+    "kind": "Move",
+    "id": "sleeptalk",
+    "name": "Sleep Talk",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Spikes": {
+    "kind": "Move",
+    "id": "spikes",
+    "name": "Spikes",
+    "flags": {},
+    "category": "Status",
+    "type": "Ground",
+    "basePower": 0
+  },
+  "Spite": {
+    "kind": "Move",
+    "id": "spite",
+    "name": "Spite",
+    "flags": {},
+    "category": "Status",
+    "type": "Ghost",
+    "basePower": 0
+  },
+  "Sunny Day": {
+    "kind": "Move",
+    "id": "sunnyday",
+    "name": "Sunny Day",
+    "flags": {},
+    "category": "Status",
+    "type": "Fire",
+    "basePower": 0
+  },
+  "Swagger": {
+    "kind": "Move",
+    "id": "swagger",
+    "name": "Swagger",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Sweet Scent": {
+    "kind": "Move",
+    "id": "sweetscent",
+    "name": "Sweet Scent",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "target": "allAdjacentFoes",
+    "basePower": 0
+  },
+  "Synthesis": {
+    "kind": "Move",
+    "id": "synthesis",
+    "name": "Synthesis",
+    "flags": {},
+    "category": "Status",
+    "type": "Grass",
+    "basePower": 0
+  },
+  "Thief": {
+    "kind": "Move",
+    "id": "thief",
+    "name": "Thief",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dark",
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Triple Kick": {
+    "kind": "Move",
+    "id": "triplekick",
+    "name": "Triple Kick",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "multihit": 3,
+    "multiaccuracy": true,
+    "category": "Physical",
+    "basePower": 10,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Twister": {
+    "kind": "Move",
+    "id": "twister",
+    "name": "Twister",
+    "flags": {},
+    "type": "Dragon",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Ancient Power": {
+    "kind": "Move",
+    "id": "ancientpower",
+    "name": "Ancient Power",
+    "flags": {},
+    "type": "Rock",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Bone Rush": {
+    "kind": "Move",
+    "id": "bonerush",
+    "name": "Bone Rush",
+    "flags": {},
+    "type": "Ground",
+    "multihit": [
+      2,
+      5
+    ],
+    "category": "Physical",
+    "basePower": 25,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Crunch": {
+    "kind": "Move",
+    "id": "crunch",
+    "name": "Crunch",
+    "flags": {
+      "contact": 1,
+      "bite": 1
+    },
+    "type": "Dark",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Feint Attack": {
+    "kind": "Move",
+    "id": "feintattack",
+    "name": "Feint Attack",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dark",
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Giga Drain": {
+    "kind": "Move",
+    "id": "gigadrain",
+    "name": "Giga Drain",
+    "flags": {},
+    "type": "Grass",
+    "drain": [
+      1,
+      2
+    ],
+    "category": "Special",
+    "basePower": 75,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Hidden Power": {
+    "kind": "Move",
+    "id": "hiddenpower",
+    "name": "Hidden Power",
+    "flags": {},
+    "type": "Normal",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Mean Look": {
+    "kind": "Move",
+    "id": "meanlook",
+    "name": "Mean Look",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Rapid Spin": {
+    "kind": "Move",
+    "id": "rapidspin",
+    "name": "Rapid Spin",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 20,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Rock Smash": {
+    "kind": "Move",
+    "id": "rocksmash",
+    "name": "Rock Smash",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Spider Web": {
+    "kind": "Move",
+    "id": "spiderweb",
+    "name": "Spider Web",
+    "flags": {},
+    "category": "Status",
+    "type": "Bug",
+    "basePower": 0
+  },
+  "Whirlpool": {
+    "kind": "Move",
+    "id": "whirlpool",
+    "name": "Whirlpool",
+    "flags": {},
+    "type": "Water",
+    "category": "Special",
+    "basePower": 35,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Zap Cannon": {
+    "kind": "Move",
+    "id": "zapcannon",
+    "name": "Zap Cannon",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Electric",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Cotton Spore": {
+    "kind": "Move",
+    "id": "cottonspore",
+    "name": "Cotton Spore",
+    "flags": {},
+    "category": "Status",
+    "type": "Grass",
+    "target": "allAdjacentFoes",
+    "basePower": 0
+  },
+  "Extreme Speed": {
+    "kind": "Move",
+    "id": "extremespeed",
+    "name": "Extreme Speed",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "priority": 2,
+    "category": "Physical",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Fury Cutter": {
+    "kind": "Move",
+    "id": "furycutter",
+    "name": "Fury Cutter",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Bug",
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Magnitude": {
+    "kind": "Move",
+    "id": "magnitude",
+    "name": "Magnitude",
+    "flags": {},
+    "type": "Ground",
+    "target": "allAdjacent",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Milk Drink": {
+    "kind": "Move",
+    "id": "milkdrink",
+    "name": "Milk Drink",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Scary Face": {
+    "kind": "Move",
+    "id": "scaryface",
+    "name": "Scary Face",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Charm": {
+    "kind": "Move",
+    "id": "charm",
+    "name": "Charm",
+    "flags": {},
+    "category": "Status",
+    "type": "Fairy",
+    "basePower": 0
+  },
+  "Hidden Power Bug": {
+    "kind": "Move",
+    "id": "hiddenpowerbug",
+    "name": "Hidden Power Bug",
+    "flags": {},
+    "type": "Bug",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Hidden Power Dark": {
+    "kind": "Move",
+    "id": "hiddenpowerdark",
+    "name": "Hidden Power Dark",
+    "flags": {},
+    "type": "Dark",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Hidden Power Dragon": {
+    "kind": "Move",
+    "id": "hiddenpowerdragon",
+    "name": "Hidden Power Dragon",
+    "flags": {},
+    "type": "Dragon",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Hidden Power Electric": {
+    "kind": "Move",
+    "id": "hiddenpowerelectric",
+    "name": "Hidden Power Electric",
+    "flags": {},
+    "type": "Electric",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Hidden Power Fighting": {
+    "kind": "Move",
+    "id": "hiddenpowerfighting",
+    "name": "Hidden Power Fighting",
+    "flags": {},
+    "type": "Fighting",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Hidden Power Fire": {
+    "kind": "Move",
+    "id": "hiddenpowerfire",
+    "name": "Hidden Power Fire",
+    "flags": {},
+    "type": "Fire",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Hidden Power Flying": {
+    "kind": "Move",
+    "id": "hiddenpowerflying",
+    "name": "Hidden Power Flying",
+    "flags": {},
+    "type": "Flying",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Hidden Power Ghost": {
+    "kind": "Move",
+    "id": "hiddenpowerghost",
+    "name": "Hidden Power Ghost",
+    "flags": {},
+    "type": "Ghost",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Hidden Power Grass": {
+    "kind": "Move",
+    "id": "hiddenpowergrass",
+    "name": "Hidden Power Grass",
+    "flags": {},
+    "type": "Grass",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Hidden Power Ground": {
+    "kind": "Move",
+    "id": "hiddenpowerground",
+    "name": "Hidden Power Ground",
+    "flags": {},
+    "type": "Ground",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Hidden Power Ice": {
+    "kind": "Move",
+    "id": "hiddenpowerice",
+    "name": "Hidden Power Ice",
+    "flags": {},
+    "type": "Ice",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Hidden Power Poison": {
+    "kind": "Move",
+    "id": "hiddenpowerpoison",
+    "name": "Hidden Power Poison",
+    "flags": {},
+    "type": "Poison",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Hidden Power Psychic": {
+    "kind": "Move",
+    "id": "hiddenpowerpsychic",
+    "name": "Hidden Power Psychic",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Hidden Power Rock": {
+    "kind": "Move",
+    "id": "hiddenpowerrock",
+    "name": "Hidden Power Rock",
+    "flags": {},
+    "type": "Rock",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Hidden Power Steel": {
+    "kind": "Move",
+    "id": "hiddenpowersteel",
+    "name": "Hidden Power Steel",
+    "flags": {},
+    "type": "Steel",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Hidden Power Water": {
+    "kind": "Move",
+    "id": "hiddenpowerwater",
+    "name": "Hidden Power Water",
+    "flags": {},
+    "type": "Water",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Perish Song": {
+    "kind": "Move",
+    "id": "perishsong",
+    "name": "Perish Song",
+    "flags": {
+      "sound": 1
+    },
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Snore": {
+    "kind": "Move",
+    "id": "snore",
+    "name": "Snore",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Normal",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Sweet Kiss": {
+    "kind": "Move",
+    "id": "sweetkiss",
+    "name": "Sweet Kiss",
+    "flags": {},
+    "category": "Status",
+    "type": "Fairy",
+    "basePower": 0
+  },
+  "Rollout": {
+    "kind": "Move",
+    "id": "rollout",
+    "name": "Rollout",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Rock",
+    "category": "Physical",
+    "basePower": 30,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Frustration": {
+    "kind": "Move",
+    "id": "frustration",
+    "name": "Frustration",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Return": {
+    "kind": "Move",
+    "id": "return",
+    "name": "Return",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Sacred Fire": {
+    "kind": "Move",
+    "id": "sacredfire",
+    "name": "Sacred Fire",
+    "flags": {},
+    "type": "Fire",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Baton Pass": {
+    "kind": "Move",
+    "id": "batonpass",
+    "name": "Baton Pass",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Dragon Breath": {
+    "kind": "Move",
+    "id": "dragonbreath",
+    "name": "Dragon Breath",
+    "flags": {},
+    "type": "Dragon",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Dynamic Punch": {
+    "kind": "Move",
+    "id": "dynamicpunch",
+    "name": "Dynamic Punch",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "False Swipe": {
+    "kind": "Move",
+    "id": "falseswipe",
+    "name": "False Swipe",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Flame Wheel": {
+    "kind": "Move",
+    "id": "flamewheel",
+    "name": "Flame Wheel",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fire",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Iron Tail": {
+    "kind": "Move",
+    "id": "irontail",
+    "name": "Iron Tail",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Steel",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Mach Punch": {
+    "kind": "Move",
+    "id": "machpunch",
+    "name": "Mach Punch",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Fighting",
+    "priority": 1,
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Megahorn": {
+    "kind": "Move",
+    "id": "megahorn",
+    "name": "Megahorn",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Bug",
+    "category": "Physical",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Metal Claw": {
+    "kind": "Move",
+    "id": "metalclaw",
+    "name": "Metal Claw",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Steel",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Mud-Slap": {
+    "kind": "Move",
+    "id": "mudslap",
+    "name": "Mud-Slap",
+    "flags": {},
+    "type": "Ground",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 20,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Octazooka": {
+    "kind": "Move",
+    "id": "octazooka",
+    "name": "Octazooka",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Water",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Pain Split": {
+    "kind": "Move",
+    "id": "painsplit",
+    "name": "Pain Split",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Shadow Ball": {
+    "kind": "Move",
+    "id": "shadowball",
+    "name": "Shadow Ball",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Ghost",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Sludge Bomb": {
+    "kind": "Move",
+    "id": "sludgebomb",
+    "name": "Sludge Bomb",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Poison",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Spark": {
+    "kind": "Move",
+    "id": "spark",
+    "name": "Spark",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Electric",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Steel Wing": {
+    "kind": "Move",
+    "id": "steelwing",
+    "name": "Steel Wing",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Steel",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Vital Throw": {
+    "kind": "Move",
+    "id": "vitalthrow",
+    "name": "Vital Throw",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Arm Thrust": {
+    "kind": "Move",
+    "id": "armthrust",
+    "name": "Arm Thrust",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "multihit": [
+      2,
+      5
+    ],
+    "category": "Physical",
+    "basePower": 15,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Assist": {
+    "kind": "Move",
+    "id": "assist",
+    "name": "Assist",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Astonish": {
+    "kind": "Move",
+    "id": "astonish",
+    "name": "Astonish",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Ghost",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 30,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Block": {
+    "kind": "Move",
+    "id": "block",
+    "name": "Block",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Bounce": {
+    "kind": "Move",
+    "id": "bounce",
+    "name": "Bounce",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Flying",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 85,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Bullet Seed": {
+    "kind": "Move",
+    "id": "bulletseed",
+    "name": "Bullet Seed",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Grass",
+    "multihit": [
+      2,
+      5
+    ],
+    "category": "Physical",
+    "basePower": 25,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Camouflage": {
+    "kind": "Move",
+    "id": "camouflage",
+    "name": "Camouflage",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Charge": {
+    "kind": "Move",
+    "id": "charge",
+    "name": "Charge",
+    "flags": {},
+    "category": "Status",
+    "type": "Electric",
+    "basePower": 0
+  },
+  "Covet": {
+    "kind": "Move",
+    "id": "covet",
+    "name": "Covet",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Dive": {
+    "kind": "Move",
+    "id": "dive",
+    "name": "Dive",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Water",
+    "category": "Physical",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Doom Desire": {
+    "kind": "Move",
+    "id": "doomdesire",
+    "name": "Doom Desire",
+    "flags": {},
+    "type": "Steel",
+    "category": "Special",
+    "basePower": 140,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Extrasensory": {
+    "kind": "Move",
+    "id": "extrasensory",
+    "name": "Extrasensory",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Fake Out": {
+    "kind": "Move",
+    "id": "fakeout",
+    "name": "Fake Out",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "priority": 3,
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Follow Me": {
+    "kind": "Move",
+    "id": "followme",
+    "name": "Follow Me",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "priority": 2,
+    "basePower": 0
+  },
+  "Hail": {
+    "kind": "Move",
+    "id": "hail",
+    "name": "Hail",
+    "flags": {},
+    "category": "Status",
+    "type": "Ice",
+    "basePower": 0
+  },
+  "Icicle Spear": {
+    "kind": "Move",
+    "id": "iciclespear",
+    "name": "Icicle Spear",
+    "flags": {},
+    "type": "Ice",
+    "multihit": [
+      2,
+      5
+    ],
+    "category": "Physical",
+    "basePower": 25,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Ingrain": {
+    "kind": "Move",
+    "id": "ingrain",
+    "name": "Ingrain",
+    "flags": {},
+    "category": "Status",
+    "type": "Grass",
+    "basePower": 0
+  },
+  "Knock Off": {
+    "kind": "Move",
+    "id": "knockoff",
+    "name": "Knock Off",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dark",
+    "category": "Physical",
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Leaf Blade": {
+    "kind": "Move",
+    "id": "leafblade",
+    "name": "Leaf Blade",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Grass",
+    "category": "Physical",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Magic Coat": {
+    "kind": "Move",
+    "id": "magiccoat",
+    "name": "Magic Coat",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "priority": 4,
+    "basePower": 0
+  },
+  "Memento": {
+    "kind": "Move",
+    "id": "memento",
+    "name": "Memento",
+    "flags": {},
+    "category": "Status",
+    "type": "Dark",
+    "basePower": 0
+  },
+  "Nature Power": {
+    "kind": "Move",
+    "id": "naturepower",
+    "name": "Nature Power",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Needle Arm": {
+    "kind": "Move",
+    "id": "needlearm",
+    "name": "Needle Arm",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Grass",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Odor Sleuth": {
+    "kind": "Move",
+    "id": "odorsleuth",
+    "name": "Odor Sleuth",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Overheat": {
+    "kind": "Move",
+    "id": "overheat",
+    "name": "Overheat",
+    "flags": {},
+    "type": "Fire",
+    "self": {
+      "boosts": {
+        "spa": -2
+      }
+    },
+    "category": "Special",
+    "basePower": 130,
+    "zMove": {
+      "basePower": 195
+    }
+  },
+  "Revenge": {
+    "kind": "Move",
+    "id": "revenge",
+    "name": "Revenge",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Rock Blast": {
+    "kind": "Move",
+    "id": "rockblast",
+    "name": "Rock Blast",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Rock",
+    "multihit": [
+      2,
+      5
+    ],
+    "category": "Physical",
+    "basePower": 25,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Role Play": {
+    "kind": "Move",
+    "id": "roleplay",
+    "name": "Role Play",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "basePower": 0
+  },
+  "Sand Tomb": {
+    "kind": "Move",
+    "id": "sandtomb",
+    "name": "Sand Tomb",
+    "flags": {},
+    "type": "Ground",
+    "category": "Physical",
+    "basePower": 35,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Skill Swap": {
+    "kind": "Move",
+    "id": "skillswap",
+    "name": "Skill Swap",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "basePower": 0
+  },
+  "Smelling Salts": {
+    "kind": "Move",
+    "id": "smellingsalts",
+    "name": "Smelling Salts",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Spit Up": {
+    "kind": "Move",
+    "id": "spitup",
+    "name": "Spit Up",
+    "flags": {},
+    "type": "Normal",
+    "category": "Special",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Stockpile": {
+    "kind": "Move",
+    "id": "stockpile",
+    "name": "Stockpile",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Swallow": {
+    "kind": "Move",
+    "id": "swallow",
+    "name": "Swallow",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Taunt": {
+    "kind": "Move",
+    "id": "taunt",
+    "name": "Taunt",
+    "flags": {},
+    "category": "Status",
+    "type": "Dark",
+    "basePower": 0
+  },
+  "Teeter Dance": {
+    "kind": "Move",
+    "id": "teeterdance",
+    "name": "Teeter Dance",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "target": "allAdjacent",
+    "basePower": 0
+  },
+  "Tickle": {
+    "kind": "Move",
+    "id": "tickle",
+    "name": "Tickle",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Trick": {
+    "kind": "Move",
+    "id": "trick",
+    "name": "Trick",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "basePower": 0
+  },
+  "Uproar": {
+    "kind": "Move",
+    "id": "uproar",
+    "name": "Uproar",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Normal",
+    "category": "Special",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Volt Tackle": {
+    "kind": "Move",
+    "id": "volttackle",
+    "name": "Volt Tackle",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Electric",
+    "recoil": [
+      33,
+      100
+    ],
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Weather Ball": {
+    "kind": "Move",
+    "id": "weatherball",
+    "name": "Weather Ball",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Normal",
+    "category": "Special",
+    "basePower": 50,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Aromatherapy": {
+    "kind": "Move",
+    "id": "aromatherapy",
+    "name": "Aromatherapy",
+    "flags": {},
+    "category": "Status",
+    "type": "Grass",
+    "basePower": 0
+  },
+  "Brick Break": {
+    "kind": "Move",
+    "id": "brickbreak",
+    "name": "Brick Break",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "basePower": 75,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Endeavor": {
+    "kind": "Move",
+    "id": "endeavor",
+    "name": "Endeavor",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Focus Punch": {
+    "kind": "Move",
+    "id": "focuspunch",
+    "name": "Focus Punch",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "basePower": 150,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Imprison": {
+    "kind": "Move",
+    "id": "imprison",
+    "name": "Imprison",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "basePower": 0
+  },
+  "Mud Sport": {
+    "kind": "Move",
+    "id": "mudsport",
+    "name": "Mud Sport",
+    "flags": {},
+    "category": "Status",
+    "type": "Ground",
+    "basePower": 0
+  },
+  "Recycle": {
+    "kind": "Move",
+    "id": "recycle",
+    "name": "Recycle",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Secret Power": {
+    "kind": "Move",
+    "id": "secretpower",
+    "name": "Secret Power",
+    "flags": {},
+    "type": "Normal",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Sky Uppercut": {
+    "kind": "Move",
+    "id": "skyuppercut",
+    "name": "Sky Uppercut",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "basePower": 85,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Slack Off": {
+    "kind": "Move",
+    "id": "slackoff",
+    "name": "Slack Off",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Snatch": {
+    "kind": "Move",
+    "id": "snatch",
+    "name": "Snatch",
+    "flags": {},
+    "category": "Status",
+    "type": "Dark",
+    "priority": 4,
+    "basePower": 0
+  },
+  "Tail Glow": {
+    "kind": "Move",
+    "id": "tailglow",
+    "name": "Tail Glow",
+    "flags": {},
+    "category": "Status",
+    "type": "Bug",
+    "basePower": 0
+  },
+  "Torment": {
+    "kind": "Move",
+    "id": "torment",
+    "name": "Torment",
+    "flags": {},
+    "category": "Status",
+    "type": "Dark",
+    "basePower": 0
+  },
+  "Water Sport": {
+    "kind": "Move",
+    "id": "watersport",
+    "name": "Water Sport",
+    "flags": {},
+    "category": "Status",
+    "type": "Water",
+    "basePower": 0
+  },
+  "Wish": {
+    "kind": "Move",
+    "id": "wish",
+    "name": "Wish",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Air Cutter": {
+    "kind": "Move",
+    "id": "aircutter",
+    "name": "Air Cutter",
+    "flags": {},
+    "type": "Flying",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Facade": {
+    "kind": "Move",
+    "id": "facade",
+    "name": "Facade",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Grass Whistle": {
+    "kind": "Move",
+    "id": "grasswhistle",
+    "name": "Grass Whistle",
+    "flags": {
+      "sound": 1
+    },
+    "category": "Status",
+    "type": "Grass",
+    "basePower": 0
+  },
+  "Heat Wave": {
+    "kind": "Move",
+    "id": "heatwave",
+    "name": "Heat Wave",
+    "flags": {},
+    "type": "Fire",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 95,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Hyper Voice": {
+    "kind": "Move",
+    "id": "hypervoice",
+    "name": "Hyper Voice",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Normal",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Metal Sound": {
+    "kind": "Move",
+    "id": "metalsound",
+    "name": "Metal Sound",
+    "flags": {
+      "sound": 1
+    },
+    "category": "Status",
+    "type": "Steel",
+    "basePower": 0
+  },
+  "Meteor Mash": {
+    "kind": "Move",
+    "id": "meteormash",
+    "name": "Meteor Mash",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Steel",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Muddy Water": {
+    "kind": "Move",
+    "id": "muddywater",
+    "name": "Muddy Water",
+    "flags": {},
+    "type": "Water",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Poison Fang": {
+    "kind": "Move",
+    "id": "poisonfang",
+    "name": "Poison Fang",
+    "flags": {
+      "contact": 1,
+      "bite": 1
+    },
+    "type": "Poison",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Rock Tomb": {
+    "kind": "Move",
+    "id": "rocktomb",
+    "name": "Rock Tomb",
+    "flags": {},
+    "type": "Rock",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Will-O-Wisp": {
+    "kind": "Move",
+    "id": "willowisp",
+    "name": "Will-O-Wisp",
+    "flags": {},
+    "category": "Status",
+    "type": "Fire",
+    "basePower": 0
+  },
+  "Ice Ball": {
+    "kind": "Move",
+    "id": "iceball",
+    "name": "Ice Ball",
+    "flags": {
+      "contact": 1,
+      "bullet": 1
+    },
+    "type": "Ice",
+    "category": "Physical",
+    "basePower": 30,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Sheer Cold": {
+    "kind": "Move",
+    "id": "sheercold",
+    "name": "Sheer Cold",
+    "flags": {},
+    "type": "Ice",
+    "category": "Special",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Howl": {
+    "kind": "Move",
+    "id": "howl",
+    "name": "Howl",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Luster Purge": {
+    "kind": "Move",
+    "id": "lusterpurge",
+    "name": "Luster Purge",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Mist Ball": {
+    "kind": "Move",
+    "id": "mistball",
+    "name": "Mist Ball",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Psychic",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Psycho Boost": {
+    "kind": "Move",
+    "id": "psychoboost",
+    "name": "Psycho Boost",
+    "flags": {},
+    "type": "Psychic",
+    "self": {
+      "boosts": {
+        "spa": -2
+      }
+    },
+    "category": "Special",
+    "basePower": 140,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Refresh": {
+    "kind": "Move",
+    "id": "refresh",
+    "name": "Refresh",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Signal Beam": {
+    "kind": "Move",
+    "id": "signalbeam",
+    "name": "Signal Beam",
+    "flags": {},
+    "type": "Bug",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 75,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Silver Wind": {
+    "kind": "Move",
+    "id": "silverwind",
+    "name": "Silver Wind",
+    "flags": {},
+    "type": "Bug",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Aerial Ace": {
+    "kind": "Move",
+    "id": "aerialace",
+    "name": "Aerial Ace",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Flying",
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Blast Burn": {
+    "kind": "Move",
+    "id": "blastburn",
+    "name": "Blast Burn",
+    "flags": {},
+    "type": "Fire",
+    "category": "Special",
+    "basePower": 150,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Blaze Kick": {
+    "kind": "Move",
+    "id": "blazekick",
+    "name": "Blaze Kick",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fire",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 85,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Bulk Up": {
+    "kind": "Move",
+    "id": "bulkup",
+    "name": "Bulk Up",
+    "flags": {},
+    "category": "Status",
+    "type": "Fighting",
+    "basePower": 0
+  },
+  "Calm Mind": {
+    "kind": "Move",
+    "id": "calmmind",
+    "name": "Calm Mind",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "basePower": 0
+  },
+  "Cosmic Power": {
+    "kind": "Move",
+    "id": "cosmicpower",
+    "name": "Cosmic Power",
+    "flags": {},
+    "category": "Status",
+    "type": "Psychic",
+    "basePower": 0
+  },
+  "Crush Claw": {
+    "kind": "Move",
+    "id": "crushclaw",
+    "name": "Crush Claw",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 75,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Dragon Claw": {
+    "kind": "Move",
+    "id": "dragonclaw",
+    "name": "Dragon Claw",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dragon",
+    "category": "Physical",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Dragon Dance": {
+    "kind": "Move",
+    "id": "dragondance",
+    "name": "Dragon Dance",
+    "flags": {},
+    "category": "Status",
+    "type": "Dragon",
+    "basePower": 0
+  },
+  "Eruption": {
+    "kind": "Move",
+    "id": "eruption",
+    "name": "Eruption",
+    "flags": {},
+    "type": "Fire",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "basePower": 150,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Fake Tears": {
+    "kind": "Move",
+    "id": "faketears",
+    "name": "Fake Tears",
+    "flags": {},
+    "category": "Status",
+    "type": "Dark",
+    "basePower": 0
+  },
+  "Feather Dance": {
+    "kind": "Move",
+    "id": "featherdance",
+    "name": "Feather Dance",
+    "flags": {},
+    "category": "Status",
+    "type": "Flying",
+    "basePower": 0
+  },
+  "Flatter": {
+    "kind": "Move",
+    "id": "flatter",
+    "name": "Flatter",
+    "flags": {},
+    "category": "Status",
+    "type": "Dark",
+    "basePower": 0
+  },
+  "Frenzy Plant": {
+    "kind": "Move",
+    "id": "frenzyplant",
+    "name": "Frenzy Plant",
+    "flags": {},
+    "type": "Grass",
+    "category": "Special",
+    "basePower": 150,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Grudge": {
+    "kind": "Move",
+    "id": "grudge",
+    "name": "Grudge",
+    "flags": {},
+    "category": "Status",
+    "type": "Ghost",
+    "basePower": 0
+  },
+  "Helping Hand": {
+    "kind": "Move",
+    "id": "helpinghand",
+    "name": "Helping Hand",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "priority": 5,
+    "basePower": 0
+  },
+  "Hydro Cannon": {
+    "kind": "Move",
+    "id": "hydrocannon",
+    "name": "Hydro Cannon",
+    "flags": {},
+    "type": "Water",
+    "category": "Special",
+    "basePower": 150,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Iron Defense": {
+    "kind": "Move",
+    "id": "irondefense",
+    "name": "Iron Defense",
+    "flags": {},
+    "category": "Status",
+    "type": "Steel",
+    "basePower": 0
+  },
+  "Magical Leaf": {
+    "kind": "Move",
+    "id": "magicalleaf",
+    "name": "Magical Leaf",
+    "flags": {},
+    "type": "Grass",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Mud Shot": {
+    "kind": "Move",
+    "id": "mudshot",
+    "name": "Mud Shot",
+    "flags": {},
+    "type": "Ground",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 55,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Poison Tail": {
+    "kind": "Move",
+    "id": "poisontail",
+    "name": "Poison Tail",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Poison",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Shadow Punch": {
+    "kind": "Move",
+    "id": "shadowpunch",
+    "name": "Shadow Punch",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Ghost",
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Shock Wave": {
+    "kind": "Move",
+    "id": "shockwave",
+    "name": "Shock Wave",
+    "flags": {},
+    "type": "Electric",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Superpower": {
+    "kind": "Move",
+    "id": "superpower",
+    "name": "Superpower",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "self": {
+      "boosts": {
+        "atk": -1,
+        "def": -1
+      }
+    },
+    "category": "Physical",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Water Pulse": {
+    "kind": "Move",
+    "id": "waterpulse",
+    "name": "Water Pulse",
+    "flags": {
+      "pulse": 1
+    },
+    "type": "Water",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Water Spout": {
+    "kind": "Move",
+    "id": "waterspout",
+    "name": "Water Spout",
+    "flags": {},
+    "type": "Water",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "basePower": 150,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Yawn": {
+    "kind": "Move",
+    "id": "yawn",
+    "name": "Yawn",
+    "flags": {},
+    "category": "Status",
+    "type": "Normal",
+    "basePower": 0
+  },
+  "Acupressure": {
+    "kind": "Move",
+    "id": "acupressure",
+    "name": "Acupressure",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Aqua Ring": {
+    "kind": "Move",
+    "id": "aquaring",
+    "name": "Aqua Ring",
+    "flags": {},
+    "type": "Water",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Assurance": {
+    "kind": "Move",
+    "id": "assurance",
+    "name": "Assurance",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dark",
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Avalanche": {
+    "kind": "Move",
+    "id": "avalanche",
+    "name": "Avalanche",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Ice",
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Brave Bird": {
+    "kind": "Move",
+    "id": "bravebird",
+    "name": "Brave Bird",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Flying",
+    "recoil": [
+      33,
+      100
+    ],
+    "category": "Physical",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Bug Bite": {
+    "kind": "Move",
+    "id": "bugbite",
+    "name": "Bug Bite",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Bug",
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Chatter": {
+    "kind": "Move",
+    "id": "chatter",
+    "name": "Chatter",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Flying",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Copycat": {
+    "kind": "Move",
+    "id": "copycat",
+    "name": "Copycat",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Crush Grip": {
+    "kind": "Move",
+    "id": "crushgrip",
+    "name": "Crush Grip",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Defog": {
+    "kind": "Move",
+    "id": "defog",
+    "name": "Defog",
+    "flags": {},
+    "type": "Flying",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Double Hit": {
+    "kind": "Move",
+    "id": "doublehit",
+    "name": "Double Hit",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "multihit": 2,
+    "category": "Physical",
+    "basePower": 35,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Drain Punch": {
+    "kind": "Move",
+    "id": "drainpunch",
+    "name": "Drain Punch",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Fighting",
+    "drain": [
+      1,
+      2
+    ],
+    "category": "Physical",
+    "basePower": 75,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Embargo": {
+    "kind": "Move",
+    "id": "embargo",
+    "name": "Embargo",
+    "flags": {},
+    "type": "Dark",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Feint": {
+    "kind": "Move",
+    "id": "feint",
+    "name": "Feint",
+    "flags": {},
+    "type": "Normal",
+    "priority": 2,
+    "breaksProtect": true,
+    "category": "Physical",
+    "basePower": 30,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Fire Fang": {
+    "kind": "Move",
+    "id": "firefang",
+    "name": "Fire Fang",
+    "flags": {
+      "contact": 1,
+      "bite": 1
+    },
+    "type": "Fire",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Flare Blitz": {
+    "kind": "Move",
+    "id": "flareblitz",
+    "name": "Flare Blitz",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fire",
+    "recoil": [
+      33,
+      100
+    ],
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Fling": {
+    "kind": "Move",
+    "id": "fling",
+    "name": "Fling",
+    "flags": {},
+    "type": "Dark",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Gravity": {
+    "kind": "Move",
+    "id": "gravity",
+    "name": "Gravity",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Head Smash": {
+    "kind": "Move",
+    "id": "headsmash",
+    "name": "Head Smash",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Rock",
+    "recoil": [
+      1,
+      2
+    ],
+    "category": "Physical",
+    "basePower": 150,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Heal Block": {
+    "kind": "Move",
+    "id": "healblock",
+    "name": "Heal Block",
+    "flags": {},
+    "type": "Psychic",
+    "target": "allAdjacentFoes",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Healing Wish": {
+    "kind": "Move",
+    "id": "healingwish",
+    "name": "Healing Wish",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Heal Order": {
+    "kind": "Move",
+    "id": "healorder",
+    "name": "Heal Order",
+    "flags": {},
+    "type": "Bug",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Last Resort": {
+    "kind": "Move",
+    "id": "lastresort",
+    "name": "Last Resort",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 140,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Lucky Chant": {
+    "kind": "Move",
+    "id": "luckychant",
+    "name": "Lucky Chant",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Lunar Dance": {
+    "kind": "Move",
+    "id": "lunardance",
+    "name": "Lunar Dance",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Magma Storm": {
+    "kind": "Move",
+    "id": "magmastorm",
+    "name": "Magma Storm",
+    "flags": {},
+    "type": "Fire",
+    "category": "Special",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Magnet Rise": {
+    "kind": "Move",
+    "id": "magnetrise",
+    "name": "Magnet Rise",
+    "flags": {},
+    "type": "Electric",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Me First": {
+    "kind": "Move",
+    "id": "mefirst",
+    "name": "Me First",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Metal Burst": {
+    "kind": "Move",
+    "id": "metalburst",
+    "name": "Metal Burst",
+    "flags": {},
+    "type": "Steel",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Miracle Eye": {
+    "kind": "Move",
+    "id": "miracleeye",
+    "name": "Miracle Eye",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Natural Gift": {
+    "kind": "Move",
+    "id": "naturalgift",
+    "name": "Natural Gift",
+    "flags": {},
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Payback": {
+    "kind": "Move",
+    "id": "payback",
+    "name": "Payback",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dark",
+    "category": "Physical",
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Pluck": {
+    "kind": "Move",
+    "id": "pluck",
+    "name": "Pluck",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Flying",
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Power Trick": {
+    "kind": "Move",
+    "id": "powertrick",
+    "name": "Power Trick",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Roost": {
+    "kind": "Move",
+    "id": "roost",
+    "name": "Roost",
+    "flags": {},
+    "type": "Flying",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Stealth Rock": {
+    "kind": "Move",
+    "id": "stealthrock",
+    "name": "Stealth Rock",
+    "flags": {},
+    "type": "Rock",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Sucker Punch": {
+    "kind": "Move",
+    "id": "suckerpunch",
+    "name": "Sucker Punch",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dark",
+    "priority": 1,
+    "category": "Physical",
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Switcheroo": {
+    "kind": "Move",
+    "id": "switcheroo",
+    "name": "Switcheroo",
+    "flags": {},
+    "type": "Dark",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Tailwind": {
+    "kind": "Move",
+    "id": "tailwind",
+    "name": "Tailwind",
+    "flags": {},
+    "type": "Flying",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Toxic Spikes": {
+    "kind": "Move",
+    "id": "toxicspikes",
+    "name": "Toxic Spikes",
+    "flags": {},
+    "type": "Poison",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Trick Room": {
+    "kind": "Move",
+    "id": "trickroom",
+    "name": "Trick Room",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "U-turn": {
+    "kind": "Move",
+    "id": "uturn",
+    "name": "U-turn",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Bug",
+    "category": "Physical",
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Wake-Up Slap": {
+    "kind": "Move",
+    "id": "wakeupslap",
+    "name": "Wake-Up Slap",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Wood Hammer": {
+    "kind": "Move",
+    "id": "woodhammer",
+    "name": "Wood Hammer",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Grass",
+    "recoil": [
+      33,
+      100
+    ],
+    "category": "Physical",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Worry Seed": {
+    "kind": "Move",
+    "id": "worryseed",
+    "name": "Worry Seed",
+    "flags": {},
+    "type": "Grass",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Wring Out": {
+    "kind": "Move",
+    "id": "wringout",
+    "name": "Wring Out",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Special",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Air Slash": {
+    "kind": "Move",
+    "id": "airslash",
+    "name": "Air Slash",
+    "flags": {},
+    "type": "Flying",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 75,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Aura Sphere": {
+    "kind": "Move",
+    "id": "aurasphere",
+    "name": "Aura Sphere",
+    "flags": {
+      "bullet": 1,
+      "pulse": 1
+    },
+    "type": "Fighting",
+    "category": "Special",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Bug Buzz": {
+    "kind": "Move",
+    "id": "bugbuzz",
+    "name": "Bug Buzz",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Bug",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Draco Meteor": {
+    "kind": "Move",
+    "id": "dracometeor",
+    "name": "Draco Meteor",
+    "flags": {},
+    "type": "Dragon",
+    "self": {
+      "boosts": {
+        "spa": -2
+      }
+    },
+    "category": "Special",
+    "basePower": 130,
+    "zMove": {
+      "basePower": 195
+    }
+  },
+  "Dragon Pulse": {
+    "kind": "Move",
+    "id": "dragonpulse",
+    "name": "Dragon Pulse",
+    "flags": {
+      "pulse": 1
+    },
+    "type": "Dragon",
+    "category": "Special",
+    "basePower": 85,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Dragon Rush": {
+    "kind": "Move",
+    "id": "dragonrush",
+    "name": "Dragon Rush",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dragon",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Energy Ball": {
+    "kind": "Move",
+    "id": "energyball",
+    "name": "Energy Ball",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Grass",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Gunk Shot": {
+    "kind": "Move",
+    "id": "gunkshot",
+    "name": "Gunk Shot",
+    "flags": {},
+    "type": "Poison",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Gyro Ball": {
+    "kind": "Move",
+    "id": "gyroball",
+    "name": "Gyro Ball",
+    "flags": {
+      "contact": 1,
+      "bullet": 1
+    },
+    "type": "Steel",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Leaf Storm": {
+    "kind": "Move",
+    "id": "leafstorm",
+    "name": "Leaf Storm",
+    "flags": {},
+    "type": "Grass",
+    "self": {
+      "boosts": {
+        "spa": -2
+      }
+    },
+    "category": "Special",
+    "basePower": 130,
+    "zMove": {
+      "basePower": 195
+    }
+  },
+  "Power Gem": {
+    "kind": "Move",
+    "id": "powergem",
+    "name": "Power Gem",
+    "flags": {},
+    "type": "Rock",
+    "category": "Special",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Psycho Shift": {
+    "kind": "Move",
+    "id": "psychoshift",
+    "name": "Psycho Shift",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Shadow Force": {
+    "kind": "Move",
+    "id": "shadowforce",
+    "name": "Shadow Force",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Ghost",
+    "breaksProtect": true,
+    "category": "Physical",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Dark Void": {
+    "kind": "Move",
+    "id": "darkvoid",
+    "name": "Dark Void",
+    "flags": {},
+    "type": "Dark",
+    "target": "allAdjacentFoes",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Gastro Acid": {
+    "kind": "Move",
+    "id": "gastroacid",
+    "name": "Gastro Acid",
+    "flags": {},
+    "type": "Poison",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Captivate": {
+    "kind": "Move",
+    "id": "captivate",
+    "name": "Captivate",
+    "flags": {},
+    "type": "Normal",
+    "target": "allAdjacentFoes",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Grass Knot": {
+    "kind": "Move",
+    "id": "grassknot",
+    "name": "Grass Knot",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Grass",
+    "category": "Special",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Heart Swap": {
+    "kind": "Move",
+    "id": "heartswap",
+    "name": "Heart Swap",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Judgment": {
+    "kind": "Move",
+    "id": "judgment",
+    "name": "Judgment",
+    "flags": {},
+    "type": "Normal",
+    "category": "Special",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Magnet Bomb": {
+    "kind": "Move",
+    "id": "magnetbomb",
+    "name": "Magnet Bomb",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Steel",
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Mirror Shot": {
+    "kind": "Move",
+    "id": "mirrorshot",
+    "name": "Mirror Shot",
+    "flags": {},
+    "type": "Steel",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Mud Bomb": {
+    "kind": "Move",
+    "id": "mudbomb",
+    "name": "Mud Bomb",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Ground",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Ominous Wind": {
+    "kind": "Move",
+    "id": "ominouswind",
+    "name": "Ominous Wind",
+    "flags": {},
+    "type": "Ghost",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Punishment": {
+    "kind": "Move",
+    "id": "punishment",
+    "name": "Punishment",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dark",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Roar of Time": {
+    "kind": "Move",
+    "id": "roaroftime",
+    "name": "Roar of Time",
+    "flags": {},
+    "type": "Dragon",
+    "category": "Special",
+    "basePower": 150,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Rock Climb": {
+    "kind": "Move",
+    "id": "rockclimb",
+    "name": "Rock Climb",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Seed Flare": {
+    "kind": "Move",
+    "id": "seedflare",
+    "name": "Seed Flare",
+    "flags": {},
+    "type": "Grass",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Spacial Rend": {
+    "kind": "Move",
+    "id": "spacialrend",
+    "name": "Spacial Rend",
+    "flags": {},
+    "type": "Dragon",
+    "category": "Special",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Trump Card": {
+    "kind": "Move",
+    "id": "trumpcard",
+    "name": "Trump Card",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Special",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Aqua Jet": {
+    "kind": "Move",
+    "id": "aquajet",
+    "name": "Aqua Jet",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Water",
+    "priority": 1,
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Aqua Tail": {
+    "kind": "Move",
+    "id": "aquatail",
+    "name": "Aqua Tail",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Water",
+    "category": "Physical",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Attack Order": {
+    "kind": "Move",
+    "id": "attackorder",
+    "name": "Attack Order",
+    "flags": {},
+    "type": "Bug",
+    "category": "Physical",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Brine": {
+    "kind": "Move",
+    "id": "brine",
+    "name": "Brine",
+    "flags": {},
+    "type": "Water",
+    "category": "Special",
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Bullet Punch": {
+    "kind": "Move",
+    "id": "bulletpunch",
+    "name": "Bullet Punch",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Steel",
+    "priority": 1,
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Charge Beam": {
+    "kind": "Move",
+    "id": "chargebeam",
+    "name": "Charge Beam",
+    "flags": {},
+    "type": "Electric",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Close Combat": {
+    "kind": "Move",
+    "id": "closecombat",
+    "name": "Close Combat",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Cross Poison": {
+    "kind": "Move",
+    "id": "crosspoison",
+    "name": "Cross Poison",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Poison",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Dark Pulse": {
+    "kind": "Move",
+    "id": "darkpulse",
+    "name": "Dark Pulse",
+    "flags": {
+      "pulse": 1
+    },
+    "type": "Dark",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Defend Order": {
+    "kind": "Move",
+    "id": "defendorder",
+    "name": "Defend Order",
+    "flags": {},
+    "type": "Bug",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Discharge": {
+    "kind": "Move",
+    "id": "discharge",
+    "name": "Discharge",
+    "flags": {},
+    "type": "Electric",
+    "target": "allAdjacent",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Earth Power": {
+    "kind": "Move",
+    "id": "earthpower",
+    "name": "Earth Power",
+    "flags": {},
+    "type": "Ground",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Flash Cannon": {
+    "kind": "Move",
+    "id": "flashcannon",
+    "name": "Flash Cannon",
+    "flags": {},
+    "type": "Steel",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Focus Blast": {
+    "kind": "Move",
+    "id": "focusblast",
+    "name": "Focus Blast",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Fighting",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Force Palm": {
+    "kind": "Move",
+    "id": "forcepalm",
+    "name": "Force Palm",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Giga Impact": {
+    "kind": "Move",
+    "id": "gigaimpact",
+    "name": "Giga Impact",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 150,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Guard Swap": {
+    "kind": "Move",
+    "id": "guardswap",
+    "name": "Guard Swap",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Hammer Arm": {
+    "kind": "Move",
+    "id": "hammerarm",
+    "name": "Hammer Arm",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Ice Fang": {
+    "kind": "Move",
+    "id": "icefang",
+    "name": "Ice Fang",
+    "flags": {
+      "contact": 1,
+      "bite": 1
+    },
+    "type": "Ice",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Ice Shard": {
+    "kind": "Move",
+    "id": "iceshard",
+    "name": "Ice Shard",
+    "flags": {},
+    "type": "Ice",
+    "priority": 1,
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Iron Head": {
+    "kind": "Move",
+    "id": "ironhead",
+    "name": "Iron Head",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Steel",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Lava Plume": {
+    "kind": "Move",
+    "id": "lavaplume",
+    "name": "Lava Plume",
+    "flags": {},
+    "type": "Fire",
+    "target": "allAdjacent",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Nasty Plot": {
+    "kind": "Move",
+    "id": "nastyplot",
+    "name": "Nasty Plot",
+    "flags": {},
+    "type": "Dark",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Night Slash": {
+    "kind": "Move",
+    "id": "nightslash",
+    "name": "Night Slash",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dark",
+    "category": "Physical",
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Poison Jab": {
+    "kind": "Move",
+    "id": "poisonjab",
+    "name": "Poison Jab",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Poison",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Power Swap": {
+    "kind": "Move",
+    "id": "powerswap",
+    "name": "Power Swap",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Power Whip": {
+    "kind": "Move",
+    "id": "powerwhip",
+    "name": "Power Whip",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Grass",
+    "category": "Physical",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Psycho Cut": {
+    "kind": "Move",
+    "id": "psychocut",
+    "name": "Psycho Cut",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Physical",
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Rock Polish": {
+    "kind": "Move",
+    "id": "rockpolish",
+    "name": "Rock Polish",
+    "flags": {},
+    "type": "Rock",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Rock Wrecker": {
+    "kind": "Move",
+    "id": "rockwrecker",
+    "name": "Rock Wrecker",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Rock",
+    "category": "Physical",
+    "basePower": 150,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Seed Bomb": {
+    "kind": "Move",
+    "id": "seedbomb",
+    "name": "Seed Bomb",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Grass",
+    "category": "Physical",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Shadow Claw": {
+    "kind": "Move",
+    "id": "shadowclaw",
+    "name": "Shadow Claw",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Ghost",
+    "category": "Physical",
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Shadow Sneak": {
+    "kind": "Move",
+    "id": "shadowsneak",
+    "name": "Shadow Sneak",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Ghost",
+    "priority": 1,
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Stone Edge": {
+    "kind": "Move",
+    "id": "stoneedge",
+    "name": "Stone Edge",
+    "flags": {},
+    "type": "Rock",
+    "category": "Physical",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Thunder Fang": {
+    "kind": "Move",
+    "id": "thunderfang",
+    "name": "Thunder Fang",
+    "flags": {
+      "contact": 1,
+      "bite": 1
+    },
+    "type": "Electric",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Vacuum Wave": {
+    "kind": "Move",
+    "id": "vacuumwave",
+    "name": "Vacuum Wave",
+    "flags": {},
+    "type": "Fighting",
+    "priority": 1,
+    "category": "Special",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "X-Scissor": {
+    "kind": "Move",
+    "id": "xscissor",
+    "name": "X-Scissor",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Bug",
+    "category": "Physical",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Zen Headbutt": {
+    "kind": "Move",
+    "id": "zenheadbutt",
+    "name": "Zen Headbutt",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Psychic",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Autotomize": {
+    "kind": "Move",
+    "id": "autotomize",
+    "name": "Autotomize",
+    "flags": {},
+    "type": "Steel",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Bestow": {
+    "kind": "Move",
+    "id": "bestow",
+    "name": "Bestow",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Echoed Voice": {
+    "kind": "Move",
+    "id": "echoedvoice",
+    "name": "Echoed Voice",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Normal",
+    "category": "Special",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Electro Ball": {
+    "kind": "Move",
+    "id": "electroball",
+    "name": "Electro Ball",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Electric",
+    "category": "Special",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Entrainment": {
+    "kind": "Move",
+    "id": "entrainment",
+    "name": "Entrainment",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Final Gambit": {
+    "kind": "Move",
+    "id": "finalgambit",
+    "name": "Final Gambit",
+    "flags": {},
+    "type": "Fighting",
+    "category": "Special",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Fire Pledge": {
+    "kind": "Move",
+    "id": "firepledge",
+    "name": "Fire Pledge",
+    "flags": {},
+    "type": "Fire",
+    "category": "Special",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Frost Breath": {
+    "kind": "Move",
+    "id": "frostbreath",
+    "name": "Frost Breath",
+    "flags": {},
+    "type": "Ice",
+    "willCrit": true,
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Grass Pledge": {
+    "kind": "Move",
+    "id": "grasspledge",
+    "name": "Grass Pledge",
+    "flags": {},
+    "type": "Grass",
+    "category": "Special",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Heal Pulse": {
+    "kind": "Move",
+    "id": "healpulse",
+    "name": "Heal Pulse",
+    "flags": {
+      "pulse": 1
+    },
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Heat Crash": {
+    "kind": "Move",
+    "id": "heatcrash",
+    "name": "Heat Crash",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fire",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Hex": {
+    "kind": "Move",
+    "id": "hex",
+    "name": "Hex",
+    "flags": {},
+    "type": "Ghost",
+    "category": "Special",
+    "basePower": 65,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Horn Leech": {
+    "kind": "Move",
+    "id": "hornleech",
+    "name": "Horn Leech",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Grass",
+    "drain": [
+      1,
+      2
+    ],
+    "category": "Physical",
+    "basePower": 75,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Hurricane": {
+    "kind": "Move",
+    "id": "hurricane",
+    "name": "Hurricane",
+    "flags": {},
+    "type": "Flying",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 110,
+    "zMove": {
+      "basePower": 185
+    }
+  },
+  "Incinerate": {
+    "kind": "Move",
+    "id": "incinerate",
+    "name": "Incinerate",
+    "flags": {},
+    "type": "Fire",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Low Sweep": {
+    "kind": "Move",
+    "id": "lowsweep",
+    "name": "Low Sweep",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Magic Room": {
+    "kind": "Move",
+    "id": "magicroom",
+    "name": "Magic Room",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Quick Guard": {
+    "kind": "Move",
+    "id": "quickguard",
+    "name": "Quick Guard",
+    "flags": {},
+    "type": "Fighting",
+    "priority": 3,
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Rage Powder": {
+    "kind": "Move",
+    "id": "ragepowder",
+    "name": "Rage Powder",
+    "flags": {},
+    "type": "Bug",
+    "priority": 2,
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Relic Song": {
+    "kind": "Move",
+    "id": "relicsong",
+    "name": "Relic Song",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Normal",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 75,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Round": {
+    "kind": "Move",
+    "id": "round",
+    "name": "Round",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Normal",
+    "category": "Special",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Sacred Sword": {
+    "kind": "Move",
+    "id": "sacredsword",
+    "name": "Sacred Sword",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "ignoreDefensive": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Scald": {
+    "kind": "Move",
+    "id": "scald",
+    "name": "Scald",
+    "flags": {},
+    "type": "Water",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Simple Beam": {
+    "kind": "Move",
+    "id": "simplebeam",
+    "name": "Simple Beam",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Sky Drop": {
+    "kind": "Move",
+    "id": "skydrop",
+    "name": "Sky Drop",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Flying",
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Snarl": {
+    "kind": "Move",
+    "id": "snarl",
+    "name": "Snarl",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Dark",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 55,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Soak": {
+    "kind": "Move",
+    "id": "soak",
+    "name": "Soak",
+    "flags": {},
+    "type": "Water",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Steamroller": {
+    "kind": "Move",
+    "id": "steamroller",
+    "name": "Steamroller",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Bug",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Storm Throw": {
+    "kind": "Move",
+    "id": "stormthrow",
+    "name": "Storm Throw",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "willCrit": true,
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Struggle Bug": {
+    "kind": "Move",
+    "id": "strugglebug",
+    "name": "Struggle Bug",
+    "flags": {},
+    "type": "Bug",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Synchronoise": {
+    "kind": "Move",
+    "id": "synchronoise",
+    "name": "Synchronoise",
+    "flags": {},
+    "type": "Psychic",
+    "target": "allAdjacent",
+    "category": "Special",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Techno Blast": {
+    "kind": "Move",
+    "id": "technoblast",
+    "name": "Techno Blast",
+    "flags": {},
+    "type": "Normal",
+    "category": "Special",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Telekinesis": {
+    "kind": "Move",
+    "id": "telekinesis",
+    "name": "Telekinesis",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Water Pledge": {
+    "kind": "Move",
+    "id": "waterpledge",
+    "name": "Water Pledge",
+    "flags": {},
+    "type": "Water",
+    "category": "Special",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Wide Guard": {
+    "kind": "Move",
+    "id": "wideguard",
+    "name": "Wide Guard",
+    "flags": {},
+    "type": "Rock",
+    "priority": 3,
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Wonder Room": {
+    "kind": "Move",
+    "id": "wonderroom",
+    "name": "Wonder Room",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Ally Switch": {
+    "kind": "Move",
+    "id": "allyswitch",
+    "name": "Ally Switch",
+    "flags": {},
+    "type": "Psychic",
+    "priority": 2,
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Flame Burst": {
+    "kind": "Move",
+    "id": "flameburst",
+    "name": "Flame Burst",
+    "flags": {},
+    "type": "Fire",
+    "category": "Special",
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Heavy Slam": {
+    "kind": "Move",
+    "id": "heavyslam",
+    "name": "Heavy Slam",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Steel",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Reflect Type": {
+    "kind": "Move",
+    "id": "reflecttype",
+    "name": "Reflect Type",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Volt Switch": {
+    "kind": "Move",
+    "id": "voltswitch",
+    "name": "Volt Switch",
+    "flags": {},
+    "type": "Electric",
+    "category": "Special",
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Chip Away": {
+    "kind": "Move",
+    "id": "chipaway",
+    "name": "Chip Away",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "ignoreDefensive": true,
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Fiery Dance": {
+    "kind": "Move",
+    "id": "fierydance",
+    "name": "Fiery Dance",
+    "flags": {},
+    "type": "Fire",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Head Charge": {
+    "kind": "Move",
+    "id": "headcharge",
+    "name": "Head Charge",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "recoil": [
+      1,
+      4
+    ],
+    "category": "Physical",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Heart Stamp": {
+    "kind": "Move",
+    "id": "heartstamp",
+    "name": "Heart Stamp",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Psychic",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Quash": {
+    "kind": "Move",
+    "id": "quash",
+    "name": "Quash",
+    "flags": {},
+    "type": "Dark",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Searing Shot": {
+    "kind": "Move",
+    "id": "searingshot",
+    "name": "Searing Shot",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Fire",
+    "target": "allAdjacent",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Acid Spray": {
+    "kind": "Move",
+    "id": "acidspray",
+    "name": "Acid Spray",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Poison",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Acrobatics": {
+    "kind": "Move",
+    "id": "acrobatics",
+    "name": "Acrobatics",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Flying",
+    "category": "Physical",
+    "basePower": 55,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "After You": {
+    "kind": "Move",
+    "id": "afteryou",
+    "name": "After You",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Blue Flare": {
+    "kind": "Move",
+    "id": "blueflare",
+    "name": "Blue Flare",
+    "flags": {},
+    "type": "Fire",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 130,
+    "zMove": {
+      "basePower": 195
+    }
+  },
+  "Bolt Strike": {
+    "kind": "Move",
+    "id": "boltstrike",
+    "name": "Bolt Strike",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Electric",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 130,
+    "zMove": {
+      "basePower": 195
+    }
+  },
+  "Bulldoze": {
+    "kind": "Move",
+    "id": "bulldoze",
+    "name": "Bulldoze",
+    "flags": {},
+    "type": "Ground",
+    "target": "allAdjacent",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Circle Throw": {
+    "kind": "Move",
+    "id": "circlethrow",
+    "name": "Circle Throw",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Clear Smog": {
+    "kind": "Move",
+    "id": "clearsmog",
+    "name": "Clear Smog",
+    "flags": {},
+    "type": "Poison",
+    "category": "Special",
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Coil": {
+    "kind": "Move",
+    "id": "coil",
+    "name": "Coil",
+    "flags": {},
+    "type": "Poison",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Cotton Guard": {
+    "kind": "Move",
+    "id": "cottonguard",
+    "name": "Cotton Guard",
+    "flags": {},
+    "type": "Grass",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Dragon Tail": {
+    "kind": "Move",
+    "id": "dragontail",
+    "name": "Dragon Tail",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dragon",
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Drill Run": {
+    "kind": "Move",
+    "id": "drillrun",
+    "name": "Drill Run",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Ground",
+    "category": "Physical",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Dual Chop": {
+    "kind": "Move",
+    "id": "dualchop",
+    "name": "Dual Chop",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dragon",
+    "multihit": 2,
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Electroweb": {
+    "kind": "Move",
+    "id": "electroweb",
+    "name": "Electroweb",
+    "flags": {},
+    "type": "Electric",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 55,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Flame Charge": {
+    "kind": "Move",
+    "id": "flamecharge",
+    "name": "Flame Charge",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fire",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Foul Play": {
+    "kind": "Move",
+    "id": "foulplay",
+    "name": "Foul Play",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dark",
+    "category": "Physical",
+    "overrideOffensivePokemon": "target",
+    "basePower": 95,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Freeze Shock": {
+    "kind": "Move",
+    "id": "freezeshock",
+    "name": "Freeze Shock",
+    "flags": {},
+    "type": "Ice",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 140,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Fusion Bolt": {
+    "kind": "Move",
+    "id": "fusionbolt",
+    "name": "Fusion Bolt",
+    "flags": {},
+    "type": "Electric",
+    "category": "Physical",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Fusion Flare": {
+    "kind": "Move",
+    "id": "fusionflare",
+    "name": "Fusion Flare",
+    "flags": {},
+    "type": "Fire",
+    "category": "Special",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Gear Grind": {
+    "kind": "Move",
+    "id": "geargrind",
+    "name": "Gear Grind",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Steel",
+    "multihit": 2,
+    "category": "Physical",
+    "basePower": 50,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Glaciate": {
+    "kind": "Move",
+    "id": "glaciate",
+    "name": "Glaciate",
+    "flags": {},
+    "type": "Ice",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Guard Split": {
+    "kind": "Move",
+    "id": "guardsplit",
+    "name": "Guard Split",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Hone Claws": {
+    "kind": "Move",
+    "id": "honeclaws",
+    "name": "Hone Claws",
+    "flags": {},
+    "type": "Dark",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Ice Burn": {
+    "kind": "Move",
+    "id": "iceburn",
+    "name": "Ice Burn",
+    "flags": {},
+    "type": "Ice",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 140,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Icicle Crash": {
+    "kind": "Move",
+    "id": "iciclecrash",
+    "name": "Icicle Crash",
+    "flags": {},
+    "type": "Ice",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 85,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Inferno": {
+    "kind": "Move",
+    "id": "inferno",
+    "name": "Inferno",
+    "flags": {},
+    "type": "Fire",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Leaf Tornado": {
+    "kind": "Move",
+    "id": "leaftornado",
+    "name": "Leaf Tornado",
+    "flags": {},
+    "type": "Grass",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Night Daze": {
+    "kind": "Move",
+    "id": "nightdaze",
+    "name": "Night Daze",
+    "flags": {},
+    "type": "Dark",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 85,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Power Split": {
+    "kind": "Move",
+    "id": "powersplit",
+    "name": "Power Split",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Psyshock": {
+    "kind": "Move",
+    "id": "psyshock",
+    "name": "Psyshock",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "overrideDefensiveStat": "def",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Psystrike": {
+    "kind": "Move",
+    "id": "psystrike",
+    "name": "Psystrike",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "overrideDefensiveStat": "def",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Quiver Dance": {
+    "kind": "Move",
+    "id": "quiverdance",
+    "name": "Quiver Dance",
+    "flags": {},
+    "type": "Bug",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Razor Shell": {
+    "kind": "Move",
+    "id": "razorshell",
+    "name": "Razor Shell",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Water",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 75,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Retaliate": {
+    "kind": "Move",
+    "id": "retaliate",
+    "name": "Retaliate",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Secret Sword": {
+    "kind": "Move",
+    "id": "secretsword",
+    "name": "Secret Sword",
+    "flags": {},
+    "type": "Fighting",
+    "category": "Special",
+    "overrideDefensiveStat": "def",
+    "basePower": 85,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Shell Smash": {
+    "kind": "Move",
+    "id": "shellsmash",
+    "name": "Shell Smash",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Shift Gear": {
+    "kind": "Move",
+    "id": "shiftgear",
+    "name": "Shift Gear",
+    "flags": {},
+    "type": "Steel",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Sludge Wave": {
+    "kind": "Move",
+    "id": "sludgewave",
+    "name": "Sludge Wave",
+    "flags": {},
+    "type": "Poison",
+    "target": "allAdjacent",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 95,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Smack Down": {
+    "kind": "Move",
+    "id": "smackdown",
+    "name": "Smack Down",
+    "flags": {},
+    "type": "Rock",
+    "category": "Physical",
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Stored Power": {
+    "kind": "Move",
+    "id": "storedpower",
+    "name": "Stored Power",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "basePower": 20,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Tail Slap": {
+    "kind": "Move",
+    "id": "tailslap",
+    "name": "Tail Slap",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "multihit": [
+      2,
+      5
+    ],
+    "category": "Physical",
+    "basePower": 25,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "V-create": {
+    "kind": "Move",
+    "id": "vcreate",
+    "name": "V-create",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fire",
+    "category": "Physical",
+    "basePower": 180,
+    "zMove": {
+      "basePower": 220
+    }
+  },
+  "Venoshock": {
+    "kind": "Move",
+    "id": "venoshock",
+    "name": "Venoshock",
+    "flags": {},
+    "type": "Poison",
+    "category": "Special",
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Wild Charge": {
+    "kind": "Move",
+    "id": "wildcharge",
+    "name": "Wild Charge",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Electric",
+    "recoil": [
+      1,
+      4
+    ],
+    "category": "Physical",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Work Up": {
+    "kind": "Move",
+    "id": "workup",
+    "name": "Work Up",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Diamond Storm": {
+    "kind": "Move",
+    "id": "diamondstorm",
+    "name": "Diamond Storm",
+    "flags": {},
+    "type": "Rock",
+    "target": "allAdjacentFoes",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Fell Stinger": {
+    "kind": "Move",
+    "id": "fellstinger",
+    "name": "Fell Stinger",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Bug",
+    "category": "Physical",
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Flying Press": {
+    "kind": "Move",
+    "id": "flyingpress",
+    "name": "Flying Press",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 170
+    }
+  },
+  "Hyperspace Fury": {
+    "kind": "Move",
+    "id": "hyperspacefury",
+    "name": "Hyperspace Fury",
+    "flags": {},
+    "type": "Dark",
+    "breaksProtect": true,
+    "category": "Physical",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Hyperspace Hole": {
+    "kind": "Move",
+    "id": "hyperspacehole",
+    "name": "Hyperspace Hole",
+    "flags": {},
+    "type": "Psychic",
+    "breaksProtect": true,
+    "category": "Special",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "King's Shield": {
+    "kind": "Move",
+    "id": "kingsshield",
+    "name": "King's Shield",
+    "flags": {},
+    "type": "Steel",
+    "priority": 4,
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Misty Terrain": {
+    "kind": "Move",
+    "id": "mistyterrain",
+    "name": "Misty Terrain",
+    "flags": {},
+    "type": "Fairy",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Mystical Fire": {
+    "kind": "Move",
+    "id": "mysticalfire",
+    "name": "Mystical Fire",
+    "flags": {},
+    "type": "Fire",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 75,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Parabolic Charge": {
+    "kind": "Move",
+    "id": "paraboliccharge",
+    "name": "Parabolic Charge",
+    "flags": {},
+    "type": "Electric",
+    "drain": [
+      1,
+      2
+    ],
+    "target": "allAdjacent",
+    "category": "Special",
+    "basePower": 65,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Parting Shot": {
+    "kind": "Move",
+    "id": "partingshot",
+    "name": "Parting Shot",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Dark",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Phantom Force": {
+    "kind": "Move",
+    "id": "phantomforce",
+    "name": "Phantom Force",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Ghost",
+    "breaksProtect": true,
+    "category": "Physical",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Powder": {
+    "kind": "Move",
+    "id": "powder",
+    "name": "Powder",
+    "flags": {},
+    "type": "Bug",
+    "priority": 1,
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Spiky Shield": {
+    "kind": "Move",
+    "id": "spikyshield",
+    "name": "Spiky Shield",
+    "flags": {},
+    "type": "Grass",
+    "priority": 4,
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Thousand Arrows": {
+    "kind": "Move",
+    "id": "thousandarrows",
+    "name": "Thousand Arrows",
+    "flags": {},
+    "type": "Ground",
+    "target": "allAdjacentFoes",
+    "category": "Physical",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Thousand Waves": {
+    "kind": "Move",
+    "id": "thousandwaves",
+    "name": "Thousand Waves",
+    "flags": {},
+    "type": "Ground",
+    "target": "allAdjacentFoes",
+    "category": "Physical",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Water Shuriken": {
+    "kind": "Move",
+    "id": "watershuriken",
+    "name": "Water Shuriken",
+    "flags": {},
+    "type": "Water",
+    "multihit": [
+      2,
+      5
+    ],
+    "priority": 1,
+    "category": "Special",
+    "basePower": 15,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Dragon Ascent": {
+    "kind": "Move",
+    "id": "dragonascent",
+    "name": "Dragon Ascent",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Flying",
+    "category": "Physical",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Electric Terrain": {
+    "kind": "Move",
+    "id": "electricterrain",
+    "name": "Electric Terrain",
+    "flags": {},
+    "type": "Electric",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Geomancy": {
+    "kind": "Move",
+    "id": "geomancy",
+    "name": "Geomancy",
+    "flags": {},
+    "type": "Fairy",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Grassy Terrain": {
+    "kind": "Move",
+    "id": "grassyterrain",
+    "name": "Grassy Terrain",
+    "flags": {},
+    "type": "Grass",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Ion Deluge": {
+    "kind": "Move",
+    "id": "iondeluge",
+    "name": "Ion Deluge",
+    "flags": {},
+    "type": "Electric",
+    "priority": 1,
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Land's Wrath": {
+    "kind": "Move",
+    "id": "landswrath",
+    "name": "Land's Wrath",
+    "flags": {},
+    "type": "Ground",
+    "target": "allAdjacentFoes",
+    "category": "Physical",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 185
+    }
+  },
+  "Light of Ruin": {
+    "kind": "Move",
+    "id": "lightofruin",
+    "name": "Light of Ruin",
+    "flags": {},
+    "type": "Fairy",
+    "recoil": [
+      1,
+      2
+    ],
+    "category": "Special",
+    "basePower": 140,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Oblivion Wing": {
+    "kind": "Move",
+    "id": "oblivionwing",
+    "name": "Oblivion Wing",
+    "flags": {},
+    "type": "Flying",
+    "drain": [
+      3,
+      4
+    ],
+    "category": "Special",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Origin Pulse": {
+    "kind": "Move",
+    "id": "originpulse",
+    "name": "Origin Pulse",
+    "flags": {
+      "pulse": 1
+    },
+    "type": "Water",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "basePower": 110,
+    "zMove": {
+      "basePower": 185
+    }
+  },
+  "Precipice Blades": {
+    "kind": "Move",
+    "id": "precipiceblades",
+    "name": "Precipice Blades",
+    "flags": {},
+    "type": "Ground",
+    "target": "allAdjacentFoes",
+    "category": "Physical",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Rototiller": {
+    "kind": "Move",
+    "id": "rototiller",
+    "name": "Rototiller",
+    "flags": {},
+    "type": "Ground",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Steam Eruption": {
+    "kind": "Move",
+    "id": "steameruption",
+    "name": "Steam Eruption",
+    "flags": {},
+    "type": "Water",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 110,
+    "zMove": {
+      "basePower": 185
+    }
+  },
+  "Aromatic Mist": {
+    "kind": "Move",
+    "id": "aromaticmist",
+    "name": "Aromatic Mist",
+    "flags": {},
+    "type": "Fairy",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Baby-Doll Eyes": {
+    "kind": "Move",
+    "id": "babydolleyes",
+    "name": "Baby-Doll Eyes",
+    "flags": {},
+    "type": "Fairy",
+    "priority": 1,
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Belch": {
+    "kind": "Move",
+    "id": "belch",
+    "name": "Belch",
+    "flags": {},
+    "type": "Poison",
+    "category": "Special",
+    "basePower": 120,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Boomburst": {
+    "kind": "Move",
+    "id": "boomburst",
+    "name": "Boomburst",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Normal",
+    "target": "allAdjacent",
+    "category": "Special",
+    "basePower": 140,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Celebrate": {
+    "kind": "Move",
+    "id": "celebrate",
+    "name": "Celebrate",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Confide": {
+    "kind": "Move",
+    "id": "confide",
+    "name": "Confide",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Crafty Shield": {
+    "kind": "Move",
+    "id": "craftyshield",
+    "name": "Crafty Shield",
+    "flags": {},
+    "type": "Fairy",
+    "priority": 3,
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Dazzling Gleam": {
+    "kind": "Move",
+    "id": "dazzlinggleam",
+    "name": "Dazzling Gleam",
+    "flags": {},
+    "type": "Fairy",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Disarming Voice": {
+    "kind": "Move",
+    "id": "disarmingvoice",
+    "name": "Disarming Voice",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Fairy",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Draining Kiss": {
+    "kind": "Move",
+    "id": "drainingkiss",
+    "name": "Draining Kiss",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fairy",
+    "drain": [
+      3,
+      4
+    ],
+    "category": "Special",
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Eerie Impulse": {
+    "kind": "Move",
+    "id": "eerieimpulse",
+    "name": "Eerie Impulse",
+    "flags": {},
+    "type": "Electric",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Electrify": {
+    "kind": "Move",
+    "id": "electrify",
+    "name": "Electrify",
+    "flags": {},
+    "type": "Electric",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Fairy Lock": {
+    "kind": "Move",
+    "id": "fairylock",
+    "name": "Fairy Lock",
+    "flags": {},
+    "type": "Fairy",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Fairy Wind": {
+    "kind": "Move",
+    "id": "fairywind",
+    "name": "Fairy Wind",
+    "flags": {},
+    "type": "Fairy",
+    "category": "Special",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Flower Shield": {
+    "kind": "Move",
+    "id": "flowershield",
+    "name": "Flower Shield",
+    "flags": {},
+    "type": "Fairy",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Forest's Curse": {
+    "kind": "Move",
+    "id": "forestscurse",
+    "name": "Forest's Curse",
+    "flags": {},
+    "type": "Grass",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Freeze-Dry": {
+    "kind": "Move",
+    "id": "freezedry",
+    "name": "Freeze-Dry",
+    "flags": {},
+    "type": "Ice",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Happy Hour": {
+    "kind": "Move",
+    "id": "happyhour",
+    "name": "Happy Hour",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Hold Back": {
+    "kind": "Move",
+    "id": "holdback",
+    "name": "Hold Back",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Hold Hands": {
+    "kind": "Move",
+    "id": "holdhands",
+    "name": "Hold Hands",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Infestation": {
+    "kind": "Move",
+    "id": "infestation",
+    "name": "Infestation",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Bug",
+    "category": "Special",
+    "basePower": 20,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Magnetic Flux": {
+    "kind": "Move",
+    "id": "magneticflux",
+    "name": "Magnetic Flux",
+    "flags": {},
+    "type": "Electric",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Mat Block": {
+    "kind": "Move",
+    "id": "matblock",
+    "name": "Mat Block",
+    "flags": {},
+    "type": "Fighting",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Moonblast": {
+    "kind": "Move",
+    "id": "moonblast",
+    "name": "Moonblast",
+    "flags": {},
+    "type": "Fairy",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 95,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Noble Roar": {
+    "kind": "Move",
+    "id": "nobleroar",
+    "name": "Noble Roar",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Nuzzle": {
+    "kind": "Move",
+    "id": "nuzzle",
+    "name": "Nuzzle",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Electric",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 20,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Petal Blizzard": {
+    "kind": "Move",
+    "id": "petalblizzard",
+    "name": "Petal Blizzard",
+    "flags": {},
+    "type": "Grass",
+    "target": "allAdjacent",
+    "category": "Physical",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Play Nice": {
+    "kind": "Move",
+    "id": "playnice",
+    "name": "Play Nice",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Play Rough": {
+    "kind": "Move",
+    "id": "playrough",
+    "name": "Play Rough",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fairy",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Power-Up Punch": {
+    "kind": "Move",
+    "id": "poweruppunch",
+    "name": "Power-Up Punch",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Fighting",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Sticky Web": {
+    "kind": "Move",
+    "id": "stickyweb",
+    "name": "Sticky Web",
+    "flags": {},
+    "type": "Bug",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Topsy-Turvy": {
+    "kind": "Move",
+    "id": "topsyturvy",
+    "name": "Topsy-Turvy",
+    "flags": {},
+    "type": "Dark",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Trick-or-Treat": {
+    "kind": "Move",
+    "id": "trickortreat",
+    "name": "Trick-or-Treat",
+    "flags": {},
+    "type": "Ghost",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Venom Drench": {
+    "kind": "Move",
+    "id": "venomdrench",
+    "name": "Venom Drench",
+    "flags": {},
+    "type": "Poison",
+    "target": "allAdjacentFoes",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "10,000,000 Volt Thunderbolt": {
+    "kind": "Move",
+    "id": "10000000voltthunderbolt",
+    "name": "10,000,000 Volt Thunderbolt",
+    "flags": {},
+    "type": "Electric",
+    "category": "Special",
+    "isZ": true,
+    "basePower": 195
+  },
+  "Acid Downpour": {
+    "kind": "Move",
+    "id": "aciddownpour",
+    "name": "Acid Downpour",
+    "flags": {},
+    "type": "Poison",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "All-Out Pummeling": {
+    "kind": "Move",
+    "id": "alloutpummeling",
+    "name": "All-Out Pummeling",
+    "flags": {},
+    "type": "Fighting",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Baddy Bad": {
+    "kind": "Move",
+    "id": "baddybad",
+    "name": "Baddy Bad",
+    "flags": {},
+    "type": "Dark",
+    "category": "Special",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Baneful Bunker": {
+    "kind": "Move",
+    "id": "banefulbunker",
+    "name": "Baneful Bunker",
+    "flags": {},
+    "type": "Poison",
+    "priority": 4,
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Beak Blast": {
+    "kind": "Move",
+    "id": "beakblast",
+    "name": "Beak Blast",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Flying",
+    "category": "Physical",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Black Hole Eclipse": {
+    "kind": "Move",
+    "id": "blackholeeclipse",
+    "name": "Black Hole Eclipse",
+    "flags": {},
+    "type": "Dark",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Bloom Doom": {
+    "kind": "Move",
+    "id": "bloomdoom",
+    "name": "Bloom Doom",
+    "flags": {},
+    "type": "Grass",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Bouncy Bubble": {
+    "kind": "Move",
+    "id": "bouncybubble",
+    "name": "Bouncy Bubble",
+    "flags": {},
+    "type": "Water",
+    "drain": [
+      1,
+      2
+    ],
+    "category": "Special",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Breakneck Blitz": {
+    "kind": "Move",
+    "id": "breakneckblitz",
+    "name": "Breakneck Blitz",
+    "flags": {},
+    "type": "Normal",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Buzzy Buzz": {
+    "kind": "Move",
+    "id": "buzzybuzz",
+    "name": "Buzzy Buzz",
+    "flags": {},
+    "type": "Electric",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Catastropika": {
+    "kind": "Move",
+    "id": "catastropika",
+    "name": "Catastropika",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Electric",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 210
+  },
+  "Clangorous Soulblaze": {
+    "kind": "Move",
+    "id": "clangoroussoulblaze",
+    "name": "Clangorous Soulblaze",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Dragon",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "secondaries": true,
+    "isZ": true,
+    "basePower": 185
+  },
+  "Continental Crush": {
+    "kind": "Move",
+    "id": "continentalcrush",
+    "name": "Continental Crush",
+    "flags": {},
+    "type": "Rock",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Core Enforcer": {
+    "kind": "Move",
+    "id": "coreenforcer",
+    "name": "Core Enforcer",
+    "flags": {},
+    "type": "Dragon",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Corkscrew Crash": {
+    "kind": "Move",
+    "id": "corkscrewcrash",
+    "name": "Corkscrew Crash",
+    "flags": {},
+    "type": "Steel",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Devastating Drake": {
+    "kind": "Move",
+    "id": "devastatingdrake",
+    "name": "Devastating Drake",
+    "flags": {},
+    "type": "Dragon",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Double Iron Bash": {
+    "kind": "Move",
+    "id": "doubleironbash",
+    "name": "Double Iron Bash",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Steel",
+    "multihit": 2,
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 60,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Dragon Hammer": {
+    "kind": "Move",
+    "id": "dragonhammer",
+    "name": "Dragon Hammer",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dragon",
+    "category": "Physical",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Extreme Evoboost": {
+    "kind": "Move",
+    "id": "extremeevoboost",
+    "name": "Extreme Evoboost",
+    "flags": {},
+    "type": "Normal",
+    "isZ": true,
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Fleur Cannon": {
+    "kind": "Move",
+    "id": "fleurcannon",
+    "name": "Fleur Cannon",
+    "flags": {},
+    "type": "Fairy",
+    "self": {
+      "boosts": {
+        "spa": -2
+      }
+    },
+    "category": "Special",
+    "basePower": 130,
+    "zMove": {
+      "basePower": 195
+    }
+  },
+  "Floral Healing": {
+    "kind": "Move",
+    "id": "floralhealing",
+    "name": "Floral Healing",
+    "flags": {},
+    "type": "Fairy",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Freezy Frost": {
+    "kind": "Move",
+    "id": "freezyfrost",
+    "name": "Freezy Frost",
+    "flags": {},
+    "type": "Ice",
+    "category": "Special",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Genesis Supernova": {
+    "kind": "Move",
+    "id": "genesissupernova",
+    "name": "Genesis Supernova",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "secondaries": true,
+    "isZ": true,
+    "basePower": 185
+  },
+  "Gigavolt Havoc": {
+    "kind": "Move",
+    "id": "gigavolthavoc",
+    "name": "Gigavolt Havoc",
+    "flags": {},
+    "type": "Electric",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Glitzy Glow": {
+    "kind": "Move",
+    "id": "glitzyglow",
+    "name": "Glitzy Glow",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Guardian of Alola": {
+    "kind": "Move",
+    "id": "guardianofalola",
+    "name": "Guardian of Alola",
+    "flags": {},
+    "type": "Fairy",
+    "category": "Special",
+    "isZ": true,
+    "basePower": 0
+  },
+  "Hydro Vortex": {
+    "kind": "Move",
+    "id": "hydrovortex",
+    "name": "Hydro Vortex",
+    "flags": {},
+    "type": "Water",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Ice Hammer": {
+    "kind": "Move",
+    "id": "icehammer",
+    "name": "Ice Hammer",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Ice",
+    "category": "Physical",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Inferno Overdrive": {
+    "kind": "Move",
+    "id": "infernooverdrive",
+    "name": "Inferno Overdrive",
+    "flags": {},
+    "type": "Fire",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Instruct": {
+    "kind": "Move",
+    "id": "instruct",
+    "name": "Instruct",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Let's Snuggle Forever": {
+    "kind": "Move",
+    "id": "letssnuggleforever",
+    "name": "Let's Snuggle Forever",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fairy",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 190
+  },
+  "Light That Burns the Sky": {
+    "kind": "Move",
+    "id": "lightthatburnsthesky",
+    "name": "Light That Burns the Sky",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "isZ": true,
+    "basePower": 200
+  },
+  "Malicious Moonsault": {
+    "kind": "Move",
+    "id": "maliciousmoonsault",
+    "name": "Malicious Moonsault",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dark",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 180
+  },
+  "Menacing Moonraze Maelstrom": {
+    "kind": "Move",
+    "id": "menacingmoonrazemaelstrom",
+    "name": "Menacing Moonraze Maelstrom",
+    "flags": {},
+    "type": "Ghost",
+    "category": "Special",
+    "isZ": true,
+    "basePower": 200
+  },
+  "Mind Blown": {
+    "kind": "Move",
+    "id": "mindblown",
+    "name": "Mind Blown",
+    "flags": {},
+    "type": "Fire",
+    "mindBlownRecoil": true,
+    "target": "allAdjacent",
+    "category": "Special",
+    "basePower": 150,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Multi-Attack": {
+    "kind": "Move",
+    "id": "multiattack",
+    "name": "Multi-Attack",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 185
+    }
+  },
+  "Nature's Madness": {
+    "kind": "Move",
+    "id": "naturesmadness",
+    "name": "Nature's Madness",
+    "flags": {},
+    "type": "Fairy",
+    "category": "Special",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Never-Ending Nightmare": {
+    "kind": "Move",
+    "id": "neverendingnightmare",
+    "name": "Never-Ending Nightmare",
+    "flags": {},
+    "type": "Ghost",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Oceanic Operetta": {
+    "kind": "Move",
+    "id": "oceanicoperetta",
+    "name": "Oceanic Operetta",
+    "flags": {},
+    "type": "Water",
+    "category": "Special",
+    "isZ": true,
+    "basePower": 195
+  },
+  "Psychic Terrain": {
+    "kind": "Move",
+    "id": "psychicterrain",
+    "name": "Psychic Terrain",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Pulverizing Pancake": {
+    "kind": "Move",
+    "id": "pulverizingpancake",
+    "name": "Pulverizing Pancake",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 210
+  },
+  "Revelation Dance": {
+    "kind": "Move",
+    "id": "revelationdance",
+    "name": "Revelation Dance",
+    "flags": {},
+    "type": "Normal",
+    "category": "Special",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Sappy Seed": {
+    "kind": "Move",
+    "id": "sappyseed",
+    "name": "Sappy Seed",
+    "flags": {},
+    "type": "Grass",
+    "category": "Physical",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Savage Spin-Out": {
+    "kind": "Move",
+    "id": "savagespinout",
+    "name": "Savage Spin-Out",
+    "flags": {},
+    "type": "Bug",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Searing Sunraze Smash": {
+    "kind": "Move",
+    "id": "searingsunrazesmash",
+    "name": "Searing Sunraze Smash",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Steel",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 200
+  },
+  "Shadow Bone": {
+    "kind": "Move",
+    "id": "shadowbone",
+    "name": "Shadow Bone",
+    "flags": {},
+    "type": "Ghost",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 85,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Shattered Psyche": {
+    "kind": "Move",
+    "id": "shatteredpsyche",
+    "name": "Shattered Psyche",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Shore Up": {
+    "kind": "Move",
+    "id": "shoreup",
+    "name": "Shore Up",
+    "flags": {},
+    "type": "Ground",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Sinister Arrow Raid": {
+    "kind": "Move",
+    "id": "sinisterarrowraid",
+    "name": "Sinister Arrow Raid",
+    "flags": {},
+    "type": "Ghost",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 180
+  },
+  "Sizzly Slide": {
+    "kind": "Move",
+    "id": "sizzlyslide",
+    "name": "Sizzly Slide",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fire",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Solar Blade": {
+    "kind": "Move",
+    "id": "solarblade",
+    "name": "Solar Blade",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Grass",
+    "category": "Physical",
+    "basePower": 125,
+    "zMove": {
+      "basePower": 190
+    }
+  },
+  "Soul-Stealing 7-Star Strike": {
+    "kind": "Move",
+    "id": "soulstealing7starstrike",
+    "name": "Soul-Stealing 7-Star Strike",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Ghost",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 195
+  },
+  "Sparkly Swirl": {
+    "kind": "Move",
+    "id": "sparklyswirl",
+    "name": "Sparkly Swirl",
+    "flags": {},
+    "type": "Fairy",
+    "category": "Special",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Splintered Stormshards": {
+    "kind": "Move",
+    "id": "splinteredstormshards",
+    "name": "Splintered Stormshards",
+    "flags": {},
+    "type": "Rock",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 190
+  },
+  "Spotlight": {
+    "kind": "Move",
+    "id": "spotlight",
+    "name": "Spotlight",
+    "flags": {},
+    "type": "Normal",
+    "priority": 3,
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Stoked Sparksurfer": {
+    "kind": "Move",
+    "id": "stokedsparksurfer",
+    "name": "Stoked Sparksurfer",
+    "flags": {},
+    "type": "Electric",
+    "category": "Special",
+    "secondaries": true,
+    "isZ": true,
+    "basePower": 175
+  },
+  "Subzero Slammer": {
+    "kind": "Move",
+    "id": "subzeroslammer",
+    "name": "Subzero Slammer",
+    "flags": {},
+    "type": "Ice",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Supersonic Skystrike": {
+    "kind": "Move",
+    "id": "supersonicskystrike",
+    "name": "Supersonic Skystrike",
+    "flags": {},
+    "type": "Flying",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Tectonic Rage": {
+    "kind": "Move",
+    "id": "tectonicrage",
+    "name": "Tectonic Rage",
+    "flags": {},
+    "type": "Ground",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Throat Chop": {
+    "kind": "Move",
+    "id": "throatchop",
+    "name": "Throat Chop",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dark",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Toxic Thread": {
+    "kind": "Move",
+    "id": "toxicthread",
+    "name": "Toxic Thread",
+    "flags": {},
+    "type": "Poison",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Twinkle Tackle": {
+    "kind": "Move",
+    "id": "twinkletackle",
+    "name": "Twinkle Tackle",
+    "flags": {},
+    "type": "Fairy",
+    "category": "Physical",
+    "isZ": true,
+    "basePower": 1
+  },
+  "Zippy Zap": {
+    "kind": "Move",
+    "id": "zippyzap",
+    "name": "Zippy Zap",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Electric",
+    "willCrit": true,
+    "priority": 2,
+    "category": "Physical",
+    "basePower": 50,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Accelerock": {
+    "kind": "Move",
+    "id": "accelerock",
+    "name": "Accelerock",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Rock",
+    "priority": 1,
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Anchor Shot": {
+    "kind": "Move",
+    "id": "anchorshot",
+    "name": "Anchor Shot",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Steel",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Aurora Veil": {
+    "kind": "Move",
+    "id": "auroraveil",
+    "name": "Aurora Veil",
+    "flags": {},
+    "type": "Ice",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Brutal Swing": {
+    "kind": "Move",
+    "id": "brutalswing",
+    "name": "Brutal Swing",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dark",
+    "target": "allAdjacent",
+    "category": "Physical",
+    "basePower": 60,
+    "zMove": {
+      "basePower": 120
+    }
+  },
+  "Burn Up": {
+    "kind": "Move",
+    "id": "burnup",
+    "name": "Burn Up",
+    "flags": {},
+    "type": "Fire",
+    "category": "Special",
+    "basePower": 130,
+    "zMove": {
+      "basePower": 195
+    }
+  },
+  "Clanging Scales": {
+    "kind": "Move",
+    "id": "clangingscales",
+    "name": "Clanging Scales",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Dragon",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "basePower": 110,
+    "zMove": {
+      "basePower": 185
+    }
+  },
+  "Darkest Lariat": {
+    "kind": "Move",
+    "id": "darkestlariat",
+    "name": "Darkest Lariat",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dark",
+    "category": "Physical",
+    "ignoreDefensive": true,
+    "basePower": 85,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Fire Lash": {
+    "kind": "Move",
+    "id": "firelash",
+    "name": "Fire Lash",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Fire",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "First Impression": {
+    "kind": "Move",
+    "id": "firstimpression",
+    "name": "First Impression",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Bug",
+    "priority": 2,
+    "category": "Physical",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Floaty Fall": {
+    "kind": "Move",
+    "id": "floatyfall",
+    "name": "Floaty Fall",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Flying",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Gear Up": {
+    "kind": "Move",
+    "id": "gearup",
+    "name": "Gear Up",
+    "flags": {},
+    "type": "Steel",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "High Horsepower": {
+    "kind": "Move",
+    "id": "highhorsepower",
+    "name": "High Horsepower",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Ground",
+    "category": "Physical",
+    "basePower": 95,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Laser Focus": {
+    "kind": "Move",
+    "id": "laserfocus",
+    "name": "Laser Focus",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Leafage": {
+    "kind": "Move",
+    "id": "leafage",
+    "name": "Leafage",
+    "flags": {},
+    "type": "Grass",
+    "category": "Physical",
+    "basePower": 40,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Liquidation": {
+    "kind": "Move",
+    "id": "liquidation",
+    "name": "Liquidation",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Water",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 85,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Lunge": {
+    "kind": "Move",
+    "id": "lunge",
+    "name": "Lunge",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Bug",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Moongeist Beam": {
+    "kind": "Move",
+    "id": "moongeistbeam",
+    "name": "Moongeist Beam",
+    "flags": {},
+    "type": "Ghost",
+    "category": "Special",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Photon Geyser": {
+    "kind": "Move",
+    "id": "photongeyser",
+    "name": "Photon Geyser",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Pika Papow": {
+    "kind": "Move",
+    "id": "pikapapow",
+    "name": "Pika Papow",
+    "flags": {},
+    "type": "Electric",
+    "category": "Special",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Plasma Fists": {
+    "kind": "Move",
+    "id": "plasmafists",
+    "name": "Plasma Fists",
+    "flags": {
+      "contact": 1,
+      "punch": 1
+    },
+    "type": "Electric",
+    "category": "Physical",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Pollen Puff": {
+    "kind": "Move",
+    "id": "pollenpuff",
+    "name": "Pollen Puff",
+    "flags": {
+      "bullet": 1
+    },
+    "type": "Bug",
+    "category": "Special",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Power Trip": {
+    "kind": "Move",
+    "id": "powertrip",
+    "name": "Power Trip",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Dark",
+    "category": "Physical",
+    "basePower": 20,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Prismatic Laser": {
+    "kind": "Move",
+    "id": "prismaticlaser",
+    "name": "Prismatic Laser",
+    "flags": {},
+    "type": "Psychic",
+    "category": "Special",
+    "basePower": 160,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Psychic Fangs": {
+    "kind": "Move",
+    "id": "psychicfangs",
+    "name": "Psychic Fangs",
+    "flags": {
+      "contact": 1,
+      "bite": 1
+    },
+    "type": "Psychic",
+    "category": "Physical",
+    "basePower": 85,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Purify": {
+    "kind": "Move",
+    "id": "purify",
+    "name": "Purify",
+    "flags": {},
+    "type": "Poison",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Shell Trap": {
+    "kind": "Move",
+    "id": "shelltrap",
+    "name": "Shell Trap",
+    "flags": {},
+    "type": "Fire",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "basePower": 150,
+    "zMove": {
+      "basePower": 200
+    }
+  },
+  "Smart Strike": {
+    "kind": "Move",
+    "id": "smartstrike",
+    "name": "Smart Strike",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Steel",
+    "category": "Physical",
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Sparkling Aria": {
+    "kind": "Move",
+    "id": "sparklingaria",
+    "name": "Sparkling Aria",
+    "flags": {
+      "sound": 1
+    },
+    "type": "Water",
+    "target": "allAdjacent",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Spectral Thief": {
+    "kind": "Move",
+    "id": "spectralthief",
+    "name": "Spectral Thief",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Ghost",
+    "category": "Physical",
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Speed Swap": {
+    "kind": "Move",
+    "id": "speedswap",
+    "name": "Speed Swap",
+    "flags": {},
+    "type": "Psychic",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Spirit Shackle": {
+    "kind": "Move",
+    "id": "spiritshackle",
+    "name": "Spirit Shackle",
+    "flags": {},
+    "type": "Ghost",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  },
+  "Splishy Splash": {
+    "kind": "Move",
+    "id": "splishysplash",
+    "name": "Splishy Splash",
+    "flags": {},
+    "type": "Water",
+    "target": "allAdjacentFoes",
+    "category": "Special",
+    "secondaries": true,
+    "basePower": 90,
+    "zMove": {
+      "basePower": 175
+    }
+  },
+  "Stomping Tantrum": {
+    "kind": "Move",
+    "id": "stompingtantrum",
+    "name": "Stomping Tantrum",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Ground",
+    "category": "Physical",
+    "basePower": 75,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Strength Sap": {
+    "kind": "Move",
+    "id": "strengthsap",
+    "name": "Strength Sap",
+    "flags": {},
+    "type": "Grass",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Sunsteel Strike": {
+    "kind": "Move",
+    "id": "sunsteelstrike",
+    "name": "Sunsteel Strike",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Steel",
+    "category": "Physical",
+    "basePower": 100,
+    "zMove": {
+      "basePower": 180
+    }
+  },
+  "Tearful Look": {
+    "kind": "Move",
+    "id": "tearfullook",
+    "name": "Tearful Look",
+    "flags": {},
+    "type": "Normal",
+    "basePower": 0,
+    "category": "Status"
+  },
+  "Trop Kick": {
+    "kind": "Move",
+    "id": "tropkick",
+    "name": "Trop Kick",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Grass",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 70,
+    "zMove": {
+      "basePower": 140
+    }
+  },
+  "Veevee Volley": {
+    "kind": "Move",
+    "id": "veeveevolley",
+    "name": "Veevee Volley",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Normal",
+    "category": "Physical",
+    "basePower": 0,
+    "zMove": {
+      "basePower": 100
+    }
+  },
+  "Zing Zap": {
+    "kind": "Move",
+    "id": "zingzap",
+    "name": "Zing Zap",
+    "flags": {
+      "contact": 1
+    },
+    "type": "Electric",
+    "category": "Physical",
+    "secondaries": true,
+    "basePower": 80,
+    "zMove": {
+      "basePower": 160
+    }
+  }
+}

@@ -1,0 +1,367 @@
+{
+  "Berry Juice": {
+    "kind": "Item",
+    "id": "berryjuice",
+    "name": "Berry Juice"
+  },
+  "Berry": {
+    "kind": "Item",
+    "id": "berry",
+    "name": "Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Poison"
+    }
+  },
+  "Berserk Gene": {
+    "kind": "Item",
+    "id": "berserkgene",
+    "name": "Berserk Gene"
+  },
+  "Bitter Berry": {
+    "kind": "Item",
+    "id": "bitterberry",
+    "name": "Bitter Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Ground"
+    }
+  },
+  "Black Belt": {
+    "kind": "Item",
+    "id": "blackbelt",
+    "name": "Black Belt"
+  },
+  "Black Glasses": {
+    "kind": "Item",
+    "id": "blackglasses",
+    "name": "Black Glasses"
+  },
+  "Bright Powder": {
+    "kind": "Item",
+    "id": "brightpowder",
+    "name": "Bright Powder"
+  },
+  "Burnt Berry": {
+    "kind": "Item",
+    "id": "burntberry",
+    "name": "Burnt Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Ice"
+    }
+  },
+  "Charcoal": {
+    "kind": "Item",
+    "id": "charcoal",
+    "name": "Charcoal"
+  },
+  "Dragon Fang": {
+    "kind": "Item",
+    "id": "dragonfang",
+    "name": "Dragon Fang"
+  },
+  "Dragon Scale": {
+    "kind": "Item",
+    "id": "dragonscale",
+    "name": "Dragon Scale"
+  },
+  "Fast Ball": {
+    "kind": "Item",
+    "id": "fastball",
+    "name": "Fast Ball"
+  },
+  "Fire Stone": {
+    "kind": "Item",
+    "id": "firestone",
+    "name": "Fire Stone"
+  },
+  "Focus Band": {
+    "kind": "Item",
+    "id": "focusband",
+    "name": "Focus Band"
+  },
+  "Friend Ball": {
+    "kind": "Item",
+    "id": "friendball",
+    "name": "Friend Ball"
+  },
+  "Gold Berry": {
+    "kind": "Item",
+    "id": "goldberry",
+    "name": "Gold Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Psychic"
+    }
+  },
+  "Great Ball": {
+    "kind": "Item",
+    "id": "greatball",
+    "name": "Great Ball"
+  },
+  "Hard Stone": {
+    "kind": "Item",
+    "id": "hardstone",
+    "name": "Hard Stone"
+  },
+  "Heavy Ball": {
+    "kind": "Item",
+    "id": "heavyball",
+    "name": "Heavy Ball"
+  },
+  "Ice Berry": {
+    "kind": "Item",
+    "id": "iceberry",
+    "name": "Ice Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Grass"
+    }
+  },
+  "King's Rock": {
+    "kind": "Item",
+    "id": "kingsrock",
+    "name": "King's Rock"
+  },
+  "Leaf Stone": {
+    "kind": "Item",
+    "id": "leafstone",
+    "name": "Leaf Stone"
+  },
+  "Leftovers": {
+    "kind": "Item",
+    "id": "leftovers",
+    "name": "Leftovers"
+  },
+  "Level Ball": {
+    "kind": "Item",
+    "id": "levelball",
+    "name": "Level Ball"
+  },
+  "Light Ball": {
+    "kind": "Item",
+    "id": "lightball",
+    "name": "Light Ball"
+  },
+  "Love Ball": {
+    "kind": "Item",
+    "id": "loveball",
+    "name": "Love Ball"
+  },
+  "Lucky Punch": {
+    "kind": "Item",
+    "id": "luckypunch",
+    "name": "Lucky Punch"
+  },
+  "Lure Ball": {
+    "kind": "Item",
+    "id": "lureball",
+    "name": "Lure Ball"
+  },
+  "Magnet": {
+    "kind": "Item",
+    "id": "magnet",
+    "name": "Magnet"
+  },
+  "Mail": {
+    "kind": "Item",
+    "id": "mail",
+    "name": "Mail"
+  },
+  "Master Ball": {
+    "kind": "Item",
+    "id": "masterball",
+    "name": "Master Ball"
+  },
+  "Metal Coat": {
+    "kind": "Item",
+    "id": "metalcoat",
+    "name": "Metal Coat"
+  },
+  "Metal Powder": {
+    "kind": "Item",
+    "id": "metalpowder",
+    "name": "Metal Powder"
+  },
+  "Mint Berry": {
+    "kind": "Item",
+    "id": "mintberry",
+    "name": "Mint Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Water"
+    }
+  },
+  "Miracle Berry": {
+    "kind": "Item",
+    "id": "miracleberry",
+    "name": "Miracle Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Flying"
+    }
+  },
+  "Miracle Seed": {
+    "kind": "Item",
+    "id": "miracleseed",
+    "name": "Miracle Seed"
+  },
+  "Moon Ball": {
+    "kind": "Item",
+    "id": "moonball",
+    "name": "Moon Ball"
+  },
+  "Moon Stone": {
+    "kind": "Item",
+    "id": "moonstone",
+    "name": "Moon Stone"
+  },
+  "Mystery Berry": {
+    "kind": "Item",
+    "id": "mysteryberry",
+    "name": "Mystery Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Fighting"
+    }
+  },
+  "Mystic Water": {
+    "kind": "Item",
+    "id": "mysticwater",
+    "name": "Mystic Water"
+  },
+  "Never-Melt Ice": {
+    "kind": "Item",
+    "id": "nevermeltice",
+    "name": "Never-Melt Ice"
+  },
+  "Pink Bow": {
+    "kind": "Item",
+    "id": "pinkbow",
+    "name": "Pink Bow"
+  },
+  "Poison Barb": {
+    "kind": "Item",
+    "id": "poisonbarb",
+    "name": "Poison Barb"
+  },
+  "Poke Ball": {
+    "kind": "Item",
+    "id": "pokeball",
+    "name": "Poke Ball"
+  },
+  "Polkadot Bow": {
+    "kind": "Item",
+    "id": "polkadotbow",
+    "name": "Polkadot Bow"
+  },
+  "PRZ Cure Berry": {
+    "kind": "Item",
+    "id": "przcureberry",
+    "name": "PRZ Cure Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Fire"
+    }
+  },
+  "PSN Cure Berry": {
+    "kind": "Item",
+    "id": "psncureberry",
+    "name": "PSN Cure Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 60,
+      "type": "Electric"
+    }
+  },
+  "Quick Claw": {
+    "kind": "Item",
+    "id": "quickclaw",
+    "name": "Quick Claw"
+  },
+  "Safari Ball": {
+    "kind": "Item",
+    "id": "safariball",
+    "name": "Safari Ball"
+  },
+  "Scope Lens": {
+    "kind": "Item",
+    "id": "scopelens",
+    "name": "Scope Lens"
+  },
+  "Sharp Beak": {
+    "kind": "Item",
+    "id": "sharpbeak",
+    "name": "Sharp Beak"
+  },
+  "Silver Powder": {
+    "kind": "Item",
+    "id": "silverpowder",
+    "name": "Silver Powder"
+  },
+  "Soft Sand": {
+    "kind": "Item",
+    "id": "softsand",
+    "name": "Soft Sand"
+  },
+  "Spell Tag": {
+    "kind": "Item",
+    "id": "spelltag",
+    "name": "Spell Tag"
+  },
+  "Sport Ball": {
+    "kind": "Item",
+    "id": "sportball",
+    "name": "Sport Ball"
+  },
+  "Stick": {
+    "kind": "Item",
+    "id": "stick",
+    "name": "Stick"
+  },
+  "Sun Stone": {
+    "kind": "Item",
+    "id": "sunstone",
+    "name": "Sun Stone"
+  },
+  "Thick Club": {
+    "kind": "Item",
+    "id": "thickclub",
+    "name": "Thick Club"
+  },
+  "Thunder Stone": {
+    "kind": "Item",
+    "id": "thunderstone",
+    "name": "Thunder Stone"
+  },
+  "Twisted Spoon": {
+    "kind": "Item",
+    "id": "twistedspoon",
+    "name": "Twisted Spoon"
+  },
+  "Ultra Ball": {
+    "kind": "Item",
+    "id": "ultraball",
+    "name": "Ultra Ball"
+  },
+  "Up-Grade": {
+    "kind": "Item",
+    "id": "upgrade",
+    "name": "Up-Grade"
+  },
+  "Water Stone": {
+    "kind": "Item",
+    "id": "waterstone",
+    "name": "Water Stone"
+  }
+}

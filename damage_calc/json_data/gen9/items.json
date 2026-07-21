@@ -1,0 +1,3585 @@
+{
+  "Berry Juice": {
+    "kind": "Item",
+    "id": "berryjuice",
+    "name": "Berry Juice"
+  },
+  "Black Belt": {
+    "kind": "Item",
+    "id": "blackbelt",
+    "name": "Black Belt"
+  },
+  "Black Glasses": {
+    "kind": "Item",
+    "id": "blackglasses",
+    "name": "Black Glasses"
+  },
+  "Bright Powder": {
+    "kind": "Item",
+    "id": "brightpowder",
+    "name": "Bright Powder"
+  },
+  "Charcoal": {
+    "kind": "Item",
+    "id": "charcoal",
+    "name": "Charcoal"
+  },
+  "Dragon Fang": {
+    "kind": "Item",
+    "id": "dragonfang",
+    "name": "Dragon Fang"
+  },
+  "Dragon Scale": {
+    "kind": "Item",
+    "id": "dragonscale",
+    "name": "Dragon Scale"
+  },
+  "Fast Ball": {
+    "kind": "Item",
+    "id": "fastball",
+    "name": "Fast Ball"
+  },
+  "Fire Stone": {
+    "kind": "Item",
+    "id": "firestone",
+    "name": "Fire Stone"
+  },
+  "Focus Band": {
+    "kind": "Item",
+    "id": "focusband",
+    "name": "Focus Band"
+  },
+  "Friend Ball": {
+    "kind": "Item",
+    "id": "friendball",
+    "name": "Friend Ball"
+  },
+  "Great Ball": {
+    "kind": "Item",
+    "id": "greatball",
+    "name": "Great Ball"
+  },
+  "Hard Stone": {
+    "kind": "Item",
+    "id": "hardstone",
+    "name": "Hard Stone"
+  },
+  "Heavy Ball": {
+    "kind": "Item",
+    "id": "heavyball",
+    "name": "Heavy Ball"
+  },
+  "King's Rock": {
+    "kind": "Item",
+    "id": "kingsrock",
+    "name": "King's Rock"
+  },
+  "Leaf Stone": {
+    "kind": "Item",
+    "id": "leafstone",
+    "name": "Leaf Stone"
+  },
+  "Leftovers": {
+    "kind": "Item",
+    "id": "leftovers",
+    "name": "Leftovers"
+  },
+  "Level Ball": {
+    "kind": "Item",
+    "id": "levelball",
+    "name": "Level Ball"
+  },
+  "Light Ball": {
+    "kind": "Item",
+    "id": "lightball",
+    "name": "Light Ball"
+  },
+  "Love Ball": {
+    "kind": "Item",
+    "id": "loveball",
+    "name": "Love Ball"
+  },
+  "Lucky Punch": {
+    "kind": "Item",
+    "id": "luckypunch",
+    "name": "Lucky Punch"
+  },
+  "Lure Ball": {
+    "kind": "Item",
+    "id": "lureball",
+    "name": "Lure Ball"
+  },
+  "Magnet": {
+    "kind": "Item",
+    "id": "magnet",
+    "name": "Magnet"
+  },
+  "Mail": {
+    "kind": "Item",
+    "id": "mail",
+    "name": "Mail"
+  },
+  "Master Ball": {
+    "kind": "Item",
+    "id": "masterball",
+    "name": "Master Ball"
+  },
+  "Metal Coat": {
+    "kind": "Item",
+    "id": "metalcoat",
+    "name": "Metal Coat"
+  },
+  "Metal Powder": {
+    "kind": "Item",
+    "id": "metalpowder",
+    "name": "Metal Powder"
+  },
+  "Miracle Seed": {
+    "kind": "Item",
+    "id": "miracleseed",
+    "name": "Miracle Seed"
+  },
+  "Moon Ball": {
+    "kind": "Item",
+    "id": "moonball",
+    "name": "Moon Ball"
+  },
+  "Moon Stone": {
+    "kind": "Item",
+    "id": "moonstone",
+    "name": "Moon Stone"
+  },
+  "Mystic Water": {
+    "kind": "Item",
+    "id": "mysticwater",
+    "name": "Mystic Water"
+  },
+  "Never-Melt Ice": {
+    "kind": "Item",
+    "id": "nevermeltice",
+    "name": "Never-Melt Ice"
+  },
+  "Poison Barb": {
+    "kind": "Item",
+    "id": "poisonbarb",
+    "name": "Poison Barb"
+  },
+  "Poke Ball": {
+    "kind": "Item",
+    "id": "pokeball",
+    "name": "Poke Ball"
+  },
+  "Quick Claw": {
+    "kind": "Item",
+    "id": "quickclaw",
+    "name": "Quick Claw"
+  },
+  "Safari Ball": {
+    "kind": "Item",
+    "id": "safariball",
+    "name": "Safari Ball"
+  },
+  "Scope Lens": {
+    "kind": "Item",
+    "id": "scopelens",
+    "name": "Scope Lens"
+  },
+  "Sharp Beak": {
+    "kind": "Item",
+    "id": "sharpbeak",
+    "name": "Sharp Beak"
+  },
+  "Silver Powder": {
+    "kind": "Item",
+    "id": "silverpowder",
+    "name": "Silver Powder"
+  },
+  "Soft Sand": {
+    "kind": "Item",
+    "id": "softsand",
+    "name": "Soft Sand"
+  },
+  "Spell Tag": {
+    "kind": "Item",
+    "id": "spelltag",
+    "name": "Spell Tag"
+  },
+  "Sport Ball": {
+    "kind": "Item",
+    "id": "sportball",
+    "name": "Sport Ball"
+  },
+  "Stick": {
+    "kind": "Item",
+    "id": "stick",
+    "name": "Stick"
+  },
+  "Sun Stone": {
+    "kind": "Item",
+    "id": "sunstone",
+    "name": "Sun Stone"
+  },
+  "Thick Club": {
+    "kind": "Item",
+    "id": "thickclub",
+    "name": "Thick Club"
+  },
+  "Thunder Stone": {
+    "kind": "Item",
+    "id": "thunderstone",
+    "name": "Thunder Stone"
+  },
+  "Twisted Spoon": {
+    "kind": "Item",
+    "id": "twistedspoon",
+    "name": "Twisted Spoon"
+  },
+  "Ultra Ball": {
+    "kind": "Item",
+    "id": "ultraball",
+    "name": "Ultra Ball"
+  },
+  "Up-Grade": {
+    "kind": "Item",
+    "id": "upgrade",
+    "name": "Up-Grade"
+  },
+  "Water Stone": {
+    "kind": "Item",
+    "id": "waterstone",
+    "name": "Water Stone"
+  },
+  "Aguav Berry": {
+    "kind": "Item",
+    "id": "aguavberry",
+    "name": "Aguav Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Dragon"
+    }
+  },
+  "Apicot Berry": {
+    "kind": "Item",
+    "id": "apicotberry",
+    "name": "Apicot Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Ground"
+    }
+  },
+  "Aspear Berry": {
+    "kind": "Item",
+    "id": "aspearberry",
+    "name": "Aspear Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Ice"
+    }
+  },
+  "Belue Berry": {
+    "kind": "Item",
+    "id": "belueberry",
+    "name": "Belue Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Electric"
+    }
+  },
+  "Bluk Berry": {
+    "kind": "Item",
+    "id": "blukberry",
+    "name": "Bluk Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 90,
+      "type": "Fire"
+    }
+  },
+  "Cheri Berry": {
+    "kind": "Item",
+    "id": "cheriberry",
+    "name": "Cheri Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Fire"
+    }
+  },
+  "Chesto Berry": {
+    "kind": "Item",
+    "id": "chestoberry",
+    "name": "Chesto Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Water"
+    }
+  },
+  "Choice Band": {
+    "kind": "Item",
+    "id": "choiceband",
+    "name": "Choice Band"
+  },
+  "Claw Fossil": {
+    "kind": "Item",
+    "id": "clawfossil",
+    "name": "Claw Fossil"
+  },
+  "Cornn Berry": {
+    "kind": "Item",
+    "id": "cornnberry",
+    "name": "Cornn Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 90,
+      "type": "Bug"
+    }
+  },
+  "Deep Sea Scale": {
+    "kind": "Item",
+    "id": "deepseascale",
+    "name": "Deep Sea Scale"
+  },
+  "Deep Sea Tooth": {
+    "kind": "Item",
+    "id": "deepseatooth",
+    "name": "Deep Sea Tooth"
+  },
+  "Dive Ball": {
+    "kind": "Item",
+    "id": "diveball",
+    "name": "Dive Ball"
+  },
+  "Dome Fossil": {
+    "kind": "Item",
+    "id": "domefossil",
+    "name": "Dome Fossil"
+  },
+  "Durin Berry": {
+    "kind": "Item",
+    "id": "durinberry",
+    "name": "Durin Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Water"
+    }
+  },
+  "Enigma Berry": {
+    "kind": "Item",
+    "id": "enigmaberry",
+    "name": "Enigma Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Bug"
+    }
+  },
+  "Figy Berry": {
+    "kind": "Item",
+    "id": "figyberry",
+    "name": "Figy Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Bug"
+    }
+  },
+  "Ganlon Berry": {
+    "kind": "Item",
+    "id": "ganlonberry",
+    "name": "Ganlon Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Ice"
+    }
+  },
+  "Grepa Berry": {
+    "kind": "Item",
+    "id": "grepaberry",
+    "name": "Grepa Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 90,
+      "type": "Flying"
+    }
+  },
+  "Helix Fossil": {
+    "kind": "Item",
+    "id": "helixfossil",
+    "name": "Helix Fossil"
+  },
+  "Hondew Berry": {
+    "kind": "Item",
+    "id": "hondewberry",
+    "name": "Hondew Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 90,
+      "type": "Ground"
+    }
+  },
+  "Iapapa Berry": {
+    "kind": "Item",
+    "id": "iapapaberry",
+    "name": "Iapapa Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Dark"
+    }
+  },
+  "Kelpsy Berry": {
+    "kind": "Item",
+    "id": "kelpsyberry",
+    "name": "Kelpsy Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 90,
+      "type": "Fighting"
+    }
+  },
+  "Lansat Berry": {
+    "kind": "Item",
+    "id": "lansatberry",
+    "name": "Lansat Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Flying"
+    }
+  },
+  "Lax Incense": {
+    "kind": "Item",
+    "id": "laxincense",
+    "name": "Lax Incense"
+  },
+  "Leppa Berry": {
+    "kind": "Item",
+    "id": "leppaberry",
+    "name": "Leppa Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Fighting"
+    }
+  },
+  "Liechi Berry": {
+    "kind": "Item",
+    "id": "liechiberry",
+    "name": "Liechi Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Grass"
+    }
+  },
+  "Lum Berry": {
+    "kind": "Item",
+    "id": "lumberry",
+    "name": "Lum Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Flying"
+    }
+  },
+  "Luxury Ball": {
+    "kind": "Item",
+    "id": "luxuryball",
+    "name": "Luxury Ball"
+  },
+  "Macho Brace": {
+    "kind": "Item",
+    "id": "machobrace",
+    "name": "Macho Brace"
+  },
+  "Mago Berry": {
+    "kind": "Item",
+    "id": "magoberry",
+    "name": "Mago Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Ghost"
+    }
+  },
+  "Magost Berry": {
+    "kind": "Item",
+    "id": "magostberry",
+    "name": "Magost Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 90,
+      "type": "Rock"
+    }
+  },
+  "Mental Herb": {
+    "kind": "Item",
+    "id": "mentalherb",
+    "name": "Mental Herb"
+  },
+  "Nanab Berry": {
+    "kind": "Item",
+    "id": "nanabberry",
+    "name": "Nanab Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 90,
+      "type": "Water"
+    }
+  },
+  "Nest Ball": {
+    "kind": "Item",
+    "id": "nestball",
+    "name": "Nest Ball"
+  },
+  "Net Ball": {
+    "kind": "Item",
+    "id": "netball",
+    "name": "Net Ball"
+  },
+  "Nomel Berry": {
+    "kind": "Item",
+    "id": "nomelberry",
+    "name": "Nomel Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 90,
+      "type": "Dragon"
+    }
+  },
+  "Oran Berry": {
+    "kind": "Item",
+    "id": "oranberry",
+    "name": "Oran Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Poison"
+    }
+  },
+  "Pamtre Berry": {
+    "kind": "Item",
+    "id": "pamtreberry",
+    "name": "Pamtre Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 90,
+      "type": "Steel"
+    }
+  },
+  "Pecha Berry": {
+    "kind": "Item",
+    "id": "pechaberry",
+    "name": "Pecha Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Electric"
+    }
+  },
+  "Persim Berry": {
+    "kind": "Item",
+    "id": "persimberry",
+    "name": "Persim Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Ground"
+    }
+  },
+  "Petaya Berry": {
+    "kind": "Item",
+    "id": "petayaberry",
+    "name": "Petaya Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Poison"
+    }
+  },
+  "Pinap Berry": {
+    "kind": "Item",
+    "id": "pinapberry",
+    "name": "Pinap Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 90,
+      "type": "Grass"
+    }
+  },
+  "Pomeg Berry": {
+    "kind": "Item",
+    "id": "pomegberry",
+    "name": "Pomeg Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 90,
+      "type": "Ice"
+    }
+  },
+  "Premier Ball": {
+    "kind": "Item",
+    "id": "premierball",
+    "name": "Premier Ball"
+  },
+  "Qualot Berry": {
+    "kind": "Item",
+    "id": "qualotberry",
+    "name": "Qualot Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 90,
+      "type": "Poison"
+    }
+  },
+  "Rabuta Berry": {
+    "kind": "Item",
+    "id": "rabutaberry",
+    "name": "Rabuta Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 90,
+      "type": "Ghost"
+    }
+  },
+  "Rawst Berry": {
+    "kind": "Item",
+    "id": "rawstberry",
+    "name": "Rawst Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Grass"
+    }
+  },
+  "Razz Berry": {
+    "kind": "Item",
+    "id": "razzberry",
+    "name": "Razz Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Steel"
+    }
+  },
+  "Repeat Ball": {
+    "kind": "Item",
+    "id": "repeatball",
+    "name": "Repeat Ball"
+  },
+  "Root Fossil": {
+    "kind": "Item",
+    "id": "rootfossil",
+    "name": "Root Fossil"
+  },
+  "Salac Berry": {
+    "kind": "Item",
+    "id": "salacberry",
+    "name": "Salac Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Fighting"
+    }
+  },
+  "Sea Incense": {
+    "kind": "Item",
+    "id": "seaincense",
+    "name": "Sea Incense"
+  },
+  "Shell Bell": {
+    "kind": "Item",
+    "id": "shellbell",
+    "name": "Shell Bell"
+  },
+  "Silk Scarf": {
+    "kind": "Item",
+    "id": "silkscarf",
+    "name": "Silk Scarf"
+  },
+  "Sitrus Berry": {
+    "kind": "Item",
+    "id": "sitrusberry",
+    "name": "Sitrus Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Psychic"
+    }
+  },
+  "Soul Dew": {
+    "kind": "Item",
+    "id": "souldew",
+    "name": "Soul Dew"
+  },
+  "Spelon Berry": {
+    "kind": "Item",
+    "id": "spelonberry",
+    "name": "Spelon Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 90,
+      "type": "Dark"
+    }
+  },
+  "Starf Berry": {
+    "kind": "Item",
+    "id": "starfberry",
+    "name": "Starf Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Psychic"
+    }
+  },
+  "Tamato Berry": {
+    "kind": "Item",
+    "id": "tamatoberry",
+    "name": "Tamato Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 90,
+      "type": "Psychic"
+    }
+  },
+  "Timer Ball": {
+    "kind": "Item",
+    "id": "timerball",
+    "name": "Timer Ball"
+  },
+  "Watmel Berry": {
+    "kind": "Item",
+    "id": "watmelberry",
+    "name": "Watmel Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Fire"
+    }
+  },
+  "Wepear Berry": {
+    "kind": "Item",
+    "id": "wepearberry",
+    "name": "Wepear Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 90,
+      "type": "Electric"
+    }
+  },
+  "White Herb": {
+    "kind": "Item",
+    "id": "whiteherb",
+    "name": "White Herb"
+  },
+  "Wiki Berry": {
+    "kind": "Item",
+    "id": "wikiberry",
+    "name": "Wiki Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Rock"
+    }
+  },
+  "Adamant Orb": {
+    "kind": "Item",
+    "id": "adamantorb",
+    "name": "Adamant Orb"
+  },
+  "Armor Fossil": {
+    "kind": "Item",
+    "id": "armorfossil",
+    "name": "Armor Fossil"
+  },
+  "Babiri Berry": {
+    "kind": "Item",
+    "id": "babiriberry",
+    "name": "Babiri Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Steel"
+    }
+  },
+  "Big Root": {
+    "kind": "Item",
+    "id": "bigroot",
+    "name": "Big Root"
+  },
+  "Black Sludge": {
+    "kind": "Item",
+    "id": "blacksludge",
+    "name": "Black Sludge"
+  },
+  "Charti Berry": {
+    "kind": "Item",
+    "id": "chartiberry",
+    "name": "Charti Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Rock"
+    }
+  },
+  "Cherish Ball": {
+    "kind": "Item",
+    "id": "cherishball",
+    "name": "Cherish Ball"
+  },
+  "Chilan Berry": {
+    "kind": "Item",
+    "id": "chilanberry",
+    "name": "Chilan Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Normal"
+    }
+  },
+  "Choice Scarf": {
+    "kind": "Item",
+    "id": "choicescarf",
+    "name": "Choice Scarf"
+  },
+  "Choice Specs": {
+    "kind": "Item",
+    "id": "choicespecs",
+    "name": "Choice Specs"
+  },
+  "Chople Berry": {
+    "kind": "Item",
+    "id": "chopleberry",
+    "name": "Chople Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Fighting"
+    }
+  },
+  "Coba Berry": {
+    "kind": "Item",
+    "id": "cobaberry",
+    "name": "Coba Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Flying"
+    }
+  },
+  "Colbur Berry": {
+    "kind": "Item",
+    "id": "colburberry",
+    "name": "Colbur Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Dark"
+    }
+  },
+  "Custap Berry": {
+    "kind": "Item",
+    "id": "custapberry",
+    "name": "Custap Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Ghost"
+    }
+  },
+  "Damp Rock": {
+    "kind": "Item",
+    "id": "damprock",
+    "name": "Damp Rock"
+  },
+  "Dawn Stone": {
+    "kind": "Item",
+    "id": "dawnstone",
+    "name": "Dawn Stone"
+  },
+  "Destiny Knot": {
+    "kind": "Item",
+    "id": "destinyknot",
+    "name": "Destiny Knot"
+  },
+  "Draco Plate": {
+    "kind": "Item",
+    "id": "dracoplate",
+    "name": "Draco Plate"
+  },
+  "Dread Plate": {
+    "kind": "Item",
+    "id": "dreadplate",
+    "name": "Dread Plate"
+  },
+  "Dubious Disc": {
+    "kind": "Item",
+    "id": "dubiousdisc",
+    "name": "Dubious Disc"
+  },
+  "Dusk Ball": {
+    "kind": "Item",
+    "id": "duskball",
+    "name": "Dusk Ball"
+  },
+  "Dusk Stone": {
+    "kind": "Item",
+    "id": "duskstone",
+    "name": "Dusk Stone"
+  },
+  "Earth Plate": {
+    "kind": "Item",
+    "id": "earthplate",
+    "name": "Earth Plate"
+  },
+  "Electirizer": {
+    "kind": "Item",
+    "id": "electirizer",
+    "name": "Electirizer"
+  },
+  "Expert Belt": {
+    "kind": "Item",
+    "id": "expertbelt",
+    "name": "Expert Belt"
+  },
+  "Fist Plate": {
+    "kind": "Item",
+    "id": "fistplate",
+    "name": "Fist Plate"
+  },
+  "Flame Orb": {
+    "kind": "Item",
+    "id": "flameorb",
+    "name": "Flame Orb"
+  },
+  "Flame Plate": {
+    "kind": "Item",
+    "id": "flameplate",
+    "name": "Flame Plate"
+  },
+  "Focus Sash": {
+    "kind": "Item",
+    "id": "focussash",
+    "name": "Focus Sash"
+  },
+  "Full Incense": {
+    "kind": "Item",
+    "id": "fullincense",
+    "name": "Full Incense"
+  },
+  "Grip Claw": {
+    "kind": "Item",
+    "id": "gripclaw",
+    "name": "Grip Claw"
+  },
+  "Griseous Orb": {
+    "kind": "Item",
+    "id": "griseousorb",
+    "name": "Griseous Orb"
+  },
+  "Haban Berry": {
+    "kind": "Item",
+    "id": "habanberry",
+    "name": "Haban Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Dragon"
+    }
+  },
+  "Heal Ball": {
+    "kind": "Item",
+    "id": "healball",
+    "name": "Heal Ball"
+  },
+  "Heat Rock": {
+    "kind": "Item",
+    "id": "heatrock",
+    "name": "Heat Rock"
+  },
+  "Icicle Plate": {
+    "kind": "Item",
+    "id": "icicleplate",
+    "name": "Icicle Plate"
+  },
+  "Icy Rock": {
+    "kind": "Item",
+    "id": "icyrock",
+    "name": "Icy Rock"
+  },
+  "Insect Plate": {
+    "kind": "Item",
+    "id": "insectplate",
+    "name": "Insect Plate"
+  },
+  "Iron Ball": {
+    "kind": "Item",
+    "id": "ironball",
+    "name": "Iron Ball"
+  },
+  "Iron Plate": {
+    "kind": "Item",
+    "id": "ironplate",
+    "name": "Iron Plate"
+  },
+  "Jaboca Berry": {
+    "kind": "Item",
+    "id": "jabocaberry",
+    "name": "Jaboca Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Dragon"
+    }
+  },
+  "Kasib Berry": {
+    "kind": "Item",
+    "id": "kasibberry",
+    "name": "Kasib Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Ghost"
+    }
+  },
+  "Kebia Berry": {
+    "kind": "Item",
+    "id": "kebiaberry",
+    "name": "Kebia Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Poison"
+    }
+  },
+  "Lagging Tail": {
+    "kind": "Item",
+    "id": "laggingtail",
+    "name": "Lagging Tail"
+  },
+  "Life Orb": {
+    "kind": "Item",
+    "id": "lifeorb",
+    "name": "Life Orb"
+  },
+  "Light Clay": {
+    "kind": "Item",
+    "id": "lightclay",
+    "name": "Light Clay"
+  },
+  "Lustrous Orb": {
+    "kind": "Item",
+    "id": "lustrousorb",
+    "name": "Lustrous Orb"
+  },
+  "Magmarizer": {
+    "kind": "Item",
+    "id": "magmarizer",
+    "name": "Magmarizer"
+  },
+  "Meadow Plate": {
+    "kind": "Item",
+    "id": "meadowplate",
+    "name": "Meadow Plate"
+  },
+  "Metronome": {
+    "kind": "Item",
+    "id": "metronome",
+    "name": "Metronome"
+  },
+  "Micle Berry": {
+    "kind": "Item",
+    "id": "micleberry",
+    "name": "Micle Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Rock"
+    }
+  },
+  "Mind Plate": {
+    "kind": "Item",
+    "id": "mindplate",
+    "name": "Mind Plate"
+  },
+  "Muscle Band": {
+    "kind": "Item",
+    "id": "muscleband",
+    "name": "Muscle Band"
+  },
+  "Occa Berry": {
+    "kind": "Item",
+    "id": "occaberry",
+    "name": "Occa Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Fire"
+    }
+  },
+  "Odd Incense": {
+    "kind": "Item",
+    "id": "oddincense",
+    "name": "Odd Incense"
+  },
+  "Oval Stone": {
+    "kind": "Item",
+    "id": "ovalstone",
+    "name": "Oval Stone"
+  },
+  "Park Ball": {
+    "kind": "Item",
+    "id": "parkball",
+    "name": "Park Ball"
+  },
+  "Passho Berry": {
+    "kind": "Item",
+    "id": "passhoberry",
+    "name": "Passho Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Water"
+    }
+  },
+  "Payapa Berry": {
+    "kind": "Item",
+    "id": "payapaberry",
+    "name": "Payapa Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Psychic"
+    }
+  },
+  "Power Anklet": {
+    "kind": "Item",
+    "id": "poweranklet",
+    "name": "Power Anklet"
+  },
+  "Power Band": {
+    "kind": "Item",
+    "id": "powerband",
+    "name": "Power Band"
+  },
+  "Power Belt": {
+    "kind": "Item",
+    "id": "powerbelt",
+    "name": "Power Belt"
+  },
+  "Power Bracer": {
+    "kind": "Item",
+    "id": "powerbracer",
+    "name": "Power Bracer"
+  },
+  "Power Herb": {
+    "kind": "Item",
+    "id": "powerherb",
+    "name": "Power Herb"
+  },
+  "Power Lens": {
+    "kind": "Item",
+    "id": "powerlens",
+    "name": "Power Lens"
+  },
+  "Power Weight": {
+    "kind": "Item",
+    "id": "powerweight",
+    "name": "Power Weight"
+  },
+  "Protector": {
+    "kind": "Item",
+    "id": "protector",
+    "name": "Protector"
+  },
+  "Quick Ball": {
+    "kind": "Item",
+    "id": "quickball",
+    "name": "Quick Ball"
+  },
+  "Quick Powder": {
+    "kind": "Item",
+    "id": "quickpowder",
+    "name": "Quick Powder"
+  },
+  "Rare Bone": {
+    "kind": "Item",
+    "id": "rarebone",
+    "name": "Rare Bone"
+  },
+  "Razor Claw": {
+    "kind": "Item",
+    "id": "razorclaw",
+    "name": "Razor Claw"
+  },
+  "Razor Fang": {
+    "kind": "Item",
+    "id": "razorfang",
+    "name": "Razor Fang"
+  },
+  "Reaper Cloth": {
+    "kind": "Item",
+    "id": "reapercloth",
+    "name": "Reaper Cloth"
+  },
+  "Rindo Berry": {
+    "kind": "Item",
+    "id": "rindoberry",
+    "name": "Rindo Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Grass"
+    }
+  },
+  "Rock Incense": {
+    "kind": "Item",
+    "id": "rockincense",
+    "name": "Rock Incense"
+  },
+  "Rose Incense": {
+    "kind": "Item",
+    "id": "roseincense",
+    "name": "Rose Incense"
+  },
+  "Rowap Berry": {
+    "kind": "Item",
+    "id": "rowapberry",
+    "name": "Rowap Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Dark"
+    }
+  },
+  "Shed Shell": {
+    "kind": "Item",
+    "id": "shedshell",
+    "name": "Shed Shell"
+  },
+  "Shiny Stone": {
+    "kind": "Item",
+    "id": "shinystone",
+    "name": "Shiny Stone"
+  },
+  "Shuca Berry": {
+    "kind": "Item",
+    "id": "shucaberry",
+    "name": "Shuca Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Ground"
+    }
+  },
+  "Skull Fossil": {
+    "kind": "Item",
+    "id": "skullfossil",
+    "name": "Skull Fossil"
+  },
+  "Sky Plate": {
+    "kind": "Item",
+    "id": "skyplate",
+    "name": "Sky Plate"
+  },
+  "Smooth Rock": {
+    "kind": "Item",
+    "id": "smoothrock",
+    "name": "Smooth Rock"
+  },
+  "Splash Plate": {
+    "kind": "Item",
+    "id": "splashplate",
+    "name": "Splash Plate"
+  },
+  "Spooky Plate": {
+    "kind": "Item",
+    "id": "spookyplate",
+    "name": "Spooky Plate"
+  },
+  "Sticky Barb": {
+    "kind": "Item",
+    "id": "stickybarb",
+    "name": "Sticky Barb"
+  },
+  "Stone Plate": {
+    "kind": "Item",
+    "id": "stoneplate",
+    "name": "Stone Plate"
+  },
+  "Tanga Berry": {
+    "kind": "Item",
+    "id": "tangaberry",
+    "name": "Tanga Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Bug"
+    }
+  },
+  "Toxic Orb": {
+    "kind": "Item",
+    "id": "toxicorb",
+    "name": "Toxic Orb"
+  },
+  "Toxic Plate": {
+    "kind": "Item",
+    "id": "toxicplate",
+    "name": "Toxic Plate"
+  },
+  "Wacan Berry": {
+    "kind": "Item",
+    "id": "wacanberry",
+    "name": "Wacan Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Electric"
+    }
+  },
+  "Wave Incense": {
+    "kind": "Item",
+    "id": "waveincense",
+    "name": "Wave Incense"
+  },
+  "Wide Lens": {
+    "kind": "Item",
+    "id": "widelens",
+    "name": "Wide Lens"
+  },
+  "Wise Glasses": {
+    "kind": "Item",
+    "id": "wiseglasses",
+    "name": "Wise Glasses"
+  },
+  "Yache Berry": {
+    "kind": "Item",
+    "id": "yacheberry",
+    "name": "Yache Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Ice"
+    }
+  },
+  "Zap Plate": {
+    "kind": "Item",
+    "id": "zapplate",
+    "name": "Zap Plate"
+  },
+  "Zoom Lens": {
+    "kind": "Item",
+    "id": "zoomlens",
+    "name": "Zoom Lens"
+  },
+  "Absorb Bulb": {
+    "kind": "Item",
+    "id": "absorbbulb",
+    "name": "Absorb Bulb"
+  },
+  "Air Balloon": {
+    "kind": "Item",
+    "id": "airballoon",
+    "name": "Air Balloon"
+  },
+  "Big Nugget": {
+    "kind": "Item",
+    "id": "bignugget",
+    "name": "Big Nugget"
+  },
+  "Binding Band": {
+    "kind": "Item",
+    "id": "bindingband",
+    "name": "Binding Band"
+  },
+  "Bug Gem": {
+    "kind": "Item",
+    "id": "buggem",
+    "name": "Bug Gem"
+  },
+  "Burn Drive": {
+    "kind": "Item",
+    "id": "burndrive",
+    "name": "Burn Drive"
+  },
+  "Cell Battery": {
+    "kind": "Item",
+    "id": "cellbattery",
+    "name": "Cell Battery"
+  },
+  "Chill Drive": {
+    "kind": "Item",
+    "id": "chilldrive",
+    "name": "Chill Drive"
+  },
+  "Cover Fossil": {
+    "kind": "Item",
+    "id": "coverfossil",
+    "name": "Cover Fossil"
+  },
+  "Dark Gem": {
+    "kind": "Item",
+    "id": "darkgem",
+    "name": "Dark Gem"
+  },
+  "Douse Drive": {
+    "kind": "Item",
+    "id": "dousedrive",
+    "name": "Douse Drive"
+  },
+  "Dragon Gem": {
+    "kind": "Item",
+    "id": "dragongem",
+    "name": "Dragon Gem"
+  },
+  "Dream Ball": {
+    "kind": "Item",
+    "id": "dreamball",
+    "name": "Dream Ball"
+  },
+  "Eject Button": {
+    "kind": "Item",
+    "id": "ejectbutton",
+    "name": "Eject Button"
+  },
+  "Electric Gem": {
+    "kind": "Item",
+    "id": "electricgem",
+    "name": "Electric Gem"
+  },
+  "Eviolite": {
+    "kind": "Item",
+    "id": "eviolite",
+    "name": "Eviolite"
+  },
+  "Fighting Gem": {
+    "kind": "Item",
+    "id": "fightinggem",
+    "name": "Fighting Gem"
+  },
+  "Fire Gem": {
+    "kind": "Item",
+    "id": "firegem",
+    "name": "Fire Gem"
+  },
+  "Float Stone": {
+    "kind": "Item",
+    "id": "floatstone",
+    "name": "Float Stone"
+  },
+  "Flying Gem": {
+    "kind": "Item",
+    "id": "flyinggem",
+    "name": "Flying Gem"
+  },
+  "Ghost Gem": {
+    "kind": "Item",
+    "id": "ghostgem",
+    "name": "Ghost Gem"
+  },
+  "Grass Gem": {
+    "kind": "Item",
+    "id": "grassgem",
+    "name": "Grass Gem"
+  },
+  "Ground Gem": {
+    "kind": "Item",
+    "id": "groundgem",
+    "name": "Ground Gem"
+  },
+  "Ice Gem": {
+    "kind": "Item",
+    "id": "icegem",
+    "name": "Ice Gem"
+  },
+  "Normal Gem": {
+    "kind": "Item",
+    "id": "normalgem",
+    "name": "Normal Gem"
+  },
+  "Plume Fossil": {
+    "kind": "Item",
+    "id": "plumefossil",
+    "name": "Plume Fossil"
+  },
+  "Poison Gem": {
+    "kind": "Item",
+    "id": "poisongem",
+    "name": "Poison Gem"
+  },
+  "Pretty Feather": {
+    "kind": "Item",
+    "id": "prettyfeather",
+    "name": "Pretty Feather"
+  },
+  "Prism Scale": {
+    "kind": "Item",
+    "id": "prismscale",
+    "name": "Prism Scale"
+  },
+  "Psychic Gem": {
+    "kind": "Item",
+    "id": "psychicgem",
+    "name": "Psychic Gem"
+  },
+  "Red Card": {
+    "kind": "Item",
+    "id": "redcard",
+    "name": "Red Card"
+  },
+  "Ring Target": {
+    "kind": "Item",
+    "id": "ringtarget",
+    "name": "Ring Target"
+  },
+  "Rock Gem": {
+    "kind": "Item",
+    "id": "rockgem",
+    "name": "Rock Gem"
+  },
+  "Rocky Helmet": {
+    "kind": "Item",
+    "id": "rockyhelmet",
+    "name": "Rocky Helmet"
+  },
+  "Shock Drive": {
+    "kind": "Item",
+    "id": "shockdrive",
+    "name": "Shock Drive"
+  },
+  "Steel Gem": {
+    "kind": "Item",
+    "id": "steelgem",
+    "name": "Steel Gem"
+  },
+  "Water Gem": {
+    "kind": "Item",
+    "id": "watergem",
+    "name": "Water Gem"
+  },
+  "Abomasite": {
+    "kind": "Item",
+    "id": "abomasite",
+    "name": "Abomasite",
+    "megaStone": {
+      "Abomasnow": "Abomasnow-Mega"
+    }
+  },
+  "Absolite": {
+    "kind": "Item",
+    "id": "absolite",
+    "name": "Absolite",
+    "megaStone": {
+      "Absol": "Absol-Mega"
+    }
+  },
+  "Aerodactylite": {
+    "kind": "Item",
+    "id": "aerodactylite",
+    "name": "Aerodactylite",
+    "megaStone": {
+      "Aerodactyl": "Aerodactyl-Mega"
+    }
+  },
+  "Aggronite": {
+    "kind": "Item",
+    "id": "aggronite",
+    "name": "Aggronite",
+    "megaStone": {
+      "Aggron": "Aggron-Mega"
+    }
+  },
+  "Alakazite": {
+    "kind": "Item",
+    "id": "alakazite",
+    "name": "Alakazite",
+    "megaStone": {
+      "Alakazam": "Alakazam-Mega"
+    }
+  },
+  "Altarianite": {
+    "kind": "Item",
+    "id": "altarianite",
+    "name": "Altarianite",
+    "megaStone": {
+      "Altaria": "Altaria-Mega"
+    }
+  },
+  "Ampharosite": {
+    "kind": "Item",
+    "id": "ampharosite",
+    "name": "Ampharosite",
+    "megaStone": {
+      "Ampharos": "Ampharos-Mega"
+    }
+  },
+  "Assault Vest": {
+    "kind": "Item",
+    "id": "assaultvest",
+    "name": "Assault Vest"
+  },
+  "Audinite": {
+    "kind": "Item",
+    "id": "audinite",
+    "name": "Audinite",
+    "megaStone": {
+      "Audino": "Audino-Mega"
+    }
+  },
+  "Banettite": {
+    "kind": "Item",
+    "id": "banettite",
+    "name": "Banettite",
+    "megaStone": {
+      "Banette": "Banette-Mega"
+    }
+  },
+  "Beedrillite": {
+    "kind": "Item",
+    "id": "beedrillite",
+    "name": "Beedrillite",
+    "megaStone": {
+      "Beedrill": "Beedrill-Mega"
+    }
+  },
+  "Blastoisinite": {
+    "kind": "Item",
+    "id": "blastoisinite",
+    "name": "Blastoisinite",
+    "megaStone": {
+      "Blastoise": "Blastoise-Mega"
+    }
+  },
+  "Blazikenite": {
+    "kind": "Item",
+    "id": "blazikenite",
+    "name": "Blazikenite",
+    "megaStone": {
+      "Blaziken": "Blaziken-Mega"
+    }
+  },
+  "Blue Orb": {
+    "kind": "Item",
+    "id": "blueorb",
+    "name": "Blue Orb"
+  },
+  "Cameruptite": {
+    "kind": "Item",
+    "id": "cameruptite",
+    "name": "Cameruptite",
+    "megaStone": {
+      "Camerupt": "Camerupt-Mega"
+    }
+  },
+  "Charizardite X": {
+    "kind": "Item",
+    "id": "charizarditex",
+    "name": "Charizardite X",
+    "megaStone": {
+      "Charizard": "Charizard-Mega-X"
+    }
+  },
+  "Charizardite Y": {
+    "kind": "Item",
+    "id": "charizarditey",
+    "name": "Charizardite Y",
+    "megaStone": {
+      "Charizard": "Charizard-Mega-Y"
+    }
+  },
+  "Crucibellite": {
+    "kind": "Item",
+    "id": "crucibellite",
+    "name": "Crucibellite",
+    "megaStone": {
+      "Crucibelle": "Crucibelle-Mega"
+    }
+  },
+  "Diancite": {
+    "kind": "Item",
+    "id": "diancite",
+    "name": "Diancite",
+    "megaStone": {
+      "Diancie": "Diancie-Mega"
+    }
+  },
+  "Fairy Gem": {
+    "kind": "Item",
+    "id": "fairygem",
+    "name": "Fairy Gem"
+  },
+  "Galladite": {
+    "kind": "Item",
+    "id": "galladite",
+    "name": "Galladite",
+    "megaStone": {
+      "Gallade": "Gallade-Mega"
+    }
+  },
+  "Garchompite": {
+    "kind": "Item",
+    "id": "garchompite",
+    "name": "Garchompite",
+    "megaStone": {
+      "Garchomp": "Garchomp-Mega"
+    }
+  },
+  "Gardevoirite": {
+    "kind": "Item",
+    "id": "gardevoirite",
+    "name": "Gardevoirite",
+    "megaStone": {
+      "Gardevoir": "Gardevoir-Mega"
+    }
+  },
+  "Gengarite": {
+    "kind": "Item",
+    "id": "gengarite",
+    "name": "Gengarite",
+    "megaStone": {
+      "Gengar": "Gengar-Mega"
+    }
+  },
+  "Glalitite": {
+    "kind": "Item",
+    "id": "glalitite",
+    "name": "Glalitite",
+    "megaStone": {
+      "Glalie": "Glalie-Mega"
+    }
+  },
+  "Gyaradosite": {
+    "kind": "Item",
+    "id": "gyaradosite",
+    "name": "Gyaradosite",
+    "megaStone": {
+      "Gyarados": "Gyarados-Mega"
+    }
+  },
+  "Heracronite": {
+    "kind": "Item",
+    "id": "heracronite",
+    "name": "Heracronite",
+    "megaStone": {
+      "Heracross": "Heracross-Mega"
+    }
+  },
+  "Houndoominite": {
+    "kind": "Item",
+    "id": "houndoominite",
+    "name": "Houndoominite",
+    "megaStone": {
+      "Houndoom": "Houndoom-Mega"
+    }
+  },
+  "Jaw Fossil": {
+    "kind": "Item",
+    "id": "jawfossil",
+    "name": "Jaw Fossil"
+  },
+  "Kangaskhanite": {
+    "kind": "Item",
+    "id": "kangaskhanite",
+    "name": "Kangaskhanite",
+    "megaStone": {
+      "Kangaskhan": "Kangaskhan-Mega"
+    }
+  },
+  "Kee Berry": {
+    "kind": "Item",
+    "id": "keeberry",
+    "name": "Kee Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Fairy"
+    }
+  },
+  "Latiasite": {
+    "kind": "Item",
+    "id": "latiasite",
+    "name": "Latiasite",
+    "megaStone": {
+      "Latias": "Latias-Mega"
+    }
+  },
+  "Latiosite": {
+    "kind": "Item",
+    "id": "latiosite",
+    "name": "Latiosite",
+    "megaStone": {
+      "Latios": "Latios-Mega"
+    }
+  },
+  "Lopunnite": {
+    "kind": "Item",
+    "id": "lopunnite",
+    "name": "Lopunnite",
+    "megaStone": {
+      "Lopunny": "Lopunny-Mega"
+    }
+  },
+  "Lucarionite": {
+    "kind": "Item",
+    "id": "lucarionite",
+    "name": "Lucarionite",
+    "megaStone": {
+      "Lucario": "Lucario-Mega"
+    }
+  },
+  "Luminous Moss": {
+    "kind": "Item",
+    "id": "luminousmoss",
+    "name": "Luminous Moss"
+  },
+  "Manectite": {
+    "kind": "Item",
+    "id": "manectite",
+    "name": "Manectite",
+    "megaStone": {
+      "Manectric": "Manectric-Mega"
+    }
+  },
+  "Maranga Berry": {
+    "kind": "Item",
+    "id": "marangaberry",
+    "name": "Maranga Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 100,
+      "type": "Dark"
+    }
+  },
+  "Mawilite": {
+    "kind": "Item",
+    "id": "mawilite",
+    "name": "Mawilite",
+    "megaStone": {
+      "Mawile": "Mawile-Mega"
+    }
+  },
+  "Medichamite": {
+    "kind": "Item",
+    "id": "medichamite",
+    "name": "Medichamite",
+    "megaStone": {
+      "Medicham": "Medicham-Mega"
+    }
+  },
+  "Metagrossite": {
+    "kind": "Item",
+    "id": "metagrossite",
+    "name": "Metagrossite",
+    "megaStone": {
+      "Metagross": "Metagross-Mega"
+    }
+  },
+  "Mewtwonite X": {
+    "kind": "Item",
+    "id": "mewtwonitex",
+    "name": "Mewtwonite X",
+    "megaStone": {
+      "Mewtwo": "Mewtwo-Mega-X"
+    }
+  },
+  "Mewtwonite Y": {
+    "kind": "Item",
+    "id": "mewtwonitey",
+    "name": "Mewtwonite Y",
+    "megaStone": {
+      "Mewtwo": "Mewtwo-Mega-Y"
+    }
+  },
+  "Pidgeotite": {
+    "kind": "Item",
+    "id": "pidgeotite",
+    "name": "Pidgeotite",
+    "megaStone": {
+      "Pidgeot": "Pidgeot-Mega"
+    }
+  },
+  "Pinsirite": {
+    "kind": "Item",
+    "id": "pinsirite",
+    "name": "Pinsirite",
+    "megaStone": {
+      "Pinsir": "Pinsir-Mega"
+    }
+  },
+  "Pixie Plate": {
+    "kind": "Item",
+    "id": "pixieplate",
+    "name": "Pixie Plate"
+  },
+  "Red Orb": {
+    "kind": "Item",
+    "id": "redorb",
+    "name": "Red Orb"
+  },
+  "Roseli Berry": {
+    "kind": "Item",
+    "id": "roseliberry",
+    "name": "Roseli Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Fairy"
+    }
+  },
+  "Sablenite": {
+    "kind": "Item",
+    "id": "sablenite",
+    "name": "Sablenite",
+    "megaStone": {
+      "Sableye": "Sableye-Mega"
+    }
+  },
+  "Sachet": {
+    "kind": "Item",
+    "id": "sachet",
+    "name": "Sachet"
+  },
+  "Safety Goggles": {
+    "kind": "Item",
+    "id": "safetygoggles",
+    "name": "Safety Goggles"
+  },
+  "Sail Fossil": {
+    "kind": "Item",
+    "id": "sailfossil",
+    "name": "Sail Fossil"
+  },
+  "Salamencite": {
+    "kind": "Item",
+    "id": "salamencite",
+    "name": "Salamencite",
+    "megaStone": {
+      "Salamence": "Salamence-Mega"
+    }
+  },
+  "Sceptilite": {
+    "kind": "Item",
+    "id": "sceptilite",
+    "name": "Sceptilite",
+    "megaStone": {
+      "Sceptile": "Sceptile-Mega"
+    }
+  },
+  "Scizorite": {
+    "kind": "Item",
+    "id": "scizorite",
+    "name": "Scizorite",
+    "megaStone": {
+      "Scizor": "Scizor-Mega"
+    }
+  },
+  "Sharpedonite": {
+    "kind": "Item",
+    "id": "sharpedonite",
+    "name": "Sharpedonite",
+    "megaStone": {
+      "Sharpedo": "Sharpedo-Mega"
+    }
+  },
+  "Slowbronite": {
+    "kind": "Item",
+    "id": "slowbronite",
+    "name": "Slowbronite",
+    "megaStone": {
+      "Slowbro": "Slowbro-Mega"
+    }
+  },
+  "Snowball": {
+    "kind": "Item",
+    "id": "snowball",
+    "name": "Snowball"
+  },
+  "Steelixite": {
+    "kind": "Item",
+    "id": "steelixite",
+    "name": "Steelixite",
+    "megaStone": {
+      "Steelix": "Steelix-Mega"
+    }
+  },
+  "Swampertite": {
+    "kind": "Item",
+    "id": "swampertite",
+    "name": "Swampertite",
+    "megaStone": {
+      "Swampert": "Swampert-Mega"
+    }
+  },
+  "Tyranitarite": {
+    "kind": "Item",
+    "id": "tyranitarite",
+    "name": "Tyranitarite",
+    "megaStone": {
+      "Tyranitar": "Tyranitar-Mega"
+    }
+  },
+  "Venusaurite": {
+    "kind": "Item",
+    "id": "venusaurite",
+    "name": "Venusaurite",
+    "megaStone": {
+      "Venusaur": "Venusaur-Mega"
+    }
+  },
+  "Weakness Policy": {
+    "kind": "Item",
+    "id": "weaknesspolicy",
+    "name": "Weakness Policy"
+  },
+  "Whipped Dream": {
+    "kind": "Item",
+    "id": "whippeddream",
+    "name": "Whipped Dream"
+  },
+  "Adrenaline Orb": {
+    "kind": "Item",
+    "id": "adrenalineorb",
+    "name": "Adrenaline Orb"
+  },
+  "Aloraichium Z": {
+    "kind": "Item",
+    "id": "aloraichiumz",
+    "name": "Aloraichium Z"
+  },
+  "Beast Ball": {
+    "kind": "Item",
+    "id": "beastball",
+    "name": "Beast Ball"
+  },
+  "Bottle Cap": {
+    "kind": "Item",
+    "id": "bottlecap",
+    "name": "Bottle Cap"
+  },
+  "Bug Memory": {
+    "kind": "Item",
+    "id": "bugmemory",
+    "name": "Bug Memory"
+  },
+  "Buginium Z": {
+    "kind": "Item",
+    "id": "buginiumz",
+    "name": "Buginium Z"
+  },
+  "Dark Memory": {
+    "kind": "Item",
+    "id": "darkmemory",
+    "name": "Dark Memory"
+  },
+  "Darkinium Z": {
+    "kind": "Item",
+    "id": "darkiniumz",
+    "name": "Darkinium Z"
+  },
+  "Decidium Z": {
+    "kind": "Item",
+    "id": "decidiumz",
+    "name": "Decidium Z"
+  },
+  "Dragon Memory": {
+    "kind": "Item",
+    "id": "dragonmemory",
+    "name": "Dragon Memory"
+  },
+  "Dragonium Z": {
+    "kind": "Item",
+    "id": "dragoniumz",
+    "name": "Dragonium Z"
+  },
+  "Eevium Z": {
+    "kind": "Item",
+    "id": "eeviumz",
+    "name": "Eevium Z"
+  },
+  "Electric Memory": {
+    "kind": "Item",
+    "id": "electricmemory",
+    "name": "Electric Memory"
+  },
+  "Electric Seed": {
+    "kind": "Item",
+    "id": "electricseed",
+    "name": "Electric Seed"
+  },
+  "Electrium Z": {
+    "kind": "Item",
+    "id": "electriumz",
+    "name": "Electrium Z"
+  },
+  "Fairium Z": {
+    "kind": "Item",
+    "id": "fairiumz",
+    "name": "Fairium Z"
+  },
+  "Fairy Memory": {
+    "kind": "Item",
+    "id": "fairymemory",
+    "name": "Fairy Memory"
+  },
+  "Fighting Memory": {
+    "kind": "Item",
+    "id": "fightingmemory",
+    "name": "Fighting Memory"
+  },
+  "Fightinium Z": {
+    "kind": "Item",
+    "id": "fightiniumz",
+    "name": "Fightinium Z"
+  },
+  "Fire Memory": {
+    "kind": "Item",
+    "id": "firememory",
+    "name": "Fire Memory"
+  },
+  "Firium Z": {
+    "kind": "Item",
+    "id": "firiumz",
+    "name": "Firium Z"
+  },
+  "Flying Memory": {
+    "kind": "Item",
+    "id": "flyingmemory",
+    "name": "Flying Memory"
+  },
+  "Flyinium Z": {
+    "kind": "Item",
+    "id": "flyiniumz",
+    "name": "Flyinium Z"
+  },
+  "Ghost Memory": {
+    "kind": "Item",
+    "id": "ghostmemory",
+    "name": "Ghost Memory"
+  },
+  "Ghostium Z": {
+    "kind": "Item",
+    "id": "ghostiumz",
+    "name": "Ghostium Z"
+  },
+  "Gold Bottle Cap": {
+    "kind": "Item",
+    "id": "goldbottlecap",
+    "name": "Gold Bottle Cap"
+  },
+  "Grass Memory": {
+    "kind": "Item",
+    "id": "grassmemory",
+    "name": "Grass Memory"
+  },
+  "Grassium Z": {
+    "kind": "Item",
+    "id": "grassiumz",
+    "name": "Grassium Z"
+  },
+  "Grassy Seed": {
+    "kind": "Item",
+    "id": "grassyseed",
+    "name": "Grassy Seed"
+  },
+  "Ground Memory": {
+    "kind": "Item",
+    "id": "groundmemory",
+    "name": "Ground Memory"
+  },
+  "Groundium Z": {
+    "kind": "Item",
+    "id": "groundiumz",
+    "name": "Groundium Z"
+  },
+  "Ice Memory": {
+    "kind": "Item",
+    "id": "icememory",
+    "name": "Ice Memory"
+  },
+  "Ice Stone": {
+    "kind": "Item",
+    "id": "icestone",
+    "name": "Ice Stone"
+  },
+  "Icium Z": {
+    "kind": "Item",
+    "id": "iciumz",
+    "name": "Icium Z"
+  },
+  "Incinium Z": {
+    "kind": "Item",
+    "id": "inciniumz",
+    "name": "Incinium Z"
+  },
+  "Kommonium Z": {
+    "kind": "Item",
+    "id": "kommoniumz",
+    "name": "Kommonium Z"
+  },
+  "Lunalium Z": {
+    "kind": "Item",
+    "id": "lunaliumz",
+    "name": "Lunalium Z"
+  },
+  "Lycanium Z": {
+    "kind": "Item",
+    "id": "lycaniumz",
+    "name": "Lycanium Z"
+  },
+  "Marshadium Z": {
+    "kind": "Item",
+    "id": "marshadiumz",
+    "name": "Marshadium Z"
+  },
+  "Mewnium Z": {
+    "kind": "Item",
+    "id": "mewniumz",
+    "name": "Mewnium Z"
+  },
+  "Mimikium Z": {
+    "kind": "Item",
+    "id": "mimikiumz",
+    "name": "Mimikium Z"
+  },
+  "Misty Seed": {
+    "kind": "Item",
+    "id": "mistyseed",
+    "name": "Misty Seed"
+  },
+  "Normalium Z": {
+    "kind": "Item",
+    "id": "normaliumz",
+    "name": "Normalium Z"
+  },
+  "Pikanium Z": {
+    "kind": "Item",
+    "id": "pikaniumz",
+    "name": "Pikanium Z"
+  },
+  "Pikashunium Z": {
+    "kind": "Item",
+    "id": "pikashuniumz",
+    "name": "Pikashunium Z"
+  },
+  "Poison Memory": {
+    "kind": "Item",
+    "id": "poisonmemory",
+    "name": "Poison Memory"
+  },
+  "Poisonium Z": {
+    "kind": "Item",
+    "id": "poisoniumz",
+    "name": "Poisonium Z"
+  },
+  "Primarium Z": {
+    "kind": "Item",
+    "id": "primariumz",
+    "name": "Primarium Z"
+  },
+  "Protective Pads": {
+    "kind": "Item",
+    "id": "protectivepads",
+    "name": "Protective Pads"
+  },
+  "Psychic Memory": {
+    "kind": "Item",
+    "id": "psychicmemory",
+    "name": "Psychic Memory"
+  },
+  "Psychic Seed": {
+    "kind": "Item",
+    "id": "psychicseed",
+    "name": "Psychic Seed"
+  },
+  "Psychium Z": {
+    "kind": "Item",
+    "id": "psychiumz",
+    "name": "Psychium Z"
+  },
+  "Rock Memory": {
+    "kind": "Item",
+    "id": "rockmemory",
+    "name": "Rock Memory"
+  },
+  "Rockium Z": {
+    "kind": "Item",
+    "id": "rockiumz",
+    "name": "Rockium Z"
+  },
+  "Snorlium Z": {
+    "kind": "Item",
+    "id": "snorliumz",
+    "name": "Snorlium Z"
+  },
+  "Solganium Z": {
+    "kind": "Item",
+    "id": "solganiumz",
+    "name": "Solganium Z"
+  },
+  "Steel Memory": {
+    "kind": "Item",
+    "id": "steelmemory",
+    "name": "Steel Memory"
+  },
+  "Steelium Z": {
+    "kind": "Item",
+    "id": "steeliumz",
+    "name": "Steelium Z"
+  },
+  "Tapunium Z": {
+    "kind": "Item",
+    "id": "tapuniumz",
+    "name": "Tapunium Z"
+  },
+  "Terrain Extender": {
+    "kind": "Item",
+    "id": "terrainextender",
+    "name": "Terrain Extender"
+  },
+  "Ultranecrozium Z": {
+    "kind": "Item",
+    "id": "ultranecroziumz",
+    "name": "Ultranecrozium Z"
+  },
+  "Water Memory": {
+    "kind": "Item",
+    "id": "watermemory",
+    "name": "Water Memory"
+  },
+  "Waterium Z": {
+    "kind": "Item",
+    "id": "wateriumz",
+    "name": "Waterium Z"
+  },
+  "Berry Sweet": {
+    "kind": "Item",
+    "id": "berrysweet",
+    "name": "Berry Sweet"
+  },
+  "Blunder Policy": {
+    "kind": "Item",
+    "id": "blunderpolicy",
+    "name": "Blunder Policy"
+  },
+  "Chipped Pot": {
+    "kind": "Item",
+    "id": "chippedpot",
+    "name": "Chipped Pot"
+  },
+  "Clover Sweet": {
+    "kind": "Item",
+    "id": "cloversweet",
+    "name": "Clover Sweet"
+  },
+  "Cracked Pot": {
+    "kind": "Item",
+    "id": "crackedpot",
+    "name": "Cracked Pot"
+  },
+  "Eject Pack": {
+    "kind": "Item",
+    "id": "ejectpack",
+    "name": "Eject Pack"
+  },
+  "Flower Sweet": {
+    "kind": "Item",
+    "id": "flowersweet",
+    "name": "Flower Sweet"
+  },
+  "Fossilized Bird": {
+    "kind": "Item",
+    "id": "fossilizedbird",
+    "name": "Fossilized Bird"
+  },
+  "Fossilized Dino": {
+    "kind": "Item",
+    "id": "fossilizeddino",
+    "name": "Fossilized Dino"
+  },
+  "Fossilized Drake": {
+    "kind": "Item",
+    "id": "fossilizeddrake",
+    "name": "Fossilized Drake"
+  },
+  "Fossilized Fish": {
+    "kind": "Item",
+    "id": "fossilizedfish",
+    "name": "Fossilized Fish"
+  },
+  "Galarica Cuff": {
+    "kind": "Item",
+    "id": "galaricacuff",
+    "name": "Galarica Cuff"
+  },
+  "Galarica Wreath": {
+    "kind": "Item",
+    "id": "galaricawreath",
+    "name": "Galarica Wreath"
+  },
+  "Heavy-Duty Boots": {
+    "kind": "Item",
+    "id": "heavydutyboots",
+    "name": "Heavy-Duty Boots"
+  },
+  "Leek": {
+    "kind": "Item",
+    "id": "leek",
+    "name": "Leek"
+  },
+  "Love Sweet": {
+    "kind": "Item",
+    "id": "lovesweet",
+    "name": "Love Sweet"
+  },
+  "Ribbon Sweet": {
+    "kind": "Item",
+    "id": "ribbonsweet",
+    "name": "Ribbon Sweet"
+  },
+  "Room Service": {
+    "kind": "Item",
+    "id": "roomservice",
+    "name": "Room Service"
+  },
+  "Rusted Shield": {
+    "kind": "Item",
+    "id": "rustedshield",
+    "name": "Rusted Shield"
+  },
+  "Rusted Sword": {
+    "kind": "Item",
+    "id": "rustedsword",
+    "name": "Rusted Sword"
+  },
+  "Star Sweet": {
+    "kind": "Item",
+    "id": "starsweet",
+    "name": "Star Sweet"
+  },
+  "Strawberry Sweet": {
+    "kind": "Item",
+    "id": "strawberrysweet",
+    "name": "Strawberry Sweet"
+  },
+  "Sweet Apple": {
+    "kind": "Item",
+    "id": "sweetapple",
+    "name": "Sweet Apple"
+  },
+  "Tart Apple": {
+    "kind": "Item",
+    "id": "tartapple",
+    "name": "Tart Apple"
+  },
+  "Throat Spray": {
+    "kind": "Item",
+    "id": "throatspray",
+    "name": "Throat Spray"
+  },
+  "TR00": {
+    "kind": "Item",
+    "id": "tr00",
+    "name": "TR00"
+  },
+  "TR01": {
+    "kind": "Item",
+    "id": "tr01",
+    "name": "TR01"
+  },
+  "TR02": {
+    "kind": "Item",
+    "id": "tr02",
+    "name": "TR02"
+  },
+  "TR03": {
+    "kind": "Item",
+    "id": "tr03",
+    "name": "TR03"
+  },
+  "TR04": {
+    "kind": "Item",
+    "id": "tr04",
+    "name": "TR04"
+  },
+  "TR05": {
+    "kind": "Item",
+    "id": "tr05",
+    "name": "TR05"
+  },
+  "TR06": {
+    "kind": "Item",
+    "id": "tr06",
+    "name": "TR06"
+  },
+  "TR07": {
+    "kind": "Item",
+    "id": "tr07",
+    "name": "TR07"
+  },
+  "TR08": {
+    "kind": "Item",
+    "id": "tr08",
+    "name": "TR08"
+  },
+  "TR09": {
+    "kind": "Item",
+    "id": "tr09",
+    "name": "TR09"
+  },
+  "TR10": {
+    "kind": "Item",
+    "id": "tr10",
+    "name": "TR10"
+  },
+  "TR11": {
+    "kind": "Item",
+    "id": "tr11",
+    "name": "TR11"
+  },
+  "TR12": {
+    "kind": "Item",
+    "id": "tr12",
+    "name": "TR12"
+  },
+  "TR13": {
+    "kind": "Item",
+    "id": "tr13",
+    "name": "TR13"
+  },
+  "TR14": {
+    "kind": "Item",
+    "id": "tr14",
+    "name": "TR14"
+  },
+  "TR15": {
+    "kind": "Item",
+    "id": "tr15",
+    "name": "TR15"
+  },
+  "TR16": {
+    "kind": "Item",
+    "id": "tr16",
+    "name": "TR16"
+  },
+  "TR17": {
+    "kind": "Item",
+    "id": "tr17",
+    "name": "TR17"
+  },
+  "TR18": {
+    "kind": "Item",
+    "id": "tr18",
+    "name": "TR18"
+  },
+  "TR19": {
+    "kind": "Item",
+    "id": "tr19",
+    "name": "TR19"
+  },
+  "TR20": {
+    "kind": "Item",
+    "id": "tr20",
+    "name": "TR20"
+  },
+  "TR21": {
+    "kind": "Item",
+    "id": "tr21",
+    "name": "TR21"
+  },
+  "TR22": {
+    "kind": "Item",
+    "id": "tr22",
+    "name": "TR22"
+  },
+  "TR23": {
+    "kind": "Item",
+    "id": "tr23",
+    "name": "TR23"
+  },
+  "TR24": {
+    "kind": "Item",
+    "id": "tr24",
+    "name": "TR24"
+  },
+  "TR25": {
+    "kind": "Item",
+    "id": "tr25",
+    "name": "TR25"
+  },
+  "TR26": {
+    "kind": "Item",
+    "id": "tr26",
+    "name": "TR26"
+  },
+  "TR27": {
+    "kind": "Item",
+    "id": "tr27",
+    "name": "TR27"
+  },
+  "TR28": {
+    "kind": "Item",
+    "id": "tr28",
+    "name": "TR28"
+  },
+  "TR29": {
+    "kind": "Item",
+    "id": "tr29",
+    "name": "TR29"
+  },
+  "TR30": {
+    "kind": "Item",
+    "id": "tr30",
+    "name": "TR30"
+  },
+  "TR31": {
+    "kind": "Item",
+    "id": "tr31",
+    "name": "TR31"
+  },
+  "TR32": {
+    "kind": "Item",
+    "id": "tr32",
+    "name": "TR32"
+  },
+  "TR33": {
+    "kind": "Item",
+    "id": "tr33",
+    "name": "TR33"
+  },
+  "TR34": {
+    "kind": "Item",
+    "id": "tr34",
+    "name": "TR34"
+  },
+  "TR35": {
+    "kind": "Item",
+    "id": "tr35",
+    "name": "TR35"
+  },
+  "TR36": {
+    "kind": "Item",
+    "id": "tr36",
+    "name": "TR36"
+  },
+  "TR37": {
+    "kind": "Item",
+    "id": "tr37",
+    "name": "TR37"
+  },
+  "TR38": {
+    "kind": "Item",
+    "id": "tr38",
+    "name": "TR38"
+  },
+  "TR39": {
+    "kind": "Item",
+    "id": "tr39",
+    "name": "TR39"
+  },
+  "TR40": {
+    "kind": "Item",
+    "id": "tr40",
+    "name": "TR40"
+  },
+  "TR41": {
+    "kind": "Item",
+    "id": "tr41",
+    "name": "TR41"
+  },
+  "TR42": {
+    "kind": "Item",
+    "id": "tr42",
+    "name": "TR42"
+  },
+  "TR43": {
+    "kind": "Item",
+    "id": "tr43",
+    "name": "TR43"
+  },
+  "TR44": {
+    "kind": "Item",
+    "id": "tr44",
+    "name": "TR44"
+  },
+  "TR45": {
+    "kind": "Item",
+    "id": "tr45",
+    "name": "TR45"
+  },
+  "TR46": {
+    "kind": "Item",
+    "id": "tr46",
+    "name": "TR46"
+  },
+  "TR47": {
+    "kind": "Item",
+    "id": "tr47",
+    "name": "TR47"
+  },
+  "TR48": {
+    "kind": "Item",
+    "id": "tr48",
+    "name": "TR48"
+  },
+  "TR49": {
+    "kind": "Item",
+    "id": "tr49",
+    "name": "TR49"
+  },
+  "TR50": {
+    "kind": "Item",
+    "id": "tr50",
+    "name": "TR50"
+  },
+  "TR51": {
+    "kind": "Item",
+    "id": "tr51",
+    "name": "TR51"
+  },
+  "TR52": {
+    "kind": "Item",
+    "id": "tr52",
+    "name": "TR52"
+  },
+  "TR53": {
+    "kind": "Item",
+    "id": "tr53",
+    "name": "TR53"
+  },
+  "TR54": {
+    "kind": "Item",
+    "id": "tr54",
+    "name": "TR54"
+  },
+  "TR55": {
+    "kind": "Item",
+    "id": "tr55",
+    "name": "TR55"
+  },
+  "TR56": {
+    "kind": "Item",
+    "id": "tr56",
+    "name": "TR56"
+  },
+  "TR57": {
+    "kind": "Item",
+    "id": "tr57",
+    "name": "TR57"
+  },
+  "TR58": {
+    "kind": "Item",
+    "id": "tr58",
+    "name": "TR58"
+  },
+  "TR59": {
+    "kind": "Item",
+    "id": "tr59",
+    "name": "TR59"
+  },
+  "TR60": {
+    "kind": "Item",
+    "id": "tr60",
+    "name": "TR60"
+  },
+  "TR61": {
+    "kind": "Item",
+    "id": "tr61",
+    "name": "TR61"
+  },
+  "TR62": {
+    "kind": "Item",
+    "id": "tr62",
+    "name": "TR62"
+  },
+  "TR63": {
+    "kind": "Item",
+    "id": "tr63",
+    "name": "TR63"
+  },
+  "TR64": {
+    "kind": "Item",
+    "id": "tr64",
+    "name": "TR64"
+  },
+  "TR65": {
+    "kind": "Item",
+    "id": "tr65",
+    "name": "TR65"
+  },
+  "TR66": {
+    "kind": "Item",
+    "id": "tr66",
+    "name": "TR66"
+  },
+  "TR67": {
+    "kind": "Item",
+    "id": "tr67",
+    "name": "TR67"
+  },
+  "TR68": {
+    "kind": "Item",
+    "id": "tr68",
+    "name": "TR68"
+  },
+  "TR69": {
+    "kind": "Item",
+    "id": "tr69",
+    "name": "TR69"
+  },
+  "TR70": {
+    "kind": "Item",
+    "id": "tr70",
+    "name": "TR70"
+  },
+  "TR71": {
+    "kind": "Item",
+    "id": "tr71",
+    "name": "TR71"
+  },
+  "TR72": {
+    "kind": "Item",
+    "id": "tr72",
+    "name": "TR72"
+  },
+  "TR73": {
+    "kind": "Item",
+    "id": "tr73",
+    "name": "TR73"
+  },
+  "TR74": {
+    "kind": "Item",
+    "id": "tr74",
+    "name": "TR74"
+  },
+  "TR75": {
+    "kind": "Item",
+    "id": "tr75",
+    "name": "TR75"
+  },
+  "TR76": {
+    "kind": "Item",
+    "id": "tr76",
+    "name": "TR76"
+  },
+  "TR77": {
+    "kind": "Item",
+    "id": "tr77",
+    "name": "TR77"
+  },
+  "TR78": {
+    "kind": "Item",
+    "id": "tr78",
+    "name": "TR78"
+  },
+  "TR79": {
+    "kind": "Item",
+    "id": "tr79",
+    "name": "TR79"
+  },
+  "TR80": {
+    "kind": "Item",
+    "id": "tr80",
+    "name": "TR80"
+  },
+  "TR81": {
+    "kind": "Item",
+    "id": "tr81",
+    "name": "TR81"
+  },
+  "TR82": {
+    "kind": "Item",
+    "id": "tr82",
+    "name": "TR82"
+  },
+  "TR83": {
+    "kind": "Item",
+    "id": "tr83",
+    "name": "TR83"
+  },
+  "TR84": {
+    "kind": "Item",
+    "id": "tr84",
+    "name": "TR84"
+  },
+  "TR85": {
+    "kind": "Item",
+    "id": "tr85",
+    "name": "TR85"
+  },
+  "TR86": {
+    "kind": "Item",
+    "id": "tr86",
+    "name": "TR86"
+  },
+  "TR87": {
+    "kind": "Item",
+    "id": "tr87",
+    "name": "TR87"
+  },
+  "TR88": {
+    "kind": "Item",
+    "id": "tr88",
+    "name": "TR88"
+  },
+  "TR89": {
+    "kind": "Item",
+    "id": "tr89",
+    "name": "TR89"
+  },
+  "TR90": {
+    "kind": "Item",
+    "id": "tr90",
+    "name": "TR90"
+  },
+  "TR91": {
+    "kind": "Item",
+    "id": "tr91",
+    "name": "TR91"
+  },
+  "TR92": {
+    "kind": "Item",
+    "id": "tr92",
+    "name": "TR92"
+  },
+  "TR93": {
+    "kind": "Item",
+    "id": "tr93",
+    "name": "TR93"
+  },
+  "TR94": {
+    "kind": "Item",
+    "id": "tr94",
+    "name": "TR94"
+  },
+  "TR95": {
+    "kind": "Item",
+    "id": "tr95",
+    "name": "TR95"
+  },
+  "TR96": {
+    "kind": "Item",
+    "id": "tr96",
+    "name": "TR96"
+  },
+  "TR97": {
+    "kind": "Item",
+    "id": "tr97",
+    "name": "TR97"
+  },
+  "TR98": {
+    "kind": "Item",
+    "id": "tr98",
+    "name": "TR98"
+  },
+  "TR99": {
+    "kind": "Item",
+    "id": "tr99",
+    "name": "TR99"
+  },
+  "Utility Umbrella": {
+    "kind": "Item",
+    "id": "utilityumbrella",
+    "name": "Utility Umbrella"
+  },
+  "Vile Vial": {
+    "kind": "Item",
+    "id": "vilevial",
+    "name": "Vile Vial"
+  },
+  "Berry": {
+    "kind": "Item",
+    "id": "berry",
+    "name": "Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Poison"
+    }
+  },
+  "Berserk Gene": {
+    "kind": "Item",
+    "id": "berserkgene",
+    "name": "Berserk Gene"
+  },
+  "Bitter Berry": {
+    "kind": "Item",
+    "id": "bitterberry",
+    "name": "Bitter Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Ground"
+    }
+  },
+  "Burnt Berry": {
+    "kind": "Item",
+    "id": "burntberry",
+    "name": "Burnt Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Ice"
+    }
+  },
+  "Ice Berry": {
+    "kind": "Item",
+    "id": "iceberry",
+    "name": "Ice Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Grass"
+    }
+  },
+  "Mint Berry": {
+    "kind": "Item",
+    "id": "mintberry",
+    "name": "Mint Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Water"
+    }
+  },
+  "Miracle Berry": {
+    "kind": "Item",
+    "id": "miracleberry",
+    "name": "Miracle Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Flying"
+    }
+  },
+  "Mystery Berry": {
+    "kind": "Item",
+    "id": "mysteryberry",
+    "name": "Mystery Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Fighting"
+    }
+  },
+  "PRZ Cure Berry": {
+    "kind": "Item",
+    "id": "przcureberry",
+    "name": "PRZ Cure Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Fire"
+    }
+  },
+  "Gold Berry": {
+    "kind": "Item",
+    "id": "goldberry",
+    "name": "Gold Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Psychic"
+    }
+  },
+  "Pink Bow": {
+    "kind": "Item",
+    "id": "pinkbow",
+    "name": "Pink Bow"
+  },
+  "Polkadot Bow": {
+    "kind": "Item",
+    "id": "polkadotbow",
+    "name": "Polkadot Bow"
+  },
+  "PSN Cure Berry": {
+    "kind": "Item",
+    "id": "psncureberry",
+    "name": "PSN Cure Berry",
+    "isBerry": true,
+    "naturalGift": {
+      "basePower": 80,
+      "type": "Electric"
+    }
+  },
+  "Old Amber": {
+    "kind": "Item",
+    "id": "oldamber",
+    "name": "Old Amber"
+  },
+  "Ability Shield": {
+    "kind": "Item",
+    "id": "abilityshield",
+    "name": "Ability Shield"
+  },
+  "Absolite Z": {
+    "kind": "Item",
+    "id": "absolitez",
+    "name": "Absolite Z",
+    "megaStone": {
+      "Absol": "Absol-Mega-Z"
+    }
+  },
+  "Adamant Crystal": {
+    "kind": "Item",
+    "id": "adamantcrystal",
+    "name": "Adamant Crystal"
+  },
+  "Auspicious Armor": {
+    "kind": "Item",
+    "id": "auspiciousarmor",
+    "name": "Auspicious Armor"
+  },
+  "Barbaracite": {
+    "kind": "Item",
+    "id": "barbaracite",
+    "name": "Barbaracite",
+    "megaStone": {
+      "Barbaracle": "Barbaracle-Mega"
+    }
+  },
+  "Baxcalibrite": {
+    "kind": "Item",
+    "id": "baxcalibrite",
+    "name": "Baxcalibrite",
+    "megaStone": {
+      "Baxcalibur": "Baxcalibur-Mega"
+    }
+  },
+  "Booster Energy": {
+    "kind": "Item",
+    "id": "boosterenergy",
+    "name": "Booster Energy"
+  },
+  "Chandelurite": {
+    "kind": "Item",
+    "id": "chandelurite",
+    "name": "Chandelurite",
+    "megaStone": {
+      "Chandelure": "Chandelure-Mega"
+    }
+  },
+  "Chesnaughtite": {
+    "kind": "Item",
+    "id": "chesnaughtite",
+    "name": "Chesnaughtite",
+    "megaStone": {
+      "Chesnaught": "Chesnaught-Mega"
+    }
+  },
+  "Chimechite": {
+    "kind": "Item",
+    "id": "chimechite",
+    "name": "Chimechite",
+    "megaStone": {
+      "Chimecho": "Chimecho-Mega"
+    }
+  },
+  "Clear Amulet": {
+    "kind": "Item",
+    "id": "clearamulet",
+    "name": "Clear Amulet"
+  },
+  "Clefablite": {
+    "kind": "Item",
+    "id": "clefablite",
+    "name": "Clefablite",
+    "megaStone": {
+      "Clefable": "Clefable-Mega"
+    }
+  },
+  "Cornerstone Mask": {
+    "kind": "Item",
+    "id": "cornerstonemask",
+    "name": "Cornerstone Mask"
+  },
+  "Covert Cloak": {
+    "kind": "Item",
+    "id": "covertcloak",
+    "name": "Covert Cloak"
+  },
+  "Crabominite": {
+    "kind": "Item",
+    "id": "crabominite",
+    "name": "Crabominite",
+    "megaStone": {
+      "Crabominable": "Crabominable-Mega"
+    }
+  },
+  "Darkranite": {
+    "kind": "Item",
+    "id": "darkranite",
+    "name": "Darkranite",
+    "megaStone": {
+      "Darkrai": "Darkrai-Mega"
+    }
+  },
+  "Delphoxite": {
+    "kind": "Item",
+    "id": "delphoxite",
+    "name": "Delphoxite",
+    "megaStone": {
+      "Delphox": "Delphox-Mega"
+    }
+  },
+  "Dragalgite": {
+    "kind": "Item",
+    "id": "dragalgite",
+    "name": "Dragalgite",
+    "megaStone": {
+      "Dragalge": "Dragalge-Mega"
+    }
+  },
+  "Dragoninite": {
+    "kind": "Item",
+    "id": "dragoninite",
+    "name": "Dragoninite",
+    "megaStone": {
+      "Dragonite": "Dragonite-Mega"
+    }
+  },
+  "Drampanite": {
+    "kind": "Item",
+    "id": "drampanite",
+    "name": "Drampanite",
+    "megaStone": {
+      "Drampa": "Drampa-Mega"
+    }
+  },
+  "Eelektrossite": {
+    "kind": "Item",
+    "id": "eelektrossite",
+    "name": "Eelektrossite",
+    "megaStone": {
+      "Eelektross": "Eelektross-Mega"
+    }
+  },
+  "Emboarite": {
+    "kind": "Item",
+    "id": "emboarite",
+    "name": "Emboarite",
+    "megaStone": {
+      "Emboar": "Emboar-Mega"
+    }
+  },
+  "Excadrite": {
+    "kind": "Item",
+    "id": "excadrite",
+    "name": "Excadrite",
+    "megaStone": {
+      "Excadrill": "Excadrill-Mega"
+    }
+  },
+  "Fairy Feather": {
+    "kind": "Item",
+    "id": "fairyfeather",
+    "name": "Fairy Feather"
+  },
+  "Falinksite": {
+    "kind": "Item",
+    "id": "falinksite",
+    "name": "Falinksite",
+    "megaStone": {
+      "Falinks": "Falinks-Mega"
+    }
+  },
+  "Feraligite": {
+    "kind": "Item",
+    "id": "feraligite",
+    "name": "Feraligite",
+    "megaStone": {
+      "Feraligatr": "Feraligatr-Mega"
+    }
+  },
+  "Floettite": {
+    "kind": "Item",
+    "id": "floettite",
+    "name": "Floettite",
+    "megaStone": {
+      "Floette-Eternal": "Floette-Mega"
+    }
+  },
+  "Froslassite": {
+    "kind": "Item",
+    "id": "froslassite",
+    "name": "Froslassite",
+    "megaStone": {
+      "Froslass": "Froslass-Mega"
+    }
+  },
+  "Garchompite Z": {
+    "kind": "Item",
+    "id": "garchompitez",
+    "name": "Garchompite Z",
+    "megaStone": {
+      "Garchomp": "Garchomp-Mega-Z"
+    }
+  },
+  "Glimmoranite": {
+    "kind": "Item",
+    "id": "glimmoranite",
+    "name": "Glimmoranite",
+    "megaStone": {
+      "Glimmora": "Glimmora-Mega"
+    }
+  },
+  "Golisopite": {
+    "kind": "Item",
+    "id": "golisopite",
+    "name": "Golisopite",
+    "megaStone": {
+      "Golisopod": "Golisopod-Mega"
+    }
+  },
+  "Golurkite": {
+    "kind": "Item",
+    "id": "golurkite",
+    "name": "Golurkite",
+    "megaStone": {
+      "Golurk": "Golurk-Mega"
+    }
+  },
+  "Greninjite": {
+    "kind": "Item",
+    "id": "greninjite",
+    "name": "Greninjite",
+    "megaStone": {
+      "Greninja": "Greninja-Mega"
+    }
+  },
+  "Griseous Core": {
+    "kind": "Item",
+    "id": "griseouscore",
+    "name": "Griseous Core"
+  },
+  "Hawluchanite": {
+    "kind": "Item",
+    "id": "hawluchanite",
+    "name": "Hawluchanite",
+    "megaStone": {
+      "Hawlucha": "Hawlucha-Mega"
+    }
+  },
+  "Hearthflame Mask": {
+    "kind": "Item",
+    "id": "hearthflamemask",
+    "name": "Hearthflame Mask"
+  },
+  "Heatranite": {
+    "kind": "Item",
+    "id": "heatranite",
+    "name": "Heatranite",
+    "megaStone": {
+      "Heatran": "Heatran-Mega"
+    }
+  },
+  "Loaded Dice": {
+    "kind": "Item",
+    "id": "loadeddice",
+    "name": "Loaded Dice"
+  },
+  "Lucarionite Z": {
+    "kind": "Item",
+    "id": "lucarionitez",
+    "name": "Lucarionite Z",
+    "megaStone": {
+      "Lucario": "Lucario-Mega-Z"
+    }
+  },
+  "Lustrous Globe": {
+    "kind": "Item",
+    "id": "lustrousglobe",
+    "name": "Lustrous Globe"
+  },
+  "Magearnite": {
+    "kind": "Item",
+    "id": "magearnite",
+    "name": "Magearnite",
+    "megaStone": {
+      "Magearna": "Magearna-Mega",
+      "Magearna-Original": "Magearna-Original-Mega"
+    }
+  },
+  "Malamarite": {
+    "kind": "Item",
+    "id": "malamarite",
+    "name": "Malamarite",
+    "megaStone": {
+      "Malamar": "Malamar-Mega"
+    }
+  },
+  "Malicious Armor": {
+    "kind": "Item",
+    "id": "maliciousarmor",
+    "name": "Malicious Armor"
+  },
+  "Masterpiece Teacup": {
+    "kind": "Item",
+    "id": "masterpieceteacup",
+    "name": "Masterpiece Teacup"
+  },
+  "Meganiumite": {
+    "kind": "Item",
+    "id": "meganiumite",
+    "name": "Meganiumite",
+    "megaStone": {
+      "Meganium": "Meganium-Mega"
+    }
+  },
+  "Meowsticite": {
+    "kind": "Item",
+    "id": "meowsticite",
+    "name": "Meowsticite",
+    "megaStone": {
+      "Meowstic": "Meowstic-M-Mega",
+      "Meowstic-F": "Meowstic-F-Mega"
+    }
+  },
+  "Metal Alloy": {
+    "kind": "Item",
+    "id": "metalalloy",
+    "name": "Metal Alloy"
+  },
+  "Mirror Herb": {
+    "kind": "Item",
+    "id": "mirrorherb",
+    "name": "Mirror Herb"
+  },
+  "Punching Glove": {
+    "kind": "Item",
+    "id": "punchingglove",
+    "name": "Punching Glove"
+  },
+  "Pyroarite": {
+    "kind": "Item",
+    "id": "pyroarite",
+    "name": "Pyroarite",
+    "megaStone": {
+      "Pyroar": "Pyroar-Mega"
+    }
+  },
+  "Raichunite X": {
+    "kind": "Item",
+    "id": "raichunitex",
+    "name": "Raichunite X",
+    "megaStone": {
+      "Raichu": "Raichu-Mega-X"
+    }
+  },
+  "Raichunite Y": {
+    "kind": "Item",
+    "id": "raichunitey",
+    "name": "Raichunite Y",
+    "megaStone": {
+      "Raichu": "Raichu-Mega-Y"
+    }
+  },
+  "Scolipite": {
+    "kind": "Item",
+    "id": "scolipite",
+    "name": "Scolipite",
+    "megaStone": {
+      "Scolipede": "Scolipede-Mega"
+    }
+  },
+  "Scovillainite": {
+    "kind": "Item",
+    "id": "scovillainite",
+    "name": "Scovillainite",
+    "megaStone": {
+      "Scovillain": "Scovillain-Mega"
+    }
+  },
+  "Scraftinite": {
+    "kind": "Item",
+    "id": "scraftinite",
+    "name": "Scraftinite",
+    "megaStone": {
+      "Scrafty": "Scrafty-Mega"
+    }
+  },
+  "Skarmorite": {
+    "kind": "Item",
+    "id": "skarmorite",
+    "name": "Skarmorite",
+    "megaStone": {
+      "Skarmory": "Skarmory-Mega"
+    }
+  },
+  "Staraptite": {
+    "kind": "Item",
+    "id": "staraptite",
+    "name": "Staraptite",
+    "megaStone": {
+      "Staraptor": "Staraptor-Mega"
+    }
+  },
+  "Starminite": {
+    "kind": "Item",
+    "id": "starminite",
+    "name": "Starminite",
+    "megaStone": {
+      "Starmie": "Starmie-Mega"
+    }
+  },
+  "Strange Ball": {
+    "kind": "Item",
+    "id": "strangeball",
+    "name": "Strange Ball"
+  },
+  "Syrupy Apple": {
+    "kind": "Item",
+    "id": "syrupyapple",
+    "name": "Syrupy Apple"
+  },
+  "Tatsugirinite": {
+    "kind": "Item",
+    "id": "tatsugirinite",
+    "name": "Tatsugirinite",
+    "megaStone": {
+      "Tatsugiri": "Tatsugiri-Curly-Mega",
+      "Tatsugiri-Droopy": "Tatsugiri-Droopy-Mega",
+      "Tatsugiri-Stretchy": "Tatsugiri-Stretchy-Mega"
+    }
+  },
+  "Unremarkable Teacup": {
+    "kind": "Item",
+    "id": "unremarkableteacup",
+    "name": "Unremarkable Teacup"
+  },
+  "Victreebelite": {
+    "kind": "Item",
+    "id": "victreebelite",
+    "name": "Victreebelite",
+    "megaStone": {
+      "Victreebel": "Victreebel-Mega"
+    }
+  },
+  "Wellspring Mask": {
+    "kind": "Item",
+    "id": "wellspringmask",
+    "name": "Wellspring Mask"
+  },
+  "Zeraorite": {
+    "kind": "Item",
+    "id": "zeraorite",
+    "name": "Zeraorite",
+    "megaStone": {
+      "Zeraora": "Zeraora-Mega"
+    }
+  },
+  "Zygardite": {
+    "kind": "Item",
+    "id": "zygardite",
+    "name": "Zygardite",
+    "megaStone": {
+      "Zygarde-Complete": "Zygarde-Mega"
+    }
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "Adamant": {
+    "kind": "Nature",
+    "id": "adamant",
+    "name": "Adamant",
+    "plus": "atk",
+    "minus": "spa"
+  },
+  "Bashful": {
+    "kind": "Nature",
+    "id": "bashful",
+    "name": "Bashful",
+    "plus": "spa",
+    "minus": "spa"
+  },
+  "Bold": {
+    "kind": "Nature",
+    "id": "bold",
+    "name": "Bold",
+    "plus": "def",
+    "minus": "atk"
+  },
+  "Brave": {
+    "kind": "Nature",
+    "id": "brave",
+    "name": "Brave",
+    "plus": "atk",
+    "minus": "spe"
+  },
+  "Calm": {
+    "kind": "Nature",
+    "id": "calm",
+    "name": "Calm",
+    "plus": "spd",
+    "minus": "atk"
+  },
+  "Careful": {
+    "kind": "Nature",
+    "id": "careful",
+    "name": "Careful",
+    "plus": "spd",
+    "minus": "spa"
+  },
+  "Docile": {
+    "kind": "Nature",
+    "id": "docile",
+    "name": "Docile",
+    "plus": "def",
+    "minus": "def"
+  },
+  "Gentle": {
+    "kind": "Nature",
+    "id": "gentle",
+    "name": "Gentle",
+    "plus": "spd",
+    "minus": "def"
+  },
+  "Hardy": {
+    "kind": "Nature",
+    "id": "hardy",
+    "name": "Hardy",
+    "plus": "atk",
+    "minus": "atk"
+  },
+  "Hasty": {
+    "kind": "Nature",
+    "id": "hasty",
+    "name": "Hasty",
+    "plus": "spe",
+    "minus": "def"
+  },
+  "Impish": {
+    "kind": "Nature",
+    "id": "impish",
+    "name": "Impish",
+    "plus": "def",
+    "minus": "spa"
+  },
+  "Jolly": {
+    "kind": "Nature",
+    "id": "jolly",
+    "name": "Jolly",
+    "plus": "spe",
+    "minus": "spa"
+  },
+  "Lax": {
+    "kind": "Nature",
+    "id": "lax",
+    "name": "Lax",
+    "plus": "def",
+    "minus": "spd"
+  },
+  "Lonely": {
+    "kind": "Nature",
+    "id": "lonely",
+    "name": "Lonely",
+    "plus": "atk",
+    "minus": "def"
+  },
+  "Mild": {
+    "kind": "Nature",
+    "id": "mild",
+    "name": "Mild",
+    "plus": "spa",
+    "minus": "def"
+  },
+  "Modest": {
+    "kind": "Nature",
+    "id": "modest",
+    "name": "Modest",
+    "plus": "spa",
+    "minus": "atk"
+  },
+  "Naive": {
+    "kind": "Nature",
+    "id": "naive",
+    "name": "Naive",
+    "plus": "spe",
+    "minus": "spd"
+  },
+  "Naughty": {
+    "kind": "Nature",
+    "id": "naughty",
+    "name": "Naughty",
+    "plus": "atk",
+    "minus": "spd"
+  },
+  "Quiet": {
+    "kind": "Nature",
+    "id": "quiet",
+    "name": "Quiet",
+    "plus": "spa",
+    "minus": "spe"
+  },
+  "Quirky": {
+    "kind": "Nature",
+    "id": "quirky",
+    "name": "Quirky",
+    "plus": "spd",
+    "minus": "spd"
+  },
+  "Rash": {
+    "kind": "Nature",
+    "id": "rash",
+    "name": "Rash",
+    "plus": "spa",
+    "minus": "spd"
+  },
+  "Relaxed": {
+    "kind": "Nature",
+    "id": "relaxed",
+    "name": "Relaxed",
+    "plus": "def",
+    "minus": "spe"
+  },
+  "Sassy": {
+    "kind": "Nature",
+    "id": "sassy",
+    "name": "Sassy",
+    "plus": "spd",
+    "minus": "spe"
+  },
+  "Serious": {
+    "kind": "Nature",
+    "id": "serious",
+    "name": "Serious",
+    "plus": "spe",
+    "minus": "spe"
+  },
+  "Timid": {
+    "kind": "Nature",
+    "id": "timid",
+    "name": "Timid",
+    "plus": "spe",
+    "minus": "atk"
+  }
+}

@@ -6,10 +6,51 @@ from .field import Field
 from .result import Result
 from .util import poke_round, chain_mods, get_type_effectiveness
 
+
+
+def is_grounded(poke: Pokemon, field: Field) -> bool:
+    """Determines if a Pokemon is touching the ground for Terrain effects."""
+    if poke.item == "Iron Ball":
+        return True
+    if poke.item == "Air Balloon":
+        return False
+    if poke.ability == "Levitate":
+        return False
+    # If the Pokemon is Terastallized, tera_type replaces its base typing
+    active_types = [poke.tera_type] if poke.is_terastallized and poke.tera_type else poke.types
+    if "Flying" in active_types:
+        return False
+    return True
+
+
+
+
+
 def calculate_base_power(attacker: Pokemon, defender: Pokemon, move: Move, field: Field) -> int:
     """Calculates the effective base power of a move after all modifiers."""
     bp = move.base_power
     bp_mods: List[int] = []
+
+    # Check grounded status for Terrains
+    attacker_grounded = is_grounded(attacker, field)
+    defender_grounded = is_grounded(defender, field)
+    
+    # Terrain Boosts (Requires attacker to be grounded)
+    if attacker_grounded:
+        if field.terrain == "Electric" and move.type == "Electric":
+            bp_mods.append(0x14CD)  # 1.3x boost in Gen 9
+        elif field.terrain == "Grassy" and move.type == "Grass":
+            bp_mods.append(0x14CD)
+        elif field.terrain == "Psychic" and move.type == "Psychic":
+            bp_mods.append(0x14CD)
+            
+    # Terrain Reductions (Grassy Terrain Earthquake reduction)
+    if field.terrain == "Grassy" and move.name in ["Earthquake", "Bulldoze", "Magnitude"]:
+        bp_mods.append(0x0800)  # 0.5x base power reduction
+        
+    # Misty Terrain reduces Dragon damage against grounded defenders
+    if field.terrain == "Misty" and defender_grounded and move.type == "Dragon":
+        bp_mods.append(0x0800)  # 0.5x reduction
     
     # 1. Move-Specific Overrides (e.g., Facade, Knock Off, Brine)
     if move.name == "Facade" and attacker.status in ["brn", "par", "psn", "tox"]:
@@ -90,6 +131,17 @@ def calculate_effective_attack(attacker: Pokemon, defender: Pokemon, move: Move,
     stat = poke_round(raw_atk * get_stat_boost_multiplier(atk_boost))
     
     atk_mods: List[int] = []
+
+    # These activate when current HP is at or below 33% (1/3 of max HP)
+    if attacker.cur_hp <= (attacker.max_hp / 3):
+        if attacker.ability == "Blaze" and move.type == "Fire":
+            atk_mods.append(0x1800)  # 1.5x boost
+        elif attacker.ability == "Torrent" and move.type == "Water":
+            atk_mods.append(0x1800)
+        elif attacker.ability == "Overgrow" and move.type == "Grass":
+            atk_mods.append(0x1800)
+        elif attacker.ability == "Swarm" and move.type == "Bug":
+            atk_mods.append(0x1800)
     
     # 1. Attacker Abilities
     if use_physical:

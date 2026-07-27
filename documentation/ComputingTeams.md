@@ -1,23 +1,27 @@
 # How to "post-compute" random teams using player seeds
 
-<u><span style="color:red">Note before beginning:</span></u> When following the steps below to compute random teams using a seed from a match replay, `/data/randombattles/gen9/teams.ts` and `/data/randombattles/gen9/sets.json` (and any other relevant Pokedex files) must be the versions that were then-current when the match was played. If this isn't the case, your computed teams will be inaccurate&mdash;they may actually be "close" to the correct teams, but with one or two incorrect Pokemon.
+> [!WARNING]
+> When recomputing random teams from player seeds as detailed below, the files `teams.ts` and 
+> `sets.json` in `/data/randombattles/gen9/`
+> (as well as any other relevant Pokédex files) must be the versions that were current 
+> *when the match was played*. If this isn't the case, then the computed teams will be inaccurate.
 
-1. Use `git clone` to clone PokemonShowdown!'s [`server` repository](https://github.com/smogon/pokemon-showdown/) to a local directory; for example we clone it into local directory `~/psserver` via
+1. Clone Pokemon Showdown's [`server` repository](https://github.com/smogon/pokemon-showdown/) 
+   to a local directory.
 ```
-git clone https://github.com/smogon/pokemon-showdown/ ~/psserver
+git clone https://github.com/smogon/pokemon-showdown/
 ```
 
-2. Make the following changes as described in the `.patch` file [team-gen-api](../tools/team-gen-api.patch). There is one line insertion in `psserver/package.json`, and there are two sets of line insertions within `psserver/pokemon-showdown`.
+2. Within the root directory of this cloned repository, make the changes to the files `/package.json` and `/pokemon-showdown` as described in [team-gen-api.patch](team-gen-api.patch). 
 
-3. Run `psserver % npm run start-team-generator`  
-You should then see something like
+3. Still in this root directory, run `npm run start-team-generator`; you should then see something like
 ```
 > pokemon-showdown@0.11.10 start-team-generator
 > node pokemon-showdown team-generator-server
 Server running at http://localhost:3000/
 ```
 
-4. Now you can you use a python script (or Jupyter notebook) with the following function
+4. You can now recompute the random teams from their seeds using a Python script or Jupyter notebook with the following function
 ```python 
 import json, requests
 
@@ -43,18 +47,17 @@ def team_from_seed(seed):
         
     return team
 ```
-Example: 
+
+####  Example usage and output:
 ```python 
->>>team_from_seed("sodium,17c4af16a0263f1fdf4d9174706fc5eb")
-```
-```text
-[{'name': 'Braviary',
-  'species': 'Braviary',
-  ... ...
-  'role': 'Fast Bulky Setup'},
- {'name': 'Dodrio',
-  'species': 'Dodrio',
-  ...}
-  ...
- ]
+>>> team_from_seed("sodium,17c4af16a0263f1fdf4d9174706fc5eb")
+>>> [{'name': 'Braviary',
+      'species': 'Braviary',
+      ... ...
+      'role': 'Fast Bulky Setup'},
+     {'name': 'Dodrio',
+      'species': 'Dodrio',
+      ...}
+      ...
+     ]
 ```

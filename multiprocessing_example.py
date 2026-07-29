@@ -52,7 +52,7 @@ def adv_helper(args):
 
 min_time = 100
 
-for num_processes in range(12,13):
+for num_processes in range(1,13):
 
     start = time.time()
 
@@ -61,3 +61,4 @@ for num_processes in range(12,13):
             result = p.map_async(adv_helper,product(team1,team2))
             print(f"Player 1 total advantage:{sum(result.get())}")
             print(f"Total time taken with {num_processes} processes: {time.time() - start} seconds")
+            print()

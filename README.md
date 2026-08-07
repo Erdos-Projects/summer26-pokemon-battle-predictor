@@ -1,15 +1,25 @@
-## Pokémon Random Battle Predictor
-This project work was part of the Erdős Institute's Summer 2026 Data Science Boot Camp.
+# Pokémon Random Battle Predictor
 
-<u>**Contributors:**</u> Taylor Daniels, Xiaoyu Huang, Greg Knapp, Mohammed Mannan, Marz Newman 
+<u>Contributors:</u> Taylor Daniels, Xiaoyu Huang, Greg Knapp, Mohammed Mannan, Marz Newman 
 
 **[Project Summary](./documentation/ExecutiveSummary.pdf)** | **[Presentation Slides](./documentation/PokemonBattlePredictorSlides.pdf)**
 
---- 
-### Summary
-Pokémon battles are turn-based games in which two players compete with teams of 6 Pokémon. The large number of different Pokémon and different game rulesets allows for enormous variability in 
-gameplay and strategy. One popular game format on battle emulator site [Pokémon Showdown](http://play.pokemonshowdown.com) (“Showdown”) is the “random battle”, where players compete with teams of six 
-Pokémon randomly selected at battle start. Ideally, these randomly generated teams should be evenly balanced, so that, going into a battle, both players have nearly equal chances of winning, and thus the winner is indeed “random”.
+
+## Overview
+
+#### <u>Directories:</u>
+
+* `/data` contains both our model-training data, and details of our collection and cleaning processes.
+* `/documentation` contains a number of detailed write-ups on theoretical tools and motivations for parts of our work.
+* `/misc` contains assorted tools and tests for odds-and-ends.
+* `/tools` contains the core Python files used in our data collection and feature engineering.
+
+#### <u>Models and Results:</u> 
+See [Final_EDA_Summary.ipynb](./Final_EDA_Summary.ipynb) and [Final_Modeling_Summary.ipynb](./Final_Modeling_Summary.ipynb).
+
+
+## Summary
+On the Pokémon battle emulator [Pokémon Showdown](http://play.pokemonshowdown.com) (“Showdown”), the *Generation-9 Random Battle*, where players compete with teams of six randomly selected Pokémon, is currently the most popular game format. Ideally, the Pokémon on these randomly generated teams should be "evenly balanced"  so that, on average, both players have nearly equal chances of winning.
 
 From the Showdown developers’ perspective, there are a number of factors and methods to consider in designing this balanced gameplay. Some primary features to consider are Pokémon's <i>stats</i> (e.g., HP, Attack, Defense) and <i>types</i> (e.g., Fire, Psychic, Ground), and players’ *Elo ratings* (See either [Ratings.md](./documentation/Ratings.md) or [Wikipedia](https://en.wikipedia.org/wiki/Elo_rating_system) for details).  We aim to investigate whether or not the team generation procedure is balanced. If Showdown’s team construction algorithm is balanced, then we expect that comparison of said features should not strongly indicate a player's chance of winning.
 
@@ -61,3 +71,7 @@ On our training data, the baseline- and unbiased Logistic Regression models were
 After testing several supervised learning models, including Logistic Regression, Random Forest, and XGBoost, on our dataset of battle replays, an unbiased Logistic Regression model was our model 
 of choice. After training on data from about 13,000 random battles, said model only achieved a test-data accuracy of 53.6%. 
 As this is not much better than a coin flip's accuracy of 50%, we conclude that the level and move-set scaling performed by Pokémon Showdown for Gen-9 random battles is sufficiently balanced to maintain interesting and unpredictable gameplay.
+
+---
+> [!NOTE]
+> This project work was part of the Erdős Institute's Summer 2026 Data Science Boot Camp.

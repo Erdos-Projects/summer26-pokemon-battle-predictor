@@ -1,0 +1,184 @@
+{
+    "active": [
+        {
+            "moves": [
+                {
+                    "move": "Toxic",
+                    "id": "toxic",
+                    "pp": 16,
+                    "maxpp": 16,
+                    "target": "normal",
+                    "disabled": false
+                },
+                {
+                    "move": "Return 102",
+                    "id": "return",
+                    "pp": 32,
+                    "maxpp": 32,
+                    "target": "normal",
+                    "disabled": false
+                },
+                {
+                    "move": "U-turn",
+                    "id": "uturn",
+                    "pp": 32,
+                    "maxpp": 32,
+                    "target": "normal",
+                    "disabled": false
+                },
+                {
+                    "move": "Rest",
+                    "id": "rest",
+                    "pp": 16,
+                    "maxpp": 16,
+                    "target": "self",
+                    "disabled": false
+                }
+            ]
+        }
+    ],
+    "side": {
+        "name": "Alice",
+        "id": "p1",
+        "pokemon": [
+            {
+                "ident": "p1: Furfrou",
+                "details": "Furfrou-Kabuki, L87, M",
+                "condition": "272/272",
+                "active": true,
+                "stats": {
+                    "atk": 189,
+                    "def": 154,
+                    "spa": 163,
+                    "spd": 206,
+                    "spe": 227
+                },
+                "moves": [
+                    "toxic",
+                    "return102",
+                    "uturn",
+                    "rest"
+                ],
+                "baseAbility": "furcoat",
+                "item": "chestoberry",
+                "pokeball": "pokeball",
+                "ability": "furcoat"
+            },
+            {
+                "ident": "p1: Golduck",
+                "details": "Golduck, L92, F",
+                "condition": "297/297",
+                "active": false,
+                "stats": {
+                    "atk": 155,
+                    "def": 196,
+                    "spa": 227,
+                    "spd": 200,
+                    "spe": 209
+                },
+                "moves": [
+                    "focusblast",
+                    "icebeam",
+                    "scald",
+                    "calmmind"
+                ],
+                "baseAbility": "cloudnine",
+                "item": "leftovers",
+                "pokeball": "pokeball",
+                "ability": "cloudnine"
+            },
+            {
+                "ident": "p1: Floatzel",
+                "details": "Floatzel, L86, M",
+                "condition": "286/286",
+                "active": false,
+                "stats": {
+                    "atk": 230,
+                    "def": 144,
+                    "spa": 195,
+                    "spd": 135,
+                    "spe": 247
+                },
+                "moves": [
+                    "icepunch",
+                    "lowkick",
+                    "liquidation",
+                    "bulkup"
+                ],
+                "baseAbility": "waterveil",
+                "item": "fightiniumz",
+                "pokeball": "pokeball",
+                "ability": "waterveil"
+            },
+            {
+                "ident": "p1: Genesect",
+                "details": "Genesect, L73",
+                "condition": "224/224",
+                "active": false,
+                "stats": {
+                    "atk": 218,
+                    "def": 181,
+                    "spa": 218,
+                    "spd": 181,
+                    "spe": 187
+                },
+                "moves": [
+                    "thunderbolt",
+                    "shiftgear",
+                    "ironhead",
+                    "xscissor"
+                ],
+                "baseAbility": "download",
+                "item": "lifeorb",
+                "pokeball": "pokeball",
+                "ability": "download"
+            },
+            {
+                "ident": "p1: Salazzle",
+                "details": "Salazzle, L84, F",
+                "condition": "251/251",
+                "active": false,
+                "stats": {
+                    "atk": 112,
+                    "def": 149,
+                    "spa": 235,
+                    "spd": 149,
+                    "spe": 245
+                },
+                "moves": [
+                    "toxic",
+                    "substitute",
+                    "flamethrower",
+                    "protect"
+                ],
+                "baseAbility": "corrosion",
+                "item": "blacksludge",
+                "pokeball": "pokeball",
+                "ability": "corrosion"
+            },
+            {
+                "ident": "p1: Garchomp",
+                "details": "Garchomp, L77, F",
+                "condition": "293/293",
+                "active": false,
+                "stats": {
+                    "atk": 245,
+                    "def": 191,
+                    "spa": 168,
+                    "spd": 175,
+                    "spe": 202
+                },
+                "moves": [
+                    "earthquake",
+                    "outrage",
+                    "firefang",
+                    "swordsdance"
+                ],
+                "baseAbility": "roughskin",
+                "item": "garchompite",
+                "pokeball": "pokeball",
+                "ability": "roughskin"
+            }
+        ]
+    }
+}

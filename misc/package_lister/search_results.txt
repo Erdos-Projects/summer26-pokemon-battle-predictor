@@ -1,0 +1,123 @@
+./../../misc/full_pokemon_tests.ipynb:    "from pathlib import Path\n",
+./../../misc/full_pokemon_tests.ipynb:    "import sys\n",
+./../../misc/full_pokemon_tests.ipynb:    "# Adds tools to the system path so we can import the battle and full_pokemon modules\n",
+./../../misc/full_pokemon_tests.ipynb:    "from zipfile import ZipFile\n",
+./../../misc/full_pokemon_tests.ipynb:    "import json"
+./../../misc/time_test.ipynb:    "import sys\n",
+./../../misc/time_test.ipynb:    "from pathlib import Path"
+./../../misc/time_test.ipynb:       "  In [5]: import time\n",
+./../../misc/time_test.ipynb:       "statement to import function or create variables. Generally, the bias\n",
+./../../misc/time_test.ipynb:    "import requests"
+./../../misc/time_test.ipynb:    "import json"
+./../../misc/time_test.ipynb:    "from IPython.display import JSON"
+./../../misc/package_lister/package_parse.ipynb:    "import re\n",
+./../../misc/package_lister/package_parse.ipynb:    "    # What's left should be plain `import ____` lines\n",
+./../../documentation/DataProcessingNotes.ipynb:    "import json\n",
+./../../documentation/DataProcessingNotes.ipynb:    "import json, sys, os\n",
+./../../documentation/DataProcessingNotes.ipynb:    "from pathlib import Path\n",
+./../../documentation/DataProcessingNotes.ipynb:    "from tools.team_compute import get_player_dets, get_teams_full, append_team_stats\n",
+./../../documentation/DataProcessingNotes.ipynb:    "from tools.bat_to_list import battle_to_list\n",
+./../../documentation/DataProcessingNotes.ipynb:    "import os\n",
+./../../documentation/DataProcessingNotes.ipynb:    "import pandas as pd \n",
+./../../tools/scraper.py:import json, time
+./../../tools/scraper.py:import typing
+./../../tools/scraper.py:import logging, requests
+./../../tools/scraper.py:from pathlib import Path
+./../../tools/scraper.py:from dataclasses import dataclass
+./../../tools/scraper.py:from urllib.parse import urlencode
+./../../tools/scraper.py:import argparse
+./../../tools/team_compute.py:import json, re, copy
+./../../tools/team_compute.py:import requests
+./../../tools/team_compute.py:import numpy as np
+./../../tools/team_compute.py:from pathlib import Path
+./../../tools/team_compute.py:from urllib.parse import urlencode
+./../../tools/bat_to_list.py:from tools.full_pokemon import FullPokemon
+./../../tools/full_pokemon.py:import copy
+./../../tools/full_pokemon.py:from math import prod, ceil
+./../../tools/battle.py:import json, copy, time
+./../../tools/battle.py:import re # regex
+./../../tools/battle.py:from dataclasses import dataclass
+./../../Final_Modeling_Summary.ipynb:    "import pandas as pd\n",
+./../../Final_Modeling_Summary.ipynb:    "import numpy as np\n",
+./../../Final_Modeling_Summary.ipynb:    "import matplotlib.pyplot as plt\n",
+./../../Final_Modeling_Summary.ipynb:    "import seaborn as sns\n",
+./../../Final_Modeling_Summary.ipynb:    "from sklearn.linear_model import LogisticRegression\n",
+./../../Final_Modeling_Summary.ipynb:    "from sklearn.tree import DecisionTreeClassifier\n",
+./../../Final_Modeling_Summary.ipynb:    "from sklearn.ensemble import RandomForestClassifier, HistGradientBoostingClassifier\n",
+./../../Final_Modeling_Summary.ipynb:    "from sklearn.model_selection import GridSearchCV, StratifiedKFold\n",
+./../../Final_Modeling_Summary.ipynb:    "from sklearn.metrics import roc_auc_score,roc_curve,accuracy_score,confusion_matrix\n",
+./../../Final_Modeling_Summary.ipynb:    "from sklearn.model_selection import cross_val_score,train_test_split\n",
+./../../Final_Modeling_Summary.ipynb:    "from sklearn.metrics import ConfusionMatrixDisplay\n",
+./../../Final_Modeling_Summary.ipynb:    "from sklearn.pipeline import Pipeline\n",
+./../../Final_Modeling_Summary.ipynb:    "from sklearn.preprocessing import StandardScaler\n",
+./../../Final_Modeling_Summary.ipynb:    "from sklearn.base import BaseEstimator,ClassifierMixin\n",
+./../../Final_Modeling_Summary.ipynb:    "from xgboost import XGBClassifier\n",
+./../../multithreading_example.py:from concurrent.futures import ThreadPoolExecutor
+./../../multithreading_example.py:import sys
+./../../multithreading_example.py:from pathlib import Path
+./../../multithreading_example.py:import json
+./../../multithreading_example.py:from itertools import product
+./../../multithreading_example.py:import time
+./../../multithreading_example.py:from python_calc import Pokemon,advantage
+./../../multiprocessing_example.py:from multiprocessing import Pool
+./../../multiprocessing_example.py:import sys
+./../../multiprocessing_example.py:from pathlib import Path
+./../../multiprocessing_example.py:import json
+./../../multiprocessing_example.py:from itertools import product
+./../../multiprocessing_example.py:import time
+./../../multiprocessing_example.py:from python_calc import Pokemon,advantage
+./../../new_adv_testing.ipynb:    "import sys\n",
+./../../new_adv_testing.ipynb:    "from pathlib import Path\n",
+./../../new_adv_testing.ipynb:    "import json\n",
+./../../new_adv_testing.ipynb:    "from zipfile import ZipFile\n",
+./../../new_adv_testing.ipynb:    "from tools.battle import Battle\n",
+./../../new_adv_testing.ipynb:    "from tools.full_pokemon import FullPokemon\n",
+./../../new_adv_testing.ipynb:    "import copy\n",
+./../../new_adv_testing.ipynb:    "import pandas as pd\n",
+./../../new_adv_testing.ipynb:    "import numpy as np\n",
+./../../new_adv_testing.ipynb:    "from sklearn.preprocessing import StandardScaler\n",
+./../../new_adv_testing.ipynb:    "from sklearn.linear_model import LogisticRegression\n",
+./../../new_adv_testing.ipynb:    "from sklearn.model_selection import cross_val_score,StratifiedKFold,train_test_split\n",
+./../../new_adv_testing.ipynb:    "from sklearn.base import BaseEstimator,ClassifierMixin\n",
+./../../new_adv_testing.ipynb:    "from sklearn.metrics import accuracy_score\n",
+./../../new_adv_testing.ipynb:    "import statsmodels.api as sm\n",
+./../../Final_EDA_Summary.ipynb:    "from pathlib import Path\n",
+./../../Final_EDA_Summary.ipynb:    "import sys\n",
+./../../Final_EDA_Summary.ipynb:    "# Adds tools to the system path so we can import the battle and full_pokemon modules\n",
+./../../Final_EDA_Summary.ipynb:    "from zipfile import ZipFile\n",
+./../../Final_EDA_Summary.ipynb:    "import json\n",
+./../../Final_EDA_Summary.ipynb:    "import numpy as np\n",
+./../../Final_EDA_Summary.ipynb:    "import pandas as pd\n",
+./../../Final_EDA_Summary.ipynb:    "import copy\n",
+./../../Final_EDA_Summary.ipynb:    "import matplotlib.pyplot as plt\n",
+./../../Final_EDA_Summary.ipynb:    "import seaborn as sns\n",
+./../../Final_EDA_Summary.ipynb:    "import statsmodels.api as sm\n",
+./../../Final_EDA_Summary.ipynb:    "from sklearn.preprocessing import StandardScaler\n",
+./../../threading_and_processing_tests.py:import time, os
+./../../threading_and_processing_tests.py:from threading import Thread, current_thread
+./../../threading_and_processing_tests.py:from multiprocessing import Process, current_process,Pool
+./../../threading_and_processing_tests.py:from concurrent.futures import ThreadPoolExecutor
+./../../misc/full_pokemon_tests.ipynb:    "from pathlib import Path\n",
+./../../misc/full_pokemon_tests.ipynb:    "from zipfile import ZipFile\n",
+./../../misc/time_test.ipynb:    "from pathlib import Path"
+./../../documentation/DataProcessingNotes.ipynb:    "from pathlib import Path\n",
+./../../tools/scraper.py:from pathlib import Path
+./../../tools/scraper.py:from dataclasses import dataclass
+./../../tools/team_compute.py:from pathlib import Path
+./../../tools/full_pokemon.py:from math import prod, ceil
+./../../tools/battle.py:from dataclasses import dataclass
+./../../Final_Modeling_Summary.ipynb:    "from xgboost import XGBClassifier\n",
+./../../multithreading_example.py:from pathlib import Path
+./../../multithreading_example.py:from itertools import product
+./../../multithreading_example.py:from python_calc import Pokemon,advantage
+./../../multiprocessing_example.py:from multiprocessing import Pool
+./../../multiprocessing_example.py:from pathlib import Path
+./../../multiprocessing_example.py:from itertools import product
+./../../multiprocessing_example.py:from python_calc import Pokemon,advantage
+./../../new_adv_testing.ipynb:    "from pathlib import Path\n",
+./../../new_adv_testing.ipynb:    "from zipfile import ZipFile\n",
+./../../new_adv_testing.ipynb:    "from python_calc import (\n",
+./../../Final_EDA_Summary.ipynb:    "from pathlib import Path\n",
+./../../Final_EDA_Summary.ipynb:    "from zipfile import ZipFile\n",
+./../../threading_and_processing_tests.py:from threading import Thread, current_thread
+./../../threading_and_processing_tests.py:from multiprocessing import Process, current_process,Pool

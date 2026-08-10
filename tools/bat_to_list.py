@@ -46,7 +46,6 @@ def battle_to_list(bat) :
     
     return data
 
-
 # [[1]]
 # ===========================
 def mon_info_list(Mon, usedQ):
@@ -93,7 +92,6 @@ def mon_info_list(Mon, usedQ):
         _L.append(max(Mon['stats']['atk'], Mon['stats']['spa']))
     
     return _L
-
 
 # [[2]]
 # ===========================

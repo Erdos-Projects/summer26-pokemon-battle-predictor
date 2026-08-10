@@ -1,5 +1,6 @@
 import copy
 from math import prod, ceil
+from constants import TYPE_ARRAY, TYPE_CHART
 
 class FullPokemon:
     """
@@ -24,68 +25,6 @@ class FullPokemon:
     item : str
         The item the pokemon is holding.
     """
-
-    # An ordered list of Pokemon types.
-    TYPE_ARRAY = [
-        "NORMAL",
-        "FIRE",
-        "WATER",
-        "ELECTRIC",
-        "GRASS",
-        "ICE",
-        "FIGHTING",
-        "POISON",
-        "GROUND",
-        "FLYING",
-        "PSYCHIC",
-        "BUG",
-        "ROCK",
-        "GHOST",
-        "DRAGON",
-        "DARK",
-        "STEEL",
-        "FAIRY",
-        ]
-
-    # An list of lists indicating the effectiveness of the offensive type (axis = 0) against the defensive type (axis = 1)
-    TYPE_CHART = [
-# Normal
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 1, 1, 0.5, 1],
-# Fire
-    [1, 0.5, 0.5, 1, 2, 2, 1, 1, 1, 1, 1, 2, 0.5, 1, 0.5, 1, 2, 1],
-# Water
-    [1, 2, 0.5, 1, 0.5, 1, 1, 1, 2, 1, 1, 1, 2, 1, 0.5, 1, 1, 1],
-# Electric
-    [1, 1, 2, 0.5, 0.5, 1, 1, 1, 0, 2, 1, 1, 1, 1, 0.5, 1, 1, 1],
-# Grass
-    [1, 0.5, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 0.5, 2, 1, 0.5, 1, 0.5, 1],
-# Ice
-    [1, 0.5, 0.5, 1, 2, 0.5, 1, 1, 2, 2, 1, 1, 1, 1, 2, 1, 0.5, 1],
-# Fighting
-    [2, 1, 1, 1, 1, 2, 1, 0.5, 1, 0.5, 0.5, 0.5, 2, 0, 1, 2, 2, 0.5],
-# Poison
-    [1, 1, 1, 1, 2, 1, 1, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 1, 1, 0, 2],
-# Ground
-    [1, 2, 1, 2, 0.5, 1, 1, 2, 1, 0, 1, 0.5, 2, 1, 1, 1, 2, 1],
-# Flying
-    [1, 1, 1, 0.5, 2, 1, 2, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 0.5, 1],
-# Psychic
-    [1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 0.5, 1, 1, 1, 1, 0, 0.5, 1],
-# Bug
-    [1, 0.5, 1, 1, 2, 1, 0.5, 0.5, 1, 0.5, 2, 1, 1, 0.5, 1, 2, 0.5, 0.5],
-# Rock
-    [1, 2, 1, 1, 1, 2, 0.5, 1, 0.5, 2, 1, 2, 1, 1, 1, 1, 0.5, 1],
-# Ghost
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 0.5, 1, 1],
-# Dragon
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 0.5, 0],
-# Dark
-    [1, 1, 1, 1, 1, 1, 0.5, 1, 1, 1, 2, 1, 1, 2, 1, 0.5, 1, 0.5],
-# Steel
-    [1, 0.5, 0.5, 0.5, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0.5, 2],
-# Fairy
-    [1, 0.5, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 1, 1, 1, 2, 2, 0.5, 1],
-    ]
 
     def __init__(self,info_dict : dict):
         """
@@ -144,7 +83,7 @@ class FullPokemon:
         int
             The index of the argument in TYPE_ARRAY."""
         
-        return FullPokemon.TYPE_ARRAY.index(type.upper())
+        return TYPE_ARRAY.index(type.upper())
 
     @staticmethod
     def eff(t1: str, t2: str) -> float:
@@ -162,7 +101,7 @@ class FullPokemon:
         float
             The damage multiplier if an attack of type t1 is used against a (monotype) Pokemon of type t2."""
         
-        return FullPokemon.TYPE_CHART[FullPokemon.get_type_index(t1)][FullPokemon.get_type_index(t2)]
+        return TYPE_CHART[FullPokemon.get_type_index(t1)][FullPokemon.get_type_index(t2)]
 
     @staticmethod
     def type_multiplier(m1: "FullPokemon", m2: "FullPokemon") -> float:
@@ -197,7 +136,6 @@ class FullPokemon:
         toReturn = stab_multiplier * max(prod(FullPokemon.eff(t1,t2) for t2 in m2.types) for t1 in m1.types)
         return max(1/2,toReturn)
     
-    
     def stat_multiplier(self,stat:str) -> float:
         """Returns the multiplier to stat that self gets from its ability and held item.
 
@@ -215,7 +153,6 @@ class FullPokemon:
         """
 
         return self.item_stat_multiplier(stat) * self.mon_stat_multiplier(stat)
-    
     
     def mon_stat_multiplier(self,stat:str) -> float:
         """Returns the multiplier that this Pokemon gets to stat due to its ability.
@@ -251,7 +188,6 @@ class FullPokemon:
         else:
             return 1
 
-    
     def item_stat_multiplier(self,stat:str) -> float:
         """Returns the multiplier that self gets to stat coming from its item.
         
@@ -282,7 +218,6 @@ class FullPokemon:
         else:
             return 1
         
-
     def damage_multiplier(self) -> float:
         """Returns the multiplier that self gets to the damage that it deals coming from its item.
         
@@ -299,7 +234,6 @@ class FullPokemon:
         else:
             return 1
         
-    
     @staticmethod
     def ditto_transform(m1: "FullPokemon", m2 : "FullPokemon") -> tuple["FullPokemon","FullPokemon"]:
         """Transforms Ditto into its opposing Pokemon.

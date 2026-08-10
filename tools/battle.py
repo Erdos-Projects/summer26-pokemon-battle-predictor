@@ -1,5 +1,5 @@
 '''
-Overview of battle.py 
+Overview of battle.py
 #################################################
 
 This module contains the classes Battle, BattleState, Team, Pokemon, and dataclass Player.
@@ -10,30 +10,30 @@ It is meant to process Pokemon Showdown battle replay JSON files. See `/document
 import json, copy, time
 import re # regex
 
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 
 #################################################
 # Helper classes (Player, Team, Pokemon)
 #################################################
 @dataclass
-class Player: 
+class Player:
     """
-    Player(name, side, elo0, elo1)
+    Player(name, elo0, elo1, seed)
 
     Dataclass for match players.
 
     Attributes
     ---------------
     .name: str
-    .side: int # 1 or 2
     .elo0: int # Elo at match start
     .elo1: int # Elo after match
+    .seed: str # random seed for team generation
     """
 
     name: str
-    side: int
     elo0: int # old
     elo1: int # new
+    seed: str # random seed for team generation
 
 
 class Team:
@@ -58,7 +58,7 @@ class Pokemon:
     def __repr__(self):
         _out = "{" + f"spec: {self.spec}, lvl: {self.lvl}, hp/max: {self.hp}/{self.hp_max}" + "}"
         return _out
-    
+
 #################################################
 
 # Extra functions to help with printing teams
@@ -77,7 +77,7 @@ def team_full_str(team_full: dict):
         dict_to_show['hp'] = poke_entry['stats']['hp']
         _out += f" > {poke}: {dict_to_show}\n"
     return _out
-        
+
 
 
 
@@ -86,13 +86,13 @@ def team_full_str(team_full: dict):
 #################################################
 class Battle:
     """
-    Battle(file_name, parse=False, verbose=False)
-    
-    Class that reads-in a PokemonShowdown! replay JSON file, and does some basic parsing.
-    
+    Battle(data_json, parse=False, verbose=False)
+
+    Class that reads-in a Pokemon Showdown replay JSON file, and does some basic parsing.
+
     Parameters
     ----------
-    data_json: json
+    data_json: dict
         json file with basic information about the battle.
     parse: bool
         If False, only reads-in existing JSON fields;
@@ -100,103 +100,98 @@ class Battle:
     verbose: bool
         If True, print what Turn etc. parser is currently working on.
 
-        
+
     Attributes (Some)
     ---------------
         .id (ex: `gen9randombattle-2631360263`)
         .format (ex: `[Gen 9] Random Battle`)
-        
-        .player1: <class Player> 
-        .player2: <class Player>
+
+        <Player> objects duplicating self.players[0-1] for easy reference.
+        .p1: <class Player>
+        .p2: <class Player>
+
+        .team1
+        .team2
         
         .start_time: game start time (in seconds since the 'Epoch')
         .end_time: (technically the time at the start of the final turn)
         .match_time: equal to .end_time-.start_time
-        
-        .winner: <class Player>
-        .loser: <class Player>
-        
-        .lead_pokemon: array `[ <lead1>, <lead2> ]` 
+
+        .winner: int
+            0, 1, or 2 for 'tie/unknown', 'p1 win', and 'p2 win', respectively.
+
+        .lead_pokemon: array `[ <lead1>, <lead2> ]`
         .teams: array `[ <teamDict1>, <teamDict2> ]`
             - Only contains the pokemon appearing 'during' the match (as read by parser)
         .teams_full: `[<teamDict1>, <teamDict2>]`
-        
+
         Logs
         ---------------------------------------
         .log: the main text log
         .inputlog: extra thing that contains the team seeds etc.
-        
+
         .head: everything before '|start'
         .bat: everything in range ['|start', '|win|')
         .tail: everything after .bat
-        
+
         States
         ---------------------------------------
-        .TURNS: Array of turn-strings from splitting .bat. 
+        .TURNS: Array of turn-strings from splitting .bat.
             * .TURNS[i] gives the raw string for Turn `i`
             * Note 'turn0' = fielding leading pokemon
         .STATES: List of BattleStates (incl State0).
     """
-    def __init__(self, data_json, parse=False, verbose=False):
-        data = data_json
+    def __init__(self, data: dict, parse=False, verbose=False):
+        
         # -----------------------------
         # Initializing metadata/attributes
-        self.id = data.get('id', '')
-        self.format = data.get('format', '')
-        self.formatid = data.get('formatid', '')
+        for key in data.keys():
+            self.__setattr__(key, data.get(key))
         
-        self.rating = data.get('rating', None)
-        self.rated = (self.rating != None)
-        
-        # self.time_list = [] # times can be wrapped into different Turn/State classes
+
         self.start_time = data.get('start_time', 0)
         self.end_time = data.get('end_time', 0)
         self.match_time = data.get('match_time', 0)
+        self.turns = data.get('turns', 0)
 
-        self.winner = data.get('winner', "")
-        self.loser = data.get('loser', "")
+        self.winner = 0 # tie/unknown = 0, p1 wins = 1, p2 wins = 2
 
-        self.players = data.get('players', [])
         self.player_dets = data.get('player_dets', []) # more info about players... may be redudant with self.p1, self.p2
         self.teams_full = data.get('teams_full', []) # full teams including stats
 
         self.lead_pokemon = data.get('lead_pokemon', [])
         self.STATES = data.get('STATES', [])
 
-        self.gametype = data.get('gametype', '')
         self.custom_ruleQ = data.get('custom_ruleQ', None)
 
-        self.inputlog = data.get("inputlog")
-        self.log = data.get("log")
-
         # -----------------------------
-        if parse : 
-            
+        if parse :
+
             # log setup
             self.log = re.sub(r'\n\|\n', '\n', self.log) # delete any lines that are only `|`
-    
+
             # `head` takes 'START'->'|start', `tail` takes '|win|'->'END', and `bat` is what's in-between.
             self.head, self.bat, self.tail = self._head_sep(self.log)
-    
+
             # -----------------------------
             # processing `head`
             self.gametype = self._init_gametype(self.head)
             self.custom_ruleQ = (re.search(r'custom rule', self.head) != None)
-            
+
             self.start_time = self._init_time(self.head)
-            
+
             try:
                 self.p1, self.p2 = self._init_players(self.head)
             except:
                 print(f"error in parsing `players` of battle {self.id}")
-    
+
             # -----------------------------
             # processing `bat`
             self.bat = re.sub(r'\|start\n', '|turn|0\n', self.bat)
             self.TURNS = re.split(r'\|turn\|', self.bat)[1:] # discard initial ''
-            
+
             # initialize/parse starting state ("turn 0")
-            
+
             # Need to allow for Zoroark weirdness:
             if 'Zoroark' in self.teams_full[0].keys() :
                 poke = self.teams_full[0]['Zoroark']
@@ -206,15 +201,15 @@ class Battle:
                 poke = self.teams_full[1]['Zoroark']
                 D1_0 = {poke['name'] : Pokemon(poke['name'], poke['species'], poke['level'], poke['stats']['hp'], poke['stats']['hp'])}
             else : D1_0 = {}
-            
+
             BS_0 = BattleState(
                 Team(side=1, active='', D=D0_0),
-                Team(side=2, active='', D=D1_0), 
+                Team(side=2, active='', D=D1_0),
                 self.TURNS[0],
                 battle_id = self.id
             )
             BS_0.time = self.start_time # turn 0 time is match start
-            
+
             self.STATES = [BS_0]
             for i in range(len(self.TURNS)-1): # -1 b/c I use `i+1` below
                 BS_i = self.STATES[i]
@@ -226,24 +221,24 @@ class Battle:
                     battle_id = self.id
                 )
                 self.STATES.append(BS_new)
-                if verbose : 
+                if verbose :
                     BS_new.print()
-    
+
             # [<starter>]
             self.lead_pokemon = [
-                BS_0.team1.active, 
+                BS_0.team1.active,
                 BS_0.team2.active
-            ] 
-    
+            ]
+
             # -----------------------------
             # processing `tail`
             self.parse_tail(self.tail)
-    
+
             self.end_time = self.STATES[-1].time
             if self.end_time == 0 : self.end_time = self.STATES[-2].time
-            
+
             self.teams = [
-                self.clean_team(self.STATES[-1].team1.D), 
+                self.clean_team(self.STATES[-1].team1.D),
                 self.clean_team(self.STATES[-1].team2.D)
             ] # [<{team_set}>]
 
@@ -253,31 +248,30 @@ class Battle:
 
     # =================================
     def __repr__(self):
-        to_return = f"%%%%%%%%%%   Battle {self.id}   %%%%%%%%%%\n"; 
+        to_return = f"%%%%%%%%%%   Battle {self.id}   %%%%%%%%%%\n";
         to_return += f"============================================================\n";
-        
+
         if self.rated:
             to_return += f"This was a battle between {self.p1.name} (pre-match rating {self.p1.elo0}) "
             to_return += f"and {self.p2.name} (pre-match rating {self.p2.elo0}).\n\n"
         else:
             to_return += f"This was a battle between {self.p1.name} and {self.p2.name}.\n\n"
-        
+
         to_return += f"{self.p1.name}'s lead pokemon was {self.lead_pokemon[0]}, "
         to_return += f"and their team (by `base`) was\n{team_full_str(self.teams_full[0])}\n"
         to_return += f"{self.p2.name}'s lead pokemon was {self.lead_pokemon[1]}, "
         to_return += f"and their team (by `base`) was\n{team_full_str(self.teams_full[1])}\n"
-        
+
         to_return += f"{self.winner.name} won!\n"
         if self.rated:
             to_return += f"{self.winner.name}'s rating increased to {self.winner.elo1}.\n"
             to_return += f"{self.loser.name}'s rating fell to {self.loser.elo1}.\n"
         else:
             to_return += "This was an unrated match, so no one's rating changed.\n"
-        
+
         to_return += f"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n"
         return to_return
 
-        
     # These are meant to be run only in __init__
     # =================================
     def _head_sep(self, log): # separate log into 'header' and 'battle'
@@ -288,42 +282,38 @@ class Battle:
     def _init_time(self, head):
         secs = re.search(r'\|t:\|(\d+)$', head, re.M).group(1)
         return int(secs) # returns a `time.tm` object
-    
+
     def _init_gametype(self, head):
         return re.search(r'\|gametype\|(\w*)$', head, re.M).group(1)
-    
+
     def _init_players(self, head):
         # test: |player|p1|kaisarian|lucas-gen4pt|
         # test: |player|p2|Flamesenpai557|101|
-        player_pat = re.compile(r'\|player\|p(?P<side>\d)\|(?P<name>.*)\|(.*)\|(?P<elo>\d+)?\n'); # player line pattern
 
-        p1 = player_pat.search(head)
-        search_ind = p1.end() # advance the search beginning
-        p2 = player_pat.search(head, pos=search_ind)
+        # match objects for p1 and p2
+        m1 = re.search(r'\|player\|p1\|(?P<name>.*)\|(.*)\|(?P<elo>\d+)?\n', head);
+        m2 = re.search(r'\|player\|p2\|(?P<name>.*)\|(.*)\|(?P<elo>\d+)?\n', head);
 
         # if battle unrated then elo is 'None'; we set to 0
-        if p1.group('elo') == None : p1_elo = 0
-        else : p1_elo = p1.group('elo') 
+        p1_elo = int(m1.group('elo')) if m1.group('elo') is not None else 0
+        p2_elo = int(m2.group('elo')) if m2.group('elo') is not None else 0
         
-        if p2.group('elo') == None : p2_elo = 0
-        else : p2_elo = p2.group('elo')
-            
         player1 = Player(
-            name = p1.group('name'), 
-            side = int(p1.group('side')),
-            elo0 = int(p1_elo),
-            elo1 = int(p1_elo), # set equal for now
+            name = m1.group('name'),
+            side = int(m1.group('side')),
+            elo0 = p1_elo,
+            elo1 = p1_elo, # = elo0 for now
         )
         player2 = Player(
-            name = p2.group('name'), 
-            side = int(p2.group('side')),
-            elo0 = int(p2_elo),
-            elo1 = int(p2_elo), # set equal for now
+            name = m2.group('name'),
+            side = int(m2.group('side')),
+            elo0 = p2_elo,
+            elo1 = p2_elo, # = elo0 for now
         )
-        
+
         return player1, player2
 
-        
+
     # =================================
     def parse_tail(self, tail):
         match = re.match(r'\|win\|(.*)?\n', tail)
@@ -333,28 +323,28 @@ class Battle:
         except AttributeError as e:
             print("Error parsing |win| line.")
             return None
-        
-        if win_name == self.p1.name : 
+
+        if win_name == self.p1.name :
             self.winner = self.p1
-        else: 
+        else:
             self.winner = self.p2
 
-        if self.winner.side == 1 : 
+        if self.winner.side == 1 :
             self.loser = self.p2
         else:
             self.loser = self.p1
 
         # parse Elo changes by finding deltas +/-, then applying
-        if self.rated : 
+        if self.rated :
             match_lose = re.search(r'\|raw\|(?:.*?)\([-+](?P<EloLoss>\d+) for losing\)\n', tail)
             match_win = re.search(r'\|raw\|(?:.*?)\([-\+](?P<EloGain>\d+) for winning\)\n', tail)
-    
+
             try:
                 elo_loss = int(match_lose.group('EloLoss'))
                 self.loser.elo1 -= elo_loss # detract points
             except AttributeError as e:
                 print("Error parsing Elo for loser "+f"(id:{self.id})")
-            try: 
+            try:
                 elo_gain = int(match_win.group('EloGain'))
                 self.winner.elo1 += elo_gain
             except AttributeError as e:
@@ -362,19 +352,19 @@ class Battle:
 
         return None
 
-    
+
     # =================================
     # in essence this just resets all team HP's to max for printing purposes
     def clean_team(self, teamD: dict):
-        if teamD == {} : 
+        if teamD == {} :
             print("Need to pass a nonempty Team object.")
             return None
-            
+
         _team = copy.deepcopy(teamD)
         for form in _team.keys():
             _team[form].hp = _team[form].hp_max
         return _team
-        
+
 
 
 
@@ -384,21 +374,21 @@ class Battle:
 #################################################
 class BattleState:
     # feed current teams and turn string, plus optional battle start_time and id (for debugging)
-    def __init__(self, team1, team2, turn: str, match_start_time = 0, battle_id = ''): 
+    def __init__(self, team1, team2, turn: str, match_start_time = 0, battle_id = ''):
         self.turn = int(re.match(r'(\d+)\n', turn).group(1)) # split turn-strings start with `#\n`
-        
+
         # update self.time if a timestamp appears in `turn`
         self.time = 0
         t_match = re.search(r'\|t:\|(\d+)\n', turn)
         if t_match != None :
             self.time = int(t_match.group(1))
-        
-        self.team1 = team1 
-        self.team2 = team2 
-        
+
+        self.team1 = team1
+        self.team2 = team2
+
         self.elapsed_time = self.time - match_start_time
         self.battle_id = battle_id
-        
+
         self.parse_turn(turn) # main builder
 
     # =================================
@@ -415,17 +405,17 @@ class BattleState:
         _out += f"  Team: {self.team2}\n"
         print(_out)
 
-    
+
     # =================================
-    # Line Parsers 
+    # Line Parsers
     # =================================
     # These accept only single lines
-    
+
     def parse_switch(self, s: str):
         # test string: '|switch|p1a: Delphox|Delphox, L84, F|263/263'
         match = re.match(r"\|switch\|p(?P<plr>\d)a?: (?P<base>[\w'\- ]+)\|(?P<forme>[\w'\- ]+), (?P<lvl>L\d+)?(?:.*?)\|(?P<hp>\d+)/(?P<hpmax>\d+)(?:.*?)$", s, re.M)
         D = match.groupdict() # dictionary of captured 'groups'; for brevity
-        
+
         player = int(D['plr'])
         base = D['base']
         forme = D['forme']
@@ -440,7 +430,7 @@ class BattleState:
             poke = Pokemon(base, forme, lvl, hp, hpmax)
             self.team1.D[base] = poke
             self.team1.active = forme
-        else: 
+        else:
             poke = Pokemon(base, forme, lvl, hp, hpmax)
             self.team2.D[base] = poke
             self.team2.active = forme
@@ -451,7 +441,7 @@ class BattleState:
         # test string: '|drag|p1a: Delphox|Delphox, L84, F|263/263'
         match = re.match(r"\|drag\|p(?P<plr>\d)a?: (?P<base>[\w\- ]+)\|(?P<forme>[\w'\- ]+), (?P<lvl>L\d+)?(?:.*?)\|(?P<hp>\d+)/(?P<hpmax>\d+)(?:.*?)$", s, re.M)
         D = match.groupdict() # dictionary of captured 'groups'; for brevity
-        
+
         player = int(D['plr'])
         base = D['base']
         forme = D['forme']
@@ -461,41 +451,41 @@ class BattleState:
         # level 100 pokemon do not have a listed `level` in the log
         if D['lvl'] == None : lvl = 100
         else : lvl = int(D['lvl'][1:]) # [1:] to map 'L##' |-> '##'
-        
+
         if player == 1:
             poke = Pokemon(base, forme, lvl, hp, hpmax)
             self.team1.D[base] = poke
             self.team1.active = forme
-        else: 
+        else:
             poke = Pokemon(base, forme, lvl, hp, hpmax)
             self.team2.D[base] = poke
             self.team2.active = forme
         return None
-    
+
     # =================================
     def parse_damage(self, s: str):
         # test strings
         # S1 = '|-damage|p2a: Snorlax|291/397|[from] item: Rocky Helmet|[of] p1a: Skarmory'
         # S2 = '|-damage|p1a: Wugtrio|0 fnt'
-            
+
         # most damage lines look like this
         match = re.match(r"\|-damage\|p(?P<plr>\d)a?: (?P<base>[\w'\- ]+)\|(?P<hp>\d+)/(?P<hpmax>\d+).*$", s, re.M)
         if match == None :
             # could be a 'fainting line'
             match = re.match(r"\|-damage\|p(?P<plr>\d)a?: (?P<base>[\w'\- ]+)\|(?P<hp>\d+) fnt(?:.*?)$", s, re.M)
-    
+
         # if neither work, stop
-        if match == None : 
+        if match == None :
             print("Could not parse line:\n%s" % s)
             return None
-            
+
         D = match.groupdict() # for brevity
-        
+
         player = int(D['plr'])
         base = D['base']
         hp = int(D['hp'])
-        
-        if player == 1 : 
+
+        if player == 1 :
             poke = self.team1.D[base]
             poke.hp = hp
             if D.get('hpmax') != None : poke.hp_max = int(D['hpmax'])
@@ -510,15 +500,15 @@ class BattleState:
         # test strings
         # S1 = '|-heal|p1a: Skarmory|169/235'
         # S2 = '|-heal|p2a: Wigglytuff|423/424|[from] item: Leftovers'
-        
+
         match = re.match(r"\|-heal\|p(?P<plr>\d)a?:\s(?P<base>[\w'\- ]+)\|(?P<hp>\d+)/(?P<hpmax>\d+).*$", s, re.M)
         D = match.groupdict() # for brevity
-        
+
         player = int(D['plr'])
         base = D['base']
         hp = D['hp']
-        
-        if player == 1 : 
+
+        if player == 1 :
             poke = self.team1.D[base]
             poke.hp = hp
             if D.get('hpmax') != None : poke.hp_max = int(D['hpmax'])
@@ -532,7 +522,7 @@ class BattleState:
     # Main Parser
     # =================================
     def parse_turn(self, turn: str):
-        for line in turn.split('\n'): 
+        for line in turn.split('\n'):
             try:
                 if line.startswith('|switch|') : self.parse_switch(line)
                 elif line.startswith('|drag|') : self.parse_drag(line)

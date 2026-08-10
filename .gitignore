@@ -3,3 +3,5 @@
 **/__pycache__/*
 **/.idea/*
 **/.vscode/*
+/data/replays/gen9-randombattle*/
+/data/replays/gen9-randombattle/

@@ -9,13 +9,19 @@
 
 #### <u>Directories:</u>
 
-* `/data` contains both our model-training data, and details of our collection and cleaning processes.
-* `/documentation` contains a number of detailed write-ups on theoretical tools and motivations for parts of our work.
-* `/misc` contains assorted tools and tests for odds-and-ends.
-* `/tools` contains the core Python files used in our data collection and feature engineering.
+```
+summer26-pokemon-battle-predictor/
+├─ data/
+│  └─ replays/
+├─ documentation/
+├─ modeling/
+├─ misc/
+├─ parallel_computation/ # testing computing "advantage" stat at-scale.
+└─ tools/
+```
 
 #### <u>Models and Results:</u> 
-See [Final_EDA_Summary.ipynb](./Final_EDA_Summary.ipynb) and [Final_Modeling_Summary.ipynb](./Final_Modeling_Summary.ipynb).
+See [Final_EDA_Summary.ipynb](modeling/Final_EDA_Summary.ipynb) and [Final_Modeling_Summary.ipynb](modeling/Final_Modeling_Summary.ipynb).
 
 
 ## Summary

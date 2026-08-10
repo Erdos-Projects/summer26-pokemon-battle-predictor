@@ -1,10 +1,10 @@
 # Gathering and cleaning data
 
-<span style="color:green">FYI a Jupyter notebook version of this document is available: [DataProcessingNotes.ipynb](DataProcessingNotes.ipynb)</span> 
+<span style="color:green">FYI a Jupyter notebook version of this document is available: [DataProcessingNotes.ipynb](../misc/DataProcessingNotes.ipynb)</span> 
 
 ------
 
-## (1) Scraping Replays from PokemonShowdown! (PS)
+## (1) Scraping Replays from Pokemon Showdown (PS)
 
 <span style="color:green">Note:</span> For simplicity, here we assume that `pwd` is the repo base directory "`/`".
 

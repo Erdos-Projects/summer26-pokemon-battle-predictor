@@ -23,8 +23,8 @@ index e4f3507f1..98a73a4e4 100644
 +		const dataObjects = filteredSpecies.map( s =>
 +			this.dex.species.get(s.name)
 +		);
-+		// change <PATH> to your desired directory
-+		fs.writeFileSync('<PATH>/pokedexRaw.json', JSON.stringify(dataObjects, null, 2), 'utf-8');
++		// change './pokedex_raw.json' to your desired filepath
++		fs.writeFileSync('./pokedex_raw.json', JSON.stringify(dataObjects, null, 2), 'utf-8');
 +
  		this.factoryTier = '';
  		this.format = format;

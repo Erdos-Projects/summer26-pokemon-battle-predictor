@@ -84,13 +84,8 @@ import json
 with open('./../data/pokedex.json','r') as file:
     POKEDEX_raw = json.load(file)
 
-# Pokedex is originally like a list-of-dicts, 
-# but bookended with `{ }` not `[ ]`.
-POKEDEX = { item['id'] : {key:item.get(key) for key in item.keys()} for item in POKEDEX_raw }
+POKEDEX = { mon['id'] : {key : mon[key] for key in mon.keys()} for mon in POKEDEX_raw }
 
-# saving to file
 with open('./../data/pokedex.json', 'w') as file:
     json.dump(POKEDEX, file)
 ```
-
-

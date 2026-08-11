@@ -1,10 +1,27 @@
-import json, re, copy, time
+#!/usr/bin/env python
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#            IMPORTS, CONSTANTS
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+import re, sys, time
+import copy, json
 import requests
 
 import numpy as np
 
 from dataclasses import dataclass, asdict
 from urllib.parse import urlencode
+from pathlib import Path
+
+# getting the project root
+PROJECT_ROOT = Path.cwd()
+while (PROJECT_ROOT.name != "summer26-pokemon-battle-predictor") and (PROJECT_ROOT.parent != PROJECT_ROOT):
+    PROJECT_ROOT = PROJECT_ROOT.parent
+sys.path.append(str(PROJECT_ROOT))
+
+DATA_DIR = PROJECT_ROOT / "data"
+PARSED_CSV_PATH = DATA_DIR / "data_cleaned.csv.zip"
+
+
 
 #################################################
 # Helper classes and functions
@@ -54,9 +71,9 @@ def team_from_seed(seed: str) -> dict:
     return team
 
 
-#################################################
-# Battle
-#################################################
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#                BATTLE
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 class Battle:
     """
     ParseBattle(data_json, verbose=False)
@@ -73,22 +90,18 @@ class Battle:
 
     Attributes (Some)
     ---------------
-        .p1, .p2 : <Player> objects
-            duplicating self.players[0-1] for easy reference.
+        .p1, .p2: Player
+        .players: [.p1, .p2]
 
-        .team1
-        .team2
-        
+        .team1, .team2: list[dict]
+        .teams: [.team1, .team2]
+
         .start_time: game start time (in seconds since the 'Epoch')
         .end_time: (technically the time at the start of the final turn)
-        .match_time: equal to .end_time-.start_time
+        .match_time = .end_time-.start_time
 
         .winner: int
             0, 1, or 2 for 'tie/unknown', 'p1 win', and 'p2 win', respectively.
-
-        .teams: array `[ <teamDict1>, <teamDict2> ]`
-            - Only contains the pokemon appearing 'during' the match (as read by parser)
-        .teams_full: `[<teamDict1>, <teamDict2>]`
 
         Logs
         ---------------------------------------
@@ -98,13 +111,6 @@ class Battle:
         .head: everything before '|start'
         .battle: everything in range ['|start', '|win|')
         .tail: everything after .battle
-
-        States
-        ---------------------------------------
-        .TURNS: Array of turn-strings from splitting .battle.
-            * .TURNS[i] gives the raw string for Turn `i`
-            * Note 'turn0' = fielding leading pokemon
-        .STATES: List of BattleStates (incl State0).
     """
     def __init__(self, data: dict, verbose=False):
         
@@ -134,11 +140,8 @@ class Battle:
 
         # -----------------------------
         # get players and seeds
-        try:
-            self.p1, self.p2 = self.get_players()
-            self.players = [self.p1, self.p2] # for compatibility with Showdown's original fields.
-        except:
-            print(f"error in parsing `players` of battle {self.id}")
+        self.p1, self.p2 = self.get_players()
+        self.players = [self.p1, self.p2] # for compatibility with Showdown's original fields.
 
         # -----------------------------
         self.winner = 0 # tie/unknown = 0, p1 wins = 1, p2 wins = 2
@@ -399,17 +402,18 @@ class Battle:
     def get_mon_idx(self, side: int, species: str) -> int:
         return self.team_species[side - 1].index(species)
 
-# ===============================================
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 # add the BVs and computed Stats to each Pokemon
-def get_stats(DEX: dict, mon: dict):
+def get_stats(mon: dict):
     '''
-    Input poke dict, compute total stats for each Pokemon in it, append to Pokemon, and return team.
+    Input single Pokémon dict, compute total stats, and return appended dict.
     '''
     speciesId = mon['speciesId']
 
     try:
         poke['bvs'] = copy.deepcopy(DEX[speciesId]['baseStats'])  # deepcopy for safety
-        poke['stats'] = compute_stats(poke)  # [[3]]
+        poke['stats'] = stat_formula(poke)  # [[3]]
         poke['types'] = copy.deepcopy(DEX[speciesId].get('types'))
     except:
         print("error with pokemon %s (%s)" % (species, battle_id))

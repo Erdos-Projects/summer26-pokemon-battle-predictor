@@ -1,4 +1,13 @@
-# Bradley-Terry; Elo
+# Notes on some rating systems 
+
+> [!NOTE] 
+> These are notes on some rating systems employed by various leagues, sports, and gaming sites,
+> including Pokémon Showdown. Presently, only the notes on [Elo](##Elo) ratings 
+> are really relevant for the project's analyses, though the other systems may be of interest. 
+
+---
+
+## Bradley-Terry
 **Idea:** Players $A$ and $B$ will compete, and exactly one will Win; "Draw" is not allowed for simplicity. In the Bradley-Terry model (or "rating system"), the *ratings* $R_A$ and $R_B$ should determine win probabilities according to
 ```math
     P(A \text{ Wins}) = \frac{R_{A}}{R_{A} + R_{B}}
@@ -17,7 +26,7 @@ The standard *sigmoid* function is $S(x) := 1/(1 + e^{-x})$, and lets us compact
 ```
 It is interesting to note that $S' = \frac{e^{-x}}{(1+e^{-x})^2} = S(1-S)$.
 
-
+---
 
 ## Elo
 
@@ -34,11 +43,12 @@ The [Elo rating system](https://en.wikipedia.org/wiki/Elo_rating_system), design
 ```
 
 
-### Updates in Elo; "K-scaling"
+### Rating updates and "K-scaling"
 
-*Suppose everyone has ratings (or is seeded with some rating, maybe 1000?)*. We update ratings after matches as follows: 
+*Suppose everyone has ratings (or is seeded with some rating, say 1000)*. We update ratings after matches as follows: 
 
-1. **(Win Probabilities):** When $A$ and $B$ will play, they can *score* $s_A, s_B \in \{0, 1\}$ for "Lose" and "Win", respectively, [a score of $s = \frac{1}{2}$ can be used if Draw is allowed]. Because $0$, $1$ are the only possible outcomes, the "*expected scores*" are
+1. **(Win Probabilities):** In a game, $A$ and $B$ can "score" $s_A, s_B \in \{0, 1\}$ for "Lose" and "Win", respectively. One can use $s = \frac{1}{2}$ for "Draw" if appropriate, but we stick to 
+$\{0,1\}$ here. Because $0$, $1$ are the only possible outcomes, the "*expected scores*" are
 ```math
 E[s_A] = P_A := P(A\text{ Wins}) \qquad\text{and}\qquad E[s_B] = P_B := P(B\text{ Wins})
 ```
@@ -58,11 +68,13 @@ E[s_A] = P_A := P(A\text{ Wins}) \qquad\text{and}\qquad E[s_B] = P_B := P(B\text
 \end{align}
 ```
 
-4. **(General Ante):** In practice (Pokémon Showdown: [see here](https://pokemonshowdown.com/pages/ladderhelp.md); FIDE (Int'l. Chess Fed.) [see here](https://ratings.fide.com/calc.phtml?page=change)), players use *separate* $K$-values $K_A$ and $K_B$ determined according to some scheme&mdash;usually a piecewise linear/step function or something similarly simple.
+4. **(General Ante):** In common practice, players use *separate* $K$-values $K_A$ and $K_B$ determined according to some 
+scheme&mdash;usually a piecewise linear/step function or something similarly simple. For instance, both Pokémon Showdown and FIDE 
+(the Int'l. Chess Fed.) use versions of this practice (as seen [here](https://pokemonshowdown.com/pages/ladderhelp.md) and [here](https://ratings.fide.com/calc.phtml?page=change), respectively).
 
+---
 
-
-# Glicko-1
+## Glicko-1
 
 1. **(Stats):** Players now have two stats, **rating** $r$ and **rating deviation** $d$ (usually written $\mathrm{RD}$ in the literature), with "seed" values of $r=1500$ and $d=350$. Moreover, for brevity let
 ```math
@@ -90,9 +102,9 @@ where
 ```
 On the other hand, the use of $\pm 1.96\mathrm{D}$ is 'suspicious' because that's exactly what you would get for a 95% confidence interval using $N(r,\mathrm{D})$.
 
+---
 
-
-# GXE
+## GXE
 
 * "X-Act" was allegedly a mathematician active in Smogon forums long ago (~2008+) who suggested the "*Glicko-X-Act-Rating-Estimate*", shortened to GLIXARE and now **GXE**.
 * These notes are based on this [thread](https://www.smogon.com/forums/threads/gxe-glixare-a-much-better-way-of-estimating-a-players-overall-rating-than-shoddys-cre.51169/), in which X-Act outlines the method, and updates the original post after a little discussion. Thus, for completeness the Showdown! source code should be checked against this.
@@ -116,8 +128,9 @@ and then (*per X-Act's description*)
     \mathrm{GXE}(A) := \tfrac{1}{100} \texttt{Round}\big({10,\!000 \cdot\! P_{\mathrm{GXE}}(A)}\big)
 ```
 
+---
 
-# Smogon weighted-usage-stats tiering scheme
+## Smogon weighted-usage-stats tiering scheme
 
 **CAUTION:** These are based on a 2013/4 [post](https://www.smogon.com/forums/threads/everything-you-ever-wanted-to-know-about-ratings.3487422/) by user `anter`. At present, we have not seen any indication that these weighted-tiering schemes were changed, but it is possible some details might have. Also, while there may have been a time where `Glicko-2` was used by `PS`, they reverted to `Glicko-1` at some point.
 
@@ -162,53 +175,54 @@ U(\texttt{P}) := \tfrac{20}{24}U(\texttt{P};T_0) + \tfrac{3}{24}U(\texttt{P};T_{
 one starts by determining the `OU` tier, then works down.    
 
 
-# Ladder help 
+## Ladder help 
 
-**Note:** The following is a cleaned version of the content pasted from Pokémon Showdown ("PS") page [`ladderhelp.md`](`https://pokemonshowdown.com/pages/ladderhelp.md`)
-Our ladder displays three ratings: Elo, GXE, and Glicko-1.
+**Note:** The following is a cleaned version of the content pasted from Pokémon Showdown's page [`ladderhelp.md`](`https://pokemonshowdown.com/pages/ladderhelp.md`)
 
-**Elo** is the main ladder rating. It's a pretty normal ladder rating: goes up when you win and down when you lose.
+> Our ladder displays three ratings: Elo, GXE, and Glicko-1.
+> 
+> **Elo** is the main ladder rating. It's a pretty normal ladder rating: goes up when you win and down when you lose.
+> 
+> **GXE** (Glicko X-Act Estimate) is an estimate of your win chance against an average ladder player.
+> 
+> **Glicko-1** is a different rating system. It has rating and deviation values.
+> 
+> Note that win/loss should not be used to estimate skill, since who you play against is much more important than how many times you win or lose. Our other stats like Elo and GXE are much better for estimating skill.
+> ## Showdown Elo and decay
+> Your rating starts at 1000.
+> 
+> Our Elo implementation uses K-scaling. The $K$ factor is:
+> 
+> * $K = 50$ if Elo is in $[1100, 1299]$;
+> * $K = 40$ if Elo is at least 1300.
+> 
+> We have a rating floor of 1000 (If your rating would fall below 1000, it is set to 1000). This makes it unnecessary to create new accounts to "fix" your rating.
+> 
+> **For Elo in $[1000,1100)$**
+> 
+> If Elo is 1000, $K=80$ for the winner and $K=20$ for the loser. Between 1001 to 1099, K scales linearly from 80 to 50 for the winner and from 20 to 50 for the loser. This helps spread out low ladder people between 1000 and 1100 instead of causing the rating floor to cluster them all at 1000.
+> 
+> ### Showdown Elo Rating decay
+> Above 1400, we have rating decay. Every day at 9 AM GMT+0:
+> 
+> * If you played over 5 games, there is no decay
+> * If you played 1-5 games, you lose 1 point for every 100 points above 1500 you are
+> * If you played 0 games, you lose 1 point for every 50 points above 1400 you are
+> 
+> Say you played $g$ games in a day's period (which begin at `9 AM GMT+0` each day).
+> ```math
+>     δ = \begin{cases}
+>         0 & g > 5, \\
+>         \left\lfloor\frac{r-1500}{100}\right\rfloor & 1 ≤ g < 5, \\
+>         \left\lfloor\frac{r-1400}{50}\right\rfloor & g=0
+>     \end{cases}
+> ```
+> 
+> Note: Ratings of less popular formats (e.g. not `current gen OU` or `random battles`) decay slightly slower: you lose 2 points less per day due to rating decay in these formats.
+> 
+> Note that there's no "official" Elo standard. K-scaling and rating floors are common, rating decay somewhat common, and our dynamic K scaling seems to be unique.
 
-**GXE** (Glicko X-Act Estimate) is an estimate of your win chance against an average ladder player.
-
-**Glicko-1** is a different rating system. It has rating and deviation values.
-
-Note that win/loss should not be used to estimate skill, since who you play against is much more important than how many times you win or lose. Our other stats like Elo and GXE are much better for estimating skill.
-## PS Elo and decay
-Your rating starts at 1000.
-
-Our Elo implementation uses K-scaling. The $K$ factor is:
-
-* $K = 50$ if Elo is in $[1100, 1299]$;
-* $K = 40$ if Elo is at least 1300.
-
-We have a rating floor of 1000 (If your rating would fall below 1000, it is set to 1000). This makes it unnecessary to create new accounts to "fix" your rating.
-
-**For Elo in $[1000,1100)$**
-
-If Elo is 1000, $K=80$ for the winner and $K=20$ for the loser. Between 1001 to 1099, K scales linearly from 80 to 50 for the winner and from 20 to 50 for the loser. This helps spread out low ladder people between 1000 and 1100 instead of causing the rating floor to cluster them all at 1000.
-
-### `PS` Elo Rating decay
-Above 1400, we have rating decay. Every day at 9 AM GMT+0:
-
-* If you played over 5 games, there is no decay
-* If you played 1-5 games, you lose 1 point for every 100 points above 1500 you are
-* If you played 0 games, you lose 1 point for every 50 points above 1400 you are
-
-Say you played $g$ games in a day's period (which begin at `9 AM GMT+0` each day).
-```math
-    δ = \begin{cases}
-        0 & g > 5, \\
-        \left\lfloor\frac{r-1500}{100}\right\rfloor & 1 ≤ g < 5, \\
-        \left\lfloor\frac{r-1400}{50}\right\rfloor & g=0
-    \end{cases}
-```
-
-Note: Ratings of less popular formats (e.g. not `current gen OU` or `random battles`) decay slightly slower: you lose 2 points less per day due to rating decay in these formats.
-
-Note that there's no "official" Elo standard. K-scaling and rating floors are common, rating decay somewhat common, and our dynamic K scaling seems to be unique.
-
-## PS Glicko-1
+## Showdown Glicko-1
 Your rating starts at R = 1500, RD = 130.
 
 We use a rating period of 24 hours and an RD range of 25 to 130, with a system constant of 6.6775026092.

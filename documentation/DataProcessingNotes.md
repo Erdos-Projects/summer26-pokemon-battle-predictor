@@ -1,119 +1,38 @@
-# Gathering and cleaning data
+# Data Collection and Processing
 
-<span style="color:green">FYI a Jupyter notebook version of this document is available: [DataProcessingNotes.ipynb](../misc/DataProcessingNotes.ipynb)</span> 
+> [!TIP] 
+> A Jupyter notebook with everything below is available here: [DataProcessingNotes.ipynb](../misc/DataProcessingNotes.ipynb)
 
-------
+------------------------------------------------------------
 
-## (1) Scraping Replays from Pokemon Showdown (PS)
+## 1. Scraping Replays from Pokémon Showdown
 
-<span style="color:green">Note:</span> For simplicity, here we assume that `pwd` is the repo base directory "`/`".
+<span style="color:white;background:darkgreen;padding:0px 3px;border-radius:2px">Note:</span> For simplicity, here we assume that `pwd` is the repo base directory "`/`".
 
-To scrape `gen9-randombattle` replay JSONs into a directory, say `data/replays`, one may simply run 
+To scrape `gen9-randombattle` replay JSONs into a directory, run 
 ```zsh
-% python tools/scraper.py data/replays 
+python tools/scraper.py [/your/dir] 
 ```
-
-or equivalently
-```zsh
-% chmod +x ./tools/scraper.py
-% ./tools/scraper.py data/replays
-```
-
-To scrape replays of format `FMT` one can use
-```zsh
-% python tools/scraper.py -fmt "FMT" data/replays
-```
-
-#### Extra
-
-By default, the script prints progress messages like
-```
-Now working on page 3.
-    Done; taking a 2 second break.
-Now working on page 4.
-```
-which can be suppresed by adding the flags `-q` or `--quiet`.
 
 Other options and usage details can be found by using 
 ```zsh
-% python tools/scraper.py -h
+python tools/scraper.py -h
 ```
 
-## (2) Computing the random teams and their stats
+------------------------------------------------------------
 
-<u>(2a) Save Pokedex</u>: Follow the steps in [GettingDex.md](GettingDex.md) to save the Pokedex; 
-* We assume it is written in `/data/pokedex_raw.json`. 
+## 2. Computing the random teams and their stats
 
-<u>(2b) "Key" Pokedex</u>:
+Follow the guide [GettingFullTeams](./../tools/GettingFullTeams.md)
 
-```python
-# 'keying' POKEDEX_raw entries by `id`
-import json
 
-with open('./../data/pokedex_raw.json','r') as file:
-    POKEDEX_raw = json.load(file)
+------------------------------------------------------------
 
-POKEDEX = { item['id'] : {key:item.get(key) for key in item.keys()} for item in POKEDEX_raw }
-
-# saving to file
-with open('./../data/pokedex_for_test.json', 'w') as file:
-    json.dump(POKEDEX, file)
-```
-
-<u>(2c) Setup `team-generator-sever`</u>: Follow the guide [ComputingTeams.md](ComputingTeams.md) to set up the "server" which accepts player `seed` and returns a full Pokemon team;  
-* <span style="color:orange">Note:</span> the following (in particular the function `get_teams_full`) assumes&mdash;indeed, *requires*&mdash;that the server is running/listening on port `localhost:3000`. Later, we can update said function to accept other ports if desired.
-
-```python  
-# setup
-import json, sys, os
-from pathlib import Path
-
-sys.path.insert(1,os.path.abspath('..'))
-
-from tools.team_compute import get_player_dets, get_teams_full, append_team_stats
-
-# NOTE: Unzip the folder(s) in /data/replays to run this.
-replay_dir = Path("../data/replays/test_data_replays/")
-
-with open('../data/POKEDEX_for_test.json','r') as file:
-    DEX = json.load(file)
-```
-
-```python
-# this cell runs the actual computations and writings
-errs = []
-
-for replay in replay_dir.glob("*.json"): 
-    try:
-        with replay.open() as file:
-            battle_json = json.load(file)
-
-        battle_json['player_dets'] = get_player_dets(battle_json)
-        
-        TEAMS = get_teams_full(battle_json)
-        try :
-            for team in TEAMS:
-                append_team_stats(DEX, team, battle_json['id']) # `id` is included just for debugging purposes
-        except : 
-            errs.append(replay.name)
-            continue
-        battle_json['teams_full'] = TEAMS
-        
-        replay.write_text(json.dumps(battle_json), encoding='utf-8')
-    
-    except:
-        print("Error parsing file: %s" % replay.name)
-        errs.append(replay.name)
-        continue
-
-errs # to list files that didn't work properly.
-```
-
-## (3) Parsing battles into `pandas.DataFrame` and removing custom-rule battles
+## 3. Parsing battles into `pandas.DataFrame` and removing custom-rule battles
 
 Naturally, the following can be modified and run in different directories.
 
-<u>(3a) Compiling battle data</u>: 
+#### 3.1. Compiling battle data 
 
 ```python
 from tools.battle import *
@@ -146,15 +65,14 @@ print(customs)
 print(errs)
 ```
 
-<u>(3b) Delete any replays having custom rules</u>: 
-
+#### 3.2. Delete any replays having custom rules 
 ```python
 import os
 for replay in customs : 
     os.remove(replay_dir / file.name)
 ```
 
-<u>(3c) Make `DATA` into `pandas.DataFrame` and save</u>: 
+#### 3.3. Make `DATA` into `pandas.DataFrame` and save 
 
 ```python
 import pandas as pd 
@@ -171,7 +89,7 @@ with open('./../data/test_data_cleaned.csv','w') as file:
     file.write(df.to_csv(index=False))
 ```
 
-<u>(3d) Testing read-in</u>:
+#### 3.4. Testing read-in
 
 ```python
 df = pd.read_csv("./../data/test_data_cleaned.csv")

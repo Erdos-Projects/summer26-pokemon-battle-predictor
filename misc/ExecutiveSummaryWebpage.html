@@ -254,7 +254,7 @@
             <p class="meta-subtitle">Erdős Institute Data Science Boot Camp - Summer 2026</p>
             
             <h1>
-                Pokémon Random Battle Predictor<br>
+                Balancing Random Pokémon Battles<br>
                 Executive Summary
             </h1>
             
@@ -279,11 +279,13 @@
 
         <div class="content-box">
             <p>
-            Pokémon battles are turn-based games in which two players compete with teams of 6 Pokémon. The large number of different Pokémon and different game rulesets allows for enormous variability in gameplay and strategy. One popular game format on the battle emulator site Pokémon Showdown (“Showdown”) is the “random battle”, where players compete with teams of six Pokémon randomly selected at battle start. Ideally, these randomly generated teams should be evenly balanced, so that, going into a battle, both players have nearly equal chances of winning, and thus the winner is indeed “random”.
+            If you had to build two teams of 6 Pokémon to battle, how do you give both teams a fair
+            chance? With over 1,000 Pokémon to choose from, each with different types, abilities,
+            move-sets, and stats, the number of possible teams is astronomical. What if you had to do thisrandomly? This is exactly the issue that the developers of <a href="https://pokemonshowdown.com/">Pokémon Showdown</a> ("Showdown") grapple with in curating their most popular game format: the Gen-9 Random Battle.
             </p>
 
             <p style="margin-bottom: 0px">
-            From the Showdown developers’ perspective, there are a number of factors and methods to consider in designing this balanced gameplay. Some primary features to consider are Pokémon's <i>stats</i> (e.g., HP, Attack, Defense) and <i>types</i> (e.g., Fire, Psychic, Ground), and players’ Elo ratings (within Showdown’s system). We aim to investigate whether or not the team generation procedure is balanced; in particular, if Showdown’s team construction algorithm is balanced, then we expect that comparison of said features should not strongly indicate a player's chance of winning.
+            Ideally, random teams should be balanced so that both players have even chances of winning at match start. Our work in this project tries to analyze just how "well-balanced" (at least, roughly!) these random teams are, by seeing if we can predict a battle’s winner just using the matchup data at battle start.
             </p>
         </div>
 
@@ -293,13 +295,13 @@
 
         <div class="content-box">
             <p style="margin-bottom: 0px">
-            Showdown stores a large amount of information about each match played on the site, including turn-by-turn records of player moves, allowing for a full, turn-by-turn reconstruction of each match from its publicly available "replay" (or "log") JSON file. We saved about 16,000 Showdown match replays, and then employed a custom-made parser (<code>&lt;class Battle&gt;</code> in <code>tools/battle.py</code>) to extract and organize match information from these JSONs.
+            Showdown stores text logs of all the battles played on their site. However, these text logs can be difficult to parse, and can significantly vary in content, so to collect and handle them we developed our custom “<code>&lt;class Battle&gt;</code>”. In total, we saved and parsed about 18,000 Showdown match replays.
             </p>
         </div>
 
         <div class="callout-block red" style="box-shadow: none;">
             <div class="callout-title">The Team Computation Hurdle</div><br>
-            In each random battle, players cannot see their opponent’s Pokémon until they are individually fielded; additionally, the replay logs do not record these not-yet-fielded Pokémon, even past the battle’s end. In order to learn the complete team rosters in each battle&mdash;including those Pokémon not fielded&mdash;it was necessary to locate the pseudorandom strings used as seeds in generating players' random teams. These seeds were then fed back into Showdown's server source-code to re-generate and store these complete rosters.
+            In random battles, players’ individual Pokémon are not logged unless they are fielded. In order to learn the complete team rosters in each battle&mdash;including those Pokémon not fielded&mdash;it was necessary to 1) locate the pseudorandom seed-strings used in generating players' random teams; and 2) feed these into a custom interface with Showdown's source code to re-generate and record the complete match rosters.
         </div>
 
 
@@ -309,17 +311,15 @@
 
         <div class="content-box">
             <p style="margin-bottom: 6px">
-                Having two teams of 6 Pokémon, each with their own stats and characteristics, gave us many potential features to consider, for example: 
+            There are a large number of features to consider in modeling teams of six Pokémon. In addition to Pokémon's base stats (like HP or Attack) and players’ Elo ratings (see either <a href='https://github.com/Erdos-Projects/summer26-pokemon-battle-predictor/blob/main/documentation/Ratings.md'>Ratings</a> or <a href="https://en.wikipedia.org/wiki/Elo_rating_system">Wikipedia</a>), and other team-based statistics, we introduced the <strong>Advantage</strong> statistic for 1v1 Pokémon encounters and the aggregate <strong>Team Advantage</strong> statistic for our model training. The Advantage statistic is detailed in <a href="https://github.com/Erdos-Projects/summer26-pokemon-battle-predictor/blob/main/documentation/AdvantageStat.md">AdvantageStat</a>.
             </p>
-            <ul>
-                <li><strong>Pokémon Attributes&hairsp;:</strong> Features such as a Pokémon's HP, Attack, Defense, and type(s).</li>
-                <li><strong>Type Diversity&hairsp;:</strong> The number of unique Pokémon types on a team.</li>
-                <li><strong>Pokémon <i>Advantage</i>&hairsp;:</strong> A custom statistic approximating the expected difference in total damage that two opposing Pokémon would exchange in a one-on-one match.</li>
-                <li><strong>Team Advantage&hairsp;:</strong> The cumulative sum of the Advantages for all 36 possible pairs of opposing Pokémon from each team.</li>
-            </ul>
-            
+
+            <p>
+            While Team Advantage was our most impactful feature, it has known drawbacks, such as failing to consider the specific moves or abilities for each Pokémon. In an attempt to address some of these drawbacks, we also considered the <strong>Stat-Booster Differential</strong>&mdash;the difference in the numbers of Pokémon on each team having "stat-boosting" moves or abilities. 
+            </p>
+
             <p style="margin-bottom: 0px">
-                While Team Advantage was our most impactful feature, it has known drawbacks, such as failing to consider the specific moves or abilities for each Pokémon. In an attempt to address this we introduced the <strong><i>Stat-Booster Differential</i></strong>, which records the difference in the number of Pokémon on each team that know a stat-boosting move, or have a stat-boosting ability.
+                Moreover, newer versions of the Advantage stat that incorporate more of Showdown's battle source code have been developed (and are continuing to be developed).
             </p>
         </div>
 
@@ -329,8 +329,8 @@
 
         <div class="content-box">
             <p>
-            For a “baseline” model, it was sensible to use a single-feature predictor based on players’ Elo rating differences, as the Elo system maps this difference to estimated probabilities of each player winning.
-            Beyond the baseline model, we considered Logistic Regression models both with and without intercept terms (the "biased" and "unbiased" models, respectively), the standard Decision Tree and Random Forest models decision-tree based models, and the boosting models HGBoost and XGBoost.
+            For a “baseline” model we used a single-feature predictor based on players’ Elo rating differences, since Elo differences map to estimated probabilities of each player winning. 
+            Beyond this baseline, we considered Logistic Regression models both with and without intercept terms (the “biased” and “unbiased” models, respectively), the standard Decision Tree and Random Forest models, and the boosting models HGBoost and XGBoost.
             </p>
 
             <p>
@@ -353,8 +353,8 @@
 
         <div class="callout-block blue" style="margin-top: 0px; box-shadow: none;">
             <div class="callout-title">Conclusion</div><br>
-            After selecting the unbiased Logistic Regression as our final model and trailing it on our test data, our model achieved an accuracy 53.6%. 
-            As this is not much better than a coin flip's accuracy of 50%, we conclude that the level and move-set scaling performed by Pokémon Showdown for Gen-9 random battles is sufficiently balanced to maintain interesting and unpredictable gameplay.
+            After selecting the unbiased Logistic Regression as our final model and evaluating it on our test data, our model achieved an accuracy 53.6%. 
+            As this is not much better than a coin flip's accuracy of 50%, we conclude that the level and move-set scaling performed by Pokémon Showdown for Gen-9 Random Battles is sufficiently balanced to maintain interesting and unpredictable gameplay.
         </div>
 
         <div class="callout-block purple" style="box-shadow: none;">

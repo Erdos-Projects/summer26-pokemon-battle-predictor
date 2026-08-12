@@ -17,17 +17,17 @@ def battle_to_list(bat) :
     ]
     
     # `p1_win` {0,1}
-    if bat.winner.name == bat.p1.name : 
+    if bat.winner == 1:
         data.append(1)
     else : 
         data.append(0)
     
-    # `rated`, `n_turns`, `start_time`, `end_time`, `duration`
-    data.extend([bat.rated, len(bat.STATES), bat.start_time, bat.end_time, bat.end_time - bat.start_time])
+    # `is_rated`, `num_turns`, `start_time`, `end_time`, `duration`
+    data.extend([bat.is_rated, bat.num_turns, bat.start_time, bat.end_time, bat.end_time - bat.start_time])
     
     # `p#name`, `p#side`, `p#elo0`, `p#elo1`
-    data.extend(vars(bat.p1).values())
-    data.extend(vars(bat.p2).values())
+    data.extend([bat.p1.name, 1, bat.p1.elo0, bat.p1.elo1])
+    data.extend([bat.p2.name, 2, bat.p2.elo0, bat.p2.elo1])
 
     # `type_diversity_diff`, `num_boosting_abilities_diff`, ..., `p1_total_adv` #21
     data.extend(_aux_battle_data(bat)) # [[2]]

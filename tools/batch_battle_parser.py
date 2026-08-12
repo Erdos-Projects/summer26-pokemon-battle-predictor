@@ -11,6 +11,7 @@ import numpy as np
 from dataclasses import dataclass, asdict
 from urllib.parse import urlencode
 from pathlib import Path
+from full_pokemon import FullPokemon
 
 # getting the project root
 PROJECT_ROOT = Path.cwd()
@@ -19,9 +20,9 @@ while (PROJECT_ROOT.name != "summer26-pokemon-battle-predictor") and (PROJECT_RO
 sys.path.append(str(PROJECT_ROOT))
 
 DATA_DIR = PROJECT_ROOT / "data"
-PARSED_CSV_PATH = DATA_DIR / "data_cleaned.csv.zip"
 
-
+with open(DATA_DIR / "pokedex.json", 'r') as file:
+    DEX = json.load(file)
 
 #################################################
 # Helper classes and functions
@@ -137,6 +138,7 @@ class Battle:
         if self.rating is None :
             self.rating = 0
         self.is_rated = (self.rating > 0)
+        self.rated = self.is_rated # backward compatibility
 
         # -----------------------------
         # get players and seeds
@@ -145,7 +147,6 @@ class Battle:
 
         # -----------------------------
         self.winner = 0 # tie/unknown = 0, p1 wins = 1, p2 wins = 2
-        self.turns = 0 # count of turns
 
         self.teams = self.get_teams()
         self.team1 = self.teams[0] # for easy reference
@@ -154,7 +155,7 @@ class Battle:
         # Used for updating team lists as battle progresses
         self.team_species = [ [self.teams[i][j]['species'] for j in range(6)] for i in range(2) ]
         self.team_species_ids = [ [self.teams[i][j]['speciesId'] for j in range(6)] for i in range(2) ]
-
+        self.teams_full = [ {self.teams[i][j]['species'] : self.teams[i][j]  for j in range(6)} for i in range(2) ]  # for backward compatibility
 
         # records the number of turns in which a Pokémon was fielded;
         # incremented as battle progresses.
@@ -194,7 +195,6 @@ class Battle:
         # processing `tail`
         self.parse_tail()
         self.post_battle()
-
 
     # =================================
     # END __init__()
@@ -256,6 +256,12 @@ class Battle:
     def get_teams(self) -> list:
         team1 = team_from_seed(self.players[0].seed)
         team2 = team_from_seed(self.players[1].seed)
+
+        for mon in team1:
+            get_stats(mon)
+        for mon in team2:
+            get_stats(mon)
+
         return [team1, team2]
 
     # simple wrapper of `parse_turn`
@@ -322,10 +328,10 @@ class Battle:
     # misc fixes and edge cases
     def pre_battle_corrections(self):
         if ("zamazentacrowned" in self.team_species_ids[0]) :
-            idx = self.get_mon_idx(self, 1, 'Zamazenta')
+            idx = self.get_mon_idx(1, 'Zamazenta')
             self.teams[0][idx]['species'] = 'Zamazenta-Crowned'
         if ("zamazentacrowned" in self.team_species_ids[1]) :
-            idx = self.get_mon_idx(self, 2, 'Zamazenta')
+            idx = self.get_mon_idx(2, 'Zamazenta')
             self.teams[1][idx]['species'] = 'Zamazenta-Crowned'
 
         self.battle = re.sub(r'\|start\n', '|turn|0\n', self.battle)
@@ -343,6 +349,10 @@ class Battle:
 
         self.end_time = end_time
         self.match_time = self.end_time - self.start_time
+
+        self.teams_seen = [
+            [self.teams[i][j]['species'] for j in range(6) if self.teams[i][j]['turns_seen'] > 0]
+            for i in range(2) ]
 
         return None
 
@@ -367,10 +377,10 @@ class Battle:
         lvl = int(D['lvl'][1:]) if D.get('lvl') is not None else 100
 
         try:
-            idx = self.get_mon_idx(self, side, species)
+            idx = self.get_mon_idx(side, species)
         except:
             if species == 'Zamazenta-Crowned':
-                idx = self.get_mon_idx(self, side, 'Zamazenta')
+                idx = self.get_mon_idx(side, 'Zamazenta')
         self.teams[side - 1][idx]['turns_seen'] += 1
 
         return None
@@ -392,7 +402,7 @@ class Battle:
         # level 100 pokemon do not have a listed `level` in the log
         lvl = int(D['lvl'][1:]) if D.get('lvl') is not None else 100
 
-        idx = self.get_mon_idx(self, side, species)
+        idx = self.get_mon_idx(side, species)
         self.teams[side - 1][idx]['turns_seen'] += 1
 
         return None
@@ -412,42 +422,36 @@ def get_stats(mon: dict):
     speciesId = mon['speciesId']
 
     try:
-        poke['bvs'] = copy.deepcopy(DEX[speciesId]['baseStats'])  # deepcopy for safety
-        poke['stats'] = stat_formula(poke)  # [[3]]
-        poke['types'] = copy.deepcopy(DEX[speciesId].get('types'))
+        mon['bvs'] = copy.deepcopy(DEX[speciesId].get('baseStats'))  # deepcopy for safety
+        mon['stats'] = stat_dict(mon)
+        mon['types'] = copy.deepcopy(DEX[speciesId].get('types'))
     except:
-        print("error with pokemon %s (%s)" % (species, battle_id))
+        print("error with pokemon %s" % speciesId)
 
     return None
 
-def stat_formula(poke: dict):
+def stat_dict(mon: dict) -> dict:
     '''
-    `poke` should have dictionaries `BV`, `EV`, `IV`, and entry `level`
+    `mon` should have dictionaries `BV`, `EV`, `IV`, and entry `level`
     example output: {'hp': 263, 'atk': 120, 'def': 169, 'spa': 240, 'spd': 216, 'spe': 223}
     '''
-    _stat_D = {}
+    _stat_dict = {}
 
-    BV = poke['bvs']
-    EV = poke['evs']
-    IV = poke['ivs']
-    lvl = poke['level']
+    BV = mon['bvs']
+    EV = mon['evs']
+    IV = mon['ivs']
+    lvl = mon['level']
 
     for k in BV.keys():
         Q_k = (2 * BV[k] + IV[k] + np.floor(EV[k] / 4)) * (lvl / 100)
         nat_k = 1.0  # in case we want to incorporate `nature`s later
 
         if k == 'hp':
-            _stat_D[k] = int(np.floor(Q_k) + lvl + 10)
+            _stat_dict[k] = int(np.floor(Q_k) + lvl + 10)
         else:
-            _stat_D[k] = int(np.floor((Q_k + 5) * nat_k))
+            _stat_dict[k] = int(np.floor((Q_k + 5) * nat_k))
 
-    return _stat_D
-
-
-
-
-
-
+    return _stat_dict
 
 
 # function kept separate due to long length
@@ -487,6 +491,42 @@ def battle__repr__(bat: Battle):
     repr += f"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n"
     return repr
 
+def _aux_battle_data(battle):
+    useful_traits = ["num_move_boosters_diff", "num_boosting_abilities_diff"]
+    stat_names = ['hp', 'atk', 'def', 'spa', 'spd', 'spe']
+    red_stat_names = ['hp', 'off', 'def', 'spd', 'spe']  # reduced stat names where off stands in for max(atk,spa)
+
+    _L = []
+
+    # Team construction
+    team1 = [FullPokemon(battle.teams_full[0][mon]) for mon in battle.teams_full[0].keys()]
+    team2 = [FullPokemon(battle.teams_full[1][mon]) for mon in battle.teams_full[1].keys()]
+    teams = [team1, team2]
+
+    # `type_diversity_diff`
+    p1_types = set(mon.types[i] for mon in team1 for i in range(len(mon.types)))
+    p2_types = set(mon.types[i] for mon in team2 for i in range(len(mon.types)))
+    _L.append(len(p1_types) - len(p2_types))
+
+    # `num_boosting_abilities_diff`
+    p1_num_boosting_abilities = sum(int(mon.has_boosting_ability()) for mon in team1)
+    p2_num_boosting_abilities = sum(int(mon.has_boosting_ability()) for mon in team2)
+    _L.append(p1_num_boosting_abilities - p2_num_boosting_abilities)
+
+    # `num_move_boosters_diff`
+    p1_num_move_boosters = sum(int(mon.has_boost_move()) for mon in team1)
+    p2_num_move_boosters = sum(int(mon.has_boost_move()) for mon in team2)
+    _L.append(p1_num_move_boosters - p2_num_move_boosters)
+
+    # `total_stat_diff`
+    p1_total_stats = sum(sum(mon.stats[stat] for stat in red_stat_names) for mon in team1)
+    p2_total_stats = sum(sum(mon.stats[stat] for stat in red_stat_names) for mon in team2)
+    _L.append(p1_total_stats - p2_total_stats)
+
+    # `p1_total_adv`
+    _L.append(sum(FullPokemon.advantage(team1[m1], team2[m2]) for m1 in range(6) for m2 in range(6)))
+
+    return _L
 
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #                   MAIN
@@ -497,8 +537,6 @@ def main():
     BAT = Battle(battle_json)
 
     print(battle__repr__(BAT))
-    for turn in BAT.turn_times :
-        print(turn)
 
     print()
     for mon in BAT.teams[0] :

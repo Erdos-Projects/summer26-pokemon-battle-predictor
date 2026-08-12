@@ -34,19 +34,16 @@ See [Final_EDA_Summary.ipynb](modeling/Final_EDA_Summary.ipynb) and [Final_Model
 If you had to build two teams of Pokémon to battle, how do you give both teams a fair chance? 
 With over 1,000 Pokémon to choose from, each with types, abilities, move-sets, and 
 individual stats, the number of possible teams is astronomical. What if you had to do this *randomly*? 
-Moreover, if you played in such a game, how might you assess your initial chances of winning?
+This is exactly the issue that the developers of [Pokémon Showdown](http://play.pokemonshowdown.com) (“Showdown”) grapple with in curating
+their most popular game format: the *Gen-9 Random Battle*. 
 
-In [Pokémon Showdown](http://play.pokemonshowdown.com) (“Showdown”) *Gen-9 Random Battles*, players have to do just that&mdash;
-compete with teams of six randomly selected Pokémon. This is by-far Showdown's most popular game format, and the developers
-aim to balance these randomly generated teams so that, on average, both players have nearly equal chances of winning.
-
-From the Showdown developers’ perspective, there are a number of factors and methods to consider in designing this balanced gameplay. 
-We aim to investigate whether or not the team generation procedure is balanced. 
+Ideally, random teams should be balanced so that both players have even chances of winning at match start.
+Our work in this project tries to analyze just how "well-balanced" (at least, roughly!) these random teams are.
 
 ------------------------------------------------------------
 ### Data Collection and Processing
 
-Our models were trained and tested on cleaned battle logs for about 18,000 random battles sourced from Showdown's replay database. 
+For our analy cleaned battle logs for about 18,000 random battles sourced from Showdown's replay database. 
 Our process for collecting, parsing, and cleaning these battle logs is detailed in [DataProcessingNotes](./documentation/DataProcessingNotes.md).
 
 <img style="display: block; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0;scale: 70%; border: 5px solid #365687;" src="./misc/hurdle.png"/>

@@ -46,7 +46,7 @@ Our work in this project tries to analyze just how "well-balanced" (at least, ro
 For our analyses, we collected, parsed, and cleaned the text logs for about 18,000 random battles, sourced from Showdown's replay database. 
 A walkthrough of our workflow for this is written-up in [DataProcessingNotes](./docs/DataProcessingNotes.md).
 
-<img style="display: block; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0;scale: 70%; border: 5px solid #365687;" src="./misc/hurdle.png"/>
+<img style="display: block; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0;scale: 60%; border: 5px solid #365687; max-width: 800px; max-height:600px"  src='./misc/hurdle.png'/>
 
 One notable difficulty in this cleaning was the following: in each random battle, players' Pokémon are not logged until they are individually fielded. In order to "complete" our information about the random battles, we had to interface with Showdown's source code to re-generate the complete team rosters for each battle; this process is detailed in [GettingFullTeams.md](./tools/GettingFullTeams.md).
 
